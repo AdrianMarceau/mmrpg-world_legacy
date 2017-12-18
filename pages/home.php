@@ -46,6 +46,15 @@ $legacy_content['2010'][] = array(
         )
     );
 
+// Year 2011
+$legacy_content['2011'] = array();
+$legacy_content['2011'][] = array(
+    'name' => 'RPG Prototype v0.1',
+    'paths' => array(
+        'rpg-prototype-2k11/index.php' => array('text', 'images', 'playable')
+        )
+    );
+
 
 // Start the output buffer to collect markup
 ob_start();

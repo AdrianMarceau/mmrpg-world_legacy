@@ -1,0 +1,212 @@
+body {
+  background-color: #000000;
+}
+#debug {
+  margin: 0;
+  width: 300px;
+  height: 75px;
+  padding: 10px;
+  border: 0 none transparent;
+  background-color: #303030;
+    background-color: #000000;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  box-shadow: 0 0 0 transparent;
+  -moz-box-shadow: 0 0 0 transparent;
+  -website-box-shadow: 0 0 0 transparent;  
+  border-top: 1px dotted #000000;
+}
+#debug .battle {
+  margin: 0 8px 8px 0;
+  font-size: 8px;
+  line-height: 10px;
+  padding: 5px 0 0;
+  height: 20px;
+  width: 138px;
+  opacity: 0.5;
+}
+
+#window {
+  margin: 0;
+  width: 320px;
+  height: 460px;
+  padding: 0;
+  border: 0 none transparent;
+  background-color: #303030;
+    background-color: #000000;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  box-shadow: 0 0 0 transparent;
+  -moz-box-shadow: 0 0 0 transparent;
+  -website-box-shadow: 0 0 0 transparent;
+}
+#window iframe {
+  margin: 0;
+  width: 320px;
+  height: 460px;
+  padding: 0;
+  border: 0 none transparent;
+  overflow: hidden;
+  background-color: #303030;
+    background-color: #000000;
+}
+
+#mmrpg {
+  margin: 0 auto;
+  width: 320px;
+  height: 460px;
+  padding: 0;
+  border: 0 none transparent;
+  background-color: #303030;
+    background-color: #000000;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+}
+
+#canvas {
+  margin: 0;
+  width: 320px;
+  height: 145px;
+  border: 0 none transparent;
+    background-color: #000000;
+    background-image: none;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;  
+}
+#canvas .wrapper {
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+}
+#canvas .event {
+  width: 308px;
+  height: 134px;
+  border-radius: 0.75em;
+  -moz-border-radius: 0.75em;
+  -webkit-border-radius: 0.75em;  
+  border: 2px solid rgb(36,36,36); 
+}
+
+
+#console {
+  margin: 0;
+  width: 320px;
+  height: 190px;
+  border: 0 none transparent;
+    background-color: #000000;
+    background-image: none;
+}
+#console .event {
+  margin: 0 5px 3px;
+}
+#console .event .header {
+  padding: 1px 5px;
+  font-size: 8px;
+  line-height: 13px;
+}
+#console .event .body {
+  padding: 3px 5px 1px;
+  font-size: 8px;
+  line-height: 16px;
+}
+
+#actions {
+  margin: 0;
+  width: 320px;
+  height: 124px;
+  border: 0 none transparent;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;   
+    background-color: #000000;
+    background-image: none;
+}
+#actions .button {
+  margin: 0 8px 8px 0;
+  font-size: 8px;
+  line-height: 8px;
+  letter-spacing: 2px;
+  border-color: #242424;
+}
+#actions .button_disabled {
+  opacity: 0.5;
+}
+
+#actions .main_actions {
+  height: 78px;
+  line-height: 78px;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+}
+#actions .sub_actions {
+  height: 35px;
+  line-height: 35px;
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+}
+#actions .action_back {
+  line-height: 31px;
+  margin: 0;
+}
+
+#actions #actions_loading .loading_graphic {
+  margin: 40px auto 0;
+}
+
+#actions #actions_start .main_actions {
+  bottom: 4px;
+}
+#actions #actions_start .action_start {
+  line-height: 126px;
+}
+
+#actions #actions_event .main_actions {
+  bottom: 4px;
+}
+#actions #actions_event .action_continue {
+  line-height: 112px;
+}
+
+#actions #actions_battle .action_ability {
+  height: 74px;
+  line-height: 74px;
+  font-size: 9px;
+}
+#actions #actions_battle .action_scan,
+#actions #actions_battle .action_assist,
+#actions #actions_battle .action_switch {
+  margin: 0 4px 4px 0;
+  width: 97px;
+  height: 30px;
+  line-height: 30px;
+}
+#actions #actions_battle .action_switch {
+  margin-right: 0;
+}
+
+#actions #actions_ability .main_actions {
+  left: 4px;
+}
+#actions #actions_ability .action_ability {
+  font-size: 6px;
+  margin: 0 2px 4px;
+  width: 96px;
+  height: 32px;
+  line-height: 32px;
+  letter-spacing: 1px;
+}
+
+#actions #actions_switch .action_switch {
+  width: 70px;
+  margin: 0 2px 4px;
+  font-size: 7px;
+  height: 32px;
+  line-height: 32px;
+}
