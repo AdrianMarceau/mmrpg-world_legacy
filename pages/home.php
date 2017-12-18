@@ -11,6 +11,16 @@ $html_content_description = 'Below, please find a collection of tests, experimen
 // Manually define content to display on this index
 $legacy_content = array();
 
+// Year 2006
+$legacy_content['2006'] = array();
+$legacy_content['2006'][] = array(
+    'name' => 'RPG Roleplay Forum',
+    'paths' => array(
+        'rpg-roleplay-tests/misc-images.php' => array('images'),
+        'rpg-roleplay-tests/robot-attacks.php' => array('text')
+        )
+    );
+
 
 // Start the output buffer to collect markup
 ob_start();

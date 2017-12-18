@@ -1,0 +1,349 @@
+CutMan (Neutral)
+Lv1 Rolling Cutter (Metal)
+Lv2 Scissor Sheer (Metal)
+Lv3 Guillotine (Metal)
+
+GutsMan (Power)
+Lv1 Power Arm (Power)
+Lv2 Guts Fist (Power)
+Lv3 Crunch (Power)
+
+IceMan (Freeze)
+Lv1 Ice Slasher (Freeze)
+Lv2 Blizzard Breath (Freeze)
+Lv3 Eskimo's Furry (Freeze)
+
+BombMan (Bomb)
+Lv1 Hyper Bomb (Bomb)
+Lv2 Super Bomb (Bomb)
+Lv3 Cluster Bomb (Bomb)
+
+FireMan (Heat)
+Lv1 Fire Storm (Heat)
+Lv2 Heat Up (Heat)
+Lv3 Mega Flare (Heat)
+
+ElecMan (Lightning)
+Lv1 Thunder Beam (Lightning)
+Lv2 Elec Charge (Lightning)
+Lv3 Tri-Thunder (Lightning)
+
+OilMan (Ground)
+Lv1 Oil Slider (Ground)
+Lv2 Jump Kick (Neutral)
+Lv3 Oil Sport (Ground)
+
+TimeMan (Time)
+Lv1 Time Arrow (Time)
+Lv2 Time Slow (Time)
+Lv3 Time Warp (Time)
+
+MetalMan (Metal)
+Lv1 Metal Blade (Metal)
+Lv2 Sharp Armor (Metal)
+Lv3 Sharpen (Metal)
+
+AirMan (Wind)
+Lv1 Air Shooter (Wind)
+Lv2 Multi Twister (Wind)
+Lv3 Fan Blades (Metal)
+
+BubbleMan (Marine)
+Lv1 Bubble Lead (Marine)
+Lv2 Hydro Jets (Marine)
+Lv3 Whirlpool (Marine)
+
+QuickMan (Neutral)
+Lv1 Quick Boomerang (Neutral)
+Lv2 Extreme Speed (Neutral)
+Lv3 Quick Blade (Metal)
+
+CrashMan (Bomb)
+Lv1 Crash Bomb (Bomb)
+Lv2 Drill Arm (Metal)
+Lv3 Psychoblast (Bomb)
+
+FlashMan (Time)
+Lv1 Flash Buster (Time)
+Lv2 Time Stopper (Time)
+Lv3 Flash Bomb (Time)
+
+HeatMan (Heat)
+Lv1 Atomic Fire (Heat) 
+Lv2 Atomic Blaze (Heat)
+Lv3 Heat Rush (Heat)
+
+WoodMan (Nature)
+Lv1 Wood Tower (Nature)
+Lv2 Leaf Shield (Nature)
+Lv3 Synthesis (Nature)
+
+NeedleMan (Metal)
+Lv1 Needle Cannon (Metal)
+Lv2 Thorn Rush (Nature)
+Lv3 Needle Bomb (Bomb)
+
+MagnetMan (Lightning)
+Lv1 Magnet Missile (Lightning)
+Lv2 Magnetic Pull (Lightning)
+Lv3 NS Tackle (Neutral)
+
+GeminiMan (Star)
+Lv1 Gemini Laser (Star)
+Lv2 Twin Robots (Neutral)
+Lv3 Zodiac Punisher (Star)
+
+HardMan (Power)
+Lv1 Hard Knuckle (Power)
+Lv2 Armor Defense (Metal)
+Lv3 Megaton Tackle (Power) 
+
+TopMan (Neutral)
+Lv1 Top Spin (Neutral)
+Lv2 Spin Kick (Neutral)
+Lv3 Top Twister (Neutral)
+
+SnakeMan (Nature)
+Lv1 Search Snake (Nature)
+Lv2 Snake Venom (Nature)
+Lv3 Stealth (Dark)
+
+SparkMan (Lightning)
+Lv1 Spark Shock (Lightning)
+Lv2 Shockwave (Neutral)
+Lv3 Thunderclap (Lightning/Metal)
+
+ShadowMan (Dark)
+Lv1 Thief (Dark)
+Lv2 Shadow Blade (Dark/Metal)
+Lv3 Ninja's Shadow (Dark)
+
+BrightMan (Time)
+Lv1 Bright Bomb (Bomb)
+Lv2 Flash Stopper (Time)
+Lv3 Overshine (Lightning)
+
+ToadMan (Marine)
+Lv1 Rain Flush (Marine)
+Lv2 Belly Drum (Nature)
+Lv3 Muddy Tackle (Ground)
+
+DrillMan (Ground)
+Lv1 Drill Bomb (Bomb)
+Lv2 Drill Arm (Ground)
+Lv3 Fissure (Ground)
+
+PharoahMan (Neutral)
+Lv1 Pharoah Shot (Heat)
+Lv2 Pyramid Protection (Ground)
+Lv3 Pharoah's Tomb (Neutral)
+
+RingMan (Neutral)
+Lv1 Ring Boomerang (Neutral)
+Lv2 Binding Ring (Neutral)
+Lv3 Ring Blades (Metal)
+
+DustMan (Neutral)
+Lv1 Dust Crusher (Metal)
+Lv2 Vaccuum Arm (Wind)
+Lv3 Revenge (Dark)
+
+DiveMan (Marine)
+Lv1 Dive Missile (Marine)
+Lv2 Sonar Tracking (Neutral)
+Lv3 Grand Torpedo (Marine)
+
+SkullMan (Dark)
+Lv1 Skull Barrier (Dark)
+Lv2 Bone Barrage (Dark)
+Lv3 Skullbuster (Dark)
+
+GravityMan (Star)
+Lv1 Gravity Hold (Star)
+Lv2 Reverse Gravity (Star)
+Lv3 Gravity Crusher (Star)
+
+WaveMan (Marine)
+Lv1 Water Wave (Marine)
+Lv2 Harpoon (Metal)
+Lv3 Tsunami Wave (Marine)
+
+StoneMan (Ground)
+Lv1 Power Stone (Ground)
+Lv2 Bolder Barrage (Ground)
+Lv3 Magnitude (Ground)
+
+GyroMan (Wind)
+Lv1 Gyro Attack (Metal)
+Lv2 Whirlwind (Wind)
+Lv3 Gyroblade (Metal)
+
+StarMan (Star)
+Lv1 Star Crash (Star)
+Lv2 Satellite Laser (Star)
+Lv3 Mini Nova (Star)
+
+ChargeMan (Power)
+Lv1 Charge Kick (Power)
+Lv2 Hot Coals (Heat)
+Lv3 Train Wrecker (Power)
+
+NapalmMan (Bomb)
+Lv1 Napalm Bomb (Bomb)
+Lv2 Heat Fireworks (Heat)
+Lv3 Atom Bomb (Bomb)
+
+CrystalMan (Dark)
+Lv1 Crystal Eye (Dark)
+Lv2 Cystal Barrier (Dark)
+Lv3 Crystal Wall (Dark)
+
+BlizzardMan (Freeze)
+Lv1 Blizzard Attack (Freeze)
+Lv2 Rollout (Neutral)
+Lv3 Glacier Clash (Freeze)
+
+CentaurMan (Nature)
+Lv1 Centaur Arrow (Nature)
+Lv2 Centaur Flash (Time)
+Lv3 Dark Void (Dark)
+
+FlameMan (Heat)
+Lv1 Flame Blast (Heat)
+Lv2 Torch Revolution (Heat)
+Lv3 Hell Blaze (Heat)
+
+KnightMan (Metal)
+Lv1 Knight Crusher (Metal)
+Lv2 Royal Wrecking Ball (Metal)
+Lv3 Dark Armor (Dark)
+
+PlantMan (Nature)
+Lv1 Plant Barricade (Nature)
+Lv2 Blossom Cannon (Nature)
+Lv3 Solar Growth (Nature)
+
+TomahawkMan (Nature)
+Lv1 Silver Tomahawk (Metal)
+Lv2 Totem Judgement (Neutral)
+Lv3 Mother Nature (Nature)
+
+WindMan (Wind)
+Lv1 Wind Storm (Wind)
+Lv2 Power Gale (Wind)
+Lv3 Grand Twister (Wind)
+
+YamatoMan (Neutral)
+Lv1 Yamato Spear (Metal)
+Lv2 Yamato Warrior (Neutral)
+Lv3 Yamato Javelin (Metal)
+
+FreezeMan (Freeze)
+Lv1 Freeze Cracker (Freeze)
+Lv2 Nitro-unit (Freeze)
+Lv3 Glacial Tomb (Freeze)
+
+JunkMan (Metal)
+Lv1 Junk Shield (Neutral)
+Lv2 Iron Fist (Metal)
+Lv3 Junk Twister (Neutral)
+
+BurstMan (Bomb)
+Lv1 Danger Wrap (Bomb)
+Lv2 Bubble Bomb (Marine)
+Lv3 Protect Bubble (Marine)
+
+CloudMan (Lightning)
+Lv1 Thunder Bolt (Lightning)
+Lv3 Thunder Cloud (Lightning/Marine)
+Lv2 Lighting Tempest (Lightning)
+
+SpingMan (Metal)
+Lv1 Wild Coil (Metal)
+Lv2 Wild Fists (Neutral)
+Lv3 Spring Gyrat (Metal)
+
+SlashMan (Nature)
+Lv1 Slash Claw (Metal)
+Lv2 Killer Instinct (Nature)
+Lv3 Sticky Glue (Nature)
+
+ShadeMan (Dark)
+Lv1 Noise Crush (Neutral)
+Lv2 Vampire Drain (Dark)
+Lv3 Clawed Wing (Dark)
+
+TurboMan (Heat)
+Lv1 Scorch Wheel (Heat)
+Lv2 Road Rage (Neutral)
+Lv3 Speed Demon (Neutral)
+
+TenguMan (Wind)
+Lv1 Tornado Hold (Wind)
+Lv2 Tengu Blade (Metal)
+Lv3 Impish Arrogance (Nature)
+
+AstroMan (Star)
+Lv1 Astro Crush (Star)
+Lv2 Copy Vision (Neutral)
+Lv3 Planet Crash (Star)
+
+SwordMan (Heat)
+Lv1 Flame Sword (Heat)
+Lv2 Noble Blade (Metal)
+Lv3 Flame Typhoon (Heat)
+
+ClownMan (Lightning)
+Lv1 Thunder Claw (Lightning)
+Lv2 Extendo Arm (Neutral)
+Lv3 Clown Charisma (Neutral)
+
+SearchMan (Metal)
+Lv1 Homing Sniper (Bomb)
+Lv2 Commando Cannon (Metal)
+Lv3 Scope Gun (Neutral)
+
+FrostMan (Freeze)
+Lv1 Ice Wave (Freeze)
+Lv2 Giant Fist (Neutral)
+Lv3 Glacier Pummel (Freeze)
+
+GrenadeMan (Bomb)
+Lv1 Flash Bomb (Bomb)
+Lv2 Heat Grenade (Heat)
+Lv3 Ground Breaker (Bomb)
+
+AquaMan (Marine)
+Lv1 Water Balloon (Marine)
+Lv2 Search Stream (Marine)
+Lv3 Hydro Cannon (Marine)
+
+DynamoMan (Lightning)
+Lv1 Lightning Bolt (Lightning)
+Lv2 Energy Charge (Lighting)
+Lv3 Dyna Thunder (Lightning)
+
+ColdMan (Freeze)
+Lv1 Ice Wall (Freeze)
+Lv2 Nuisance Cloud (Neutral)
+Lv3 Cold Submerge (Freeze)
+
+GroundMan (Ground)
+Lv1 Spread Drill (Ground)
+Lv2 Earth Tremor (Ground)
+Lv3 World Shaking (Ground)
+
+PirateMan (Metal)
+Lv1 Remote Mine (Bomb)
+Lv2 Pirate Claw (Metal)
+Lv3 Dead Man's Chest (Marine)
+
+BurnerMan (Heat)
+Lv1 Wave Burner (Heat)
+Lv2 Heat Rush II (Heat)
+Lv3 Overburn (Heat)
+
+MagicMan (Dark)
+Lv1 Magic Card (Dark)
+Lv2 Slight of Hand (Dark)
+Lv3 Magic Fire (Neutral)
