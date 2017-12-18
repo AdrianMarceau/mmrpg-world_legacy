@@ -21,6 +21,31 @@ $legacy_content['2006'][] = array(
         )
     );
 
+// Year 2010
+$legacy_content['2010'] = array();
+$legacy_content['2010'][] = array(
+    'name' => 'RPG Display Tests',
+    'paths' => array(
+        'rpg-display-tests/index1.php' => array('text', 'images'),
+        'rpg-display-tests/index2.php' => array('text', 'images'),
+        'rpg-display-tests/index3.php' => array('text', 'images', 'interactive')
+        )
+    );
+$legacy_content['2010'][] = array(
+    'name' => 'RPG Engine Tests',
+    'paths' => array(
+        'rpg-engine-tests/engine-test-001.php' => array('text'),
+        'rpg-engine-tests/engine-test-002.php' => array('text', 'images'),
+        'rpg-engine-tests/engine-test-004.php' => array('text')
+        )
+    );
+$legacy_content['2010'][] = array(
+    'name' => 'RPG iPhone Tests',
+    'paths' => array(
+        'rpg-iphone-tests/iphone-test.php' => array('text', 'images')
+        )
+    );
+
 
 // Start the output buffer to collect markup
 ob_start();
