@@ -1,0 +1,288 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html,
+body {
+    background-color: #262626;
+    background-image: url(../images/background.gif);
+    background-attachment: scroll;
+    background-repeat: repeat;
+    background-position: 0 0;
+    font-family: Arial, sans-serif;
+    color: #FFFFFF;
+    font-size: 12px;
+    line-height: 1.2;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+body {
+    padding: 0 10px;
+}
+body a {
+    color: #EFEFEF;
+    text-decoration: underline;
+}
+body a:hover {
+    color: #FFFFFF;
+}
+
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+    font-family: 'Roboto', sans-serif;
+    text-overflow: ellipsis;
+}
+
+.website {
+    display: block;
+    margin: 20px auto;
+    max-width: 1024px;
+    min-width: 800px;
+}
+
+.website > .main {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px;
+    color: #FFFFFF;
+    background-color: #3E3E3E;
+    border: 1px solid transparent;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.6);
+}
+
+.website > .main > .header {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 0;
+}
+.website > .main > .header h1 {
+    display: block;
+    margin: 0 auto;
+    padding: 9px;
+    background-color: #262626;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 19px;
+}
+.website > .main > .header h1 .pipe {
+    font-weight: normal;
+    color: #525252;
+    padding: 0 6px;
+}
+.website > .main > .header p {
+    display: block;
+    margin: 3px auto 0;
+    padding: 6px;
+    font-size: 12px;
+    background-color: #333333;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.website > .main > .body {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px;
+    background-color: transparent;
+    text-align: left;
+}
+.website > .main > .body .header {
+    display: block;
+    margin: 0 auto 20px;
+}
+.website > .main > .body .header h2 {
+    display: block;
+    margin: 0 auto;
+    padding: 6px;
+    background-color: #525252;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+.website > .main > .body .section {
+    display: block;
+    margin: 0 auto 20px;
+    clear: both;
+}
+
+.website > .main > .body ul.list {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 0 0 0 10px;
+}
+.website > .main > .body ul.list:last-child {
+    margin-bottom: 0;
+}
+.website > .main > .body ul.list li.item {
+    display: block;
+    margin: 0 auto 10px;
+}
+.website > .main > .body ul.list li.item .name {
+    display: block;
+    margin: 0 auto 5px;
+    font-weight: bold;
+}
+
+.website > .main > .body ul.sublist {
+    display: block;
+    margin: 0 auto 20px;
+}
+.website > .main > .body ul.sublist:last-child {
+    margin-bottom: 0;
+}
+.website > .main > .body ul.sublist li.subitem {
+    display: list-item;
+    margin: 0 auto 5px;
+}
+.website > .main > .body ul.sublist li.subitem .link {
+    text-decoration: none;
+    font-family: "Courier New", courier, sans-serif;
+}
+.website > .main > .body ul.sublist li.subitem .link:hover {
+    text-decoration: underline;
+}
+.website > .main > .body ul.list li.item .details,
+.website > .main > .body ul.sublist li.subitem .details {
+    display: inline-block;
+    margin-left: 10px;
+    font-style: italic;
+    font-size: 11px;
+    color: #858585;
+}
+.website > .main > .body ul.list li.item .details:before,
+.website > .main > .body ul.sublist li.subitem .details:before {
+    content: "(";
+    display: inline-block;
+    margin-right: 2px;
+    font-style: normal;
+    color: #656565;
+}
+.website > .main > .body ul.list li.item .details:after,
+.website > .main > .body ul.sublist li.subitem .details:after {
+    content: ")";
+    display: inline-block;
+    margin-left: 2px;
+    font-style: normal;
+    color: #656565;
+}
+.website > .main > .body ul.list li.item .details strong,
+.website > .main > .body ul.sublist li.subitem .details strong {
+    font-weight: bold;
+    color: #959595;
+}
+
+.website > .main > .body ul.list li.item.todo .link,
+.website > .main > .body ul.sublist li.subitem.todo .link {
+    color: #ce4c4c;
+}
+
+
+.website > .main > .body ul.list.gallery {
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+.website > .main > .body ul.list.gallery li.item {
+    display: block;
+    float: left;
+    background-color: #333333;
+    box-sizing: border-box;
+    margin: 0 10px 10px 0;
+    width: auto;
+    padding: 9px 12px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+.website > .main > .body ul.list.gallery li.item .name {
+
+}
+.website > .main > .body ul.list.gallery li.item .name {
+
+}
+
+
+.website > .main > .body .block .name {
+    display: block;
+    margin: 0 auto 5px;
+    font-weight: bold;
+}
+
+.website > .main > .body:after,
+.website > .main > .body .section:after,
+.website > .main > .body .wrapper:after {
+    content: "";
+    display: block;
+    float: none;
+    clear: both;
+    height: 0;
+}
+
+.website > .main > .body .pre {
+    font-family: "Courier New", courier, sans-serif;
+}
+
+.website > .main > .body span.error {
+    display: block;
+    margin: 0 auto 6px;
+}
+.website > .main > .body span.error:before {
+    content: "!";
+    display: inline-block;
+    box-sizing: border-box;
+    margin-right: 4px;
+    padding: 1px;
+    width: 16px;
+    height: 16px;
+    background-color: #ce4c4c;
+    color: #FFFFFF;
+    border-radius: 3px;
+    text-align: center;
+}
+.website > .main > .body span.error:last-child {
+    margin-bottom: 0;
+}
+
+.website > .footer {
+    display: block;
+    margin: 20px auto 0;
+    padding: 0;
+}
+.website > .footer .copy {
+    display: block;
+    margin: 3px auto 0;
+    padding: 12px;
+    font-size: 11px;
+    line-height: 1.4;
+    background-color: #171717;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: #969696;
+}
+.website > .footer .copy .desc {
+    color: #797979;
+}
+.website > .footer .copy .credits {
+    color: #696969;
+}
+
+.website > .footer .copy a {
+    text-decoration: underline;
+    color: inherit;
+}
+.website > .footer .copy a:hover {
+    text-decoration: underline;
+    color: #898989;
+}
