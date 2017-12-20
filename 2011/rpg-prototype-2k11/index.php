@@ -7,7 +7,7 @@ require('../../apptop.php');
 // Define the headers for this file
 $html_title_text = 'MegaMan RPG Prototype 2k11 | '.$html_title_text;
 $html_content_title = $html_content_title.' | MegaMan RPG Prototype 2k11';
-$html_content_description = 'The Mega Man RPG has gone through several major prototype revisions over the years, and this was the first playable one. Bugs are left intacts for historical accuracy.';
+$html_content_description = 'The Mega Man RPG has gone through several major prototype revisions over the years, and this was the first playable one. Bugs are left intact for historical accuracy.';
 
 // Include the TOP file
 require_once('top.php');

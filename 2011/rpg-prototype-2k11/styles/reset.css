@@ -1,21 +1,21 @@
 /* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126-AGEMOD
+   v2.0 | 20110126
    License: none (public domain)
 */
 
-.legacywrap html, .legacywrap body, .legacywrap div, .legacywrap span, .legacywrap applet, .legacywrap object, .legacywrap iframe,
-.legacywrap h1, .legacywrap h2, .legacywrap h3, .legacywrap h4, .legacywrap h5, .legacywrap h6, .legacywrap p, .legacywrap blockquote, .legacywrap pre,
-.legacywrap a, .legacywrap abbr, .legacywrap acronym, .legacywrap address, .legacywrap big, .legacywrap cite, .legacywrap code,
-.legacywrap del, .legacywrap dfn, .legacywrap em, .legacywrap img, .legacywrap ins, .legacywrap kbd, .legacywrap q, .legacywrap s, .legacywrap samp,
-.legacywrap small, .legacywrap strike, .legacywrap strong, .legacywrap sub, .legacywrap sup, .legacywrap tt, .legacywrap var,
-.legacywrap b, .legacywrap u, .legacywrap i, .legacywrap center,
-.legacywrap dl, .legacywrap dt, .legacywrap dd, .legacywrap ol, .legacywrap ul, .legacywrap li,
-.legacywrap fieldset, .legacywrap form, .legacywrap label, .legacywrap legend,
-.legacywrap table, .legacywrap caption, .legacywrap tbody, .legacywrap tfoot, .legacywrap thead, .legacywrap tr, .legacywrap th, .legacywrap td,
-.legacywrap article, .legacywrap aside, .legacywrap canvas, .legacywrap details, .legacywrap embed, .legacywrap
-.legacywrap figure, .legacywrap figcaption, .legacywrap footer, .legacywrap header, .legacywrap hgroup, .legacywrap
-.legacywrap menu, .legacywrap nav, .legacywrap output, .legacywrap ruby, .legacywrap section, .legacywrap summary,
-.legacywrap time, .legacywrap mark, .legacywrap audio, .legacywrap video {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -24,25 +24,25 @@
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-.legacywrap article, .legacywrap aside, .legacywrap details, .legacywrap figcaption, .legacywrap figure, .legacywrap
-.legacywrap footer, .legacywrap header, .legacywrap hgroup, .legacywrap menu, .legacywrap nav, .legacywrap section {
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-.legacywrap body {
+body {
 	line-height: 1;
 }
-.legacywrap ol, .legacywrap ul {
+ol, ul {
 	list-style: none;
 }
-.legacywrap blockquote, .legacywrap q {
+blockquote, q {
 	quotes: none;
 }
-.legacywrap blockquote:before, .legacywrap blockquote:after,
-.legacywrap q:before, .legacywrap q:after {
+blockquote:before, blockquote:after,
+q:before, q:after {
 	content: '';
 	content: none;
 }
-.legacywrap table {
+table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }

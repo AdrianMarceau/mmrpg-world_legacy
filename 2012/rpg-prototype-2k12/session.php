@@ -23,7 +23,7 @@ require_once('top.php');
 </pre>
 */?>
 <pre style="width: 500px; margin: 10px auto; background-color: #FAFAFA; color: #464646; text-align: left; padding: 20px;">
-<?=print_r($_SESSION['RPG2k12'], true)?>
+$_SESSION['RPG2k12'] = <?=print_r($_SESSION['RPG2k12'], true)?>
 </pre>
 </body>
 </html>

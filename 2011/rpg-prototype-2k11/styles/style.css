@@ -587,6 +587,7 @@ body.battle {
   background-color: #595959;
   background-image: none;
   color: #CACACA;
+  pointer-events: none;
 }
 #actions .button_disabled:hover {
   background-color: #595959;

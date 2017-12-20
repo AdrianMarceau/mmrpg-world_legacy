@@ -20,7 +20,8 @@ require_once('data/classes/class.ability.php');
  */
 
 // Start the session
-session_start();
+if (session_status() == PHP_SESSION_NONE){ session_start(); }
+if (!isset($_SESSION['RPG2k12'])){ $_SESSION['RPG2k12'] = array(); }
 
 // Include mandatory library files
 $mmrpg_index = array();
