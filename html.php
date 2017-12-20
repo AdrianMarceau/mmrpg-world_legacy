@@ -26,7 +26,7 @@
                         <? if (defined('IS_LEGACY_INDEX')){ ?>
                             use the archive index above for a list of legacy content.
                         <? } else { ?>
-                            to return to the <a href="<?= $mmrpg_root_url ?>">archive index</a> for more legacy content.
+                            return to the <a href="<?= $mmrpg_root_url ?>">archive index</a> for more legacy content.
                         <? } ?>
                     </div>
                     <div class="credits">

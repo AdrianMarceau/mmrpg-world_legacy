@@ -167,7 +167,7 @@ function generate_turn_footer_bar($turn_number)
   $html .= "End of Turn #$turn_number\r\n";
   $html .= "</td>\r\n";
   $html .= "<td width=\"200\" class=\"right\">\r\n";
-  $html .= "<div><a href=\"javascript:;\" onclick=\"location.hash='#';\">^ Top</a></div>\r\n";
+  $html .= "<div><a onclick=\"javascript:window.scrollTo(0, 0);\">^ Top</a></div>\r\n";
   $html .= "</td>\r\n";
   $html .= "</tr>\r\n";
   $html .= "</table>\r\n";
@@ -263,7 +263,7 @@ function generate_event_ability_box($eventinfo)
     $html .= "<tr>\r\n";
     $html .= "<td class=\"ability_text_middle\" width=\"260\">\r\n";
     $html .= "<span class=\"title\"><strong>{$robotinfo['robot_name']}</strong> ".($eventinfo['ability_class'] == 'offensive' ? 'attacks!' : 'defends.')."</span>\r\n";
-    $html .= "<span class=\"ability\" style=\"background: transparent url(images/type_backgrounds/background_{$eventinfo['ability_type']}.png) repeat-x center center;\"><img class=\"type_icon\" src=\"images/type_icons/{$eventinfo['ability_type']}_icon_25x25.png\" alt=\"".strtoupper($eventinfo['ability_type'])." Type\" title=\"".strtoupper($eventinfo['ability_type'])." Type\" /><strong>{$eventinfo['ability_name']}</strong><em>{$eventinfo['ability_power']}</em></span>\r\n";
+    $html .= "<span class=\"ability\"  title=\"".strtoupper($eventinfo['ability_type'])." Type\" style=\"background: transparent url(images/type_backgrounds/background_{$eventinfo['ability_type']}.png) repeat-x center center;\"><img class=\"type_icon\" src=\"images/type_icons/{$eventinfo['ability_type']}_icon_25x25.png\" title=\"".strtoupper($eventinfo['ability_type'])." Type\" /><strong>{$eventinfo['ability_name']}</strong><em>{$eventinfo['ability_power']}</em></span>\r\n";
     //$html .= "<span class=\"date\">".date('Y/m/d H:i:s', $eventinfo['event_time'])."</span>\r\n";
     $html .= "</td>\r\n";
     $html .= "</tr>\r\n";
@@ -289,7 +289,7 @@ function generate_event_ability_box($eventinfo)
     $html .= "<tr>\r\n";
     $html .= "<td class=\"ability_text_middle\" width=\"260\">\r\n";
     $html .= "<span class=\"title\"><strong>{$robotinfo['robot_name']}</strong> ".($eventinfo['ability_class'] == 'offensive' ? 'attacks!' : 'defends.')."</span>\r\n";
-    $html .= "<span class=\"ability\" style=\"background: transparent url(images/type_backgrounds/background_{$eventinfo['ability_type']}.png) repeat-x center center;\"><img class=\"type_icon\" src=\"images/type_icons/{$eventinfo['ability_type']}_icon_25x25.png\" alt=\"".strtoupper($eventinfo['ability_type'])." Type\" title=\"".strtoupper($eventinfo['ability_type'])." Type\" /><strong>{$eventinfo['ability_name']}</strong><em>{$eventinfo['ability_power']}</em></span>\r\n";
+    $html .= "<span class=\"ability\" title=\"".strtoupper($eventinfo['ability_type'])." Type\" style=\"background: transparent url(images/type_backgrounds/background_{$eventinfo['ability_type']}.png) repeat-x center center;\"><img class=\"type_icon\" src=\"images/type_icons/{$eventinfo['ability_type']}_icon_25x25.png\" title=\"".strtoupper($eventinfo['ability_type'])." Type\" /><strong>{$eventinfo['ability_name']}</strong><em>{$eventinfo['ability_power']}</em></span>\r\n";
     //$html .= "<span class=\"date\">".date('Y/m/d H:i:s', $eventinfo['event_time'])."</span>\r\n";
     $html .= "</td>\r\n";
     $html .= "</tr>\r\n";
