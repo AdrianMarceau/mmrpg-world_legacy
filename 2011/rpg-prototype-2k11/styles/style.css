@@ -11,6 +11,7 @@ body {
   text-align: center;
   background-color: #3E3E3E;
   padding: 0;
+  margin: 0;
 }
 body.battle {
   background-color: #303030;
@@ -65,9 +66,9 @@ body.battle {
   -moz-border-radius: 0.75em;
   -webkit-border-radius: 0.75em;
   cursor: pointer;
-  _cursor: hand;  
+  _cursor: hand;
   color: #FFFFFF;
-  background-color: rgb(65,65,65);  
+  background-color: rgb(65,65,65);
   background-image: -webkit-gradient(
       linear,
       left bottom,
@@ -79,13 +80,13 @@ body.battle {
       center bottom,
       rgb(65,65,65) 15%,
       rgb(71,71,71) 75%
-  ); 
+  );
   text-shadow: 1px 1px 4px #333333;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -o-user-select: none;
-  user-select: none;    
+  user-select: none;
   box-shadow: 0 1px 5px #303030;
   -moz-box-shadow: 0 1px 5px #303030;
   -website-box-shadow: 0 1px 5px #303030;
@@ -93,8 +94,8 @@ body.battle {
   width: 238px;
 }
 #debug .battle:hover {
-  color: #FFFFFF;  
-  background-color: rgb(75,75,75);  
+  color: #FFFFFF;
+  background-color: rgb(75,75,75);
   background-image: -webkit-gradient(
       linear,
       left bottom,
@@ -173,7 +174,7 @@ body.battle {
   overflow: hidden;
   border-radius: 0.5em 0.5em 0 0;
   -moz-border-radius: 0.5em 0.5em 0 0;
-  -webkit-border-radius: 0.5em 0.5em 0 0;  
+  -webkit-border-radius: 0.5em 0.5em 0 0;
 }
 #canvas .wrapper {
   padding: 0;
@@ -204,7 +205,7 @@ body.battle {
   -moz-border-radius: 0.75em;
   -webkit-border-radius: 0.75em;
   color: #696969;
-  background-color: rgb(43,43,43);  
+  background-color: rgb(43,43,43);
   background-image: -webkit-gradient(
       linear,
       left bottom,
@@ -216,17 +217,17 @@ body.battle {
       center bottom,
       rgb(43,43,43) 15%,
       rgb(41,41,41) 75%
-  ); 
+  );
   text-shadow: 1px 1px 4px #333333;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -o-user-select: none;
-  user-select: none;    
+  user-select: none;
   box-shadow: 0 1px 5px #303030;
   -moz-box-shadow: 0 1px 5px #303030;
-  -website-box-shadow: 0 1px 5px #303030;  
-  
+  -website-box-shadow: 0 1px 5px #303030;
+
 }
 #canvas .event .background,
 #canvas .event .foreground {
@@ -242,7 +243,7 @@ body.battle {
   border: 0 none transparent;
   border-radius: 0.75em;
   -moz-border-radius: 0.75em;
-  -webkit-border-radius: 0.75em;    
+  -webkit-border-radius: 0.75em;
 }
 #canvas .event .background {
   z-index: 10;
@@ -259,8 +260,8 @@ body.battle {
   border: 1px solid #262626;
   border-top-style: none;
   border-bottom-style: none;
-  overflow: hidden;  
-  background-color: rgb(48,48,48);  
+  overflow: hidden;
+  background-color: rgb(48,48,48);
   background-image: -webkit-gradient(
       linear,
       left bottom,
@@ -272,7 +273,7 @@ body.battle {
       center bottom,
       rgb(48,48,48) 15%,
       rgb(54,54,54) 75%
-  );   
+  );
 }
 #console .wrapper {
   padding: 0;
@@ -287,7 +288,7 @@ body.battle {
   veritcal-align: top;
   color: #FAFAFA;
   border: 1px solid #464646;
-  background-color: rgb(65,65,65);  
+  background-color: rgb(65,65,65);
   background-image: -webkit-gradient(
       linear,
       left bottom,
@@ -316,7 +317,7 @@ body.battle {
   margin: 0 47px;
   padding: 1px 10px;
   text-align: center;
-  background-color: rgb(56,56,56);  
+  background-color: rgb(56,56,56);
   background-image: -webkit-gradient(
       linear,
       left bottom,
@@ -356,7 +357,7 @@ body.battle {
   margin: 0 47px;
   padding: 3px 10px 1px;
   text-align: center;
-  background-color: rgb(60,60,60);  
+  background-color: rgb(60,60,60);
   color: #FFFFFF;
   font-size: 10px;
   line-height: 16px;
@@ -387,7 +388,7 @@ body.battle {
   margin: 0;
   padding: 2px 2px 4px;
   text-align: left;
-  background-color: rgb(60,60,60);  
+  background-color: rgb(60,60,60);
   border: 0 none transparent;
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
@@ -402,7 +403,7 @@ body.battle {
   right: 2px;
 }
 #console .event .this_sprite {
-  background-color: rgb(75,75,75);  
+  background-color: rgb(75,75,75);
   background-image: -webkit-gradient(
       linear,
       left bottom,
@@ -417,7 +418,7 @@ body.battle {
   );
 }
 #console .event .target_sprite {
-  
+
 }
 #console .event .sprite_left .energy,
 #console .event .sprite_right .energy {
@@ -514,7 +515,7 @@ body.battle {
   overflow: hidden;
   border-radius: 0 0 0.5em 0.5em;
   -moz-border-radius: 0 0 0.5em 0.5em;
-  -webkit-border-radius: 0 0 0.5em 0.5em;   
+  -webkit-border-radius: 0 0 0.5em 0.5em;
 }
 #actions .wrapper {
   padding: 0;
@@ -538,9 +539,9 @@ body.battle {
   -moz-border-radius: 0.75em;
   -webkit-border-radius: 0.75em;
   cursor: pointer;
-  _cursor: hand;  
+  _cursor: hand;
   color: #FFFFFF;
-  background-color: rgb(65,65,65);  
+  background-color: rgb(65,65,65);
   background-image: -webkit-gradient(
       linear,
       left bottom,
@@ -552,20 +553,20 @@ body.battle {
       center bottom,
       rgb(65,65,65) 15%,
       rgb(71,71,71) 75%
-  ); 
+  );
   text-shadow: 1px 1px 4px #333333;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -o-user-select: none;
-  user-select: none;    
+  user-select: none;
   box-shadow: 0 1px 5px #303030;
   -moz-box-shadow: 0 1px 5px #303030;
   -website-box-shadow: 0 1px 5px #303030;
 }
 #actions .button:hover {
-  color: #FFFFFF;  
-  background-color: rgb(75,75,75);  
+  color: #FFFFFF;
+  background-color: rgb(75,75,75);
   background-image: -webkit-gradient(
       linear,
       left bottom,
@@ -585,7 +586,7 @@ body.battle {
   border-color: #494949;
   background-color: #595959;
   background-image: none;
-  color: #CACACA;  
+  color: #CACACA;
 }
 #actions .button_disabled:hover {
   background-color: #595959;
