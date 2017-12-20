@@ -1,8 +1,5 @@
 <?php
 
-// Define a variable to say yes, this is home
-define('IS_LEGACY_INDEX', true);
-
 // Update this page's content variables
 $html_title_text = 'Archive Index | '.$html_title_text;
 $html_content_title = $html_content_title.' | Archive Index';

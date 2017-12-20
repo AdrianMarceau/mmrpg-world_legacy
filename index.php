@@ -1,5 +1,8 @@
 <?php
 
+// Define a variable to say yes, this is home
+define('IS_LEGACY_INDEX', true);
+
 // Require the top files
 require('config.php');
 require('apptop.php');
