@@ -95,6 +95,30 @@ body h6 {
     -webkit-border-radius: 3px;
     border-radius: 3px;
 }
+.website > .main > .header .links {
+    display: block;
+    margin: 0 auto 3px;
+    padding: 6px;
+    background-color: #363636;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 11px;
+}
+.website > .main > .header .links .link {
+    text-decoration: none;
+    color: #CACACA;
+}
+.website > .main > .header .links .link:hover span {
+    text-decoration: underline;
+    color: #CFCFCF;
+}
+.website > .main > .header .links .link.back:before {
+    content: "\0ab";
+    padding-right: 4px;
+    position: relative;
+    bottom: 1px;
+}
 
 .website > .main > .body {
     display: block;
