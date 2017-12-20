@@ -1,0 +1,30 @@
+# Define the Directory Index(s)
+DirectoryIndex index.php index.html index.htm
+
+# Turn on fancy indexing for directories
+Options +Indexes
+IndexOptions +FancyIndexing
+
+# Turn on URL rewriting and set the base
+RewriteEngine on
+
+# Define the rewrite conditions
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule (.*) - [S=9]
+
+# Define the rewrite rules
+RewriteRule ^home/?$ index.php
+RewriteRule ^styles/(players|robots|abilities|types|fields).js$ _data.php?type=style&index=$1
+RewriteRule ^scripts/(players|robots|abilities|types|fields).js$ _data.php?type=script&index=$1 
+
+#RewriteRule ^blank/?$ blank.php [L]
+#RewriteRule ^blank/([^.=]+)/?$ blank.php?l=$1 [L]
+#RewriteRule ^blank/([^.=]+)/([^.]+)/?$ blank.php?l=$1&$2 [L]
+#RewriteRule ^facebook/?$ blank.php [L]
+#RewriteRule ^facebook/([^.=]+)/?$ blank.php?facebook=true&l=$1 [L]
+#RewriteRule ^facebook/([^.=]+)/([^.]+)/?$ blank.php?facebook=true&l=$1&$2 [L]
+#RewriteRule ^/?$ index.php [L]
+#RewriteRule ^([^.=]+)/?$ index.php?l=$1 [L]
+#RewriteRule ^([^.=]+)/([^.]+)/?$ index.php?l=$1&$2 [L]
+

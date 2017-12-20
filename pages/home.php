@@ -68,7 +68,7 @@ $legacy_content['2012'][] = array(
         )
     );
 $legacy_content['2012'][] = array(
-    'name' => 'RPG Ability Generator',
+    'name' => 'RPG Ability Generators',
     'paths' => array(
         'rpg-ability-tests/generator.php' => array('text'),
         'rpg-ability-tests/generator2.php' => array('text')
@@ -78,6 +78,15 @@ $legacy_content['2012'][] = array(
     'name' => 'RPG Prototype v0.2',
     'paths' => array(
         'rpg-prototype-2k12/index.php' => array('text', 'images', 'playable')
+        )
+    );
+
+// Year 2013
+$legacy_content['2013'] = array();
+$legacy_content['2013'][] = array(
+    'name' => 'RPG Animation Tests',
+    'paths' => array(
+        'rpg-prototype-sprites/index.php' => array('text', 'images', 'interactive')
         )
     );
 
