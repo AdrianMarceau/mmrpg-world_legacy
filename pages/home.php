@@ -55,6 +55,32 @@ $legacy_content['2011'][] = array(
         )
     );
 
+// Year 2012
+$legacy_content['2012'] = array();
+$legacy_content['2012'][] = array(
+    'name' => 'RPG Battle Tests',
+    'paths' => array(
+        'rpg-battle-tests/loading.php' => array('text', 'images'),
+        'rpg-battle-tests/loading2.php' => array('text', 'images'),
+        'rpg-battle-tests/battle.php' => array('text', 'images', 'interactive'),
+        'rpg-battle-tests/canvas.php' => array('text', 'images'),
+        'rpg-battle-tests/canvas2.php' => array('text', 'images'),
+        )
+    );
+$legacy_content['2012'][] = array(
+    'name' => 'RPG Ability Generator',
+    'paths' => array(
+        'rpg-ability-tests/generator.php' => array('text'),
+        'rpg-ability-tests/generator2.php' => array('text')
+        )
+    );
+$legacy_content['2012'][] = array(
+    'name' => 'RPG Prototype v0.2',
+    'paths' => array(
+        'rpg-prototype-2k12/index.php' => array('text', 'images', 'playable')
+        )
+    );
+
 
 // Start the output buffer to collect markup
 ob_start();

@@ -1,0 +1,195 @@
+body {
+  background-color: #000000;
+    /*background-color: blue;*/
+  margin: 0;
+  padding: 0;
+  /*height: 1004px;*/
+}
+body.battle, 
+body.prototype {
+  background-color: transparent;
+}
+#prototype {
+  margin: 0;
+  /*height: 1004px;*/
+  border: 0 none transparent;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  box-shadow: 0 0 0 transparent;
+  -moz-box-shadow: 0 0 0 transparent;
+  -website-box-shadow: 0 0 0 transparent;  
+  background-color: transparent;
+}
+#prototype .banner {
+  border-color: #373737;
+}
+#prototype .battle {
+
+}
+
+#window {
+  margin: 0;
+  /*height: 1004px;*/
+  padding: 0;
+  border: 0 none transparent;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  box-shadow: 0 0 0 transparent;
+  -moz-box-shadow: 0 0 0 transparent;
+  -website-box-shadow: 0 0 0 transparent;
+  background-color: transparent;
+}
+#window iframe {
+  display: block;
+  margin: 0;
+  /*height: 1004px;*/
+  padding: 0;
+  border: 0 none transparent;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+#mmrpg {
+  margin: 0 auto;
+  /*height: 1004px;*/
+  border: 0 none transparent;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  background-color: transparent;
+}
+#canvas {
+  background-color: transparent;
+}
+#canvas .event {
+  border-color: #373737;
+}
+#console {
+  background-color: transparent;
+}
+#actions { 
+  background-color: transparent;
+}
+#actions .button_disabled {
+  opacity: 0.5;
+}
+
+
+
+body.mobileFlag_portraitMode {
+  height: 1004px;
+  width: 768px; 
+}
+body.mobileFlag_portraitMode #prototype,
+body.mobileFlag_portraitMode #window,
+body.mobileFlag_portraitMode #window iframe,
+body.mobileFlag_portraitMode #mmrpg {
+  height: 1004px;
+  width: 768px;  
+}
+body.mobileFlag_portraitMode #prototype .banner {
+  width: 750px;
+}
+body.mobileFlag_portraitMode #prototype .header,
+body.mobileFlag_portraitMode #prototype .option {
+  width: 750px;
+}
+body.mobileFlag_portraitMode #prototype .block_2, 
+body.mobileFlag_portraitMode #prototype .block_4, 
+body.mobileFlag_portraitMode #prototype .block_6, 
+body.mobileFlag_portraitMode #prototype .block_8, 
+body.mobileFlag_portraitMode #prototype .block_10 {
+  /*width: 371px;*/
+}
+body.mobileFlag_portraitMode #canvas {
+  width: 768px;
+}
+body.mobileFlag_portraitMode #canvas .event {
+  width: 750px;
+}
+body.mobileFlag_portraitMode #console {
+  /* height: 579px - 67px; */
+  height: 512px;
+  width: 768px;  
+}
+body.mobileFlag_portraitMode #actions {
+  width: 768px;  
+}
+body.mobileFlag_portraitMode #actions #actions_battle .action_scan, 
+body.mobileFlag_portraitMode #actions #actions_battle .action_option, 
+body.mobileFlag_portraitMode #actions #actions_battle .action_switch {
+  width: 244px;
+}
+body.mobileFlag_portraitMode #actions #actions_option .action_option, 
+body.mobileFlag_portraitMode #actions #actions_switch .action_switch, 
+body.mobileFlag_portraitMode #actions #actions_scan .action_scan, 
+body.mobileFlag_portraitMode #actions #actions_ability .action_ability {
+  width: 181px;
+}
+body.mobileFlag_portraitMode #actions .block_4, 
+body.mobileFlag_portraitMode #actions .block_8 {
+  width: 184px !important;
+}
+
+
+
+body.mobileFlag_landscapeMode {
+  height: 748px;
+  width: 1024px; 
+}
+body.mobileFlag_landscapeMode #prototype,
+body.mobileFlag_landscapeMode #window,
+body.mobileFlag_landscapeMode #window iframe,
+body.mobileFlag_landscapeMode #mmrpg {
+  height: 748px;
+  width: 1024px;  
+}
+body.mobileFlag_landscapeMode #prototype .banner {
+  width: 1006px;
+}
+body.mobileFlag_landscapeMode #prototype .header,
+body.mobileFlag_landscapeMode #prototype .option {
+  width: 1006px;
+}
+body.mobileFlag_landscapeMode #prototype .block_2, 
+body.mobileFlag_landscapeMode #prototype .block_4, 
+body.mobileFlag_landscapeMode #prototype .block_6, 
+body.mobileFlag_landscapeMode #prototype .block_8, 
+body.mobileFlag_landscapeMode #prototype .block_10 {
+  /*width: 499px;*/
+}
+body.mobileFlag_landscapeMode #canvas {
+  width: 1024px;
+}
+body.mobileFlag_landscapeMode #canvas .event {
+  width: 1006px;
+}
+body.mobileFlag_landscapeMode #console {
+  /* height: 323px - 67px; */
+    height: 256px;
+  width: 1024px;
+}
+body.mobileFlag_landscapeMode #actions {
+  width: 1024px;  
+}
+body.mobileFlag_landscapeMode #actions #actions_battle .action_scan, 
+body.mobileFlag_landscapeMode #actions #actions_battle .action_option, 
+body.mobileFlag_landscapeMode #actions #actions_battle .action_switch {
+  width: 330px;
+}
+body.mobileFlag_landscapeMode #actions #actions_option .action_option, 
+body.mobileFlag_landscapeMode #actions #actions_switch .action_switch, 
+body.mobileFlag_landscapeMode #actions #actions_scan .action_scan, 
+body.mobileFlag_landscapeMode #actions #actions_ability .action_ability {
+  width: 245px;
+}
+body.mobileFlag_landscapeMode #actions .block_4, 
+body.mobileFlag_landscapeMode #actions .block_8 {
+  width: 248px !important;
+}
+/*
+body.mobileFlag_portraitMode #window iframe { border: 1px solid red; }
+body.mobileFlag_landscapeMode #window iframe { border: 1px solid green; }
+*/

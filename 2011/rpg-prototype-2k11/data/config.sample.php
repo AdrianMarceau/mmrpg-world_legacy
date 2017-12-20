@@ -1,11 +1,4 @@
 <?php
-/*
- * Project   : [PlutoCMS Version 2.1.4] <plutocms.plutolighthouse.net>
- * Name      : Config Object <config.php>
- * Author    : Adrian Marceau <Ageman20XX>
- * Created   : August 22nd, 2011
- * Modified  : August 22nd, 2011
- */
 
 // Require the root config
 require('../../config.php');

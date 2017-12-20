@@ -44,6 +44,12 @@ body h6 {
     min-width: 800px;
 }
 
+.website span.pipe {
+    font-weight: normal;
+    color: #525252;
+    padding: 0 6px;
+}
+
 .website > .main {
     display: block;
     margin: 0 auto 20px;
@@ -231,6 +237,7 @@ body h6 {
 
 .website > .main > .body .pre {
     font-family: "Courier New", courier, sans-serif;
+    word-break: break-all;
 }
 
 .website > .main > .body span.error {
