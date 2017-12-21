@@ -96,16 +96,14 @@ $legacy_content['2015'][] = array(
         )
     );
 
-/*
 // Year 2016
 $legacy_content['2016'] = array();
 $legacy_content['2016'][] = array(
     'name' => 'RPG World 2k16',
     'paths' => array(
-        'rpg-world-2k16/index.php' => array('text', 'images')
+        'rpg-world-2k16/index.php' => array('text', 'images', 'interactive')
         )
     );
-    */
 
 
 // Start the output buffer to collect markup
