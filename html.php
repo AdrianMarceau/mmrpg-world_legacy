@@ -3,7 +3,11 @@
     <head>
         <meta charset="utf-8" />
         <title><?= $html_title_text ?></title>
-        <meta name="robots" content="noindex,nofollow" />
+        <? if (defined('IS_LEGACY_INDEX')){ ?>
+            <meta name="robots" content="index,follow" />
+        <? } else { ?>
+            <meta name="robots" content="noindex,nofollow" />
+        <? } ?>
         <link type="text/css" href="<?= $mmrpg_root_url ?>styles/style.css" rel="stylesheet" />
         <? if (!empty($html_styles_markup)){ echo $html_styles_markup.PHP_EOL; } ?>
     </head>
