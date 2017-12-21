@@ -18,7 +18,7 @@ if (!in_array($_SERVER['REMOTE_ADDR'], array('999.999.999.999'))){
 //@ini_set('session.gc_maxlifetime', 24*60*60);
 //@ini_set('session.gc_probability', 1);
 //@ini_set('session.gc_divisor', 1);
-if (session_status() == PHP_SESSION_NONE){ session_start(); }
+if (session_id() == ''){ session_start(); }
 if (!isset($_SESSION['RPG2k15'])){ $_SESSION['RPG2k15'] = array(); }
 
 // Include mandatory config files
