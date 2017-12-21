@@ -17,13 +17,13 @@ if (!in_array($_SERVER['REMOTE_ADDR'], array('99.226.253.166', '127.0.0.1', '99.
 $session_token = rpg_game::session_token();
 
 // Automatically empty all temporary battle variables
-$_SESSION['BATTLES'] = array();
-$_SESSION['FIELDS'] = array();
-$_SESSION['PLAYERS'] = array();
-$_SESSION['ROBOTS'] = array();
-$_SESSION['ABILITIES'] = array();
-$_SESSION['PROTOTYPE_TEMP'] = array();
-unset($_SESSION['GAME']['debug_mode']);
+$_SESSION['RPG2k16']['BATTLES'] = array();
+$_SESSION['RPG2k16']['FIELDS'] = array();
+$_SESSION['RPG2k16']['PLAYERS'] = array();
+$_SESSION['RPG2k16']['ROBOTS'] = array();
+$_SESSION['RPG2k16']['ABILITIES'] = array();
+$_SESSION['RPG2k16']['PROTOTYPE_TEMP'] = array();
+unset($_SESSION['RPG2k16']['GAME']['debug_mode']);
 
 // Collect the prototype start link if provided
 $prototype_start_link = !empty($_GET['start']) ? $_GET['start'] : 'home';
@@ -39,7 +39,7 @@ if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'reset'){
   rpg_game::reset_session();
 
   // Update the appropriate session variables
-  $_SESSION['GAME']['USER'] = $this_user;
+  $_SESSION['RPG2k16']['GAME']['USER'] = $this_user;
 
   // Load the save file into memory and overwrite the session
   rpg_game::save_session();
@@ -52,9 +52,9 @@ if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'reset-missions' && !e
   // Reset the appropriate session variables
   if (!empty($mmrpg_index['players'][$_REQUEST['player']])){
     $temp_session_key = $_REQUEST['player'].'_target-robot-omega_prototype';
-    $_SESSION['GAME']['values']['battle_complete'][$_REQUEST['player']] = array();
-    $_SESSION['GAME']['values']['battle_failure'][$_REQUEST['player']] = array();
-    $_SESSION['GAME']['values'][$temp_session_key] = array();
+    $_SESSION['RPG2k16']['GAME']['values']['battle_complete'][$_REQUEST['player']] = array();
+    $_SESSION['RPG2k16']['GAME']['values']['battle_failure'][$_REQUEST['player']] = array();
+    $_SESSION['RPG2k16']['GAME']['values'][$temp_session_key] = array();
   }
 
   // Load the save file into memory and overwrite the session
@@ -77,9 +77,9 @@ if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'exit'){
   $this_user['password_encoded'] = md5($this_user['password']);
 
   // Update the session with these demo variables
-  $_SESSION['GAME']['DEMO'] = 1;
-  $_SESSION['GAME']['USER'] = $this_user;
-  $_SESSION['GAME']['counters']['battle_points'] = 0;
+  $_SESSION['RPG2k16']['GAME']['DEMO'] = 1;
+  $_SESSION['RPG2k16']['GAME']['USER'] = $this_user;
+  $_SESSION['RPG2k16']['GAME']['counters']['battle_points'] = 0;
 
   // Reset the game session and reload the page
   rpg_game::reset_session();
@@ -90,10 +90,10 @@ if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'exit'){
 }
 
 // Cache the currently online players
-if (!isset($_SESSION['LEADERBOARD']['online_timestamp'])
-  || (time() - $_SESSION['LEADERBOARD']['online_timestamp']) > 1){ // 600sec = 10min
-  $_SESSION['LEADERBOARD']['online_players'] = rpg_prototype::leaderboard_online();
-  $_SESSION['LEADERBOARD']['online_timestamp'] = time();
+if (!isset($_SESSION['RPG2k16']['LEADERBOARD']['online_timestamp'])
+  || (time() - $_SESSION['RPG2k16']['LEADERBOARD']['online_timestamp']) > 1){ // 600sec = 10min
+  $_SESSION['RPG2k16']['LEADERBOARD']['online_players'] = rpg_prototype::leaderboard_online();
+  $_SESSION['RPG2k16']['LEADERBOARD']['online_timestamp'] = time();
 }
 
 
@@ -106,14 +106,14 @@ require_once('includes/prototype.php');
  */
 
 // Collect the game flags for easier password processing
-$temp_flags = !empty($_SESSION['GAME']['flags']) ? $_SESSION['GAME']['flags'] : array();
+$temp_flags = !empty($_SESSION['RPG2k16']['GAME']['flags']) ? $_SESSION['RPG2k16']['GAME']['flags'] : array();
 
 // Include the prototype awards file to check stuff
 require('prototype/awards.php');
 
 // If possible, attempt to save the game to the session
-if (empty($_SESSION[$session_token]['USER']['userid'])
-  && $_SESSION[$session_token]['USER']['userid'] != MMRPG_SETTINGS_GUEST_ID){
+if (empty($_SESSION['RPG2k16'][$session_token]['USER']['userid'])
+  && $_SESSION['RPG2k16'][$session_token]['USER']['userid'] != MMRPG_SETTINGS_GUEST_ID){
   rpg_game::save_session();
 }
 
@@ -151,7 +151,7 @@ if (empty($_SESSION[$session_token]['USER']['userid'])
       // Define the menu options array to be populated
       $this_menu_tooltips = array();
       $this_menu_tooltips['leaderboard'] = '&laquo; Battle Points Leaderboard &raquo; &lt;br /&gt;Live leaderboards rank all players by their total Battle Point scores from highest to lowest. Keep an eye on your Battle Points by checking here at the top-right of the main menu and try to work your way up to the first page!';
-      $this_menu_tooltips['save'] = '&laquo; '.(!empty($_SESSION['GAME']['USER']['displayname']) ? $_SESSION['GAME']['USER']['displayname'] : $_SESSION['GAME']['USER']['username']).' Game Profile &raquo; &lt;br /&gt;Review and configure save file options including display name, theme and colour settings, robot avatars, missions resets, and more.  Please note that this game uses auto-save functionality and manual file updates are not required.';
+      $this_menu_tooltips['save'] = '&laquo; '.(!empty($_SESSION['RPG2k16']['GAME']['USER']['displayname']) ? $_SESSION['RPG2k16']['GAME']['USER']['displayname'] : $_SESSION['RPG2k16']['GAME']['USER']['username']).' Game Profile &raquo; &lt;br /&gt;Review and configure save file options including display name, theme and colour settings, robot avatars, missions resets, and more.  Please note that this game uses auto-save functionality and manual file updates are not required.';
       $this_menu_tooltips['database'] = '&laquo; Robot Database &raquo; &lt;br /&gt;A comprehensive list of all robots encountered in battle so far including their name, details, and records. Scanning robots adds their stats and weaknesses to the database and unlocking them adds a complete list of their level-up abilities.';
       $this_menu_tooltips['starforce'] = '&laquo; Starforce &raquo; &lt;br /&gt;A detailed list of all Field and Fusion Stars collected so far as well as a percentage-based breakdown of your current Starforce and its elemental affinities. Starforce increases the amount of damage inflicted by all elemental abilities of the same type!';
       $this_menu_tooltips['help'] = '&laquo; Battle Tips &raquo; &lt;br /&gt;A bullet-point list covering both basic and advanced battle tips to help you progress through the game and level up faster.';
@@ -174,8 +174,8 @@ if (empty($_SESSION[$session_token]['USER']['userid'])
       <a class="wrapper link link_leaderboard" data-step="leaderboard" data-index="99" data-source="frames/leaderboard.php" data-music="misc/leader-board" data-tooltip="<?= $this_menu_tooltips['leaderboard'] ?>" data-tooltip-type="field_type field_type_<?= MMRPG_SETTINGS_CURRENT_FIELDTYPE ?>">
         <label class="label">Battle Points</label>
         <span class="amount">
-          <?php /*= preg_replace('#^([0]+)([0-9]+)$#', '<span class="padding">$1</span><span class="value">$2</span>', str_pad((!empty($_SESSION['GAME']['counters']['battle_points']) ? $_SESSION['GAME']['counters']['battle_points'] : 0), 13, '0', STR_PAD_LEFT)) */ ?>
-          <?= number_format($_SESSION['GAME']['counters']['battle_points'], 0, '.', ',') ?>
+          <?php /*= preg_replace('#^([0]+)([0-9]+)$#', '<span class="padding">$1</span><span class="value">$2</span>', str_pad((!empty($_SESSION['RPG2k16']['GAME']['counters']['battle_points']) ? $_SESSION['RPG2k16']['GAME']['counters']['battle_points'] : 0), 13, '0', STR_PAD_LEFT)) */ ?>
+          <?= number_format($_SESSION['RPG2k16']['GAME']['counters']['battle_points'], 0, '.', ',') ?>
           <?php if(rpg_game::is_user() && !empty($this_boardinfo['board_rank'])): ?>
             <span class="pipe">|</span>
             <span class="place"><?= rpg_website::number_suffix($this_boardinfo['board_rank']) ?></span>
@@ -186,7 +186,7 @@ if (empty($_SESSION[$session_token]['USER']['userid'])
     <div class="zenny field_type field_type_<?= MMRPG_SETTINGS_CURRENT_FIELDTYPE ?>">
       <div class="wrapper">
         <span class="amount">
-          <?= number_format($_SESSION['GAME']['counters']['battle_zenny'], 0, '.', ',') ?> z
+          <?= number_format($_SESSION['RPG2k16']['GAME']['counters']['battle_zenny'], 0, '.', ',') ?> z
         </span>
       </div>
     </div>
@@ -195,8 +195,8 @@ if (empty($_SESSION[$session_token]['USER']['userid'])
 
       <?php
       // Define the avatar class and path variables
-      $temp_avatar_path = !empty($_SESSION['GAME']['USER']['imagepath']) ? $_SESSION['GAME']['USER']['imagepath'] : 'robots/mega-man/40';
-      $temp_colour_token = !empty($_SESSION['GAME']['USER']['colourtoken']) ? $_SESSION['GAME']['USER']['colourtoken'] : '';
+      $temp_avatar_path = !empty($_SESSION['RPG2k16']['GAME']['USER']['imagepath']) ? $_SESSION['RPG2k16']['GAME']['USER']['imagepath'] : 'robots/mega-man/40';
+      $temp_colour_token = !empty($_SESSION['RPG2k16']['GAME']['USER']['colourtoken']) ? $_SESSION['RPG2k16']['GAME']['USER']['colourtoken'] : '';
       list($temp_avatar_kind, $temp_avatar_token, $temp_avatar_size) = explode('/', $temp_avatar_path);
       $temp_sprite_class = 'sprite sprite_'.$temp_avatar_size.'x'.$temp_avatar_size.' sprite_'.$temp_avatar_size.'x'.$temp_avatar_size.'_00';
       $temp_sprite_offset = $temp_avatar_size == 80 ? 'margin-left: -20px; margin-top: -40px; ' : '';
@@ -225,7 +225,7 @@ if (empty($_SESSION[$session_token]['USER']['userid'])
               else { echo 'Normal Rank'; }
               ?>
             </span>
-            <span class="name"><?= !empty($_SESSION['GAME']['USER']['displayname']) ? $_SESSION['GAME']['USER']['displayname'] : $_SESSION['GAME']['USER']['username'] ?></span>
+            <span class="name"><?= !empty($_SESSION['RPG2k16']['GAME']['USER']['displayname']) ? $_SESSION['RPG2k16']['GAME']['USER']['displayname'] : $_SESSION['RPG2k16']['GAME']['USER']['username'] ?></span>
           </span>
           <?= $temp_avatar_markup ?>
         </a>
@@ -408,9 +408,9 @@ if (empty($_SESSION[$session_token]['USER']['userid'])
 <script type="text/javascript">
 // Define the game WAP and cache flags/values
 gameSettings.passwordUnlocked = 0;
-gameSettings.pointsUnlocked = <?= !empty($_SESSION['GAME']['counters']['battle_points']) ? $_SESSION['GAME']['counters']['battle_points'] : 0 ?>;
+gameSettings.pointsUnlocked = <?= !empty($_SESSION['RPG2k16']['GAME']['counters']['battle_points']) ? $_SESSION['RPG2k16']['GAME']['counters']['battle_points'] : 0 ?>;
 gameSettings.fadeIn = true;
-gameSettings.demo = <?= $_SESSION['GAME']['DEMO'] ?>;
+gameSettings.demo = <?= $_SESSION['RPG2k16']['GAME']['DEMO'] ?>;
 gameSettings.wapFlag = <?= $flag_wap ? 'true' : 'false' ?>;
 gameSettings.cacheTime = '<?= MMRPG_CONFIG_CACHE_DATE?>';
 gameSettings.startLink = '<?= $prototype_start_link ?>';
@@ -427,8 +427,8 @@ battleOptions['this_player_id'] = <?= $this_userid ?>;
     battleOptions['this_player_robots'] = '103_mega-man,104_bass,105_proto-man';
   <?endif;?>
 <?php else: ?>
-  <?php if(!empty($_SESSION['GAME']['battle_settings']['this_player_token'])): ?>
-    battleOptions['this_player_token'] = '<?= $_SESSION['GAME']['battle_settings']['this_player_token']?>';
+  <?php if(!empty($_SESSION['RPG2k16']['GAME']['battle_settings']['this_player_token'])): ?>
+    battleOptions['this_player_token'] = '<?= $_SESSION['RPG2k16']['GAME']['battle_settings']['this_player_token']?>';
   <?php elseif($unlock_count_players < 2): ?>
     battleOptions['this_player_token'] = 'dr-light';
   <?php endif; ?>
@@ -436,13 +436,13 @@ battleOptions['this_player_id'] = <?= $this_userid ?>;
 // Create the document ready events
 $(document).ready(function(){
 
-  <?php if($prototype_start_link == 'home' && empty($_SESSION['GAME']['battle_settings']['this_player_token'])): ?>
+  <?php if($prototype_start_link == 'home' && empty($_SESSION['RPG2k16']['GAME']['battle_settings']['this_player_token'])): ?>
     // Start playing the title screen music
     parent.mmrpg_music_load('misc/player-select', true, false);
   <?php elseif($prototype_start_link != 'home'): ?>
-    <?php if(!empty($_SESSION['GAME']['battle_settings']['this_player_token'])): ?>
+    <?php if(!empty($_SESSION['RPG2k16']['GAME']['battle_settings']['this_player_token'])): ?>
       // Start playing the appropriate stage select music
-      parent.mmrpg_music_load('misc/stage-select-<?= $_SESSION['GAME']['battle_settings']['this_player_token'] ?>', true, false);
+      parent.mmrpg_music_load('misc/stage-select-<?= $_SESSION['RPG2k16']['GAME']['battle_settings']['this_player_token'] ?>', true, false);
     <?php else: ?>
       // Start playing the title screen music
       parent.mmrpg_music_load('misc/player-select', true, false);
@@ -451,8 +451,8 @@ $(document).ready(function(){
 
   <?php
   // If there were any prototype window events created, display them
-  if (!empty($_SESSION['GAME']['EVENTS'])){
-    foreach ($_SESSION['GAME']['EVENTS'] AS $temp_key => $temp_event){
+  if (!empty($_SESSION['RPG2k16']['GAME']['EVENTS'])){
+    foreach ($_SESSION['RPG2k16']['GAME']['EVENTS'] AS $temp_key => $temp_event){
       $temp_canvas_markup = str_replace('"', '\"', $temp_event['canvas_markup']);
       $temp_messages_markup =  str_replace('"', '\"', $temp_event['console_markup']);
       echo 'gameSettings.windowEventsCanvas.push("'.$temp_canvas_markup.'");'."\n";
@@ -471,7 +471,7 @@ require(MMRPG_CONFIG_ROOTDIR.'/data/analytics.php');
 </html>
 <?php
 // If there were any events in the session, automatically add remove them from the session
-if (!empty($_SESSION['GAME']['EVENTS'])){ $_SESSION['GAME']['EVENTS'] = array(); }
+if (!empty($_SESSION['RPG2k16']['GAME']['EVENTS'])){ $_SESSION['RPG2k16']['GAME']['EVENTS'] = array(); }
 // Unset the database variable
 unset($db);
 ?>

@@ -13,7 +13,8 @@ else { define('MMRPG_TOP_INCLUDED', true); }
 //@ini_set('session.gc_maxlifetime', 24*60*60);
 //@ini_set('session.gc_probability', 1);
 //@ini_set('session.gc_divisor', 1);
-session_start();
+if (session_id() == ''){ session_start(); }
+if (!isset($_SESSION['RPG2k15'])){ $_SESSION['RPG2k15'] = array(); }
 
 // Include mandatory config files
 define('MMRPG_BUILD', 'mmrpg2k16');
@@ -35,7 +36,7 @@ require('classes/rpg_functions.php');
 
 // Create the global database object
 if (!defined('MMRPG_INDEX_SESSION') && !defined('MMRPG_INDEX_STYLES')){
-    if (MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['DEBUG'] = array(); }
+    if (MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['RPG2k16']['DEBUG'] = array(); }
     $db = new cms_database();
     // If the database could not be created, critical error mode!
     if ($db->CONNECT === false){
@@ -73,7 +74,7 @@ require('classes/rpg_item.php');
 // If we're in a file page, prevent userinfo caching
 if (preg_match('/file.php$/i', basename(__FILE__))){
     // Prevent userinfo caching for this page
-    unset($_SESSION['GAME']['USER']['userinfo']);
+    unset($_SESSION['RPG2k16']['GAME']['USER']['userinfo']);
 }
 
 // Turn off magic quotes before it causes any problems
@@ -120,14 +121,14 @@ if (!empty($_FILES)){
  */
 
 // Create mandatory session variables if they do not exist
-if (!isset($_SESSION['BATTLES'])){ $_SESSION['BATTLES'] = array(); }
-if (!isset($_SESSION['FIELDS'])){ $_SESSION['FIELDS'] = array(); }
-if (!isset($_SESSION['PLAYERS'])){ $_SESSION['PLAYERS'] = array(); }
-if (!isset($_SESSION['ROBOTS'])){ $_SESSION['ROBOTS'] = array(); }
-if (!isset($_SESSION['ABILITIES'])){ $_SESSION['ABILITIES'] = array(); }
+if (!isset($_SESSION['RPG2k16']['BATTLES'])){ $_SESSION['RPG2k16']['BATTLES'] = array(); }
+if (!isset($_SESSION['RPG2k16']['FIELDS'])){ $_SESSION['RPG2k16']['FIELDS'] = array(); }
+if (!isset($_SESSION['RPG2k16']['PLAYERS'])){ $_SESSION['RPG2k16']['PLAYERS'] = array(); }
+if (!isset($_SESSION['RPG2k16']['ROBOTS'])){ $_SESSION['RPG2k16']['ROBOTS'] = array(); }
+if (!isset($_SESSION['RPG2k16']['ABILITIES'])){ $_SESSION['RPG2k16']['ABILITIES'] = array(); }
 
 // Define the COMMUNITY session trackers if they do not exist
-if (!isset($_SESSION['COMMUNITY'])){ $_SESSION['COMMUNITY']['threads_viewed'] = array(); }
+if (!isset($_SESSION['RPG2k16']['COMMUNITY'])){ $_SESSION['RPG2k16']['COMMUNITY']['threads_viewed'] = array(); }
 
 
 /*
@@ -160,11 +161,11 @@ if (!defined('MMRPG_CRITICAL_ERROR')){
     $this_cache_dir = MMRPG_CONFIG_CACHE_PATH;
 
     // If the user and file details have already been loaded to the session
-    if (!empty($_SESSION['GAME']['USER']['userid'])
-        && $_SESSION['GAME']['USER']['userid'] != MMRPG_SETTINGS_GUEST_ID){
+    if (!empty($_SESSION['RPG2k16']['GAME']['USER']['userid'])
+        && $_SESSION['RPG2k16']['GAME']['USER']['userid'] != MMRPG_SETTINGS_GUEST_ID){
 
         // Pull the user and file info from the session
-        $this_user = $_SESSION['GAME']['USER'];
+        $this_user = $_SESSION['RPG2k16']['GAME']['USER'];
 
     }
     // Otherwise, if we're in demo mode, populate manually
@@ -182,8 +183,8 @@ if (!defined('MMRPG_CRITICAL_ERROR')){
         $this_user['password_encoded'] = md5($this_user['password']);
 
         // Update the session with these demo variables
-        $_SESSION['GAME']['DEMO'] = 1;
-        $_SESSION['GAME']['USER'] = $this_user;
+        $_SESSION['RPG2k16']['GAME']['DEMO'] = 1;
+        $_SESSION['RPG2k16']['GAME']['USER'] = $this_user;
 
         // Update the first load to indicate true
         $this_first_load = true;
@@ -289,23 +290,23 @@ if (empty($this_current_page) || !in_array($this_current_page, $this_allowed_pag
 if (!defined('MMRPG_CRITICAL_ERROR') && !defined('MMRPG_INDEX_SESSION') && !defined('MMRPG_INDEX_SESSION') && !defined('MMRPG_INDEX_STYLES')){
 
     // If the user session is already in progress, collect the details
-    if (!empty($_SESSION['GAME']['USER']['userid']) && $_SESSION['GAME']['USER']['userid'] != MMRPG_SETTINGS_GUEST_ID){
+    if (!empty($_SESSION['RPG2k16']['GAME']['USER']['userid']) && $_SESSION['RPG2k16']['GAME']['USER']['userid'] != MMRPG_SETTINGS_GUEST_ID){
 
         // Collect this userinfo from the database
-        $this_userid = (int)($_SESSION['GAME']['USER']['userid']);
-        if (empty($_SESSION['GAME']['USER']['userinfo'])){
+        $this_userid = (int)($_SESSION['RPG2k16']['GAME']['USER']['userid']);
+        if (empty($_SESSION['RPG2k16']['GAME']['USER']['userinfo'])){
             $this_userinfo = $db->get_array("SELECT users.*, roles.* FROM mmrpg_users AS users LEFT JOIN mmrpg_roles AS roles ON roles.role_id = users.role_id WHERE users.user_id = '{$this_userid}' LIMIT 1");
-            $_SESSION['GAME']['USER']['userinfo'] = $this_userinfo;
+            $_SESSION['RPG2k16']['GAME']['USER']['userinfo'] = $this_userinfo;
         } else {
-            $this_userinfo = $_SESSION['GAME']['USER']['userinfo'];
+            $this_userinfo = $_SESSION['RPG2k16']['GAME']['USER']['userinfo'];
         }
 
         if (!defined('MMRPG_SCRIPT_REQUEST')){
             $this_boardinfo = $db->get_array("SELECT * FROM mmrpg_leaderboard WHERE user_id = {$this_userid}");
             $this_boardid = $this_boardinfo['board_id'];
-            $this_boardinfo['board_rank'] = !empty($_SESSION['GAME']['BOARD']['boardrank']) ? $_SESSION['GAME']['BOARD']['boardrank'] : 0;
-            //if (empty($this_boardinfo['board_rank'])){ require('includes/leaderboard.php'); $_SESSION['GAME']['BOARD']['boardrank'] = $this_boardinfo['board_rank']; }
-            if (empty($this_boardinfo['board_rank'])){ $_SESSION['GAME']['BOARD']['boardrank'] = $this_boardinfo['board_rank'] = rpg_prototype::leaderboard_rank($this_userid); }
+            $this_boardinfo['board_rank'] = !empty($_SESSION['RPG2k16']['GAME']['BOARD']['boardrank']) ? $_SESSION['RPG2k16']['GAME']['BOARD']['boardrank'] : 0;
+            //if (empty($this_boardinfo['board_rank'])){ require('includes/leaderboard.php'); $_SESSION['RPG2k16']['GAME']['BOARD']['boardrank'] = $this_boardinfo['board_rank']; }
+            if (empty($this_boardinfo['board_rank'])){ $_SESSION['RPG2k16']['GAME']['BOARD']['boardrank'] = $this_boardinfo['board_rank'] = rpg_prototype::leaderboard_rank($this_userid); }
         }
 
     }
@@ -314,11 +315,11 @@ if (!defined('MMRPG_CRITICAL_ERROR') && !defined('MMRPG_INDEX_SESSION') && !defi
 
         // Collect the guest userinfo from the database
         $this_userid = MMRPG_SETTINGS_GUEST_ID;
-        if (empty($_SESSION['GAME']['USER']['userinfo'])){
+        if (empty($_SESSION['RPG2k16']['GAME']['USER']['userinfo'])){
             $this_userinfo = $db->get_array("SELECT users.* FROM mmrpg_users AS users WHERE users.user_id = '{$this_userid}' LIMIT 1");
-            $_SESSION['GAME']['USER']['userinfo'] = $this_userinfo;
+            $_SESSION['RPG2k16']['GAME']['USER']['userinfo'] = $this_userinfo;
         } else {
-            $this_userinfo = $_SESSION['GAME']['USER']['userinfo'];
+            $this_userinfo = $_SESSION['RPG2k16']['GAME']['USER']['userinfo'];
         }
 
         if (!defined('MMRPG_SCRIPT_REQUEST')){
@@ -352,7 +353,7 @@ if (!defined('MMRPG_INDEX_SESSION') && !defined('MMRPG_INDEX_STYLES')){
     else {
         // Define the theme timeout for auto updating
         $theme_timeout = 60 * 60 * 1; // 60s x 60m = 1 hr
-        if (!isset($_SESSION['INDEX']['theme_cache']) || (time() - $_SESSION['INDEX']['theme_cache']) > $theme_timeout){
+        if (!isset($_SESSION['RPG2k16']['INDEX']['theme_cache']) || (time() - $_SESSION['RPG2k16']['INDEX']['theme_cache']) > $theme_timeout){
             // Hard code the type to none but collect a ranzomized field token
             $temp_field_info = $db->get_array("SELECT
                 field_token,
@@ -372,15 +373,15 @@ if (!defined('MMRPG_INDEX_SESSION') && !defined('MMRPG_INDEX_STYLES')){
                 ;", 'mecha_token');
             $temp_mecha_tokens = array_keys($temp_mecha_tokens);
             // Update the session with these settings
-            $_SESSION['INDEX']['theme_cache'] = time();
-            $_SESSION['INDEX']['theme_field_path'] = $temp_field_path;
-            $_SESSION['INDEX']['theme_field_type'] = $temp_field_type;
-            $_SESSION['INDEX']['theme_mecha_tokens'] = $temp_mecha_tokens;
+            $_SESSION['RPG2k16']['INDEX']['theme_cache'] = time();
+            $_SESSION['RPG2k16']['INDEX']['theme_field_path'] = $temp_field_path;
+            $_SESSION['RPG2k16']['INDEX']['theme_field_type'] = $temp_field_type;
+            $_SESSION['RPG2k16']['INDEX']['theme_mecha_tokens'] = $temp_mecha_tokens;
         } else {
             // Collect existing theme settings from the session
-            $temp_field_path = $_SESSION['INDEX']['theme_field_path'];
-            $temp_field_type = $_SESSION['INDEX']['theme_field_type'];
-            $temp_mecha_tokens = $_SESSION['INDEX']['theme_mecha_tokens'];
+            $temp_field_path = $_SESSION['RPG2k16']['INDEX']['theme_field_path'];
+            $temp_field_type = $_SESSION['RPG2k16']['INDEX']['theme_field_type'];
+            $temp_mecha_tokens = $_SESSION['RPG2k16']['INDEX']['theme_mecha_tokens'];
         }
     }
 
