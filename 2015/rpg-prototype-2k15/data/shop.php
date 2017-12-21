@@ -6,15 +6,15 @@ if (!isset($session_token)){ $session_token = mmrpg_game_token(); }
 // -- COLLECT ENVIRONMENT VARIABLES -- //
 
 // Collect the field stars from the session variable
-if (!isset($_SESSION[$session_token]['values']['battle_shops'])){ $_SESSION[$session_token]['values']['battle_shops'] = array(); }
-$this_battle_shops = !empty($_SESSION[$session_token]['values']['battle_shops']) ? $_SESSION[$session_token]['values']['battle_shops'] : array();
+if (!isset($_SESSION['RPG2k15'][$session_token]['values']['battle_shops'])){ $_SESSION['RPG2k15'][$session_token]['values']['battle_shops'] = array(); }
+$this_battle_shops = !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_shops']) ? $_SESSION['RPG2k15'][$session_token]['values']['battle_shops'] : array();
 $this_battle_shops_count = !empty($this_battle_shops) ? count($this_battle_shops) : 0;
 
 // Define the array to hold all the item quantities
 $global_item_quantities = array();
 $global_item_prices = array();
-$global_zenny_counter = !empty($_SESSION[$session_token]['counters']['battle_zenny']) ? $_SESSION[$session_token]['counters']['battle_zenny'] : 0;
-$global_points_counter = !empty($_SESSION[$session_token]['counters']['battle_points']) ? $_SESSION[$session_token]['counters']['battle_points'] : 0;
+$global_zenny_counter = !empty($_SESSION['RPG2k15'][$session_token]['counters']['battle_zenny']) ? $_SESSION['RPG2k15'][$session_token]['counters']['battle_zenny'] : 0;
+$global_points_counter = !empty($_SESSION['RPG2k15'][$session_token]['counters']['battle_points']) ? $_SESSION['RPG2k15'][$session_token]['counters']['battle_points'] : 0;
 
 // Define the global counters for unlocked robot cores and ability types
 $global_unlocked_robots = mmrpg_prototype_robot_tokens_unlocked();
@@ -558,6 +558,6 @@ if (!empty($this_shop_index['kalinka'])){
 
 
 // Update the session with any changes to the character shops
-$_SESSION[$session_token]['values']['battle_shops'] = $this_battle_shops;
+$_SESSION['RPG2k15'][$session_token]['values']['battle_shops'] = $this_battle_shops;
 
 ?>

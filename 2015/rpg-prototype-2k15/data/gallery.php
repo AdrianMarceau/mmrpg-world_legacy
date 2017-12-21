@@ -167,7 +167,7 @@ if (MMRPG_CONFIG_CACHE_INDEXES && file_exists($this_cache_filedir)){
   }
 
   // Update the session cache
-  // $_SESSION['LEADERBOARD'][$this_cache_stamp] = $this_file_index;
+  // $_SESSION['RPG2k15']['LEADERBOARD'][$this_cache_stamp] = $this_file_index;
   // Update the gallery cache files
   mmrpg_save_gallery_markup(str_replace('.php', '.html.txt', $this_cache_filedir), $this_gallery_markup);
   mmrpg_save_gallery_markup(str_replace('.php', '.xml.txt', $this_cache_filedir), $this_gallery_xml);

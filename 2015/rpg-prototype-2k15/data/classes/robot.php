@@ -48,14 +48,14 @@ class mmrpg_robot {
   // Define a function for getting the session info
   public static function get_session_field($robot_id, $field_token){
       if (empty($robot_id) || empty($field_token)){ return false; }
-    elseif (!empty($_SESSION['ROBOTS'][$robot_id][$field_token])){ return $_SESSION['ROBOTS'][$robot_id][$field_token]; }
+    elseif (!empty($_SESSION['RPG2k15']['ROBOTS'][$robot_id][$field_token])){ return $_SESSION['RPG2k15']['ROBOTS'][$robot_id][$field_token]; }
     else { return false; }
   }
 
   // Define a function for setting the session info
   public static function set_session_field($robot_id, $field_token, $field_value){
       if (empty($robot_id) || empty($field_token)){ return false; }
-    else { $_SESSION['ROBOTS'][$robot_id][$field_token] = $field_value; }
+    else { $_SESSION['RPG2k15']['ROBOTS'][$robot_id][$field_token] = $field_value; }
     return true;
   }
 
@@ -79,13 +79,13 @@ class mmrpg_robot {
 
     // Collect current robot data from the session if available
     $this_robotinfo_backup = $this_robotinfo;
-    if (isset($_SESSION['ROBOTS'][$this_robotinfo['robot_id']])){
-      $this_robotinfo = $_SESSION['ROBOTS'][$this_robotinfo['robot_id']];
+    if (isset($_SESSION['RPG2k15']['ROBOTS'][$this_robotinfo['robot_id']])){
+      $this_robotinfo = $_SESSION['RPG2k15']['ROBOTS'][$this_robotinfo['robot_id']];
     }
     // Otherwise, collect robot data from the index
     else {
       if (empty($this_robotinfo_backup['_parsed'])){
-        if (MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['DEBUG']['checkpoint_queries'][] = "\$this_robotinfo = mmrpg_robot::get_index_info({$this_robotinfo['robot_token']}); on line ".__LINE__;  }
+        if (MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['RPG2k15']['DEBUG']['checkpoint_queries'][] = "\$this_robotinfo = mmrpg_robot::get_index_info({$this_robotinfo['robot_token']}); on line ".__LINE__;  }
         $this_robotinfo = mmrpg_robot::get_index_info($this_robotinfo['robot_token']);
         $this_robotinfo = array_replace($this_robotinfo, $this_robotinfo_backup);
       }
@@ -1304,7 +1304,7 @@ class mmrpg_robot {
 
     // Update the session with the export array
     $this_data = $this->export_array();
-    $_SESSION['ROBOTS'][$this->robot_id] = $this_data;
+    $_SESSION['RPG2k15']['ROBOTS'][$this->robot_id] = $this_data;
     $this->battle->values['robots'][$this->robot_id] = $this_data;
     //$this->player->values['robots'][$this->robot_id] = $this_data;
 

@@ -9,14 +9,14 @@ function mmrpg_save_game_session($this_save_filepath){
   // Do NOT load, save, or otherwise alter the game file while viewing remote
   if (defined('MMRPG_REMOTE_GAME')){ return true; }
   // Update the last saved value
-  $_SESSION[$session_token]['values']['last_save'] = time();
+  $_SESSION['RPG2k15'][$session_token]['values']['last_save'] = time();
 
   // If this is NOT demo mode, load from database
-  if (empty($_SESSION[$session_token]['DEMO'])){
+  if (empty($_SESSION['RPG2k15'][$session_token]['DEMO'])){
     // UPDATE DATABASE INFO
 
     // Collect the save info
-    $save = $_SESSION[$session_token];
+    $save = $_SESSION['RPG2k15'][$session_token];
     $this_user = $save['USER'];
     $this_file = $save['FILE'];
     $this_cache_date = !empty($save['CACHE_DATE']) ? $save['CACHE_DATE'] : MMRPG_CONFIG_CACHE_DATE;
@@ -343,7 +343,7 @@ function mmrpg_save_game_session($this_save_filepath){
     unset($temp_board_array);
 
     // Clear any leaderboard data that exists in the session, forcing it to recache
-    if (isset($_SESSION[$session_token]['BOARD']['boardrank'])){ unset($_SESSION[$session_token]['BOARD']['boardrank']); }
+    if (isset($_SESSION['RPG2k15'][$session_token]['BOARD']['boardrank'])){ unset($_SESSION['RPG2k15'][$session_token]['BOARD']['boardrank']); }
 
     // Define the save database update array and populate
     $temp_save_array = array();
@@ -432,7 +432,7 @@ function mmrpg_save_game_session($this_save_filepath){
   $this_base_dir = preg_replace('#^(.*/)([a-z0-9]+\.sav)$#i', '$1', $this_save_filepath);
   if (!file_exists($this_base_dir)){ @mkdir($this_base_dir); }
   // Generate the save data by serializing the session variable
-  $temp_game_session = $_SESSION[$session_token];
+  $temp_game_session = $_SESSION['RPG2k15'][$session_token];
   $this_save_content = json_encode($temp_game_session);
   unset($temp_game_session);
   // Write the index to a cache file, if caching is enabled

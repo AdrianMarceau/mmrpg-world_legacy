@@ -10,13 +10,13 @@ $this_online_timeout = MMRPG_SETTINGS_ONLINE_TIMEOUT;
 // If this is a PERSONAL thread, we have to do some security
 if ($this_category_info['category_token'] == 'personal'){
   // Ensure the user is logged in, else redirect to login
-  if ($_SESSION['GAME']['USER']['userid'] == MMRPG_SETTINGS_GUEST_ID){
+  if ($_SESSION['RPG2k15']['GAME']['USER']['userid'] == MMRPG_SETTINGS_GUEST_ID){
     header('Location: '.MMRPG_CONFIG_ROOTURL.'file/load/');
     exit();
   }
   // Ensure the user is actually part of the thread, else redirect to community index
-  elseif ($_SESSION['GAME']['USER']['userid'] != $this_thread_info['user_id']
-    && $_SESSION['GAME']['USER']['userid'] != $this_thread_info['thread_target']){
+  elseif ($_SESSION['RPG2k15']['GAME']['USER']['userid'] != $this_thread_info['user_id']
+    && $_SESSION['RPG2k15']['GAME']['USER']['userid'] != $this_thread_info['thread_target']){
     header('Location: '.MMRPG_CONFIG_ROOTURL.'community/personal/');
     exit();
   }
@@ -55,7 +55,7 @@ article:tag - string array - Tag words associated with this article.
 $thread_session_token = $this_thread_info['thread_id'].'_';
 $thread_session_token .= !empty($this_thread_info['thread_mod_date']) ? $this_thread_info['thread_mod_date'] : $this_thread_info['thread_date'];
 // Check if this thread has already been viewed this session
-$thread_session_viewed = in_array($thread_session_token, $_SESSION['COMMUNITY']['threads_viewed']) ? true : false;
+$thread_session_viewed = in_array($thread_session_token, $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed']) ? true : false;
 
 // Check to see if this is a message thread, and then if being viewed by creator
 $is_personal_message = $this_thread_info['thread_target'] != 0 ? true : false;
@@ -465,8 +465,8 @@ $this_page_minpost_key = $this_page_maxpost_key - ($this_posts_perpage - 1);
 <?
 
 // Add this thread to the community session tracker array
-if (!in_array($thread_session_token, $_SESSION['COMMUNITY']['threads_viewed'])){
-  $_SESSION['COMMUNITY']['threads_viewed'][] = $thread_session_token;
+if (!in_array($thread_session_token, $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'])){
+  $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'][] = $thread_session_token;
 }
 
 ?>

@@ -32,7 +32,7 @@ body { font-family: sans-serif; font-size: 0.8em; padding: 20px; }
 
 /** Validate captcha */
 if (!empty($_REQUEST['captcha'])) {
-    if (empty($_SESSION['captcha']) || trim(strtolower($_REQUEST['captcha'])) != $_SESSION['captcha']) {
+    if (empty($_SESSION['RPG2k15']['captcha']) || trim(strtolower($_REQUEST['captcha'])) != $_SESSION['RPG2k15']['captcha']) {
         $captcha_message = "Invalid captcha";
         $style = "background-color: #FF606C";
     } else {
@@ -48,7 +48,7 @@ if (!empty($_REQUEST['captcha'])) {
         <table>
         <tr>
             <td>Session CAPTCHA:</td>
-            <td>{$_SESSION['captcha']}</td>
+            <td>{$_SESSION['RPG2k15']['captcha']}</td>
         </tr>
         <tr>
             <td>Form CAPTCHA:</td>
@@ -57,7 +57,7 @@ if (!empty($_REQUEST['captcha'])) {
         </table>
         </div>
 HTML;
-    unset($_SESSION['captcha']);
+    unset($_SESSION['RPG2k15']['captcha']);
 }
 
 

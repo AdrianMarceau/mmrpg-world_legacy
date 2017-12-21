@@ -37,21 +37,21 @@ $player_info['player_heart_counter'] = 0;
 // Define the player's experience points total
 $player_info['player_experience'] = 0;
 // Collect this player's current defined omega item list
-if (!empty($_SESSION[$session_token]['values']['battle_rewards'])){
+if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'])){
   //$debug_experience_sum = $player_token.' : ';
-  foreach ($_SESSION[$session_token]['values']['battle_rewards'] AS $temp_player => $temp_player_info){
-    if (!empty($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'])){
-      $temp_player_robot_rewards = $_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'];
-      $temp_player_robot_settings = $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'];
+  foreach ($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'] AS $temp_player => $temp_player_info){
+    if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'])){
+      $temp_player_robot_rewards = $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'];
+      $temp_player_robot_settings = $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'];
       if (empty($temp_player_robot_rewards) || empty($temp_player_robot_settings)){
-        unset($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots']);
-        unset($_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots']);
+        unset($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots']);
+        unset($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots']);
         continue;
       }
       foreach ($temp_player_robot_rewards AS $temp_key => $temp_robot_info){
         if (empty($temp_robot_info['robot_token'])){
-          unset($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_key]);
-          unset($_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_key]);
+          unset($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_key]);
+          unset($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_key]);
           continue;
         }
         $temp_robot_settings = $temp_player_robot_settings[$temp_robot_info['robot_token']];
@@ -72,7 +72,7 @@ if (!empty($_SESSION[$session_token]['values']['battle_rewards'])){
 
 // Collect this player's current field selection from the omega session
 $temp_session_key = $player_info['player_token'].'_target-robot-omega_prototype';
-$player_info['target_robot_omega'] = !empty($_SESSION[$session_token]['values'][$temp_session_key]) ? $_SESSION[$session_token]['values'][$temp_session_key] : array();
+$player_info['target_robot_omega'] = !empty($_SESSION['RPG2k15'][$session_token]['values'][$temp_session_key]) ? $_SESSION['RPG2k15'][$session_token]['values'][$temp_session_key] : array();
 $player_info['player_fields_current'] = array();
 //die('<pre>$player_info[\'target_robot_omega\'] = '.print_r($player_info['target_robot_omega'], true).'</pre>');
 if (count($player_info['target_robot_omega']) == 2){ $player_info['target_robot_omega'] = array_shift($player_info['target_robot_omega']); }

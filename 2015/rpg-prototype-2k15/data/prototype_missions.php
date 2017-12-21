@@ -2,7 +2,7 @@
 /*
  * DEMO MISSION SELECT
  */
-if (!empty($_SESSION[$session_token]['DEMO'])){
+if (!empty($_SESSION['RPG2k15'][$session_token]['DEMO'])){
   // DEBUG
   //echo 'checkpoint_'.__LINE__.'<br />';
 
@@ -40,14 +40,14 @@ else {
       $chapters_display_count = 0;
       $chapters_display_markup = '';
       ob_start();
-      if ($chapters_unlocked_light['player'] && empty($_SESSION[$session_token]['battle_settings']['flags']['light_unlocked_chapter_player'])){ unset($_SESSION[$session_token]['battle_settings']['light_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['light_unlocked_chapter_player'] = true; }
-      if ($chapters_unlocked_light['bonus'] && empty($_SESSION[$session_token]['battle_settings']['flags']['light_unlocked_chapter_bonus'])){ unset($_SESSION[$session_token]['battle_settings']['light_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['light_unlocked_chapter_bonus'] = true; }
-      if ($chapters_unlocked_light['five'] && empty($_SESSION[$session_token]['battle_settings']['flags']['light_unlocked_chapter_five'])){ unset($_SESSION[$session_token]['battle_settings']['light_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['light_unlocked_chapter_five'] = true; }
-      if ($chapters_unlocked_light['four'] && empty($_SESSION[$session_token]['battle_settings']['flags']['light_unlocked_chapter_four'])){ unset($_SESSION[$session_token]['battle_settings']['light_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['light_unlocked_chapter_four'] = true; }
-      if ($chapters_unlocked_light['three'] && empty($_SESSION[$session_token]['battle_settings']['flags']['light_unlocked_chapter_three'])){ unset($_SESSION[$session_token]['battle_settings']['light_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['light_unlocked_chapter_three'] = true; }
-      if ($chapters_unlocked_light['two'] && empty($_SESSION[$session_token]['battle_settings']['flags']['light_unlocked_chapter_two'])){ unset($_SESSION[$session_token]['battle_settings']['light_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['light_unlocked_chapter_two'] = true; }
-      if ($chapters_unlocked_light['one'] && empty($_SESSION[$session_token]['battle_settings']['flags']['light_unlocked_chapter_one'])){ unset($_SESSION[$session_token]['battle_settings']['light_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['light_unlocked_chapter_one'] = true; }
-      $temp_last_chapter = isset($_SESSION[$session_token]['battle_settings']['light_current_chapter']) ? $_SESSION[$session_token]['battle_settings']['light_current_chapter'] : false;
+      if ($chapters_unlocked_light['player'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['light_unlocked_chapter_player'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['light_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['light_unlocked_chapter_player'] = true; }
+      if ($chapters_unlocked_light['bonus'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['light_unlocked_chapter_bonus'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['light_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['light_unlocked_chapter_bonus'] = true; }
+      if ($chapters_unlocked_light['five'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['light_unlocked_chapter_five'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['light_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['light_unlocked_chapter_five'] = true; }
+      if ($chapters_unlocked_light['four'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['light_unlocked_chapter_four'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['light_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['light_unlocked_chapter_four'] = true; }
+      if ($chapters_unlocked_light['three'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['light_unlocked_chapter_three'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['light_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['light_unlocked_chapter_three'] = true; }
+      if ($chapters_unlocked_light['two'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['light_unlocked_chapter_two'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['light_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['light_unlocked_chapter_two'] = true; }
+      if ($chapters_unlocked_light['one'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['light_unlocked_chapter_one'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['light_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['light_unlocked_chapter_one'] = true; }
+      $temp_last_chapter = isset($_SESSION['RPG2k15'][$session_token]['battle_settings']['light_current_chapter']) ? $_SESSION['RPG2k15'][$session_token]['battle_settings']['light_current_chapter'] : false;
       if ($temp_last_chapter === false){
         if ($chapters_unlocked_light['player']){ $temp_last_chapter = 'player'; }
         elseif ($chapters_unlocked_light['bonus']){ $temp_last_chapter = 'bonus'; }
@@ -70,13 +70,13 @@ else {
       echo '<div class="chapter_select chapter_select_'.$chapters_display_count.'" data-player="light">';
         echo $chapters_display_markup;
       echo '</div>';
-      if ($prototype_start_link == 'home' && !defined('MMRPG_SCRIPT_REQUEST') && empty($_SESSION[$session_token]['battle_settings']['this_player_token'])){
+      if ($prototype_start_link == 'home' && !defined('MMRPG_SCRIPT_REQUEST') && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['this_player_token'])){
         // DEBUG
         //echo 'checkpoint_'.__LINE__.'<br />';
 
         echo $prototype_data['dr-light']['missions_markup']."\n";
       }
-      elseif ($prototype_start_link == 'home' && !defined('MMRPG_SCRIPT_REQUEST') && !empty($_SESSION[$session_token]['battle_settings']['this_player_token']) && $_SESSION[$session_token]['battle_settings']['this_player_token'] == 'dr-light'){
+      elseif ($prototype_start_link == 'home' && !defined('MMRPG_SCRIPT_REQUEST') && !empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['this_player_token']) && $_SESSION['RPG2k15'][$session_token]['battle_settings']['this_player_token'] == 'dr-light'){
         // DEBUG
         //echo 'checkpoint_'.__LINE__.'<br />';
 
@@ -115,14 +115,14 @@ else {
       $chapters_display_markup = '';
       ob_start();
       ob_start();
-      if ($chapters_unlocked_wily['player'] && empty($_SESSION[$session_token]['battle_settings']['flags']['wily_unlocked_chapter_player'])){ unset($_SESSION[$session_token]['battle_settings']['wily_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['wily_unlocked_chapter_player'] = true; }
-      if ($chapters_unlocked_wily['bonus'] && empty($_SESSION[$session_token]['battle_settings']['flags']['wily_unlocked_chapter_bonus'])){ unset($_SESSION[$session_token]['battle_settings']['wily_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['wily_unlocked_chapter_bonus'] = true; }
-      if ($chapters_unlocked_wily['five'] && empty($_SESSION[$session_token]['battle_settings']['flags']['wily_unlocked_chapter_five'])){ unset($_SESSION[$session_token]['battle_settings']['wily_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['wily_unlocked_chapter_five'] = true; }
-      if ($chapters_unlocked_wily['four'] && empty($_SESSION[$session_token]['battle_settings']['flags']['wily_unlocked_chapter_four'])){ unset($_SESSION[$session_token]['battle_settings']['wily_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['wily_unlocked_chapter_four'] = true; }
-      if ($chapters_unlocked_wily['three'] && empty($_SESSION[$session_token]['battle_settings']['flags']['wily_unlocked_chapter_three'])){ unset($_SESSION[$session_token]['battle_settings']['wily_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['wily_unlocked_chapter_three'] = true; }
-      if ($chapters_unlocked_wily['two'] && empty($_SESSION[$session_token]['battle_settings']['flags']['wily_unlocked_chapter_two'])){ unset($_SESSION[$session_token]['battle_settings']['wily_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['wily_unlocked_chapter_two'] = true; }
-      if ($chapters_unlocked_wily['one'] && empty($_SESSION[$session_token]['battle_settings']['flags']['wily_unlocked_chapter_one'])){ unset($_SESSION[$session_token]['battle_settings']['wily_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['wily_unlocked_chapter_one'] = true; }
-      $temp_last_chapter = isset($_SESSION[$session_token]['battle_settings']['wily_current_chapter']) ? $_SESSION[$session_token]['battle_settings']['wily_current_chapter'] : false;
+      if ($chapters_unlocked_wily['player'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['wily_unlocked_chapter_player'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['wily_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['wily_unlocked_chapter_player'] = true; }
+      if ($chapters_unlocked_wily['bonus'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['wily_unlocked_chapter_bonus'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['wily_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['wily_unlocked_chapter_bonus'] = true; }
+      if ($chapters_unlocked_wily['five'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['wily_unlocked_chapter_five'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['wily_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['wily_unlocked_chapter_five'] = true; }
+      if ($chapters_unlocked_wily['four'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['wily_unlocked_chapter_four'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['wily_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['wily_unlocked_chapter_four'] = true; }
+      if ($chapters_unlocked_wily['three'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['wily_unlocked_chapter_three'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['wily_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['wily_unlocked_chapter_three'] = true; }
+      if ($chapters_unlocked_wily['two'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['wily_unlocked_chapter_two'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['wily_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['wily_unlocked_chapter_two'] = true; }
+      if ($chapters_unlocked_wily['one'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['wily_unlocked_chapter_one'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['wily_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['wily_unlocked_chapter_one'] = true; }
+      $temp_last_chapter = isset($_SESSION['RPG2k15'][$session_token]['battle_settings']['wily_current_chapter']) ? $_SESSION['RPG2k15'][$session_token]['battle_settings']['wily_current_chapter'] : false;
       if ($temp_last_chapter === false){
         if ($chapters_unlocked_wily['player']){ $temp_last_chapter = 'player'; }
         elseif ($chapters_unlocked_wily['bonus']){ $temp_last_chapter = 'bonus'; }
@@ -145,7 +145,7 @@ else {
       echo '<div class="chapter_select chapter_select_'.$chapters_display_count.'" data-player="wily">';
         echo $chapters_display_markup;
       echo '</div>';
-      if ($prototype_start_link == 'home' && !defined('MMRPG_SCRIPT_REQUEST') && !empty($_SESSION[$session_token]['battle_settings']['this_player_token']) && $_SESSION[$session_token]['battle_settings']['this_player_token'] == 'dr-wily'){
+      if ($prototype_start_link == 'home' && !defined('MMRPG_SCRIPT_REQUEST') && !empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['this_player_token']) && $_SESSION['RPG2k15'][$session_token]['battle_settings']['this_player_token'] == 'dr-wily'){
         // DEBUG
         //echo 'checkpoint_'.__LINE__.'<br />';
 
@@ -183,14 +183,14 @@ else {
       $chapters_display_count = 0;
       $chapters_display_markup = '';
       ob_start();
-      if ($chapters_unlocked_cossack['player'] && empty($_SESSION[$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_player'])){ unset($_SESSION[$session_token]['battle_settings']['cossack_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_player'] = true; }
-      if ($chapters_unlocked_cossack['bonus'] && empty($_SESSION[$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_bonus'])){ unset($_SESSION[$session_token]['battle_settings']['cossack_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_bonus'] = true; }
-      if ($chapters_unlocked_cossack['five'] && empty($_SESSION[$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_five'])){ unset($_SESSION[$session_token]['battle_settings']['cossack_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_five'] = true; }
-      if ($chapters_unlocked_cossack['four'] && empty($_SESSION[$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_four'])){ unset($_SESSION[$session_token]['battle_settings']['cossack_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_four'] = true; }
-      if ($chapters_unlocked_cossack['three'] && empty($_SESSION[$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_three'])){ unset($_SESSION[$session_token]['battle_settings']['cossack_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_three'] = true; }
-      if ($chapters_unlocked_cossack['two'] && empty($_SESSION[$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_two'])){ unset($_SESSION[$session_token]['battle_settings']['cossack_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_two'] = true; }
-      if ($chapters_unlocked_cossack['one'] && empty($_SESSION[$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_one'])){ unset($_SESSION[$session_token]['battle_settings']['cossack_current_chapter']); $_SESSION[$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_one'] = true; }
-      $temp_last_chapter = isset($_SESSION[$session_token]['battle_settings']['cossack_current_chapter']) ? $_SESSION[$session_token]['battle_settings']['cossack_current_chapter'] : false;
+      if ($chapters_unlocked_cossack['player'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_player'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['cossack_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_player'] = true; }
+      if ($chapters_unlocked_cossack['bonus'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_bonus'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['cossack_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_bonus'] = true; }
+      if ($chapters_unlocked_cossack['five'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_five'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['cossack_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_five'] = true; }
+      if ($chapters_unlocked_cossack['four'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_four'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['cossack_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_four'] = true; }
+      if ($chapters_unlocked_cossack['three'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_three'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['cossack_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_three'] = true; }
+      if ($chapters_unlocked_cossack['two'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_two'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['cossack_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_two'] = true; }
+      if ($chapters_unlocked_cossack['one'] && empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_one'])){ unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['cossack_current_chapter']); $_SESSION['RPG2k15'][$session_token]['battle_settings']['flags']['cossack_unlocked_chapter_one'] = true; }
+      $temp_last_chapter = isset($_SESSION['RPG2k15'][$session_token]['battle_settings']['cossack_current_chapter']) ? $_SESSION['RPG2k15'][$session_token]['battle_settings']['cossack_current_chapter'] : false;
       if ($temp_last_chapter === false){
         if ($chapters_unlocked_cossack['player']){ $temp_last_chapter = 'player'; }
         elseif ($chapters_unlocked_cossack['bonus']){ $temp_last_chapter = 'bonus'; }
@@ -213,7 +213,7 @@ else {
       echo '<div class="chapter_select chapter_select_'.$chapters_display_count.'" data-player="cossack">';
         echo $chapters_display_markup;
       echo '</div>';
-      if ($prototype_start_link == 'home' && !defined('MMRPG_SCRIPT_REQUEST') && !empty($_SESSION[$session_token]['battle_settings']['this_player_token']) && $_SESSION[$session_token]['battle_settings']['this_player_token'] == 'dr-cossack'){
+      if ($prototype_start_link == 'home' && !defined('MMRPG_SCRIPT_REQUEST') && !empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['this_player_token']) && $_SESSION['RPG2k15'][$session_token]['battle_settings']['this_player_token'] == 'dr-cossack'){
         // DEBUG
         //echo 'checkpoint_'.__LINE__.'<br />';
 

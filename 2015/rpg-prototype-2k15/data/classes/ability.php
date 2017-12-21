@@ -73,8 +73,8 @@ class mmrpg_ability {
 
     // Collect current ability data from the session if available
     $this_abilityinfo_backup = $this_abilityinfo;
-    if (isset($_SESSION['ABILITIES'][$this_abilityinfo['ability_id']])){
-      $this_abilityinfo = $_SESSION['ABILITIES'][$this_abilityinfo['ability_id']];
+    if (isset($_SESSION['RPG2k15']['ABILITIES'][$this_abilityinfo['ability_id']])){
+      $this_abilityinfo = $_SESSION['RPG2k15']['ABILITIES'][$this_abilityinfo['ability_id']];
     }
     // Otherwise, collect ability data from the index if not already
     elseif (!in_array($this_abilityinfo['ability_token'], $temp_system_abilities)){
@@ -861,7 +861,7 @@ class mmrpg_ability {
 
     // Update the session with the export array
     $this_data = $this->export_array();
-    $_SESSION['ABILITIES'][$this->robot->robot_id][$this->ability_id] = $this_data;
+    $_SESSION['RPG2k15']['ABILITIES'][$this->robot->robot_id][$this->ability_id] = $this_data;
     $this->battle->values['abilities'][$this->ability_id] = $this_data;
     //$this->player->values['abilities'][$this->ability_id] = $this_data;
     //$this->robot->values['abilities'][$this->ability_id] = $this_data;

@@ -3,7 +3,7 @@
 require_once('../top.php');
 
 // Unset the prototype temp variable
-$_SESSION['PROTOTYPE_TEMP'] = array();
+$_SESSION['RPG2k15']['PROTOTYPE_TEMP'] = array();
 
 // Require the remote top in case we're in viewer mode
 define('MMRPG_REMOTE_SKIP_INDEX', true);
@@ -41,7 +41,7 @@ if (mmrpg_prototype_complete('dr-cossack')){
 }
 
 // Collect any fields unlocked via other means
-$temp_unlocked_fields = !empty($_SESSION[$session_token]['values']['battle_fields']) ? $_SESSION[$session_token]['values']['battle_fields'] : array();
+$temp_unlocked_fields = !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_fields']) ? $_SESSION['RPG2k15'][$session_token]['values']['battle_fields'] : array();
 
 // Loop through unlockable system fields with no type
 foreach ($this_omega_factors_system AS $key => $factor){
@@ -72,8 +72,8 @@ $mmrpg_robots_index = mmrpg_robot::get_index();
 
 // Collect all the robots that have been unlocked by the player
 $mmrpg_robots_encountered = array();
-if (!empty($_SESSION[$session_token]['values']['robot_database'])){
-  $mmrpg_robots_encountered = array_keys($_SESSION[$session_token]['values']['robot_database']);
+if (!empty($_SESSION['RPG2k15'][$session_token]['values']['robot_database'])){
+  $mmrpg_robots_encountered = array_keys($_SESSION['RPG2k15'][$session_token]['values']['robot_database']);
 }
 
 // Collect the omega factors that we should be printing links for
@@ -343,8 +343,8 @@ gameSettings.autoScrollTop = false;
 $(document).ready(function(){
 <?
 // Define a reference to the game's session flag variable
-if (empty($_SESSION[$session_token]['flags']['events'])){ $_SESSION[$session_token]['flags']['events'] = array(); }
-$temp_game_flags = &$_SESSION[$session_token]['flags']['events'];
+if (empty($_SESSION['RPG2k15'][$session_token]['flags']['events'])){ $_SESSION['RPG2k15'][$session_token]['flags']['events'] = array(); }
+$temp_game_flags = &$_SESSION['RPG2k15'][$session_token]['flags']['events'];
 // If this is the first time using the editor, display the introductory area
 $temp_event_flag = 'unlocked-tooltip_starforce-viewer-intro';
 if (empty($temp_game_flags[$temp_event_flag]) && $global_allow_editing){

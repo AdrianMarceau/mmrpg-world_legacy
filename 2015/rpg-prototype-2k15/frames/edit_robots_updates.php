@@ -46,11 +46,11 @@ if (EDIT_ROBOT_UPDATES_DEBUG){
   <?
 }
 
-$temp_battle_rewards = &$_SESSION[$session_token]['values']['battle_rewards'];
-$temp_battle_settings = &$_SESSION[$session_token]['values']['battle_settings'];
+$temp_battle_rewards = &$_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'];
+$temp_battle_settings = &$_SESSION['RPG2k15'][$session_token]['values']['battle_settings'];
 $temp_stat_tokens = array('energy', 'attack', 'defense', 'speed');
 
-//$temp_battle_database = &$_SESSION[$session_token]['values']['robot_database'];
+//$temp_battle_database = &$_SESSION['RPG2k15'][$session_token]['values']['robot_database'];
 if (!empty($temp_battle_rewards) || !empty($temp_battle_settings)){
 
   // Define the player colours for debug purposes
@@ -198,11 +198,11 @@ if (!empty($temp_battle_rewards) || !empty($temp_battle_settings)){
               $temp_robot_info['robot_stats_overflow'] -= $stat_values['overflow'];
               $temp_robot_info['robot_stats_total'] -= $stat_values['overflow'];
               // Update the actual session variable with the decrease in reward value
-              if (!empty($_SESSION[$session_token]['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_'.$stat_token])){
-                $value = $_SESSION[$session_token]['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_'.$stat_token];
+              if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_'.$stat_token])){
+                $value = $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_'.$stat_token];
                 $value -= $stat_values['overflow'];
                 if ($value < 0){ $value = 0; }
-                $_SESSION[$session_token]['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_'.$stat_token] = $value;
+                $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_'.$stat_token] = $value;
               }
             }
           }
@@ -268,13 +268,13 @@ if (!empty($temp_battle_rewards) || !empty($temp_battle_settings)){
             $temp_total_overflow_value -= $temp_overflow_boost;
             $stat_values =  $temp_robot_info['robot_stats'][$stat_token];
             // Update the actual session variable with the decrease in reward value
-            if (!isset($_SESSION[$session_token]['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_'.$stat_token])){
-              $_SESSION[$session_token]['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_'.$stat_token] = 0;
+            if (!isset($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_'.$stat_token])){
+              $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_'.$stat_token] = 0;
             }
             if (!empty($temp_overflow_boost)){
-              $value = $_SESSION[$session_token]['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_'.$stat_token];
+              $value = $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_'.$stat_token];
               $value += $temp_overflow_boost;
-              $_SESSION[$session_token]['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_'.$stat_token] = $value;
+              $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_'.$stat_token] = $value;
             }
           }
           if ($stat_values['total'] == $stat_values['max']){
@@ -376,8 +376,8 @@ if (!empty($temp_battle_rewards) || !empty($temp_battle_settings)){
 
     // Calculate the zenny reward for each point
     $temp_total_overflow_reward = $temp_total_overflow_value * 1;
-    if (!isset($_SESSION[$session_token]['counters']['battle_zenny'])){ $_SESSION[$session_token]['counters']['battle_zenny'] = 0; }
-    $_SESSION[$session_token]['counters']['battle_zenny'] += $temp_total_overflow_reward;
+    if (!isset($_SESSION['RPG2k15'][$session_token]['counters']['battle_zenny'])){ $_SESSION['RPG2k15'][$session_token]['counters']['battle_zenny'] = 0; }
+    $_SESSION['RPG2k15'][$session_token]['counters']['battle_zenny'] += $temp_total_overflow_reward;
 
     // Print out the total overflow value
     if (EDIT_ROBOT_UPDATES_DEBUG){

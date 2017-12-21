@@ -70,7 +70,7 @@ $ability = array(
         $temp_unlock_token = false;
         if (preg_match('/-2$/i', $temp_token)){ $temp_unlock_token = $temp_base_token; }
         if (preg_match('/-3$/i', $temp_token)){ $temp_unlock_token = $temp_base_token.'-2'; }
-        if (!empty($temp_unlock_token) && !empty($_SESSION['GAME']['values']['robot_database'][$temp_unlock_token])){ unset($this_field_mechas[$temp_key]); }
+        if (!empty($temp_unlock_token) && !empty($_SESSION['RPG2k15']['GAME']['values']['robot_database'][$temp_unlock_token])){ unset($this_field_mechas[$temp_key]); }
       }
       */
 
@@ -83,8 +83,8 @@ $ability = array(
       $this_mecha_count = count($this_field_mechas);
       $this_mecha_token = $this_field_mechas[0]; //$this_field_mechas[array_rand($this_field_mechas)];
       $this_mecha_name_token = preg_replace('/-([1-3]+)$/i', '', $this_mecha_token);
-      if (empty($_SESSION['GAME']['values']['robot_database'][$this_mecha_token]['robot_summoned'])){ $_SESSION['GAME']['values']['robot_database'][$this_mecha_token]['robot_summoned'] = 0; }
-      $this_mecha_summoned_counter = $_SESSION['GAME']['values']['robot_database'][$this_mecha_token]['robot_summoned'];
+      if (empty($_SESSION['RPG2k15']['GAME']['values']['robot_database'][$this_mecha_token]['robot_summoned'])){ $_SESSION['RPG2k15']['GAME']['values']['robot_database'][$this_mecha_token]['robot_summoned'] = 0; }
+      $this_mecha_summoned_counter = $_SESSION['RPG2k15']['GAME']['values']['robot_database'][$this_mecha_token]['robot_summoned'];
 
       // Check to see if this robot has summoned a mecha during this battle already
       if (!isset($this_robot->counters['ability_mecha_support'])){ $this_robot->counters['ability_mecha_support'] = 0; }
@@ -115,10 +115,10 @@ $ability = array(
       $this_player->update_session();
 
       // Add this robot's token to the robot database, as to unlock this robot's ability data
-      if (!isset($_SESSION['GAME']['values']['robot_database'][$this_mecha_token])){ $_SESSION['GAME']['values']['robot_database'][$this_mecha_token] = array('robot_token' => $this_mecha_token); }
-      if (!isset($_SESSION['GAME']['values']['robot_database'][$this_mecha_token]['robot_summoned'])){ $_SESSION['GAME']['values']['robot_database'][$this_mecha_token]['robot_summoned'] = 0; }
-      $_SESSION['GAME']['values']['robot_database'][$this_mecha_token]['robot_summoned'] += 1;
-      $this_mecha_summoned_counter = $_SESSION['GAME']['values']['robot_database'][$this_mecha_token]['robot_summoned'];
+      if (!isset($_SESSION['RPG2k15']['GAME']['values']['robot_database'][$this_mecha_token])){ $_SESSION['RPG2k15']['GAME']['values']['robot_database'][$this_mecha_token] = array('robot_token' => $this_mecha_token); }
+      if (!isset($_SESSION['RPG2k15']['GAME']['values']['robot_database'][$this_mecha_token]['robot_summoned'])){ $_SESSION['RPG2k15']['GAME']['values']['robot_database'][$this_mecha_token]['robot_summoned'] = 0; }
+      $_SESSION['RPG2k15']['GAME']['values']['robot_database'][$this_mecha_token]['robot_summoned'] += 1;
+      $this_mecha_summoned_counter = $_SESSION['RPG2k15']['GAME']['values']['robot_database'][$this_mecha_token]['robot_summoned'];
 
       // Decide which letter to attach to this mecha
       $this_letter_options = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H');

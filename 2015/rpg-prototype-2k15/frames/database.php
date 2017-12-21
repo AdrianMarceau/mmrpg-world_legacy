@@ -3,7 +3,7 @@
 require_once('../top.php');
 
 // Unset the prototype temp variable
-$_SESSION['PROTOTYPE_TEMP'] = array();
+$_SESSION['RPG2k15']['PROTOTYPE_TEMP'] = array();
 
 // Require the remote top in case we're in viewer mode
 define('MMRPG_REMOTE_SKIP_INDEX', true);
@@ -37,8 +37,8 @@ if ($unlock_flag_wily){ $unlock_count_players++; }
 if ($unlock_flag_cossack){ $unlock_count_players++; }
 
 // Define a reference to the game's session flag variable
-if (empty($_SESSION[$session_token]['flags']['events'])){ $_SESSION[$session_token]['flags']['events'] = array(); }
-$temp_game_flags = &$_SESSION[$session_token]['flags']['events'];
+if (empty($_SESSION['RPG2k15'][$session_token]['flags']['events'])){ $_SESSION['RPG2k15'][$session_token]['flags']['events'] = array(); }
+$temp_game_flags = &$_SESSION['RPG2k15'][$session_token]['flags']['events'];
 
 // Require the appropriate database files
 define('DATA_DATABASE_SHOW_MECHAS', true);
@@ -59,7 +59,7 @@ require(MMRPG_CONFIG_ROOTDIR.'data/database_fields.php');
 $mmrpg_database_robots = array_merge($mmrpg_database_robots, $mmrpg_database_mechas, $mmrpg_database_bosses);
 
 // Preloop through all of the robots in the database session and count the games
-$session_robot_database = !empty($_SESSION[$session_token]['values']['robot_database']) ? $_SESSION[$session_token]['values']['robot_database'] : array();
+$session_robot_database = !empty($_SESSION['RPG2k15'][$session_token]['values']['robot_database']) ? $_SESSION['RPG2k15'][$session_token]['values']['robot_database'] : array();
 $database_game_counters = array();
 foreach ($session_robot_database AS $temp_token => $temp_info){
   if (!isset($mmrpg_database_robots[$temp_token])){ continue; }
@@ -91,7 +91,7 @@ foreach ($mmrpg_database_robots AS $temp_token => $temp_info){
 }
 /*
 // DEMO MODE
-if (!empty($_SESSION[$session_token]['DEMO'])){
+if (!empty($_SESSION['RPG2k15'][$session_token]['DEMO'])){
   $visible_database_robots = array_merge($visible_database_robots, array('mega-man', 'proto-man', 'roll'));
   if (mmrpg_prototype_battles_complete('dr-light') >= 1){ $visible_database_robots = array_merge($visible_database_robots, array('cut-man', 'metal-man')); }
   if (mmrpg_prototype_battles_complete('dr-light') >= 2){ $visible_database_robots = array_merge($visible_database_robots, array('crash-man', 'ice-man', 'bomb-man', 'wood-man')); }
@@ -200,12 +200,12 @@ if (true){
       elseif (!in_array($temp_token, $database_game_counters[$robot_info['robot_game']])){ $database_game_counters[$robot_info['robot_game']][] = $temp_token; }
 
       // Update and/or define the encountered, scanned, summoned, and unlocked flags
-      if (!isset($robot_info['robot_visible'])){ $robot_info['robot_visible'] = !empty($_SESSION[$session_token]['values']['robot_database'][$robot_info['robot_token']]) ? true : false; }
-      if (!isset($robot_info['robot_encountered'])){ $robot_info['robot_encountered'] = !empty($_SESSION[$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_encountered']) ? $_SESSION[$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_encountered'] : 0; }
-      if (!isset($robot_info['robot_scanned'])){ $robot_info['robot_scanned'] = !empty($_SESSION[$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_scanned']) ? $_SESSION[$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_scanned'] : 0; }
-      if (!isset($robot_info['robot_summoned'])){ $robot_info['robot_summoned'] = !empty($_SESSION[$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_summoned']) ? $_SESSION[$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_summoned'] : 0; }
-      if (!isset($robot_info['robot_unlocked'])){ $robot_info['robot_unlocked'] = !empty($_SESSION[$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_unlocked']) ? $_SESSION[$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_unlocked'] : 0; }
-      if (!isset($robot_info['robot_defeated'])){ $robot_info['robot_defeated'] = !empty($_SESSION[$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_defeated']) ? $_SESSION[$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_defeated'] : 0; }
+      if (!isset($robot_info['robot_visible'])){ $robot_info['robot_visible'] = !empty($_SESSION['RPG2k15'][$session_token]['values']['robot_database'][$robot_info['robot_token']]) ? true : false; }
+      if (!isset($robot_info['robot_encountered'])){ $robot_info['robot_encountered'] = !empty($_SESSION['RPG2k15'][$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_encountered']) ? $_SESSION['RPG2k15'][$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_encountered'] : 0; }
+      if (!isset($robot_info['robot_scanned'])){ $robot_info['robot_scanned'] = !empty($_SESSION['RPG2k15'][$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_scanned']) ? $_SESSION['RPG2k15'][$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_scanned'] : 0; }
+      if (!isset($robot_info['robot_summoned'])){ $robot_info['robot_summoned'] = !empty($_SESSION['RPG2k15'][$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_summoned']) ? $_SESSION['RPG2k15'][$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_summoned'] : 0; }
+      if (!isset($robot_info['robot_unlocked'])){ $robot_info['robot_unlocked'] = !empty($_SESSION['RPG2k15'][$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_unlocked']) ? $_SESSION['RPG2k15'][$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_unlocked'] : 0; }
+      if (!isset($robot_info['robot_defeated'])){ $robot_info['robot_defeated'] = !empty($_SESSION['RPG2k15'][$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_defeated']) ? $_SESSION['RPG2k15'][$session_token]['values']['robot_database'][$robot_info['robot_token']]['robot_defeated'] : 0; }
 
       // Define the page token based on this robot's game of origin
       if (!isset($robot_info['robot_page_token'])){
@@ -258,8 +258,8 @@ if (true){
           <div id="robot_games" class="wrapper_links">
             <?
             // Print out page links for all the pages that are enabled and placeholder otherwise
-            $temp_current_page_page_key = !empty($_SESSION[$session_token]['battle_settings']['current_database_page_key']) ? $_SESSION[$session_token]['battle_settings']['current_database_page_key'] : 0;
-            $temp_current_page_robot_key = !empty($_SESSION[$session_token]['battle_settings']['current_database_robot_token']) ? $_SESSION[$session_token]['battle_settings']['current_database_robot_token'] : false;
+            $temp_current_page_page_key = !empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['current_database_page_key']) ? $_SESSION['RPG2k15'][$session_token]['battle_settings']['current_database_page_key'] : 0;
+            $temp_current_page_robot_key = !empty($_SESSION['RPG2k15'][$session_token]['battle_settings']['current_database_robot_token']) ? $_SESSION['RPG2k15'][$session_token]['battle_settings']['current_database_robot_token'] : false;
             foreach ($database_page_counters AS $page_key => $page_unlocked){
               $temp_is_current = $page_key == $temp_current_page_page_key ? true : false;
               if ($page_unlocked){ echo '<a class="game_link '.($temp_is_current ? 'game_link_active ' : '').'" href="#" data-game="'.$page_key.'">'.$page_key.'</a>'."\n"; }
@@ -374,7 +374,7 @@ if (true){
             foreach($mmrpg_database_robots AS $robot_key => $robot_info):
               // Define whether this robot has been scanned and/or unlocked
               //$robot_info['robot_unlocked'] = mmrpg_prototype_robot_unlocked(false, $robot_info['robot_token']);
-              //$robot_info['robot_scanned'] = $robot_info['robot_unlocked'] || !empty($_SESSION[$session_token]['values']['robot_database'][$robot_info['robot_token']]) ? true : false;
+              //$robot_info['robot_scanned'] = $robot_info['robot_unlocked'] || !empty($_SESSION['RPG2k15'][$session_token]['values']['robot_database'][$robot_info['robot_token']]) ? true : false;
               //if ($robot_info['robot_scanned'] && $robot_info['robot_class'] == 'mecha'){ $robot_info['robot_unlocked'] = true; }
               // If this is a mecha, define it's generation for display
               if (!empty($robot_info['robot_class']) && $robot_info['robot_class'] == 'mecha'){
@@ -699,7 +699,7 @@ if (true){
   $this_database_markup = preg_replace('#\s+#', ' ', trim(ob_get_clean()));
 
   // Update the session cache
-  //$_SESSION['DATABASE'][$this_cache_stamp] = $this_database_markup;
+  //$_SESSION['RPG2k15']['DATABASE'][$this_cache_stamp] = $this_database_markup;
 }
 
 
@@ -900,11 +900,11 @@ function windowResizeFrame(){
 $(document).ready(function(){
 <?
 // Define a reference to the game's session flag variable
-if (empty($_SESSION[$session_token]['flags']['events'])){ $_SESSION[$session_token]['flags']['events'] = array(); }
-$temp_game_flags = &$_SESSION[$session_token]['flags']['events'];
+if (empty($_SESSION['RPG2k15'][$session_token]['flags']['events'])){ $_SESSION['RPG2k15'][$session_token]['flags']['events'] = array(); }
+$temp_game_flags = &$_SESSION['RPG2k15'][$session_token]['flags']['events'];
 // If this is the first time using the editor, display the introductory area
 $temp_event_flag = 'unlocked-tooltip_robot-database-intro';
-if (empty($_SESSION[$session_token]['DEMO']) && empty($temp_game_flags[$temp_event_flag]) && $global_allow_editing){
+if (empty($_SESSION['RPG2k15'][$session_token]['DEMO']) && empty($temp_game_flags[$temp_event_flag]) && $global_allow_editing){
   $temp_game_flags[$temp_event_flag] = true;
   ?>
   // Generate a first-time event canvas that explains how the editor works

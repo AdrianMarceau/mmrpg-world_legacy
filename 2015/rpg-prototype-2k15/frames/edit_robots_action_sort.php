@@ -11,16 +11,16 @@ if (empty($temp_token) || empty($temp_order) || empty($temp_player)){
 }
 
 // Ensure this player's robots exist in the current game session
-if (!empty($_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'])
-  && !empty($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'])){
+if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'])
+  && !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'])){
 
     // Make a copy of the player robots array
-    $temp_player_robots = $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'];
-    $temp_player_robots_rewards = $_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'];
+    $temp_player_robots = $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'];
+    $temp_player_robots_rewards = $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'];
     if (!empty($temp_player_robots)){
       foreach ($temp_player_robots AS $token => $info){
         // Update the current and session arrays to make absolutely sure the robot token is in the right place
-        if (empty($info['robot_token'])){ $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$token]['robot_token'] = $temp_player_robots[$token]['robot_token'] = $token; }
+        if (empty($info['robot_token'])){ $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$token]['robot_token'] = $temp_player_robots[$token]['robot_token'] = $token; }
         $temp_player_robots[$token]['robot_core'] = !empty($mmrpg_database_robots[$token]['robot_core']) ? $mmrpg_database_robots[$token]['robot_core'] : '';
       }
     }
@@ -188,7 +188,7 @@ if (!empty($_SESSION[$session_token]['values']['battle_settings'][$temp_player][
     // Ensure nothing went wrong with the array before copying
     if (!empty($temp_player_robots)){
       $temp_robot_tokens = implode(',', array_keys($temp_player_robots));
-      $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'] = $temp_player_robots;
+      $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'] = $temp_player_robots;
       exit('success|array-sorted|'.$temp_robot_tokens);
     }
     // Otherwise produce an error

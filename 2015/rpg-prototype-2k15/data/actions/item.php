@@ -26,7 +26,7 @@ ob_start();
       <?
       // If there were more than eight items, print the page numbers
       if ($temp_player_items_count > 8){
-        $temp_selected_page = 1; //!empty($_SESSION['GAME']['battle_settings']['action_ability_page_num']) ? $_SESSION['GAME']['battle_settings']['action_ability_page_num'] : 1;
+        $temp_selected_page = 1; //!empty($_SESSION['RPG2k15']['GAME']['battle_settings']['action_ability_page_num']) ? $_SESSION['RPG2k15']['GAME']['battle_settings']['action_ability_page_num'] : 1;
         echo '<span class="float_title">Select Item</span>';
         echo '<span class="float_links"><span class="page">Page</span>';
         for ($i = 1; $i <= $temp_player_items_pages; $i++){ echo '<a class="num'.($i == $temp_selected_page ? ' active' : '').'" href="#'.$i.'">'.$i.'</a>'; }
@@ -44,7 +44,7 @@ ob_start();
     // If this player has more than eight items, slice to only eight
     if (count($current_player_items) > 8){
       //$current_player_items = array_slice($current_player_items, 0, 8);
-      //$_SESSION['GAME']['values']['battle_items'] = $current_player_items;
+      //$_SESSION['RPG2k15']['GAME']['values']['battle_items'] = $current_player_items;
     }
     // Ensure this player has items to display
     if (!empty($current_player_items)){
@@ -58,7 +58,7 @@ ob_start();
       //echo('$current_player_items:<pre>'.preg_replace('/\s+/', ' ', print_r($current_player_items, true)).'</pre>');
 
       // Define the default button enabled option
-      //if (!empty($_SESSION['GAME']['DEMO']) || $target_player->player_id != MMRPG_SETTINGS_TARGET_PLAYERID || !isset($_SESSION['GAME']['values']['battle_items'])){ $temp_button_enabled_base = false; }
+      //if (!empty($_SESSION['RPG2k15']['GAME']['DEMO']) || $target_player->player_id != MMRPG_SETTINGS_TARGET_PLAYERID || !isset($_SESSION['RPG2k15']['GAME']['values']['battle_items'])){ $temp_button_enabled_base = false; }
       if ($target_player->player_id != MMRPG_SETTINGS_TARGET_PLAYERID){ $temp_button_enabled_base = false; }
       else { $temp_button_enabled_base = true; }
       // If this player has already used an item this turn
@@ -75,11 +75,11 @@ ob_start();
           //echo('$item_token:<pre>'.preg_replace('/\s+/', ' ', print_r($item_token, true)).'</pre>');
 
           // Define the amount of weapon energy for this ability
-          $temp_item_quantity = !empty($_SESSION['GAME']['values']['battle_items'][$item_token]) ? $_SESSION['GAME']['values']['battle_items'][$item_token] : 0; // CHANGEME to zero!!! mt_rand(0, 10)
+          $temp_item_quantity = !empty($_SESSION['RPG2k15']['GAME']['values']['battle_items'][$item_token]) ? $_SESSION['RPG2k15']['GAME']['values']['battle_items'][$item_token] : 0; // CHANGEME to zero!!! mt_rand(0, 10)
           $temp_item_cost = 1;
 
           // If this player has never aquired this item, do not display it
-          if (!isset($_SESSION['GAME']['values']['battle_items'][$item_token])){ continue; }
+          if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_items'][$item_token])){ continue; }
           //$temp_item_quantity = 99; // CHANGEME! COMMENT ME OUT! ALSO UNCOMMENT ABOVE?
 
           // Increment the equipped items count

@@ -26,7 +26,7 @@ if (!defined('MMRPG_CRITICAL_ERROR')){
 }
 
 // Clear the prototype temp session var
-$_SESSION['PROTOTYPE_TEMP'] = array();
+$_SESSION['RPG2k15']['PROTOTYPE_TEMP'] = array();
 
 // Define the default SEO and markup variables
 $this_seo_robots = MMRPG_CONFIG_IS_LIVE ? 'index,follow' : 'noindex,nofollow';
@@ -56,23 +56,23 @@ if (!defined('MMRPG_CRITICAL_ERROR')){
   if ($this_userinfo['user_id'] != MMRPG_SETTINGS_GUEST_ID && !empty($this_userinfo['user_backup_login'])){ $temp_last_login = $this_userinfo['user_backup_login']; }
   else { $temp_last_login = time() - MMRPG_SETTINGS_UPDATE_TIMEOUT; }
   $temp_new_threads = $DB->get_array_list("SELECT category_id, CONCAT(thread_id, '_', thread_mod_date) AS thread_session_token FROM mmrpg_threads WHERE thread_locked = 0 AND (thread_target = 0 OR thread_target = {$this_userinfo['user_id']} OR user_id = {$this_userinfo['user_id']}) AND thread_mod_date > {$temp_last_login}".($this_userid != MMRPG_SETTINGS_GUEST_ID ? "  AND thread_mod_user <> {$this_userid}" : ''));
-  if (empty($_SESSION['COMMUNITY']['threads_viewed'])){ $_SESSION['COMMUNITY']['threads_viewed'] = array(); }
+  if (empty($_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'])){ $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'] = array(); }
   if (!empty($temp_new_threads)){ foreach ($temp_new_threads AS $key => $array){
-    if (in_array($array['thread_session_token'], $_SESSION['COMMUNITY']['threads_viewed'])){ unset($temp_new_threads[$key]); }  }
+    if (in_array($array['thread_session_token'], $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'])){ unset($temp_new_threads[$key]); }  }
   }
-  $_SESSION['COMMUNITY']['threads_new'] = !empty($temp_new_threads) ? $temp_new_threads : array();
+  $_SESSION['RPG2k15']['COMMUNITY']['threads_new'] = !empty($temp_new_threads) ? $temp_new_threads : array();
   $temp_new_threads_categories = array();
   $temp_new_threads_ids = array();
   if (!empty($temp_new_threads)){
     foreach ($temp_new_threads AS $info){
       if (!isset($temp_new_threads_categories[$info['category_id']])){ $temp_new_threads_categories[$info['category_id']] = 0; }
-      if (in_array($info['thread_session_token'], $_SESSION['COMMUNITY']['threads_viewed'])){ unset($_SESSION['COMMUNITY']['threads_viewed'][array_search($info['thread_session_token'], $_SESSION['COMMUNITY']['threads_viewed'])]); }
+      if (in_array($info['thread_session_token'], $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'])){ unset($_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'][array_search($info['thread_session_token'], $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'])]); }
       list($temp_id, $temp_mod) = explode('_', $info['thread_session_token']);
       $temp_new_threads_ids[] = $temp_id;
       $temp_new_threads_categories[$info['category_id']] += 1;
     }
   }
-  $_SESSION['COMMUNITY']['threads_new_categories'] = $temp_new_threads_categories;
+  $_SESSION['RPG2k15']['COMMUNITY']['threads_new_categories'] = $temp_new_threads_categories;
   //die('<pre>'.print_r($temp_new_threads_categories, true).'</pre>');
   // Collect the online leaderboard data for the currently online players
   $temp_leaderboard_online = mmrpg_prototype_leaderboard_online();
@@ -158,7 +158,7 @@ $this_page_markup = ob_get_clean();
 <link type="text/css" href="styles/style-mobile-iphone.css?<?=MMRPG_CONFIG_CACHE_DATE?>" rel="stylesheet" />
 <?endif; */ ?>
 </head>
-<? $temp_window_flag = !empty($_SESSION['GAME']['index_settings']['windowFlag']) ? $_SESSION['GAME']['index_settings']['windowFlag'] : false; ?>
+<? $temp_window_flag = !empty($_SESSION['RPG2k15']['GAME']['index_settings']['windowFlag']) ? $_SESSION['RPG2k15']['GAME']['index_settings']['windowFlag'] : false; ?>
 <body id="mmrpg" class="index <?= !empty($temp_window_flag) ? 'windowFlag_'.$temp_window_flag : '' ?>">
 <?/*
 <div style="margin: 0; padding: 10px 25%; background-color: rgb(122, 0, 0); color: #FFFFFF; text-align: left; border-bottom: 1px solid #090909;">
@@ -453,8 +453,8 @@ ATTENTION!<br /> The Mega Man RPG Prototype will be updating very soon.  Please,
 </html>
 <?
 // If we're NOT in demo mode, automatically update the date-accessed for their database entry
-if (empty($_SESSION['GAME']['DEMO'])){
-  $temp_query = 'UPDATE mmrpg_users SET user_date_accessed = '.time().' WHERE user_id = '.$_SESSION['GAME']['USER']['userid'];
+if (empty($_SESSION['RPG2k15']['GAME']['DEMO'])){
+  $temp_query = 'UPDATE mmrpg_users SET user_date_accessed = '.time().' WHERE user_id = '.$_SESSION['RPG2k15']['GAME']['USER']['userid'];
   $temp_result = $DB->query($temp_query);
 }
 ?>

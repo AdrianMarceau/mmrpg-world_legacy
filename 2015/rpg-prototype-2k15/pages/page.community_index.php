@@ -72,7 +72,7 @@ foreach ($this_categories_index AS $this_category_id => $this_category_info){
       );
   }
   // If there are new threads in this category, show the new/recent link
-  $this_threads_count_new = !empty($_SESSION['COMMUNITY']['threads_new_categories'][$this_category_info['category_id']]) ? $_SESSION['COMMUNITY']['threads_new_categories'][$this_category_info['category_id']] : 0;
+  $this_threads_count_new = !empty($_SESSION['RPG2k15']['COMMUNITY']['threads_new_categories'][$this_category_info['category_id']]) ? $_SESSION['RPG2k15']['COMMUNITY']['threads_new_categories'][$this_category_info['category_id']] : 0;
   if ($this_threads_count_new > 0){
     $temp_header_links[] = array(
       'href' => 'community/'.$this_category_info['category_token'].'/new/',

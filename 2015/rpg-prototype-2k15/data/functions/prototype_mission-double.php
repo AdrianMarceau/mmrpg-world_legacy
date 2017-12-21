@@ -83,7 +83,7 @@ function mmrpg_prototype_mission_double($this_prototype_data, $this_robot_tokens
 
   // Define the fusion star token in case we need to test for it
   $temp_field_star_token = preg_replace('/^([-_a-z0-9\s]+)-([-_a-z0-9]+)$/i', '$1', $temp_option_field['field_token']).'-'.preg_replace('/^([-_a-z0-9\s]+)-([-_a-z0-9]+)$/i', '$2', $temp_option_field2['field_token']);
-  $temp_field_star_present = $this_prototype_data['prototype_complete'] && empty($_SESSION['GAME']['values']['battle_stars'][$temp_field_star_token]) ? true : false;
+  $temp_field_star_present = $this_prototype_data['prototype_complete'] && empty($_SESSION['RPG2k15']['GAME']['values']['battle_stars'][$temp_field_star_token]) ? true : false;
 
   // Define both the starforce and darkness battles to false
   $temp_darkness_battle = false;

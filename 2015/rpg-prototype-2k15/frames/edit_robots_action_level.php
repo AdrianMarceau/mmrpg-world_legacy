@@ -6,20 +6,20 @@ $temp_robot = !empty($_REQUEST['robot']) ? $_REQUEST['robot'] : '';
 if (empty($temp_player) || empty($temp_robot)){ die('error|request-error|'.preg_replace('/\s+/', ' ', print_r($_REQUEST, true))); }
 
 // Ensure this robot exists in the current game session
-if (!empty($_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot])
-  && !empty($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot])){
+if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot])
+  && !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot])){
 
   // Count the number of robots each player has on their team before doing anything
-  $temp_player_robot_count = !empty($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots']) ? count($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots']) : 0;
+  $temp_player_robot_count = !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots']) ? count($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots']) : 0;
 
   // Collect the current robot settings and rewards from the game session
-  $temp_robot_settings = $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot];
-  $temp_robot_rewards = $_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot];
+  $temp_robot_settings = $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot];
+  $temp_robot_rewards = $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot];
 
   // Update this robot's level and reset it back to 1
   $temp_backup_level = $temp_robot_rewards['robot_level'];
-  $_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot]['robot_level'] = 1;
-  if ($temp_backup_level >= 100){ $_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot]['robot_experience'] = 0; }
+  $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot]['robot_level'] = 1;
+  if ($temp_backup_level >= 100){ $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot]['robot_experience'] = 0; }
 
   // Save, produce the success message with the new ability order
   mmrpg_save_game_session($this_save_filepath);

@@ -96,26 +96,26 @@ while ($this_action == 'profile'){
       if (true){
 
         // Backup the current game's filename for deletion purposes
-        $backup_user = $_SESSION['GAME']['USER'];
-        $backup_file = $_SESSION['GAME']['FILE'];
+        $backup_user = $_SESSION['RPG2k15']['GAME']['USER'];
+        $backup_file = $_SESSION['RPG2k15']['GAME']['FILE'];
         $backup_save_filepath = $this_save_dir.$backup_file['path'].$backup_file['name'];
 
         // Update the current game's user and file info using the new password
-        $_SESSION['GAME']['USER']['displayname'] = $user_displayname;
-        $_SESSION['GAME']['USER']['emailaddress'] = $user_emailaddress;
-        $_SESSION['GAME']['USER']['websiteaddress'] = $user_websiteaddress;
-        $_SESSION['GAME']['USER']['profiletext'] = $user_profiletext;
-        $_SESSION['GAME']['USER']['creditstext'] = $user_creditstext;
-        $_SESSION['GAME']['USER']['creditsline'] = $user_creditsline;
-        $_SESSION['GAME']['USER']['password'] = $_POST['password_new'];
-        $_SESSION['GAME']['USER']['password_encoded'] = md5($_SESSION['GAME']['USER']['password']);
-        $_SESSION['GAME']['USER']['imagepath'] = $_POST['imagepath'];
-        $_SESSION['GAME']['USER']['backgroundpath'] = $_POST['backgroundpath'];
-        $_SESSION['GAME']['USER']['colourtoken'] = $_POST['colourtoken'];
-        $_SESSION['GAME']['USER']['gender'] = $_POST['gender'];
-        $_SESSION['GAME']['FILE']['path'] = $_SESSION['GAME']['USER']['username_clean'].'/';
-        $_SESSION['GAME']['FILE']['name'] = $_SESSION['GAME']['USER']['password_encoded'].'.sav';
-        $this_save_filepath = $this_save_dir.$_SESSION['GAME']['FILE']['path'].$_SESSION['GAME']['FILE']['name'];
+        $_SESSION['RPG2k15']['GAME']['USER']['displayname'] = $user_displayname;
+        $_SESSION['RPG2k15']['GAME']['USER']['emailaddress'] = $user_emailaddress;
+        $_SESSION['RPG2k15']['GAME']['USER']['websiteaddress'] = $user_websiteaddress;
+        $_SESSION['RPG2k15']['GAME']['USER']['profiletext'] = $user_profiletext;
+        $_SESSION['RPG2k15']['GAME']['USER']['creditstext'] = $user_creditstext;
+        $_SESSION['RPG2k15']['GAME']['USER']['creditsline'] = $user_creditsline;
+        $_SESSION['RPG2k15']['GAME']['USER']['password'] = $_POST['password_new'];
+        $_SESSION['RPG2k15']['GAME']['USER']['password_encoded'] = md5($_SESSION['RPG2k15']['GAME']['USER']['password']);
+        $_SESSION['RPG2k15']['GAME']['USER']['imagepath'] = $_POST['imagepath'];
+        $_SESSION['RPG2k15']['GAME']['USER']['backgroundpath'] = $_POST['backgroundpath'];
+        $_SESSION['RPG2k15']['GAME']['USER']['colourtoken'] = $_POST['colourtoken'];
+        $_SESSION['RPG2k15']['GAME']['USER']['gender'] = $_POST['gender'];
+        $_SESSION['RPG2k15']['GAME']['FILE']['path'] = $_SESSION['RPG2k15']['GAME']['USER']['username_clean'].'/';
+        $_SESSION['RPG2k15']['GAME']['FILE']['name'] = $_SESSION['RPG2k15']['GAME']['USER']['password_encoded'].'.sav';
+        $this_save_filepath = $this_save_dir.$_SESSION['RPG2k15']['GAME']['FILE']['path'].$_SESSION['RPG2k15']['GAME']['FILE']['name'];
 
       }
 
@@ -124,7 +124,7 @@ while ($this_action == 'profile'){
     // Save the current game session into the file
     mmrpg_save_game_session($this_save_filepath);
     $this_userinfo = $DB->get_array("SELECT users.*, roles.* FROM mmrpg_users AS users LEFT JOIN mmrpg_roles AS roles ON roles.role_id = users.role_id WHERE users.user_id = '{$this_userid}' LIMIT 1");
-    $_SESSION['GAME']['USER']['userinfo'] = $this_userinfo;
+    $_SESSION['RPG2k15']['GAME']['USER']['userinfo'] = $this_userinfo;
 
     //die($this_save_filepath);
     // If a game session's info was backup up for deletion
@@ -174,21 +174,21 @@ while ($this_action == 'profile'){
   // Update the form markup fields
   $html_form_fields .= '<div class="field" style="float: left; width: 46%; min-height: 50px; margin-right: 35px; ">';
     $html_form_fields .= '<label class="label label_username" style="width: 230px; ">Username :</label>';
-    $html_form_fields .= '<input class="text text_username" type="text" name="username" style="width: 100%; opacity: 0.50; filter: alpha(opacity = 50); " value="'.htmlentities(trim($_SESSION['GAME']['USER']['username']), ENT_QUOTES, 'UTF-8', true).'" disabled="disabled" />';
+    $html_form_fields .= '<input class="text text_username" type="text" name="username" style="width: 100%; opacity: 0.50; filter: alpha(opacity = 50); " value="'.htmlentities(trim($_SESSION['RPG2k15']['GAME']['USER']['username']), ENT_QUOTES, 'UTF-8', true).'" disabled="disabled" />';
   $html_form_fields .= '</div>';
   $html_form_fields .= '<div class="field" style="float: left; width: 46%; min-height: 50px; margin-right: 0; ">';
     $html_form_fields .= '<label class="label label_password" style="width: 230px; ">Password :</label>';
-    $html_form_fields .= '<input class="hidden hidden_password" type="hidden" name="password_current" value="'.htmlentities(trim($_SESSION['GAME']['USER']['password']), ENT_QUOTES, 'UTF-8', true).'" maxlength="18" />';
-    $html_form_fields .= '<input class="hidden hidden_password" type="hidden" name="password_new" value="'.htmlentities(trim($_SESSION['GAME']['USER']['password']), ENT_QUOTES, 'UTF-8', true).'" maxlength="18" />';
-    $html_form_fields .= '<input class="text text_password" type="password" name="password_display" style="width: 100%; opacity: 0.50; filter: alpha(opacity = 50); " value="'.htmlentities(trim($_SESSION['GAME']['USER']['password']), ENT_QUOTES, 'UTF-8', true).'" maxlength="18" disabled="disabled" />';
+    $html_form_fields .= '<input class="hidden hidden_password" type="hidden" name="password_current" value="'.htmlentities(trim($_SESSION['RPG2k15']['GAME']['USER']['password']), ENT_QUOTES, 'UTF-8', true).'" maxlength="18" />';
+    $html_form_fields .= '<input class="hidden hidden_password" type="hidden" name="password_new" value="'.htmlentities(trim($_SESSION['RPG2k15']['GAME']['USER']['password']), ENT_QUOTES, 'UTF-8', true).'" maxlength="18" />';
+    $html_form_fields .= '<input class="text text_password" type="password" name="password_display" style="width: 100%; opacity: 0.50; filter: alpha(opacity = 50); " value="'.htmlentities(trim($_SESSION['RPG2k15']['GAME']['USER']['password']), ENT_QUOTES, 'UTF-8', true).'" maxlength="18" disabled="disabled" />';
   $html_form_fields .= '</div>';
   $html_form_fields .= '<div class="field" style="float: left; width: 46%; min-height: 50px; margin-right: 35px; ">';
     $html_form_fields .= '<label class="label label_displayname" style="width: 230px; ">Display Name :</label>';
-    $html_form_fields .= '<input class="text text_displayname" style="width: 100%; " type="text" name="displayname" maxlength="18" value="'.htmlentities(trim(!empty($_SESSION['GAME']['USER']['displayname']) ? $_SESSION['GAME']['USER']['displayname'] : ''), ENT_QUOTES, 'UTF-8', true).'" />';
+    $html_form_fields .= '<input class="text text_displayname" style="width: 100%; " type="text" name="displayname" maxlength="18" value="'.htmlentities(trim(!empty($_SESSION['RPG2k15']['GAME']['USER']['displayname']) ? $_SESSION['RPG2k15']['GAME']['USER']['displayname'] : ''), ENT_QUOTES, 'UTF-8', true).'" />';
   $html_form_fields .= '</div>';
   $html_form_fields .= '<div class="field" style="float: left; width: 46%; min-height: 50px; margin-right: 0; ">';
     $html_form_fields .= '<label class="label label_emailaddress" style="width: 230px; ">Email Address :</label>';
-    $html_form_fields .= '<input class="text text_emailaddress" style="width: 100%; " type="text" name="emailaddress" maxlength="128" value="'.htmlentities(trim(!empty($_SESSION['GAME']['USER']['emailaddress']) ? $_SESSION['GAME']['USER']['emailaddress'] : ''), ENT_QUOTES, 'UTF-8', true).'" />';
+    $html_form_fields .= '<input class="text text_emailaddress" style="width: 100%; " type="text" name="emailaddress" maxlength="128" value="'.htmlentities(trim(!empty($_SESSION['RPG2k15']['GAME']['USER']['emailaddress']) ? $_SESSION['RPG2k15']['GAME']['USER']['emailaddress'] : ''), ENT_QUOTES, 'UTF-8', true).'" />';
   $html_form_fields .= '</div>';
 
 
@@ -199,7 +199,7 @@ while ($this_action == 'profile'){
   // Update the form markup fields
   $html_form_fields .= '<div class="field" style="float: left; width: 46%; min-height: 50px; margin-right: 35px; ">';
     $html_form_fields .= '<label class="label label_websiteaddress" style="width: 230px; ">Website Address :</label>';
-    $html_form_fields .= '<input class="text text_websiteaddress" style="width: 100%; " type="text" name="websiteaddress" maxlength="128" value="'.htmlentities(trim(!empty($_SESSION['GAME']['USER']['websiteaddress']) ? $_SESSION['GAME']['USER']['websiteaddress'] : ''), ENT_QUOTES, 'UTF-8', true).'" />';
+    $html_form_fields .= '<input class="text text_websiteaddress" style="width: 100%; " type="text" name="websiteaddress" maxlength="128" value="'.htmlentities(trim(!empty($_SESSION['RPG2k15']['GAME']['USER']['websiteaddress']) ? $_SESSION['RPG2k15']['GAME']['USER']['websiteaddress'] : ''), ENT_QUOTES, 'UTF-8', true).'" />';
   $html_form_fields .= '</div>';
 
   // Player Gender
@@ -209,7 +209,7 @@ while ($this_action == 'profile'){
       $html_gender_options[] = '<option value="male">Male</option>';
       $html_gender_options[] = '<option value="female">Female</option>';
       $html_gender_options[] = '<option value="other">Other</option>';
-    $temp_select_options = str_replace('value="'.$_SESSION['GAME']['USER']['gender'].'"', 'value="'.$_SESSION['GAME']['USER']['gender'].'" selected="selected"', implode('', $html_gender_options));
+    $temp_select_options = str_replace('value="'.$_SESSION['RPG2k15']['GAME']['USER']['gender'].'"', 'value="'.$_SESSION['RPG2k15']['GAME']['USER']['gender'].'" selected="selected"', implode('', $html_gender_options));
     $html_form_fields .= '<select class="select select_gender" style="width: 100%; " name="gender">'.$temp_select_options.'</select>';
   $html_form_fields .= '</div>';
 
@@ -270,7 +270,7 @@ while ($this_action == 'profile'){
   for ($i = 0; $i < 6; $i++){
 
     // Update the form markup fields
-    $temp_value = !empty($_SESSION['GAME']['USER']['playerlinks'][0]) ? trim($_SESSION['GAME']['USER']['playerlinks'][0]) : '';
+    $temp_value = !empty($_SESSION['RPG2k15']['GAME']['USER']['playerlinks'][0]) ? trim($_SESSION['RPG2k15']['GAME']['USER']['playerlinks'][0]) : '';
     $html_form_fields .= '<div class="field" style="float: left; width: 46%; min-height: 50px; margin-right: '.($i == 0 || $i % 2 == 0 ? '35px' : '0').'; ">';
       $html_form_fields .= '<label class="label label_playerlink" style="width: 230px; ">Player Link #'.($i + 1).' :</label>';
       $html_form_fields .= '<input class="text text_playerlink" style="width: 100%; " type="text" name="playerlinks['.$i.']" maxlength="128" value="'.htmlentities($temp_value, ENT_QUOTES, 'UTF-8', true).'" />';
@@ -283,17 +283,17 @@ while ($this_action == 'profile'){
   if (in_array($this_userinfo['role_id'], array(1, 6, 2, 7))){
 
     // Display s section separator for the form
-    $member_role_name = trim(!empty($_SESSION['GAME']['USER']['roleid']) ? $this_roles_index[$_SESSION['GAME']['USER']['roleid']]['role_name'] : 'Unknown');
+    $member_role_name = trim(!empty($_SESSION['RPG2k15']['GAME']['USER']['roleid']) ? $this_roles_index[$_SESSION['RPG2k15']['GAME']['USER']['roleid']]['role_name'] : 'Unknown');
     $html_form_fields .= '<div class="field field_header">Credits &amp; Contributions</div>';
 
     $html_form_fields .= '<div class="field" style="margin-top: 20px;">';
       $html_form_fields .= '<label class="label label_profiletext" style="width: 230px; ">'.$member_role_name.' Credits :</label>';
-      $html_form_fields .= '<input class="text text_profiletext" style="width: 98%; " name="creditsline" value="'.htmlentities(trim(!empty($_SESSION['GAME']['USER']['creditsline']) ? $_SESSION['GAME']['USER']['creditsline'] : ''), ENT_QUOTES, 'UTF-8', true).'" />';
+      $html_form_fields .= '<input class="text text_profiletext" style="width: 98%; " name="creditsline" value="'.htmlentities(trim(!empty($_SESSION['RPG2k15']['GAME']['USER']['creditsline']) ? $_SESSION['RPG2k15']['GAME']['USER']['creditsline'] : ''), ENT_QUOTES, 'UTF-8', true).'" />';
     $html_form_fields .= '</div>';
 
     $html_form_fields .= '<div class="field" style="margin-bottom: 20px;">';
       $html_form_fields .= '<label class="label label_profiletext" style="width: 230px; ">'.$member_role_name.' Description :</label>';
-      $html_form_fields .= '<textarea class="textarea textarea_profiletext" style="width: 98%; height: 150px; " name="creditstext">'.htmlentities(trim(!empty($_SESSION['GAME']['USER']['creditstext']) ? $_SESSION['GAME']['USER']['creditstext'] : ''), ENT_QUOTES, 'UTF-8', true).'</textarea>';
+      $html_form_fields .= '<textarea class="textarea textarea_profiletext" style="width: 98%; height: 150px; " name="creditstext">'.htmlentities(trim(!empty($_SESSION['RPG2k15']['GAME']['USER']['creditstext']) ? $_SESSION['RPG2k15']['GAME']['USER']['creditstext'] : ''), ENT_QUOTES, 'UTF-8', true).'</textarea>';
     $html_form_fields .= '</div>';
 
   }
@@ -303,7 +303,7 @@ while ($this_action == 'profile'){
   $html_form_fields .= '<div class="field field_header">Community &amp; Leaderboard Customization</div>';
 
   // Member Type
-  $member_role_name = trim(!empty($_SESSION['GAME']['USER']['roleid']) ? $this_roles_index[$_SESSION['GAME']['USER']['roleid']]['role_name'] : 'Unknown');
+  $member_role_name = trim(!empty($_SESSION['RPG2k15']['GAME']['USER']['roleid']) ? $this_roles_index[$_SESSION['RPG2k15']['GAME']['USER']['roleid']]['role_name'] : 'Unknown');
   $html_form_fields .= '<div class="field" style="float: left; width: 46%; min-height: 50px; margin-right: 35px; ">';
     $html_form_fields .= '<label class="label label_roleid" style="width: 230px; ">Member Type :</label>';
     $html_form_fields .= '<input class="text text_roleid" style="width: 100%; opacity: 0.50; filter: alpha(opacity = 50); " type="text" name="role_id" disabled="disabled" value="'.htmlentities($member_role_name, ENT_QUOTES, 'UTF-8', true).'" />';
@@ -329,7 +329,7 @@ while ($this_action == 'profile'){
       $html_colour_options[] = '<option value="defense">Defense Type</option>';
       $html_colour_options[] = '<option value="speed">Speed Type</option>';
     }
-    $temp_select_options = str_replace('value="'.$_SESSION['GAME']['USER']['colourtoken'].'"', 'value="'.$_SESSION['GAME']['USER']['colourtoken'].'" selected="selected"', implode('', $html_colour_options));
+    $temp_select_options = str_replace('value="'.$_SESSION['RPG2k15']['GAME']['USER']['colourtoken'].'"', 'value="'.$_SESSION['RPG2k15']['GAME']['USER']['colourtoken'].'" selected="selected"', implode('', $html_colour_options));
     $html_form_fields .= '<select class="select select_colourtoken" style="width: 100%; " name="colourtoken">'.$temp_select_options.'</select>';
   $html_form_fields .= '</div>';
 
@@ -372,7 +372,7 @@ while ($this_action == 'profile'){
       if (isset($info['robot_core']) && $info['robot_core'] == 'copy'){
         foreach ($mmrpg_index['types'] AS $type_token => $type_info){
           if ($type_token == 'none' || $type_token == 'copy' || (isset($type_info['type_class']) && $type_info['type_class'] == 'special')){ continue; }
-          if (!isset($_SESSION['GAME']['values']['battle_items']['item-core-'.$type_token]) && $this_userinfo['role_id'] != 1){ continue; }
+          if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_items']['item-core-'.$type_token]) && $this_userinfo['role_id'] != 1){ continue; }
           $html_avatar_options[] = '<option value="robots/'.$token.'_'.$type_token.'/'.$size.'">'.$info['robot_number'].' : '.$info['robot_name'].' ('.$type_info['type_name'].' Core)'.'</option>';
         }
       }
@@ -399,7 +399,7 @@ while ($this_action == 'profile'){
     }
     // Add the optgroup closing tag
     $html_avatar_options[] = '</optgroup>';
-    $temp_select_options = str_replace('value="'.$_SESSION['GAME']['USER']['imagepath'].'"', 'value="'.$_SESSION['GAME']['USER']['imagepath'].'" selected="selected"', implode('', $html_avatar_options));
+    $temp_select_options = str_replace('value="'.$_SESSION['RPG2k15']['GAME']['USER']['imagepath'].'"', 'value="'.$_SESSION['RPG2k15']['GAME']['USER']['imagepath'].'" selected="selected"', implode('', $html_avatar_options));
     $html_form_fields .= '<select class="select select_imagepath" style="width: 100%; " name="imagepath">'.$temp_select_options.'</select>';
   $html_form_fields .= '</div>';
 
@@ -409,9 +409,9 @@ while ($this_action == 'profile'){
   if (mmrpg_prototype_player_unlocked('dr-light')){ $temp_omega_factor_options['MM01'] = $this_omega_factors_one; }
   if (mmrpg_prototype_player_unlocked('dr-wily')){ $temp_omega_factor_options['MM02'] = $this_omega_factors_two; }
   if (mmrpg_prototype_player_unlocked('dr-cossack')){ $temp_omega_factor_options['MM04'] = $this_omega_factors_three; }
-  if (!empty($_SESSION['GAME']['values']['battle_fields'])){
+  if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_fields'])){
     foreach ($this_omega_factors_four AS $key => $info){
-      if (in_array($info['field'], $_SESSION['GAME']['values']['battle_fields'])){
+      if (in_array($info['field'], $_SESSION['RPG2k15']['GAME']['values']['battle_fields'])){
         $temp_omega_factor_options['MM03'][] = $info;
       }
     }
@@ -449,13 +449,13 @@ while ($this_action == 'profile'){
       }
     }
     $html_background_options[] = '</optgroup>';
-    $temp_select_options = str_replace('value="'.$_SESSION['GAME']['USER']['backgroundpath'].'"', 'value="'.$_SESSION['GAME']['USER']['backgroundpath'].'" selected="selected"', implode('', $html_background_options));
+    $temp_select_options = str_replace('value="'.$_SESSION['RPG2k15']['GAME']['USER']['backgroundpath'].'"', 'value="'.$_SESSION['RPG2k15']['GAME']['USER']['backgroundpath'].'" selected="selected"', implode('', $html_background_options));
     $html_form_fields .= '<select class="select select_backgroundpath" style="width: 100%; " name="backgroundpath">'.$temp_select_options.'</select>';
   $html_form_fields .= '</div>';
 
   $html_form_fields .= '<div class="field">';
     $html_form_fields .= '<label class="label label_profiletext" style="width: 230px; ">Leaderboard Profile :</label>';
-    $html_form_fields .= '<textarea class="textarea textarea_profiletext" style="width: 98%; height: 250px; " name="profiletext">'.htmlentities(trim(!empty($_SESSION['GAME']['USER']['profiletext']) ? $_SESSION['GAME']['USER']['profiletext'] : ''), ENT_QUOTES, 'UTF-8', true).'</textarea>';
+    $html_form_fields .= '<textarea class="textarea textarea_profiletext" style="width: 98%; height: 250px; " name="profiletext">'.htmlentities(trim(!empty($_SESSION['RPG2k15']['GAME']['USER']['profiletext']) ? $_SESSION['RPG2k15']['GAME']['USER']['profiletext'] : ''), ENT_QUOTES, 'UTF-8', true).'</textarea>';
     $html_form_fields .= mmrpg_formatting_help();
   $html_form_fields .= '</div>';
 
@@ -476,7 +476,7 @@ while ($this_action == 'profile'){
     //$html_form_buttons = '<input class="button button_continue" type="button" value="Continue" onclick="javascript:window.location.href=\''.MMRPG_CONFIG_ROOTURL.'\';" />';
 
     // Save the messages to the session and refresh
-    $_SESSION['mmrpg_form_messages'] = $html_form_messages;
+    $_SESSION['RPG2k15']['mmrpg_form_messages'] = $html_form_messages;
     header('Location: '.MMRPG_CONFIG_ROOTURL.'file/profile/');
     exit();
 
@@ -572,10 +572,10 @@ while ($this_action == 'new'){
       if (empty($_REQUEST['captcha'])){
         $html_form_messages .= '<span class="error">(!) The security code was not provided.</span>';
         $html_form_verified = false;
-      } elseif (empty($_SESSION['captcha'])){
+      } elseif (empty($_SESSION['RPG2k15']['captcha'])){
         $html_form_messages .= '<span class="error">(!) Please enable cookies to proceed.</span>';
         $html_form_verified = false;
-      } elseif (strtolower($_REQUEST['captcha']) != $_SESSION['captcha']){
+      } elseif (strtolower($_REQUEST['captcha']) != $_SESSION['RPG2k15']['captcha']){
         $html_form_messages .= '<span class="error">(!) The security code was not entered correctly.</span>';
         $html_form_verified = false;
       }
@@ -606,9 +606,9 @@ while ($this_action == 'new'){
     // Update the save path with the filename
     $this_save_filepath = $this_save_dir.$this_file['path'].$this_file['name'];
     // Update the necessary game session variables
-    $_SESSION['GAME']['DEMO'] = 0;
-    $_SESSION['GAME']['USER'] = $this_user;
-    $_SESSION['GAME']['FILE'] = $this_file;
+    $_SESSION['RPG2k15']['GAME']['DEMO'] = 0;
+    $_SESSION['RPG2k15']['GAME']['USER'] = $this_user;
+    $_SESSION['RPG2k15']['GAME']['FILE'] = $this_file;
     // Reset the game session to start fresh
     mmrpg_reset_game_session($this_save_filepath);
     // Save this new game session into the file
@@ -753,13 +753,13 @@ while ($this_action == 'load'){
         if (!empty($temp_database_user['user_date_birth']) && !empty($temp_database_user['user_flag_approved'])){
 
           // The password was correct! Update the session with these credentials
-          $_SESSION['GAME']['DEMO'] = 0;
-          $_SESSION['GAME']['USER'] = $this_user;
-          $_SESSION['GAME']['FILE'] = $this_file;
+          $_SESSION['RPG2k15']['GAME']['DEMO'] = 0;
+          $_SESSION['RPG2k15']['GAME']['USER'] = $this_user;
+          $_SESSION['RPG2k15']['GAME']['FILE'] = $this_file;
           // Load the save file into memory and overwrite the session
           $this_save_filepath = $temp_save_filepath;
           mmrpg_load_game_session($this_save_filepath);
-          if (empty($_SESSION['GAME']['counters']['battle_points']) || empty($_SESSION['GAME']['values']['battle_rewards'])){
+          if (empty($_SESSION['RPG2k15']['GAME']['counters']['battle_points']) || empty($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'])){
             //die('battle points are empty 2');
             mmrpg_reset_game_session($this_save_filepath);
           }
@@ -811,20 +811,20 @@ while ($this_action == 'load'){
           }
 
           // The password was correct! Update the session with these credentials
-          $_SESSION['GAME']['DEMO'] = 0;
-          $_SESSION['GAME']['USER'] = $this_user;
-          $_SESSION['GAME']['FILE'] = $this_file;
+          $_SESSION['RPG2k15']['GAME']['DEMO'] = 0;
+          $_SESSION['RPG2k15']['GAME']['USER'] = $this_user;
+          $_SESSION['RPG2k15']['GAME']['FILE'] = $this_file;
           // Load the save file into memory and overwrite the session
           $this_save_filepath = $temp_save_filepath;
           mmrpg_load_game_session($this_save_filepath);
-          if (empty($_SESSION['GAME']['counters']['battle_points']) || empty($_SESSION['GAME']['values']['battle_rewards'])){
+          if (empty($_SESSION['RPG2k15']['GAME']['counters']['battle_points']) || empty($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'])){
             //die('battle points are empty 1');
             mmrpg_reset_game_session($this_save_filepath);
           }
           // Update the file with the coppa approval flag and birthdate
-          $_SESSION['GAME']['USER']['dateofbirth'] = strtotime($_REQUEST['dateofbirth']);
-          $_SESSION['GAME']['USER']['approved'] = 1;
-          //die('<pre>$_SESSION[GAME][USER] = '.print_r($_SESSION['GAME']['USER'], true).'</pre>');
+          $_SESSION['RPG2k15']['GAME']['USER']['dateofbirth'] = strtotime($_REQUEST['dateofbirth']);
+          $_SESSION['RPG2k15']['GAME']['USER']['approved'] = 1;
+          //die('<pre>$_SESSION['RPG2k15'][GAME][USER] = '.print_r($_SESSION['RPG2k15']['GAME']['USER'], true).'</pre>');
           mmrpg_save_game_session($this_save_filepath);
           // Update the form markup, then break from the loop
           $file_has_updated = true;
@@ -907,7 +907,7 @@ while ($this_action == 'load'){
 while ($this_action == 'exit'){
 
   // Back up the index settings array
-  $temp_index_settings = !empty($_SESSION['GAME']['index_settings']) ? $_SESSION['GAME']['index_settings'] : array();
+  $temp_index_settings = !empty($_SESSION['RPG2k15']['GAME']['index_settings']) ? $_SESSION['RPG2k15']['GAME']['index_settings'] : array();
   // Auto-generate the user and file info based on their IP
   $this_user = array();
   $this_user['userid'] = MMRPG_SETTINGS_GUEST_ID;
@@ -923,22 +923,22 @@ while ($this_action == 'exit'){
   $this_file['path'] = $this_user['username_clean'].'/';
   $this_file['name'] = $this_user['password_encoded'].'.sav';
   // Update the session with these demo variables
-  $_SESSION['GAME']['DEMO'] = 1;
-  $_SESSION['GAME']['USER'] = $this_user;
-  $_SESSION['GAME']['FILE'] = $this_file;
-  $_SESSION['GAME']['counters']['battle_points'] = 0;
-  $_SESSION['GAME']['index_settings'] = $temp_index_settings;
+  $_SESSION['RPG2k15']['GAME']['DEMO'] = 1;
+  $_SESSION['RPG2k15']['GAME']['USER'] = $this_user;
+  $_SESSION['RPG2k15']['GAME']['FILE'] = $this_file;
+  $_SESSION['RPG2k15']['GAME']['counters']['battle_points'] = 0;
+  $_SESSION['RPG2k15']['GAME']['index_settings'] = $temp_index_settings;
   // Update the global save path variable
   $this_save_filepath = $this_save_dir.$this_file['path'].$this_file['name'];
   // Reset the game session and reload the page
   mmrpg_reset_game_session($this_save_filepath);
 
   // Clear the community thread tracker
-  $_SESSION['COMMUNITY']['threads_viewed'] = array();
+  $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'] = array();
   // Collect the recently updated posts for this player / guest
   $temp_last_login = time() - MMRPG_SETTINGS_UPDATE_TIMEOUT;
   $temp_new_threads = $DB->get_array_list("SELECT CONCAT(thread_id, '_', thread_mod_date) AS thread_session_token FROM mmrpg_threads WHERE thread_mod_date > {$temp_last_login}");
-  if (!empty($temp_new_threads)){ foreach ($temp_new_threads AS $key => $array){ $_SESSION['COMMUNITY']['threads_viewed'][] = $array['thread_session_token']; } }
+  if (!empty($temp_new_threads)){ foreach ($temp_new_threads AS $key => $array){ $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'][] = $array['thread_session_token']; } }
 
   // Redirect back to the home page
   header('Location: '.MMRPG_CONFIG_ROOTURL);
@@ -949,7 +949,7 @@ while ($this_action == 'exit'){
 }
 
 // Ensure this is not a demo build before doing updates
-if ($_SESSION['GAME']['DEMO'] == 0){
+if ($_SESSION['RPG2k15']['GAME']['DEMO'] == 0){
   // Require the updates file
   require_once(MMRPG_CONFIG_ROOTDIR.'admin/file_updates.php');
 }
@@ -998,10 +998,10 @@ ob_start();
           <?
           // DEBUG
           //echo '<pre>'.print_r($_POST, true).'</pre>';
-          //echo '<pre>session_captcha : '.(!empty($_SESSION['captcha']) ? print_r($_SESSION['captcha'], true) : '-').'</pre>';
+          //echo '<pre>session_captcha : '.(!empty($_SESSION['RPG2k15']['captcha']) ? print_r($_SESSION['RPG2k15']['captcha'], true) : '-').'</pre>';
           // Print out any form messages of they exist
-          if(!empty($html_form_messages) || !empty($_SESSION['mmrpg_form_messages'])){
-            if (empty($html_form_messages)){ $html_form_messages = $_SESSION['mmrpg_form_messages']; }
+          if(!empty($html_form_messages) || !empty($_SESSION['RPG2k15']['mmrpg_form_messages'])){
+            if (empty($html_form_messages)){ $html_form_messages = $_SESSION['RPG2k15']['mmrpg_form_messages']; }
             ?>
             <div class="messages_wrapper">
               <?= $html_form_messages ?>
@@ -1109,7 +1109,7 @@ ob_start();
 
 <?
 // Clear the form messages if we've made it this far
-$_SESSION['mmrpg_form_messages'] = array();
+$_SESSION['RPG2k15']['mmrpg_form_messages'] = array();
 // Collect the buffer and define the page markup
 //$this_markup_body = trim(preg_replace('#\s+#', ' ', ob_get_clean()));
 $this_markup_body = trim(ob_get_clean());

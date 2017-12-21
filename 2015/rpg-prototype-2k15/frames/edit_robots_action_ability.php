@@ -25,7 +25,7 @@ if (empty($temp_ability)){
   $temp_abilities_new = array();
   foreach ($temp_abilities AS $temp_token){ $temp_abilities_new[$temp_token] = array('ability_token' => $temp_token); }
   // Update the new ability settings in the session variable
-  $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot]['robot_abilities'] = $temp_abilities_new;
+  $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot]['robot_abilities'] = $temp_abilities_new;
   // Save, produce the success message with the new ability order
   mmrpg_save_game_session($this_save_filepath);
   exit('success|ability-removed|'.implode(',', $temp_abilities));
@@ -38,7 +38,7 @@ elseif (!in_array($temp_ability, $temp_abilities)){
   $temp_abilities_new = array();
   foreach ($temp_abilities AS $temp_token){ $temp_abilities_new[$temp_token] = array('ability_token' => $temp_token); }
   // Update the new ability settings in the session variable
-  $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot]['robot_abilities'] = $temp_abilities_new;
+  $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot]['robot_abilities'] = $temp_abilities_new;
   // Save, produce the success message with the new ability order
   mmrpg_save_game_session($this_save_filepath);
   exit('success|ability-updated|'.implode(',', $temp_abilities));
@@ -58,7 +58,7 @@ elseif (in_array($temp_ability, $temp_abilities)){
   $temp_abilities_new = array();
   foreach ($temp_abilities AS $temp_token){ $temp_abilities_new[$temp_token] = array('ability_token' => $temp_token); }
   // Update the new ability settings in the session variable
-  $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot]['robot_abilities'] = $temp_abilities_new;
+  $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot]['robot_abilities'] = $temp_abilities_new;
   // Save, produce the success message with the new ability order
   mmrpg_save_game_session($this_save_filepath);
   exit('success|ability-updated|'.implode(',', $temp_abilities));

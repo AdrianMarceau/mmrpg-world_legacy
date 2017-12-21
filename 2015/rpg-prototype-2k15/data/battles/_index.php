@@ -29,9 +29,9 @@ if (!MMRPG_CONFIG_CACHE_INDEXES || !file_exists(MMRPG_CONFIG_BATTLES_CACHE_PATH)
 require_once(MMRPG_CONFIG_BATTLES_CACHE_PATH);
 
 // Additionally, include any dynamic session-based battles
-if (!empty($_SESSION['GAME']['values']['battle_index'])){
+if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_index'])){
   // The session-based battles exist, so merge them with the index
-  $mmrpg_index['battles'] = array_merge($mmrpg_index['battles'], $_SESSION['GAME']['values']['battle_index']);
+  $mmrpg_index['battles'] = array_merge($mmrpg_index['battles'], $_SESSION['RPG2k15']['GAME']['values']['battle_index']);
 }
 
 // If debug is requested, print the cache data

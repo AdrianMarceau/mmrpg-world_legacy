@@ -26,7 +26,7 @@ $this_markup_header = 'Mega Man RPG Prototype Community';
  */
 
 // Collect this player's battle point total
-if (empty($_SESSION[mmrpg_game_token()]['DEMO'])){
+if (empty($_SESSION['RPG2k15'][mmrpg_game_token()]['DEMO'])){
   $community_battle_points = mmrpg_prototype_battle_points();
 } else {
   $community_battle_points = 0;
@@ -107,12 +107,12 @@ elseif (!empty($this_current_id) && !empty($this_current_token)){
 
   // If this thread has not already been viewed this session, increment the counter
   $temp_session_key = 'mmrpg_thread_viewed_'.$this_thread_info['thread_id'];
-  if (empty($_SESSION[$temp_session_key])){
+  if (empty($_SESSION['RPG2k15'][$temp_session_key])){
     $temp_current_views = $this_thread_info['thread_views'];
     $temp_new_views = $temp_current_views + 1;
     $temp_update_session = $DB->query("UPDATE mmrpg_threads SET thread_views = {$temp_new_views} WHERE thread_id = {$this_thread_info['thread_id']}");
     if (!empty($temp_update_session)){ $this_thread_info['thread_views'] = $temp_new_views; }
-    $_SESSION[$temp_session_key] = true;
+    $_SESSION['RPG2k15'][$temp_session_key] = true;
   }
 
 }

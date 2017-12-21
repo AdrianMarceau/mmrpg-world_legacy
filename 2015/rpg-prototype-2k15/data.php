@@ -77,11 +77,11 @@ if ($this_verified == false || !empty($this_errors)){
 // If the player is has requested the start action
 if ($this_action == 'start'){
   // Automatically empty all temporary battle variables
-  $_SESSION['BATTLES'] = array();
-  $_SESSION['FIELDS'] = array();
-  $_SESSION['PLAYERS'] = array();
-  $_SESSION['ROBOTS'] = array();
-  $_SESSION['ABILITIES'] = array();
+  $_SESSION['RPG2k15']['BATTLES'] = array();
+  $_SESSION['RPG2k15']['FIELDS'] = array();
+  $_SESSION['RPG2k15']['PLAYERS'] = array();
+  $_SESSION['RPG2k15']['ROBOTS'] = array();
+  $_SESSION['RPG2k15']['ABILITIES'] = array();
 
 }
 
@@ -206,8 +206,8 @@ if ($this_action == 'start'){
   }
 
   // Ensure this player's items were provided
-  if (!empty($_SESSION['GAME']['values']['battle_items'])){
-    $this_player_items = $_SESSION['GAME']['values']['battle_items'];
+  if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_items'])){
+    $this_player_items = $_SESSION['RPG2k15']['GAME']['values']['battle_items'];
     unset($this_player_items['item-screw-small'], $this_player_items['item-screw-large']);
     $this_player_items = array_keys($this_player_items);
   } else {
@@ -337,11 +337,11 @@ $action_queue = array();
 // If the player is has requested the prototype menu
 if ($this_action == 'prototype'){
   // Automatically empty all temporary battle variables
-  $_SESSION['BATTLES'] = array();
-  $_SESSION['FIELDS'] = array();
-  $_SESSION['PLAYERS'] = array();
-  $_SESSION['ROBOTS'] = array();
-  $_SESSION['ABILITIES'] = array();
+  $_SESSION['RPG2k15']['BATTLES'] = array();
+  $_SESSION['RPG2k15']['FIELDS'] = array();
+  $_SESSION['RPG2k15']['PLAYERS'] = array();
+  $_SESSION['RPG2k15']['ROBOTS'] = array();
+  $_SESSION['RPG2k15']['ABILITIES'] = array();
 
   // Redirect the user back to the prototype screen
   $this_redirect = 'prototype.php?'.($flag_wap ? 'wap=true' : '');
@@ -373,11 +373,11 @@ elseif ($this_action == 'restart'){
     '';
 
   // Automatically empty all temporary battle variables
-  $_SESSION['BATTLES'] = array();
-  $_SESSION['FIELDS'] = array();
-  $_SESSION['PLAYERS'] = array();
-  $_SESSION['ROBOTS'] = array();
-  $_SESSION['ABILITIES'] = array();
+  $_SESSION['RPG2k15']['BATTLES'] = array();
+  $_SESSION['RPG2k15']['FIELDS'] = array();
+  $_SESSION['RPG2k15']['PLAYERS'] = array();
+  $_SESSION['RPG2k15']['ROBOTS'] = array();
+  $_SESSION['RPG2k15']['ABILITIES'] = array();
 
 }
 // Else if the player is just starting the battle, queue start actions
@@ -392,8 +392,8 @@ elseif ($this_action == 'start'){
   $temp_reward_points_base = !empty($this_battle->battle_points) ? number_format($this_battle->battle_points, 0, '.', ',') : 0;
   $temp_reward_zenny_base = !empty($this_battle->battle_zenny) ? number_format($this_battle->battle_zenny, 0, '.', ',') : 0;
   // Collect the mission complete/failure records to display
-  //$temp_battle_complete_count = isset($_SESSION['GAME']['values']['battle_complete'][$this_player->player_token][$this_battle->battle_token]['battle_count']) ? $_SESSION['GAME']['values']['battle_complete'][$this_player->player_token][$this_battle->battle_token]['battle_count'] : 0;
-  //$temp_battle_failure_count = isset($_SESSION['GAME']['values']['battle_failure'][$this_player->player_token][$this_battle->battle_token]['battle_count']) ? $_SESSION['GAME']['values']['battle_failure'][$this_player->player_token][$this_battle->battle_token]['battle_count'] : 0;
+  //$temp_battle_complete_count = isset($_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$this_player->player_token][$this_battle->battle_token]['battle_count']) ? $_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$this_player->player_token][$this_battle->battle_token]['battle_count'] : 0;
+  //$temp_battle_failure_count = isset($_SESSION['RPG2k15']['GAME']['values']['battle_failure'][$this_player->player_token][$this_battle->battle_token]['battle_count']) ? $_SESSION['RPG2k15']['GAME']['values']['battle_failure'][$this_player->player_token][$this_battle->battle_token]['battle_count'] : 0;
 
   // Define the first event body markup, regardless of player type
   $first_event_header = $this_battle->battle_name.' <span class="pipe">|</span> '.$this_battle->battle_field->field_name;
@@ -411,16 +411,16 @@ elseif ($this_action == 'start'){
 
   // Update the summon counts for all this player's robots
   foreach ($this_player->values['robots_active'] AS $key => $info){
-    if (!isset($_SESSION['GAME']['values']['robot_database'][$info['robot_token']])){ $_SESSION['GAME']['values']['robot_database'][$info['robot_token']] = array('robot_token' => $info['robot_token']); }
-    if (!isset($_SESSION['GAME']['values']['robot_database'][$info['robot_token']]['robot_summoned'])){ $_SESSION['GAME']['values']['robot_database'][$info['robot_token']]['robot_summoned'] = 0; }
-    $_SESSION['GAME']['values']['robot_database'][$info['robot_token']]['robot_summoned'] += 1;
+    if (!isset($_SESSION['RPG2k15']['GAME']['values']['robot_database'][$info['robot_token']])){ $_SESSION['RPG2k15']['GAME']['values']['robot_database'][$info['robot_token']] = array('robot_token' => $info['robot_token']); }
+    if (!isset($_SESSION['RPG2k15']['GAME']['values']['robot_database'][$info['robot_token']]['robot_summoned'])){ $_SESSION['RPG2k15']['GAME']['values']['robot_database'][$info['robot_token']]['robot_summoned'] = 0; }
+    $_SESSION['RPG2k15']['GAME']['values']['robot_database'][$info['robot_token']]['robot_summoned'] += 1;
   }
 
   // Update the encounter counts for all target player's robots
   foreach ($target_player->values['robots_active'] AS $key => $info){
-    if (!isset($_SESSION['GAME']['values']['robot_database'][$info['robot_token']])){ $_SESSION['GAME']['values']['robot_database'][$info['robot_token']] = array('robot_token' => $info['robot_token']); }
-    if (!isset($_SESSION['GAME']['values']['robot_database'][$info['robot_token']]['robot_encountered'])){ $_SESSION['GAME']['values']['robot_database'][$info['robot_token']]['robot_encountered'] = 0; }
-    $_SESSION['GAME']['values']['robot_database'][$info['robot_token']]['robot_encountered'] += 1;
+    if (!isset($_SESSION['RPG2k15']['GAME']['values']['robot_database'][$info['robot_token']])){ $_SESSION['RPG2k15']['GAME']['values']['robot_database'][$info['robot_token']] = array('robot_token' => $info['robot_token']); }
+    if (!isset($_SESSION['RPG2k15']['GAME']['values']['robot_database'][$info['robot_token']]['robot_encountered'])){ $_SESSION['RPG2k15']['GAME']['values']['robot_database'][$info['robot_token']]['robot_encountered'] = 0; }
+    $_SESSION['RPG2k15']['GAME']['values']['robot_database'][$info['robot_token']]['robot_encountered'] += 1;
   }
 
   // Hide all this player's robots by default
@@ -735,11 +735,11 @@ elseif ($this_action == 'ability' && preg_match('/^([0-9]+)_item-/i', $this_acti
   if (preg_match('/^([0-9]+)_item-/i', $this_action_token)){
     // Decrease the quantity of this item from the player's inventory
     list($temp_item_id, $temp_item_token) = explode('_', $this_action_token);
-    if (!empty($_SESSION['GAME']['values']['battle_items'][$temp_item_token])){
-      $temp_quantity = $_SESSION['GAME']['values']['battle_items'][$temp_item_token];
+    if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_items'][$temp_item_token])){
+      $temp_quantity = $_SESSION['RPG2k15']['GAME']['values']['battle_items'][$temp_item_token];
       $temp_quantity -= 1;
       if ($temp_quantity < 0){ $temp_quantity = 0; }
-      $_SESSION['GAME']['values']['battle_items'][$temp_item_token] = $temp_quantity;
+      $_SESSION['RPG2k15']['GAME']['values']['battle_items'][$temp_item_token] = $temp_quantity;
     }
   }
 
@@ -1331,20 +1331,20 @@ if ($target_robot->robot_status == 'disabled' || $target_robot->robot_energy < 1
  * ACTION PROCESSING
  */
 
-if (!isset($_SESSION['GAME']['values']['battle_items'])){
+if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_items'])){
   // Loop through player index if not empty
   $temp_items_array = array();
   foreach ($mmrpg_index['players'] AS $player_token => $player_info){
-    if (!empty($_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_items'])){
-      foreach ($_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_items'] AS $token => $count){
+    if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_items'])){
+      foreach ($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_items'] AS $token => $count){
         if (!isset($temp_items_array[$token])){ $temp_items_array[$token] = 0; }
         $temp_items_array[$token] += $count;
       }
     }
   }
   // Create the new unified items array in the session
-  if (!isset($_SESSION['GAME']['values']['battle_items'])){ $_SESSION['GAME']['values']['battle_items'] = array(); }
-  $_SESSION['GAME']['values']['battle_items'] = $temp_items_array;
+  if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_items'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_items'] = array(); }
+  $_SESSION['RPG2k15']['GAME']['values']['battle_items'] = $temp_items_array;
 }
 
 // Define the array to hold action panel markup

@@ -351,9 +351,9 @@ function mmrpg_website_community_index(){
   if (MMRPG_CONFIG_DEBUG_MODE){ mmrpg_debug_checkpoint(__FILE__, __LINE__, 'mmrpg_website_community_categories()');  }
   global $DB;
   // Check to see if the community category has already been pulled or not
-  if (false && !empty($_SESSION['COMMUNITY']['categories'])){
+  if (false && !empty($_SESSION['RPG2k15']['COMMUNITY']['categories'])){
     if (MMRPG_CONFIG_DEBUG_MODE){ mmrpg_debug_checkpoint(__FILE__, __LINE__);  }
-    $this_categories_index = json_decode($_SESSION['COMMUNITY']['categories'], true);
+    $this_categories_index = json_decode($_SESSION['RPG2k15']['COMMUNITY']['categories'], true);
   } else {
     if (MMRPG_CONFIG_DEBUG_MODE){ mmrpg_debug_checkpoint(__FILE__, __LINE__);  }
     // Collect the community catetories from the database
@@ -362,7 +362,7 @@ function mmrpg_website_community_index(){
     $this_categories_index = $DB->get_array_list($this_categories_query, 'category_token');
     // Update the database index cache
     if (MMRPG_CONFIG_DEBUG_MODE){ mmrpg_debug_checkpoint(__FILE__, __LINE__);  }
-    $_SESSION['COMMUNITY']['categories'] = json_encode($this_categories_index);
+    $_SESSION['RPG2k15']['COMMUNITY']['categories'] = json_encode($this_categories_index);
   }
   // Return the collected community categories
   if (MMRPG_CONFIG_DEBUG_MODE){ mmrpg_debug_checkpoint(__FILE__, __LINE__);  }
@@ -391,7 +391,7 @@ function mmrpg_website_community_thread_linkblock($this_thread_info, $this_categ
   $temp_session_token = $this_thread_info['thread_id'].'_';
   $temp_session_token .= !empty($this_thread_info['thread_mod_date']) ? $this_thread_info['thread_mod_date'] : $this_thread_info['thread_date'];
   // Check if this thread has already been viewed this session
-  $temp_session_viewed = in_array($temp_session_token, $_SESSION['COMMUNITY']['threads_viewed']) ? true : false;
+  $temp_session_viewed = in_array($temp_session_token, $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed']) ? true : false;
 
   // Update the temp date group if necessary
   $temp_thread_date = !empty($this_thread_info['thread_date']) ? $this_thread_info['thread_date'] : mktime(0, 0, 1, 1, 1, 2011);

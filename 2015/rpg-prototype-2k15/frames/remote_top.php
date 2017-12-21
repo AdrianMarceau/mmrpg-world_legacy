@@ -1,7 +1,7 @@
 <?
 // If a user ID has been defined, attempt to swap the save session
 if (!defined('MMRPG_REMOTE_GAME_ID')){ define('MMRPG_REMOTE_GAME_ID', (!empty($_REQUEST['user_id']) ? $_REQUEST['user_id'] : 0)); }
-if (MMRPG_REMOTE_GAME_ID != 0 && MMRPG_REMOTE_GAME_ID != $_SESSION['GAME']['USER']['userid']){
+if (MMRPG_REMOTE_GAME_ID != 0 && MMRPG_REMOTE_GAME_ID != $_SESSION['RPG2k15']['GAME']['USER']['userid']){
 
   // Attempt to collect data for this player from the database
   $this_playerinfo = $DB->get_array("SELECT
@@ -47,7 +47,7 @@ if (MMRPG_REMOTE_GAME_ID != 0 && MMRPG_REMOTE_GAME_ID != $_SESSION['GAME']['USER
 
     // Add this player's GAME data to the session for iframe scripts
     $temp_remote_session = array();
-    $temp_remote_session['CACHE_DATE'] = !empty($_SESSION['GAME']['CACHE_DATE']) ? $_SESSION['GAME']['CACHE_DATE'] : MMRPG_CONFIG_CACHE_DATE;
+    $temp_remote_session['CACHE_DATE'] = !empty($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) ? $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] : MMRPG_CONFIG_CACHE_DATE;
     $temp_remote_session['DEMO'] = 0;
     $temp_remote_session['USER'] = array(
       'userid' => $this_playerinfo['user_id'],
@@ -71,9 +71,9 @@ if (MMRPG_REMOTE_GAME_ID != 0 && MMRPG_REMOTE_GAME_ID != $_SESSION['GAME']['USER
     //$temp_remote_session['USER'] = $this_playerinfo['settings'];
     //$temp_remote_session['FILE'] = $this_playerinfo['settings'];
     $temp_session_key = 'REMOTE_GAME_'.$this_playerinfo['user_id'];
-    $_SESSION[$temp_session_key] = $temp_remote_session;
+    $_SESSION['RPG2k15'][$temp_session_key] = $temp_remote_session;
     //die('<pre>'.$temp_session_key.' : '.print_r($temp_remote_session, true).'</pre>');
-    //die('<pre>'.$temp_session_key.' : '.print_r($_SESSION['REMOTE_GAME_'.$this_playerinfo['user_id']], true).'</pre>');
+    //die('<pre>'.$temp_session_key.' : '.print_r($_SESSION['RPG2k15']['REMOTE_GAME_'.$this_playerinfo['user_id']], true).'</pre>');
 
   }
 

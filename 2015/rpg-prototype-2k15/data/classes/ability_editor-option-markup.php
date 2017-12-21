@@ -49,7 +49,7 @@ if (!empty($temp_ability_type2)){ $temp_ability_option .= ' / '.$temp_ability_ty
 if (!empty($ability_info['ability_damage'])){ $temp_ability_option .= ' | D:'.$ability_info['ability_damage']; }
 if (!empty($ability_info['ability_recovery'])){ $temp_ability_option .= ' | R:'.$ability_info['ability_recovery']; }
 if ($ability_info['ability_class'] != 'item' && !empty($ability_info['ability_accuracy'])){ $temp_ability_option .= ' | A:'.$ability_info['ability_accuracy']; }
-elseif ($ability_info['ability_class'] == 'item' && !empty($_SESSION[$session_token]['values']['battle_items'][$temp_ability_token])){ $temp_ability_option .= ' | U:'.$_SESSION[$session_token]['values']['battle_items'][$temp_ability_token]; }
+elseif ($ability_info['ability_class'] == 'item' && !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_items'][$temp_ability_token])){ $temp_ability_option .= ' | U:'.$_SESSION['RPG2k15'][$session_token]['values']['battle_items'][$temp_ability_token]; }
 elseif ($ability_info['ability_class'] == 'item'){ $temp_ability_option .= ' | U:0'; }
 if (!empty($temp_ability_energy)){ $temp_ability_option .= ' | E:'.$temp_ability_energy; }
 

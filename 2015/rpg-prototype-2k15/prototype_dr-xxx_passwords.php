@@ -1,16 +1,16 @@
 <?
 // Collect a reference to the password string in session
-if (!isset($_SESSION['GAME']['values']['battle_passwords'])){
-  $_SESSION['GAME']['values']['battle_passwords'] = array();
+if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_passwords'])){
+  $_SESSION['RPG2k15']['GAME']['values']['battle_passwords'] = array();
   foreach ($mmrpg_index['players'] AS $token => $info){
     if ($token != 'player'){
-      $_SESSION['GAME']['values']['battle_passwords'][$token] = array();
+      $_SESSION['RPG2k15']['GAME']['values']['battle_passwords'][$token] = array();
     }
   }
 }
 
 // Loop through each of the password arrays and process them
-$battle_password_arrays = !empty($_SESSION['GAME']['values']['battle_passwords']) ? $_SESSION['GAME']['values']['battle_passwords'] : array();
+$battle_password_arrays = !empty($_SESSION['RPG2k15']['GAME']['values']['battle_passwords']) ? $_SESSION['RPG2k15']['GAME']['values']['battle_passwords'] : array();
 //die('<pre>$battle_password_arrays = '.print_r($battle_password_arrays, true).'</pre>');
 foreach ($battle_password_arrays AS $player_token => $password_array){
   // Collect info about this ability
@@ -63,7 +63,7 @@ foreach ($battle_password_arrays AS $player_token => $password_array){
         elseif ($token == 'bubblebombsaway'){ $ability_token = 'bubble-bomb'; }
 
         // If the ability token was not empty, let's unlock it
-        if (!empty($ability_token) && !isset($_SESSION['GAME']['flags']['events']['password-item_'.$player_token.'_'.$password_token])){
+        if (!empty($ability_token) && !isset($_SESSION['RPG2k15']['GAME']['flags']['events']['password-item_'.$player_token.'_'.$password_token])){
           //die('<pre>$ability_token = '.print_r($ability_token, true).'</pre>');
 
           // Only unlock the ability if it's not already unlocked
@@ -80,8 +80,8 @@ foreach ($battle_password_arrays AS $player_token => $password_array){
           }
 
           // Now that we finished parsing the password, let's remove it
-          $_SESSION['GAME']['flags']['events']['password-ability_'.$password_token] = true;
-          unset($_SESSION['GAME']['values']['battle_passwords'][$player_token][$password_token]);
+          $_SESSION['RPG2k15']['GAME']['flags']['events']['password-ability_'.$password_token] = true;
+          unset($_SESSION['RPG2k15']['GAME']['values']['battle_passwords'][$player_token][$password_token]);
 
           //exit('we unlocked the ability, apparently');
 
@@ -94,7 +94,7 @@ foreach ($battle_password_arrays AS $player_token => $password_array){
         else {
 
           // Remove the password from the list without parsing it
-          unset($_SESSION['GAME']['values']['battle_passwords'][$player_token][$password_token]);
+          unset($_SESSION['RPG2k15']['GAME']['values']['battle_passwords'][$player_token][$password_token]);
 
         }
 
@@ -140,8 +140,8 @@ foreach ($battle_password_arrays AS $player_token => $password_array){
           }
 
           // Now that we finished parsing the password, let's remove it
-          $_SESSION['GAME']['flags']['events']['password-robot_'.$password_token] = true;
-          unset($_SESSION['GAME']['values']['battle_passwords'][$player_token][$password_token]);
+          $_SESSION['RPG2k15']['GAME']['flags']['events']['password-robot_'.$password_token] = true;
+          unset($_SESSION['RPG2k15']['GAME']['values']['battle_passwords'][$player_token][$password_token]);
 
           //exit('we unlocked the robot, apparently');
 
@@ -154,7 +154,7 @@ foreach ($battle_password_arrays AS $player_token => $password_array){
         else {
 
           // Remove the password from the list without parsing it
-          unset($_SESSION['GAME']['values']['battle_passwords'][$player_token][$password_token]);
+          unset($_SESSION['RPG2k15']['GAME']['values']['battle_passwords'][$player_token][$password_token]);
 
         }
 
@@ -261,12 +261,12 @@ foreach ($battle_password_arrays AS $player_token => $password_array){
           $item_info = mmrpg_ability::get_index_info($item_token);
 
           // Only unlock the item if it exists
-          if (!empty($item_info) && !isset($_SESSION['GAME']['flags']['events']['password-item_'.$password_token])){
+          if (!empty($item_info) && !isset($_SESSION['RPG2k15']['GAME']['flags']['events']['password-item_'.$password_token])){
 
             // Grant the player +1 of this item in their session
             $is_new = false;
-            if (!isset($_SESSION['GAME']['values']['battle_items'][$item_token])){ $_SESSION['GAME']['values']['battle_items'][$item_token] = 0; $is_new = true; }
-            $_SESSION['GAME']['values']['battle_items'][$item_token] += $item_quantity;
+            if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_items'][$item_token])){ $_SESSION['RPG2k15']['GAME']['values']['battle_items'][$item_token] = 0; $is_new = true; }
+            $_SESSION['RPG2k15']['GAME']['values']['battle_items'][$item_token] += $item_quantity;
 
             // Generate the attributes and text variables for this ability unlock
             $this_player_token = $player_info['player_token'];
@@ -325,7 +325,7 @@ foreach ($battle_password_arrays AS $player_token => $password_array){
             $temp_console_markup .= '<div id="console" style="width: auto; height: auto;"><div class="extra"><div class="extra2">'.preg_replace('/\s+/', ' ', mmrpg_ability::print_database_markup($item_info, array('layout_style' => 'event'))).'</div></div></div>';
             //die(''.$this_ability_token.': '.$temp_console_markup);
 
-            $_SESSION[$session_token]['EVENTS'][] = array(
+            $_SESSION['RPG2k15'][$session_token]['EVENTS'][] = array(
               'canvas_markup' => preg_replace('/\s+/', ' ', $temp_canvas_markup),
               'console_markup' => $temp_console_markup
               );
@@ -333,8 +333,8 @@ foreach ($battle_password_arrays AS $player_token => $password_array){
           }
 
           // Now that we finished parsing the password, let's remove it
-          $_SESSION['GAME']['flags']['events']['password-item_'.$password_token] = true;
-          unset($_SESSION['GAME']['values']['battle_passwords'][$player_token][$password_token]);
+          $_SESSION['RPG2k15']['GAME']['flags']['events']['password-item_'.$password_token] = true;
+          unset($_SESSION['RPG2k15']['GAME']['values']['battle_passwords'][$player_token][$password_token]);
 
           //exit('we unlocked the item, apparently');
 
@@ -347,7 +347,7 @@ foreach ($battle_password_arrays AS $player_token => $password_array){
         else {
 
           // Remove the password from the list without parsing it
-          unset($_SESSION['GAME']['values']['battle_passwords'][$player_token][$password_token]);
+          unset($_SESSION['RPG2k15']['GAME']['values']['battle_passwords'][$player_token][$password_token]);
 
         }
 
@@ -361,10 +361,10 @@ foreach ($battle_password_arrays AS $player_token => $password_array){
         //die('<pre>$password_token = '.print_r($password_token, true).'</pre>');
 
         // Reset the custom vs array for the requested player
-        $_SESSION['GAME']['values']['battle_targets'][$player_token] = array();
+        $_SESSION['RPG2k15']['GAME']['values']['battle_targets'][$player_token] = array();
 
         // Now that we finished parsing the password, let's remove it
-        unset($_SESSION['GAME']['values']['battle_passwords'][$player_token][$password_token]);
+        unset($_SESSION['RPG2k15']['GAME']['values']['battle_passwords'][$player_token][$password_token]);
 
         //exit('we reset the battle targets for this player');
 
@@ -393,18 +393,18 @@ foreach ($battle_password_arrays AS $player_token => $password_array){
           $user_token = $user_array['user_name_clean'];
 
           // A valid username has been collected, add it to the custom player battle list
-          if (!isset($_SESSION['GAME']['values']['battle_targets'][$player_token])){ $_SESSION['GAME']['values']['battle_targets'][$player_token] = array(); }
-          elseif (!is_array($_SESSION['GAME']['values']['battle_targets'][$player_token])){ $_SESSION['GAME']['values']['battle_targets'][$player_token] = array($_SESSION['GAME']['values']['battle_targets'][$player_token]); }
-          $battle_targets = $_SESSION['GAME']['values']['battle_targets'][$player_token];
+          if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_targets'][$player_token])){ $_SESSION['RPG2k15']['GAME']['values']['battle_targets'][$player_token] = array(); }
+          elseif (!is_array($_SESSION['RPG2k15']['GAME']['values']['battle_targets'][$player_token])){ $_SESSION['RPG2k15']['GAME']['values']['battle_targets'][$player_token] = array($_SESSION['RPG2k15']['GAME']['values']['battle_targets'][$player_token]); }
+          $battle_targets = $_SESSION['RPG2k15']['GAME']['values']['battle_targets'][$player_token];
           $battle_targets[] = $user_token;
           $battle_targets = array_unique($battle_targets);
           $temp_search = array_search($this_userinfo['user_name_clean'], $battle_targets);
           if ($temp_search !== false){ unset($battle_targets[$temp_search]); $battle_targets = array_values($battle_targets); }
           if (count($battle_targets) > 6){ $battle_targets = array_slice($battle_targets, 0, 6); }
-          $_SESSION['GAME']['values']['battle_targets'][$player_token] = $battle_targets;
+          $_SESSION['RPG2k15']['GAME']['values']['battle_targets'][$player_token] = $battle_targets;
 
           // Now that we finished parsing the password, let's remove it
-          unset($_SESSION['GAME']['values']['battle_passwords'][$player_token][$password_token]);
+          unset($_SESSION['RPG2k15']['GAME']['values']['battle_passwords'][$player_token][$password_token]);
 
           //exit('we unlocked the robot, apparently');
 
@@ -417,7 +417,7 @@ foreach ($battle_password_arrays AS $player_token => $password_array){
         else {
 
           // Remove the password from the list without parsing it
-          unset($_SESSION['GAME']['values']['battle_passwords'][$player_token][$password_token]);
+          unset($_SESSION['RPG2k15']['GAME']['values']['battle_passwords'][$player_token][$password_token]);
 
         }
 
@@ -427,7 +427,7 @@ foreach ($battle_password_arrays AS $player_token => $password_array){
       else {
 
         // Remove the password from the list without parsing it
-        unset($_SESSION['GAME']['values']['battle_passwords'][$player_token][$password_token]);
+        unset($_SESSION['RPG2k15']['GAME']['values']['battle_passwords'][$player_token][$password_token]);
 
       }
 

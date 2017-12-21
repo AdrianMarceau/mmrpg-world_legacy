@@ -37,8 +37,8 @@ class mmrpg_battle {
     // Update and/or overwrite the current info in the index
     $DB->INDEX['BATTLES'][$battle_token] = json_encode($battle_info);
     // Update the data in the session as well with provided
-    $_SESSION['GAME']['values']['battle_index'][$battle_token] = json_encode($battle_info);
-    //ksort($_SESSION['GAME']['values']['battle_index']);
+    $_SESSION['RPG2k15']['GAME']['values']['battle_index'][$battle_token] = json_encode($battle_info);
+    //ksort($_SESSION['RPG2k15']['GAME']['values']['battle_index']);
 
     // Return true on success
     return true;
@@ -53,7 +53,7 @@ class mmrpg_battle {
     if (!isset($DB->INDEX['BATTLES'])){ mmrpg_battle::load_battle_index(false); }
 
     // Update the data in the session as well with recovered
-    $_SESSION['GAME']['values']['battle_index'][$battle_token] = $DB->INDEX['BATTLES'][$battle_token];
+    $_SESSION['RPG2k15']['GAME']['values']['battle_index'][$battle_token] = $DB->INDEX['BATTLES'][$battle_token];
 
     // Return true on success
     return true;
@@ -109,9 +109,9 @@ class mmrpg_battle {
     // Loop through the battles and index them after serializing
     foreach ($mmrpg_battles_index AS $token => $array){ $DB->INDEX['BATTLES'][$token] = json_encode($array); }
     // Additionally, include any dynamic session-based battles
-    if (!empty($include_session) && !empty($_SESSION['GAME']['values']['battle_index'])){
+    if (!empty($include_session) && !empty($_SESSION['RPG2k15']['GAME']['values']['battle_index'])){
       // The session-based battles exist, so merge them with the index
-      $DB->INDEX['BATTLES'] = array_merge($DB->INDEX['BATTLES'], $_SESSION['GAME']['values']['battle_index']);
+      $DB->INDEX['BATTLES'] = array_merge($DB->INDEX['BATTLES'], $_SESSION['RPG2k15']['GAME']['values']['battle_index']);
     }
     // Return true on success
     return true;
@@ -171,8 +171,8 @@ class mmrpg_battle {
 
     // Collect current battle data from the session if available
     $this_battleinfo_backup = $this_battleinfo;
-    if (isset($_SESSION['BATTLES'][$this_battleinfo['battle_id']])){
-      $this_battleinfo = $_SESSION['BATTLES'][$this_battleinfo['battle_id']];
+    if (isset($_SESSION['RPG2k15']['BATTLES'][$this_battleinfo['battle_id']])){
+      $this_battleinfo = $_SESSION['RPG2k15']['BATTLES'][$this_battleinfo['battle_id']];
     }
     // Otherwise, collect battle data from the index
     else {
@@ -1193,7 +1193,7 @@ class mmrpg_battle {
 
     // Update the session with the export array
     $this_data = $this->export_array();
-    $_SESSION['BATTLES'][$this->battle_id] = $this_data;
+    $_SESSION['RPG2k15']['BATTLES'][$this->battle_id] = $this_data;
 
     // Return true on success
     return true;

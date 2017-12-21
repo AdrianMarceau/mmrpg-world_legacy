@@ -32,9 +32,9 @@ function mmrpg_leaderboard_parse_index($board_key, $board_info, $quick_parse = f
   $this_username = !empty($board_info['user_name_public']) ? $board_info['user_name_public'] : $board_info['user_name'];
   $this_username = htmlentities($this_username, ENT_QUOTES, 'UTF-8', true);
   $this_user_id = !empty($board_info['user_id']) ? $board_info['user_id'] : 0;
-  if ($this_userid != MMRPG_SETTINGS_GUEST_ID && $this_user_id == $_SESSION['GAME']['USER']['userid']){
+  if ($this_userid != MMRPG_SETTINGS_GUEST_ID && $this_user_id == $_SESSION['RPG2k15']['GAME']['USER']['userid']){
     $this_boardinfo['board_rank'] = $place_counter;
-    $_SESSION['GAME']['BOARD']['boardrank'] = $this_boardinfo['board_rank'];
+    $_SESSION['RPG2k15']['GAME']['BOARD']['boardrank'] = $this_boardinfo['board_rank'];
   }
 
   //die('<pre>'.print_r($this_battles, true).'</pre>');

@@ -13,7 +13,7 @@ if (empty($robot_info)){ return false; }
 if (empty($item_info)){ return false; }
 
 $item_info_token = $item_info['ability_token'];
-$item_info_count = !empty($_SESSION[$session_token]['values']['battle_items'][$item_info_token]) ? $_SESSION[$session_token]['values']['battle_items'][$item_info_token] : 0;
+$item_info_count = !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_items'][$item_info_token]) ? $_SESSION['RPG2k15'][$session_token]['values']['battle_items'][$item_info_token] : 0;
 $item_info_name = $item_info['ability_name'];
 $item_info_type = !empty($item_info['ability_type']) ? $item_info['ability_type'] : false;
 $item_info_type2 = !empty($item_info['ability_type2']) ? $item_info['ability_type2'] : false;

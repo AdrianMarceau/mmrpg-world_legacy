@@ -3,7 +3,7 @@
 /*
  * DEMO PLAYER SELECT
  */
-if (!empty($_SESSION[$session_token]['DEMO'])){
+if (!empty($_SESSION['RPG2k15'][$session_token]['DEMO'])){
   /*
   // Print out the demo mode's player select screen for Dr. Light
   $text_robots_unlocked = $prototype_data['demo']['robots_unlocked'].' Robot'.($prototype_data['demo']['robots_unlocked'] != 1 ? 's' : '');

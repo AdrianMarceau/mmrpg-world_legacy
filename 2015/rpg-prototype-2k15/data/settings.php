@@ -10,7 +10,7 @@ $is_admin = in_array($_SERVER['REMOTE_ADDR'], explode(',', MMRPG_CONFIG_ADMIN_LI
 define('MMRPG_CONFIG_ADMIN_MODE', $is_admin);
 
 // Define the global cache date and settings
-define('MMRPG_CONFIG_DEBUG_MODE', !empty($_SESSION['GAME']['debug_mode']) ? true : false);
+define('MMRPG_CONFIG_DEBUG_MODE', !empty($_SESSION['RPG2k15']['GAME']['debug_mode']) ? true : false);
 
 // Define the cache date and path on this system
 define('MMRPG_CONFIG_CACHE_DATE', '20150808-01');

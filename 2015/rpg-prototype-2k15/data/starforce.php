@@ -3,8 +3,8 @@
 if (!isset($session_token)){ $session_token = mmrpg_game_token(); }
 
 // Collect the field stars from the session variable
-if (!isset($_SESSION[$session_token]['values']['battle_stars'])){ $_SESSION[$session_token]['values']['battle_stars'] = array(); }
-$this_battle_stars = !empty($_SESSION[$session_token]['values']['battle_stars']) ? $_SESSION[$session_token]['values']['battle_stars'] : array();
+if (!isset($_SESSION['RPG2k15'][$session_token]['values']['battle_stars'])){ $_SESSION['RPG2k15'][$session_token]['values']['battle_stars'] = array(); }
+$this_battle_stars = !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_stars']) ? $_SESSION['RPG2k15'][$session_token]['values']['battle_stars'] : array();
 $this_battle_stars_count = !empty($this_battle_stars) ? count($this_battle_stars) : 0;
 $this_battle_stars_field_count = 0;
 $this_battle_stars_fusion_count = 0;
@@ -35,8 +35,8 @@ foreach ($this_battle_stars AS $temp_key => $temp_data){
 }
 asort($this_star_force);
 $this_star_force = array_reverse($this_star_force);
-$_SESSION[$session_token]['values']['star_force'] = $this_star_force;
-$_SESSION[$session_token]['values']['star_force_strict'] = $this_star_force_strict;
+$_SESSION['RPG2k15'][$session_token]['values']['star_force'] = $this_star_force;
+$_SESSION['RPG2k15'][$session_token]['values']['star_force_strict'] = $this_star_force_strict;
 //die('<pre>$this_star_force_strict = '.print_r($this_star_force_strict, true)."\n\n".'$this_star_force = '.print_r($this_star_force, true)."\n\n".'$this_star_force_total = '.$this_star_force_total."\n\n".'$this_star_force_strict_total = '.$this_star_force_strict_total.'</pre>');
 
 ?>

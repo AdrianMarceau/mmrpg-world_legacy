@@ -4,7 +4,7 @@
  */
 
 // Return to loging if a guest
-if (!empty($_SESSION[mmrpg_game_token()]['DEMO'])){
+if (!empty($_SESSION['RPG2k15'][mmrpg_game_token()]['DEMO'])){
   header('Location: '.MMRPG_CONFIG_ROOTURL.'file/load/return='.$_GET['this_current_uri']);
   exit();
 }
@@ -26,7 +26,7 @@ $this_seo_title = (!empty($_REQUEST['thread_id']) ? 'Edit' : 'New').' Discussion
 $thread_session_token = (!empty($this_thread_info['thread_id']) ? $this_thread_info['thread_id'] : '0').'_';
 $thread_session_token .= !empty($this_thread_info['thread_mod_date']) ? $this_thread_info['thread_mod_date'] : (!empty($this_thread_info['thread_date']) ? $this_thread_info['thread_date'] : time());
 // Check if this thread has already been viewed this session
-$thread_session_viewed = in_array($thread_session_token, $_SESSION['COMMUNITY']['threads_viewed']) ? true : false;
+$thread_session_viewed = in_array($thread_session_token, $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed']) ? true : false;
 
 // Define the temporary display variables
 $temp_thread_name = !empty($this_thread_info['thread_name']) ? $this_thread_info['thread_name'] : '';
@@ -227,8 +227,8 @@ if (empty($target_user_info)){
 <?
 
 // Add this thread to the community session tracker array
-if (!in_array($thread_session_token, $_SESSION['COMMUNITY']['threads_viewed'])){
-  $_SESSION['COMMUNITY']['threads_viewed'][] = $thread_session_token;
+if (!in_array($thread_session_token, $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'])){
+  $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'][] = $thread_session_token;
 }
 
 ?>

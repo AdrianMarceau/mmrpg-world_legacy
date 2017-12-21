@@ -37,8 +37,8 @@ else { $temp_last_login = time() - MMRPG_SETTINGS_UPDATE_TIMEOUT; }
 $temp_exclude_ids = array();
 $temp_thread_view_times = array();
 //$temp_max_time = 0;
-if (!empty($_SESSION['COMMUNITY']['threads_viewed'])){
-  foreach ($_SESSION['COMMUNITY']['threads_viewed'] AS $key => $string){
+if (!empty($_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'])){
+  foreach ($_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'] AS $key => $string){
     if (empty($string)){ continue; }
     list($temp_id, $temp_time) = explode('_', $string);
     $temp_thread_view_times[$temp_id] = $temp_time;
@@ -154,8 +154,8 @@ if (!empty($this_threads_array)){
     $temp_session_token = $this_thread_info['thread_id'].'_';
     $temp_session_token .= !empty($this_thread_info['thread_mod_date']) ? $this_thread_info['thread_mod_date'] : $this_thread_info['thread_date'];
     // Check if this thread has already been viewed this session
-    $temp_session_viewed = in_array($temp_session_token, $_SESSION['COMMUNITY']['threads_viewed']) ? true : false;
-    if (!MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['COMMUNITY']['threads_viewed'][] = $temp_session_token; }
+    $temp_session_viewed = in_array($temp_session_token, $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed']) ? true : false;
+    if (!MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'][] = $temp_session_token; }
     $temp_current_views = $this_thread_info['thread_views'];
     $temp_new_views = $temp_current_views + 1;
     //$temp_update_session = $DB->query("UPDATE mmrpg_threads SET thread_views = {$temp_new_views} WHERE thread_id = {$this_thread_info['thread_id']}");

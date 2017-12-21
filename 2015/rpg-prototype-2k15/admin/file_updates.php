@@ -1,16 +1,16 @@
 <?
 
-//die('$_SESSION[\'GAME\'][\'CACHE_DATE\'] = '.$_SESSION['GAME']['CACHE_DATE']);
+//die('$_SESSION['RPG2k15'][\'GAME\'][\'CACHE_DATE\'] = '.$_SESSION['RPG2k15']['GAME']['CACHE_DATE']);
 
-//die('battle_rewards(before) = '.mmrpg_print_r($_SESSION['GAME']['values']['battle_rewards']['dr-cossack']));
-//die('battle_settings(before) = '.mmrpg_print_r($_SESSION['GAME']['values']['battle_settings']['dr-cossack']));
+//die('battle_rewards(before) = '.mmrpg_print_r($_SESSION['RPG2k15']['GAME']['values']['battle_rewards']['dr-cossack']));
+//die('battle_settings(before) = '.mmrpg_print_r($_SESSION['RPG2k15']['GAME']['values']['battle_settings']['dr-cossack']));
 
 // Check the loaded game's CACHE DATE to see if it needs to be updated from 2012/12/14
-if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] <= '20121214-03'){
+if (empty($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) || $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] <= '20121214-03'){
 
-  $battle_rewards = !empty($_SESSION['GAME']['values']['battle_rewards']) ? $_SESSION['GAME']['values']['battle_rewards'] : array();
-  if (!empty($_SESSION['GAME']['values']['battle_rewards'])){
-    foreach ($_SESSION['GAME']['values']['battle_rewards'] AS $player_token => $player_info){
+  $battle_rewards = !empty($_SESSION['RPG2k15']['GAME']['values']['battle_rewards']) ? $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'] : array();
+  if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'])){
+    foreach ($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'] AS $player_token => $player_info){
       if (!empty($player_info['player_robots'])){
         foreach ($player_info['player_robots'] AS $robot_token => $robot_info){
           $robot_info['robot_experience'] = 0;
@@ -31,95 +31,95 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] <=
           	<br /><br />';
           	*/
           unset($robot_info['robot_points']);
-          $_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_robots'][$robot_token] = $robot_info;
+          $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_robots'][$robot_token] = $robot_info;
         }
       }
     }
   }
 
-  $_SESSION['GAME']['CACHE_DATE'] = '20121214-03'; //MMRPG_CONFIG_CACHE_DATE;
+  $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] = '20121214-03'; //MMRPG_CONFIG_CACHE_DATE;
 
   //die('Your game has been updated!');
 
 }
 
 // Check the loaded game's CACHE DATE to see if it needs to be updated from 20130106
-if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < '20130106-01'){
+if (empty($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) || $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] < '20130106-01'){
 
-  $battle_rewards = !empty($_SESSION['GAME']['values']['battle_rewards']) ? $_SESSION['GAME']['values']['battle_rewards'] : array();
-  if (!empty($_SESSION['GAME']['values']['battle_rewards'])){
-    foreach ($_SESSION['GAME']['values']['battle_rewards'] AS $player_token => $player_info){
+  $battle_rewards = !empty($_SESSION['RPG2k15']['GAME']['values']['battle_rewards']) ? $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'] : array();
+  if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'])){
+    foreach ($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'] AS $player_token => $player_info){
       $this_setting = array('player_token' => $player_token, 'player_robots' => $player_info['player_robots']);
-      $_SESSION['GAME']['values']['battle_settings'][$player_token] = $this_setting;
+      $_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$player_token] = $this_setting;
       mmrpg_game_unlock_ability($player_info, false, array('ability_token' => 'buster-shot'));
       if (!empty($player_info['player_robots'])){
         foreach ($player_info['player_robots'] AS $robot_token => $robot_info){
           $this_setting = array('robot_token' => $robot_token, 'robot_abilities' => $robot_info['robot_abilities']);
-          $_SESSION['GAME']['values']['battle_settings'][$player_info['player_token']]['player_robots'][$robot_token] = $this_setting;
+          $_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$player_info['player_token']]['player_robots'][$robot_token] = $this_setting;
         }
       }
     }
   }
 
-  $_SESSION['GAME']['CACHE_DATE'] = '20130106-01'; //MMRPG_CONFIG_CACHE_DATE;
+  $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] = '20130106-01'; //MMRPG_CONFIG_CACHE_DATE;
 
 }
 
 // Check the loaded game's CACHE DATE to see if it needs to be updated from 20130127
-if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < '20130127-01'){
+if (empty($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) || $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] < '20130127-01'){
   // Empty the completed battle arrays, as we are starting fresh
-  $_SESSION['GAME']['values']['battle_complete']['dr-light'] = array();
-  $_SESSION['GAME']['values']['battle_complete']['dr-wily'] = array();
-  $_SESSION['GAME']['values']['battle_complete']['dr-cossack'] = array();
-  $_SESSION['GAME']['values']['battle_failure']['dr-light'] = array();
-  $_SESSION['GAME']['values']['battle_failure']['dr-wily'] = array();
-  $_SESSION['GAME']['values']['battle_failure']['dr-cossack'] = array();
+  $_SESSION['RPG2k15']['GAME']['values']['battle_complete']['dr-light'] = array();
+  $_SESSION['RPG2k15']['GAME']['values']['battle_complete']['dr-wily'] = array();
+  $_SESSION['RPG2k15']['GAME']['values']['battle_complete']['dr-cossack'] = array();
+  $_SESSION['RPG2k15']['GAME']['values']['battle_failure']['dr-light'] = array();
+  $_SESSION['RPG2k15']['GAME']['values']['battle_failure']['dr-wily'] = array();
+  $_SESSION['RPG2k15']['GAME']['values']['battle_failure']['dr-cossack'] = array();
   // Update the game's cache date
-  $_SESSION['GAME']['CACHE_DATE'] = '20130127-01'; //MMRPG_CONFIG_CACHE_DATE;
+  $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] = '20130127-01'; //MMRPG_CONFIG_CACHE_DATE;
 
 }
 
 // Check the loaded game's CACHE DATE to see if it needs to be updated from 20130129
-if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < '20130130-01'){
+if (empty($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) || $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] < '20130130-01'){
 
-  $battle_settings = !empty($_SESSION['GAME']['values']['battle_settings']) ? $_SESSION['GAME']['values']['battle_settings'] : array();
-  if (!empty($_SESSION['GAME']['values']['battle_settings'])){
-    foreach ($_SESSION['GAME']['values']['battle_settings'] AS $player_token => $player_info){
+  $battle_settings = !empty($_SESSION['RPG2k15']['GAME']['values']['battle_settings']) ? $_SESSION['RPG2k15']['GAME']['values']['battle_settings'] : array();
+  if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_settings'])){
+    foreach ($_SESSION['RPG2k15']['GAME']['values']['battle_settings'] AS $player_token => $player_info){
       if (!empty($player_info['player_robots'])){
         foreach ($player_info['player_robots'] AS $robot_token => $robot_info){
-          $_SESSION['GAME']['values']['battle_settings'][$player_info['player_token']]['player_robots'][$robot_token]['original_player'] = $player_token;
+          $_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$player_info['player_token']]['player_robots'][$robot_token]['original_player'] = $player_token;
         }
       }
     }
   }
 
-  $_SESSION['GAME']['CACHE_DATE'] = '20130130-01'; //MMRPG_CONFIG_CACHE_DATE;
+  $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] = '20130130-01'; //MMRPG_CONFIG_CACHE_DATE;
 
 }
 
 // Check the loaded game's CACHE DATE to see if it needs to be updated from 20131801
-if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < '20130218-01'){
+if (empty($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) || $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] < '20130218-01'){
 
   // Loop through and unset all completed battle tokens
-  $temp_battles_complete = $_SESSION['GAME']['values']['battle_complete'];
+  $temp_battles_complete = $_SESSION['RPG2k15']['GAME']['values']['battle_complete'];
   foreach ($temp_battles_complete AS $temp_player_token => $temp_battle_tokens){
     foreach ($temp_battle_tokens AS $temp_battle_token => $temp_battle_info){
-      unset($_SESSION['GAME']['values']['battle_complete'][$temp_player_token][$temp_battle_token]);
+      unset($_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$temp_player_token][$temp_battle_token]);
     }
   }
 
-  $_SESSION['GAME']['CACHE_DATE'] = '20130218-01'; //MMRPG_CONFIG_CACHE_DATE;
+  $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] = '20130218-01'; //MMRPG_CONFIG_CACHE_DATE;
 
 }
 
 // Check the loaded game's CACHE DATE to see if it needs to be updated from 20130728
 // This update converts all completed battle values into arrays with the proper values
-if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < '20130728-01'){
+if (empty($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) || $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] < '20130728-01'){
 
   //die('checkpoint');
 
   // Loop through and unset all completed battle tokens
-  $temp_battles_complete = $_SESSION['GAME']['values']['battle_complete'];
+  $temp_battles_complete = $_SESSION['RPG2k15']['GAME']['values']['battle_complete'];
   foreach ($temp_battles_complete AS $temp_player_token => $temp_battle_tokens){
     $temp_battle_key = 0;
     foreach ($temp_battle_tokens AS $temp_battle_token => $temp_battle_info){
@@ -149,33 +149,33 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < 
       // Only update if changed
       if ($temp_updated && !empty($temp_battle_info)){
         //die('<pre>AFTER : '.print_r($temp_battle_info, true).'</pre>');
-        $_SESSION['GAME']['values']['battle_complete'][$temp_player_token][$temp_battle_token] = $temp_battle_info;
+        $_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$temp_player_token][$temp_battle_token] = $temp_battle_info;
         $temp_battle_key++;
       }
     }
   }
 
   //die('COMPLETE');
-  $_SESSION['GAME']['CACHE_DATE'] = '20130728-01'; //MMRPG_CONFIG_CACHE_DATE;
+  $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] = '20130728-01'; //MMRPG_CONFIG_CACHE_DATE;
 
 }
 
 
 // Check the loaded game's CACHE DATE to see if it needs to be updated from 20131012-01
 // This update ensures all unlocked robots have the proper original_player variable set
-if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < '20131012-01'){
+if (empty($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) || $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] < '20131012-01'){
 
   //die('checkpoint');
 
   // Loop through and unset all completed battle tokens
-  if (!isset($_SESSION['GAME']['values']['battle_settings'])){ $_SESSION['GAME']['values']['battle_settings'] = array(); }
-  $temp_battle_settings = $_SESSION['GAME']['values']['battle_settings'];
-  if (!isset($_SESSION['GAME']['values']['battle_rewards'])){ $_SESSION['GAME']['values']['battle_rewards'] = array(); }
-  $temp_battle_rewards = $_SESSION['GAME']['values']['battle_rewards'];
+  if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_settings'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_settings'] = array(); }
+  $temp_battle_settings = $_SESSION['RPG2k15']['GAME']['values']['battle_settings'];
+  if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'] = array(); }
+  $temp_battle_rewards = $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'];
   foreach ($temp_battle_settings AS $temp_player_token => $temp_player_settings){
     // Unset this player's omega factors - we've made some changes
     $temp_session_key = $temp_player_token.'_target-robot-omega_prototype';
-    unset($_SESSION['GAME']['values'][$temp_session_key]);
+    unset($_SESSION['RPG2k15']['GAME']['values'][$temp_session_key]);
     // Loop through the player's robots
     foreach ($temp_player_settings['player_robots'] AS $temp_robot_token => $temp_robot_info){
 
@@ -201,13 +201,13 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < 
           // Remove this robot from the settings and rewards array
           unset($temp_battle_settings[$temp_player_token]['player_robots'][$temp_robot_token]);
           unset($temp_battle_rewards[$temp_player_token]['player_robots'][$temp_robot_token]);
-          unset($_SESSION['GAME']['values']['battle_settings'][$temp_player_token]['player_robots'][$temp_robot_token]);
-          unset($_SESSION['GAME']['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]);
+          unset($_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$temp_player_token]['player_robots'][$temp_robot_token]);
+          unset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]);
           // Unlock the mecha support ability early(?) as a consolation for removing their robot
           mmrpg_game_unlock_ability($mmrpg_index['players'][$temp_player_token], false, array('ability_token' => 'mecha-support'));
           // DEBUG
           //echo $temp_player_token.':'.$temp_robot_token.'<br /> ';
-          //echo __LINE__.' : <pre>UNSET :'.print_r($temp_robot_index['robot_class'], true).' ROBOT $_SESSION[\'GAME\'][\'values\'][\'battle_settings\']['.$temp_player_token.']['.$temp_robot_token.']</pre><br />';
+          //echo __LINE__.' : <pre>UNSET :'.print_r($temp_robot_index['robot_class'], true).' ROBOT $_SESSION['RPG2k15'][\'GAME\'][\'values\'][\'battle_settings\']['.$temp_player_token.']['.$temp_robot_token.']</pre><br />';
           continue;
         }
 
@@ -235,8 +235,8 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < 
             $index = mmrpg_ability::parse_index_info($temp_abilities_index[$token]);
             if (empty($index)){
               // Remove this ability from the settings and rewards array
-              unset($_SESSION['GAME']['values']['battle_settings'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_abilities'][$token]);
-              unset($_SESSION['GAME']['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_abilities'][$token]);
+              unset($_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_abilities'][$token]);
+              unset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]['robot_abilities'][$token]);
               continue;
             }
           }
@@ -279,54 +279,54 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < 
       // Otherwise if this robot does not exist remove it and continue
       else {
         // Remove this robot from the settings and rewards array
-        unset($_SESSION['GAME']['values']['battle_settings'][$temp_player_token]['player_robots'][$temp_robot_token]);
-        unset($_SESSION['GAME']['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]);
+        unset($_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$temp_player_token]['player_robots'][$temp_robot_token]);
+        unset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]);
         continue;
       }
 
       // Only update if changed
       if ($temp_updated && !empty($temp_robot_settings)){
         //echo(__LINE__.' : <pre>AFTER : '.print_r($temp_robot_settings, true).'</pre><br />');
-        unset($_SESSION['GAME']['values']['battle_settings'][$temp_player_token]['player_robots'][$temp_robot_token]);
-        unset($_SESSION['GAME']['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]);
-        $_SESSION['GAME']['values']['battle_settings'][$temp_robot_settings['original_player']]['player_robots'][$temp_robot_token] = $temp_robot_settings;
-        $_SESSION['GAME']['values']['battle_rewards'][$temp_robot_settings['original_player']]['player_robots'][$temp_robot_token] = $temp_robot_rewards;
-        //echo(__LINE__.' : <pre>AFTERSESSION : '.print_r($_SESSION['GAME']['values']['battle_settings'][$temp_player_token]['player_robots'][$temp_robot_token], true).'</pre><br />');
+        unset($_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$temp_player_token]['player_robots'][$temp_robot_token]);
+        unset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$temp_player_token]['player_robots'][$temp_robot_token]);
+        $_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$temp_robot_settings['original_player']]['player_robots'][$temp_robot_token] = $temp_robot_settings;
+        $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$temp_robot_settings['original_player']]['player_robots'][$temp_robot_token] = $temp_robot_rewards;
+        //echo(__LINE__.' : <pre>AFTERSESSION : '.print_r($_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$temp_player_token]['player_robots'][$temp_robot_token], true).'</pre><br />');
       }
 
 
     }
 
     // And finally, unset all the battle complete and failure arrays, we're starting fresh
-    unset($_SESSION['GAME']['values']['battle_complete'][$temp_player_token]);
-    unset($_SESSION['GAME']['values']['battle_failure'][$temp_player_token]);
-    unset($_SESSION['GAME']['flags']['prototype_events']);
+    unset($_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$temp_player_token]);
+    unset($_SESSION['RPG2k15']['GAME']['values']['battle_failure'][$temp_player_token]);
+    unset($_SESSION['RPG2k15']['GAME']['flags']['prototype_events']);
 
   }
 
   // Unset events to prevent weirdness
-  unset($_SESSION['GAME']['flags']['events']);
+  unset($_SESSION['RPG2k15']['GAME']['flags']['events']);
 
   //die('COMPLETE');
-  $_SESSION['GAME']['CACHE_DATE'] = '20131012-01'; //MMRPG_CONFIG_CACHE_DATE;
+  $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] = '20131012-01'; //MMRPG_CONFIG_CACHE_DATE;
 
 }
 
 
 // Check the loaded game's CACHE DATE to see if it needs to be updated from 20131026-11
 // This update ensures all unlocked robots have the proper original_player variable set
-if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < '20131026-11'){
+if (empty($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) || $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] < '20131026-11'){
 
   //die('checkpoint');
 
   // Loop through player index if not empty
   foreach ($mmrpg_index['players'] AS $player_token => $player_info){
     $temp_session_key = $player_token.'_target-robot-omega_prototype';
-    if (!empty($_SESSION['GAME']['values'][$temp_session_key])){
-      foreach ($_SESSION['GAME']['values'][$temp_session_key] AS $key => $group){
+    if (!empty($_SESSION['RPG2k15']['GAME']['values'][$temp_session_key])){
+      foreach ($_SESSION['RPG2k15']['GAME']['values'][$temp_session_key] AS $key => $group){
         foreach ($group AS $key2 => $factor){
           if (!empty($factor['robot']) && $factor['robot'] == 'wood-man'){
-            $_SESSION['GAME']['values'][$temp_session_key][$key][$key2]['field'] = 'preserved-forest';
+            $_SESSION['RPG2k15']['GAME']['values'][$temp_session_key][$key][$key2]['field'] = 'preserved-forest';
           }
         }
       }
@@ -334,21 +334,21 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < 
   }
 
   //die('COMPLETE');
-  $_SESSION['GAME']['CACHE_DATE'] = '20131026-11'; //MMRPG_CONFIG_CACHE_DATE;
+  $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] = '20131026-11'; //MMRPG_CONFIG_CACHE_DATE;
 
 }
 
 // Check the loaded game's CACHE DATE to see if it needs to be updated from 20131026-15
 // This update ensures all unlocked robots have the proper original_player variable set
-if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < '20131026-15'){
+if (empty($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) || $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] < '20131026-15'){
 
   //die('checkpoint');
 
   // Loop through player index if not empty
   $temp_items_array = array();
   foreach ($mmrpg_index['players'] AS $player_token => $player_info){
-    if (!empty($_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_items'])){
-      foreach ($_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_items'] AS $token => $count){
+    if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_items'])){
+      foreach ($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_items'] AS $token => $count){
         if (!isset($temp_items_array[$token])){ $temp_items_array[$token] = 0; }
         $temp_items_array[$token] += $count;
       }
@@ -356,27 +356,27 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < 
   }
 
   // Create the new unified items array in the session
-  if (!isset($_SESSION['GAME']['values']['battle_items'])){ $_SESSION['GAME']['values']['battle_items'] = array(); }
-  $_SESSION['GAME']['values']['battle_items'] = $temp_items_array;
+  if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_items'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_items'] = array(); }
+  $_SESSION['RPG2k15']['GAME']['values']['battle_items'] = $temp_items_array;
 
   //die(print_r($temp_items_array, true));
 
   //die('COMPLETE');
-  $_SESSION['GAME']['CACHE_DATE'] = '20131026-15'; //MMRPG_CONFIG_CACHE_DATE;
+  $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] = '20131026-15'; //MMRPG_CONFIG_CACHE_DATE;
 
 }
 
 
 // Check the loaded game's CACHE DATE to see if it needs to be updated from 20131228-01
 // This update ensures all unlocked robots have the proper original_player variable set
-if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < '20140104-02'){
+if (empty($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) || $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] < '20140104-02'){
 
   //die('checkpoint '.$data['user_id']);
 
   // -- FIX ROBOT DATABASE -- //
 
   // Collect the current robot database and define the array for the new one
-  $session_robot_database = !empty($_SESSION['GAME']['values']['robot_database']) ? $_SESSION['GAME']['values']['robot_database'] : array();
+  $session_robot_database = !empty($_SESSION['RPG2k15']['GAME']['values']['robot_database']) ? $_SESSION['RPG2k15']['GAME']['values']['robot_database'] : array();
   $new_robot_database = array();
 
   // Loop through the current database and re-add all the robots in their new format
@@ -402,13 +402,13 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < 
   }
 
   // Update the session with the new database data
-  $_SESSION['GAME']['values']['robot_database'] = $new_robot_database;
+  $_SESSION['RPG2k15']['GAME']['values']['robot_database'] = $new_robot_database;
 
 
   // -- REMOVED UNLOCKED MECHA ROBOTS FROM GAME -- //
 
-  $temp_battle_rewards = !empty($_SESSION['GAME']['values']['battle_rewards']) ? $_SESSION['GAME']['values']['battle_rewards'] : array();
-  $temp_battle_settings = !empty($_SESSION['GAME']['values']['battle_settings']) ? $_SESSION['GAME']['values']['battle_settings'] : array();
+  $temp_battle_rewards = !empty($_SESSION['RPG2k15']['GAME']['values']['battle_rewards']) ? $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'] : array();
+  $temp_battle_settings = !empty($_SESSION['RPG2k15']['GAME']['values']['battle_settings']) ? $_SESSION['RPG2k15']['GAME']['values']['battle_settings'] : array();
   $temp_indexed_data = array_merge($temp_battle_rewards, $temp_battle_settings);
   if (!empty($temp_indexed_data)){
     foreach ($temp_indexed_data AS $temp_player => $temp_player_info){
@@ -416,8 +416,8 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < 
         foreach ($temp_player_info['player_robots'] AS $temp_robot => $temp_robot_info){
           $temp_index_robot = mmrpg_robot::get_index_info($temp_robot);
           if (empty($temp_index_robot) || (!empty($temp_index_robot['robot_class']) && $temp_index_robot['robot_class'] == 'mecha')){
-            unset($_SESSION['GAME']['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot]);
-            unset($_SESSION['GAME']['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot]);
+            unset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot]);
+            unset($_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot]);
           }
         }
       }
@@ -425,13 +425,13 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < 
   }
 
   //die('COMPLETE');
-  $_SESSION['GAME']['CACHE_DATE'] = MMRPG_CONFIG_CACHE_DATE;
+  $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] = MMRPG_CONFIG_CACHE_DATE;
 
 }
 
 // Check the loaded game's CACHE DATE to see if it needs to be updated from 20140104-03
 // This update ensures all unlocked robots have the proper original_player variable set
-if (false && empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] < '20140104-07'){
+if (false && empty($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) || $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] < '20140104-07'){
 
   // Update the leaderboard count with new numbers
   $temp_board_update = array();
@@ -451,9 +451,9 @@ if (false && empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_
   $temp_board_update['board_missions_dr_wily'] = 0;
   $temp_board_update['board_missions_dr_cossack'] = 0;
 
-  if (!empty($_SESSION['GAME']['values']['battle_stars'])){
+  if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_stars'])){
 
-    foreach ($_SESSION['GAME']['values']['battle_stars'] AS $key => $info){
+    foreach ($_SESSION['RPG2k15']['GAME']['values']['battle_stars'] AS $key => $info){
       $temp_player = str_replace('-', '_', $info['star_player']);
       $temp_board_update['board_stars'] += 1;
       $temp_board_update['board_stars_'.$temp_player] += 1;
@@ -461,16 +461,16 @@ if (false && empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_
 
   }
 
-  if (!empty($_SESSION['GAME']['values']['battle_complete'])){
-    foreach ($_SESSION['GAME']['values']['battle_complete'] AS $ptoken => $battles){
+  if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_complete'])){
+    foreach ($_SESSION['RPG2k15']['GAME']['values']['battle_complete'] AS $ptoken => $battles){
       $temp_player = str_replace('-', '_', $ptoken);
       $temp_board_update['board_missions'] += count($battles);
       $temp_board_update['board_missions_'.$temp_player] += count($battles);
     }
   }
 
-  if (!empty($_SESSION['GAME']['values']['battle_rewards'])){
-    foreach ($_SESSION['GAME']['values']['battle_rewards'] AS $ptoken => $pinfo){
+  if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'])){
+    foreach ($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'] AS $ptoken => $pinfo){
       $temp_player = str_replace('-', '_', $ptoken);
       if (!empty($pinfo['player_abilities'])){
         $temp_board_update['board_abilities'] += count($pinfo['player_abilities']);
@@ -479,18 +479,18 @@ if (false && empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_
     }
   }
 
-  //$temp_board_update['user_id'] = $_SESSION['TEMP']['temp_update_user_id'];
+  //$temp_board_update['user_id'] = $_SESSION['RPG2k15']['TEMP']['temp_update_user_id'];
 
   //die('$temp_board_update = <pre>'.print_r($temp_board_update, true).'</pre>');
 
 
 
   // Update the leaderboard with the star changes
-  $DB->update('mmrpg_leaderboard', $temp_board_update, array('user_id' => $_SESSION['TEMP']['temp_update_user_id']));
+  $DB->update('mmrpg_leaderboard', $temp_board_update, array('user_id' => $_SESSION['RPG2k15']['TEMP']['temp_update_user_id']));
 
 
   //die('COMPLETE');
-  $_SESSION['GAME']['CACHE_DATE'] = MMRPG_CONFIG_CACHE_DATE;
+  $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] = MMRPG_CONFIG_CACHE_DATE;
 
 
 }
@@ -498,7 +498,7 @@ if (false && empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_
 
 
 // Check the loaded game's CACHE DATE to see if it needs to be updated from 2015/04/05
-if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] <= '20150405-02'){
+if (empty($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) || $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] <= '20150405-02'){
 
   $DEBUG_MARKUP = '';
   $DEBUG_DIE = false;
@@ -509,33 +509,33 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] <=
   $temp_robot_index = mmrpg_robot::get_index();
 
   // Create zenny counter if it doesn't already exist
-  if (!isset($_SESSION['GAME']['counters']['battle_zenny'])){ $_SESSION['GAME']['counters']['battle_zenny'] = 0; }
+  if (!isset($_SESSION['RPG2k15']['GAME']['counters']['battle_zenny'])){ $_SESSION['RPG2k15']['GAME']['counters']['battle_zenny'] = 0; }
 
 
   // -- DESTROY LEGACY DATA NO LONGER USED FOR ITEM MANAGEMENT -- //
 
-  if (isset($_SESSION['GAME']['values']['dr-light_this-item-omega_prototype'])){ unset($_SESSION['GAME']['values']['dr-light_this-item-omega_prototype']); }
-  if (isset($_SESSION['GAME']['values']['dr-wily_this-item-omega_prototype'])){ unset($_SESSION['GAME']['values']['dr-wily_this-item-omega_prototype']); }
-  if (isset($_SESSION['GAME']['values']['dr-cossack_this-item-omega_prototype'])){ unset($_SESSION['GAME']['values']['dr-cossack_this-item-omega_prototype']); }
+  if (isset($_SESSION['RPG2k15']['GAME']['values']['dr-light_this-item-omega_prototype'])){ unset($_SESSION['RPG2k15']['GAME']['values']['dr-light_this-item-omega_prototype']); }
+  if (isset($_SESSION['RPG2k15']['GAME']['values']['dr-wily_this-item-omega_prototype'])){ unset($_SESSION['RPG2k15']['GAME']['values']['dr-wily_this-item-omega_prototype']); }
+  if (isset($_SESSION['RPG2k15']['GAME']['values']['dr-cossack_this-item-omega_prototype'])){ unset($_SESSION['RPG2k15']['GAME']['values']['dr-cossack_this-item-omega_prototype']); }
 
-  if (isset($_SESSION['GAME']['counters']['battle_hearts'])){ unset($_SESSION['GAME']['counters']['battle_hearts']); }
+  if (isset($_SESSION['RPG2k15']['GAME']['counters']['battle_hearts'])){ unset($_SESSION['RPG2k15']['GAME']['counters']['battle_hearts']); }
 
 
   // -- COLLECT REWARD AND SETTINGS ARRAYS -- //
 
-  $battle_rewards = !empty($_SESSION['GAME']['values']['battle_rewards']) ? $_SESSION['GAME']['values']['battle_rewards'] : array();
-  $battle_settings = !empty($_SESSION['GAME']['values']['battle_settings']) ? $_SESSION['GAME']['values']['battle_settings'] : array();
+  $battle_rewards = !empty($_SESSION['RPG2k15']['GAME']['values']['battle_rewards']) ? $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'] : array();
+  $battle_settings = !empty($_SESSION['RPG2k15']['GAME']['values']['battle_settings']) ? $_SESSION['RPG2k15']['GAME']['values']['battle_settings'] : array();
 
 
   // Create the global abilities array if it does not exist yet
-  if (!isset($_SESSION['GAME']['values']['battle_abilities'])){ $_SESSION['GAME']['values']['battle_abilities'] = array(); }
+  if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_abilities'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_abilities'] = array(); }
 
 
   // -- LOOP THROUGH ALL BATTLE REWARDS / SETTINGS -- //
 
   // Ensure there are battle rewards before looping
-  if (!empty($_SESSION['GAME']['values']['battle_rewards'])){
-    foreach ($_SESSION['GAME']['values']['battle_rewards'] AS $player_token => $player_rewards){
+  if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'])){
+    foreach ($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'] AS $player_token => $player_rewards){
 
       // Collect player settings to go along with the rewards array
       $player_settings = !empty($battle_settings[$player_token]) ? $battle_settings[$player_token] : array();
@@ -546,14 +546,14 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] <=
         foreach ($player_rewards['player_abilities'] AS $ability_token => $ability_reward){
 
           if (empty($ability_token) || empty($ability_reward)){
-            unset($_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_abilities'][$ability_token]);
+            unset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_abilities'][$ability_token]);
             continue;
           }
 
           // -- UNLOCK PLAYER ABILITIES INTO THE GLOBAL ABILITIES ARRAY -- //
 
-          if (!isset($_SESSION['GAME']['values']['battle_abilities'][$ability_token])){
-            $_SESSION['GAME']['values']['battle_abilities'][$ability_token] = $ability_reward;
+          if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_abilities'][$ability_token])){
+            $_SESSION['RPG2k15']['GAME']['values']['battle_abilities'][$ability_token] = $ability_reward;
           }
 
         }
@@ -573,8 +573,8 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] <=
           //die('robot_rewards = '.mmrpg_print_r($robot_rewards));
           //die('robot_settings = '.mmrpg_print_r($robot_settings));
 
-          //die('battle_rewards = '.mmrpg_print_r($_SESSION['GAME']['values']['battle_rewards'][$player_token]));
-          //die('battle_settings = '.mmrpg_print_r($_SESSION['GAME']['values']['battle_settings'][$player_token]));
+          //die('battle_rewards = '.mmrpg_print_r($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]));
+          //die('battle_settings = '.mmrpg_print_r($_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$player_token]));
 
           // Create the player abilities array in the rewards if it doesn't exist
           if (!isset($player_rewards['player_abilities'])){ $player_rewards['player_abilities'] = array(); }
@@ -587,18 +587,18 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] <=
 
               // If either the token or the info is empty, remove this bogus array
               if (empty($ability_token) || empty($ability_info)){
-                unset($_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_robots'][$robot_token]['robot_abilities'][$ability_token]);
+                unset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_robots'][$robot_token]['robot_abilities'][$ability_token]);
                 continue;
               }
 
               // Add or update this ability in the global abilities array
-              if (!isset($_SESSION['GAME']['values']['battle_abilities'][$ability_token])){
-                $_SESSION['GAME']['values']['battle_abilities'][$ability_token] = $ability_info;
+              if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_abilities'][$ability_token])){
+                $_SESSION['RPG2k15']['GAME']['values']['battle_abilities'][$ability_token] = $ability_info;
               }
               // Add or update this ability in the individual player abilities array
-              if (!isset($_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_abilities'][$ability_token])){
+              if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_abilities'][$ability_token])){
                 $player_rewards['player_abilities'][$ability_token] = $ability_info;
-                $_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_abilities'][$ability_token] = $ability_info;
+                $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_abilities'][$ability_token] = $ability_info;
               }
 
 
@@ -693,8 +693,8 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] <=
                 //$temp_zenny_bonus += $receiving;
 
                 // Update changes to this robot's bonus stats in the session
-                $_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_robots'][$robot_token]['robot_'.$stat] = $temp_robot[$stat]['bonus'];
-                $_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_robots'][$robot_token]['robot_'.$stat.'_pending'] = 0;
+                $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_robots'][$robot_token]['robot_'.$stat] = $temp_robot[$stat]['bonus'];
+                $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_robots'][$robot_token]['robot_'.$stat.'_pending'] = 0;
 
 
               }
@@ -720,8 +720,8 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] <=
                 $temp_zenny_bonus -= $receiving;
 
                 // Update changes to this robot's bonus stats in the session
-                $_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_robots'][$robot_token]['robot_'.$stat] = $temp_robot[$stat]['bonus'];
-                //$_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_robots'][$robot_token]['robot_'.$stat.'_pending'] = 0;
+                $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_robots'][$robot_token]['robot_'.$stat] = $temp_robot[$stat]['bonus'];
+                //$_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_robots'][$robot_token]['robot_'.$stat.'_pending'] = 0;
 
               }
 
@@ -733,7 +733,7 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] <=
           // -- ROBOT STAT ZENNY BONUS -- //
 
           // If a zenny bonus was defined, add it to the player's save game
-          if (!empty($temp_zenny_bonus)){ $_SESSION['GAME']['counters']['battle_zenny'] += $temp_zenny_bonus; }
+          if (!empty($temp_zenny_bonus)){ $_SESSION['RPG2k15']['GAME']['counters']['battle_zenny'] += $temp_zenny_bonus; }
 
 
           // SHOW DEBUG INFORMATION!!!!
@@ -760,11 +760,11 @@ if (empty($_SESSION['GAME']['CACHE_DATE']) || $_SESSION['GAME']['CACHE_DATE'] <=
   }
 
 
-  //$_SESSION['GAME']['CACHE_DATE'] = '20150405-01'; //MMRPG_CONFIG_CACHE_DATE;
+  //$_SESSION['RPG2k15']['GAME']['CACHE_DATE'] = '20150405-01'; //MMRPG_CONFIG_CACHE_DATE;
 
-  //$DEBUG_MARKUP .= '<br /><br /> $_SESSION[GAME] = '.mmrpg_print_r($_SESSION['GAME'], '/GAME/');
+  //$DEBUG_MARKUP .= '<br /><br /> $_SESSION['RPG2k15'][GAME] = '.mmrpg_print_r($_SESSION['RPG2k15']['GAME'], '/GAME/');
 
-  //die('Your game has been updated. '.$_SESSION['TEMP']['temp_update_user_id'].':'.$_SESSION['TEMP']['temp_update_user_name_clean'].'! '.$DEBUG_MARKUP);
+  //die('Your game has been updated. '.$_SESSION['RPG2k15']['TEMP']['temp_update_user_id'].':'.$_SESSION['RPG2k15']['TEMP']['temp_update_user_name_clean'].'! '.$DEBUG_MARKUP);
 
 }
 

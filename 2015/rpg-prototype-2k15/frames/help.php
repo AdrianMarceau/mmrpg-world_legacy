@@ -32,7 +32,7 @@ $prototype_tooltip_index[] = 'Elemental abilities are powerful but can damage th
 //$prototype_tooltip_index[] = '';
 //$prototype_tooltip_index[] = '';
 
-if (!empty($_SESSION[mmrpg_game_token()]['DEMO'])){
+if (!empty($_SESSION['RPG2k15'][mmrpg_game_token()]['DEMO'])){
 
   // Define the demo-mode specific player tooltips
   $prototype_tooltip_index[] = 'Progress cannot be saved in the demo mode, but creating a new save file will let you start your adventure with any points earned thus far.';

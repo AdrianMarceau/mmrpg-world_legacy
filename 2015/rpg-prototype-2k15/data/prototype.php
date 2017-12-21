@@ -6,7 +6,7 @@ $session_token = mmrpg_game_token();
 $prototype_data = array();
 
 // Define the canvas and console markup variables
-if (!isset($_SESSION[$session_token]['EVENTS'])){ $_SESSION[$session_token]['EVENTS'] = array(); }
+if (!isset($_SESSION['RPG2k15'][$session_token]['EVENTS'])){ $_SESSION['RPG2k15'][$session_token]['EVENTS'] = array(); }
 $temp_canvas_markup = '';
 $temp_console_markup = '';
 
@@ -18,7 +18,7 @@ require(MMRPG_CONFIG_ROOTDIR.'data/prototype_vars.php');
 /*
  * DEMO BATTLE OPTIONS
  */
-if (!empty($_SESSION[$session_token]['DEMO'])){
+if (!empty($_SESSION['RPG2k15'][$session_token]['DEMO'])){
 
   // Include the demo mode options and markup
   require(MMRPG_CONFIG_ROOTDIR.'prototype_demo_menu.php');
@@ -45,7 +45,7 @@ else {
    */
 
   // DEMO MENU OPTIONS
-  if (!empty($_SESSION[mmrpg_game_token()]['DEMO'])){
+  if (!empty($_SESSION['RPG2k15'][mmrpg_game_token()]['DEMO'])){
     // Only print out Light's data if conditions allow or do not exist
     if (empty($this_data_condition) || in_array('this_player_token=dr-light', $this_data_condition)){
       // Include the light mode options and markup

@@ -18,7 +18,7 @@ echo '<div class="wrapper">';
       $column_count = ceil(count($mmrpg_database_abilities) / $row_count);
 
       // Collect this player's ability rewards and add them to the dropdown
-      if (!empty($_SESSION[$session_token]['values']['battle_abilities'])){ $player_ability_rewards = $_SESSION[$session_token]['values']['battle_abilities']; }
+      if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_abilities'])){ $player_ability_rewards = $_SESSION['RPG2k15'][$session_token]['values']['battle_abilities']; }
       elseif (!empty($player_rewards['player_abilities'])){ $player_ability_rewards = array('buster-shot' => array('ability_token' => 'buster-shot')); }
 
       // Create a fake player and robot to pass the info check

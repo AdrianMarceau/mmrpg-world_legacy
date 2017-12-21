@@ -109,7 +109,7 @@ $ability = array(
             //$this_battle->events_create(false, false, 'debug', 'player side left!', $event_options);
 
             // Remove the copy shot from this robot's battle settings and replace with new ability
-            $temp_ability_settings = $_SESSION['GAME']['values']['battle_settings'][$this_player->player_token]['player_robots'][$this_robot->robot_token]['robot_abilities'];
+            $temp_ability_settings = $_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$this_player->player_token]['player_robots'][$this_robot->robot_token]['robot_abilities'];
             $temp_new_ability_settings = array();
             if (!isset($temp_ability_settings[$this_new_ability->ability_token])){
               foreach ($temp_ability_settings AS $array){ $temp_new_ability_settings[] = $array['ability_token']; }
@@ -117,9 +117,9 @@ $ability = array(
               $temp_new_ability_settings[$temp_overwrite_position] = $this_new_ability->ability_token;
               $temp_ability_settings = array();
               foreach ($temp_new_ability_settings AS $token){ $temp_ability_settings[$token] = array('ability_token' => $token); }
-              $_SESSION['GAME']['values']['battle_settings'][$this_player->player_token]['player_robots'][$this_robot->robot_token]['robot_abilities'] = $temp_ability_settings;
+              $_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$this_player->player_token]['player_robots'][$this_robot->robot_token]['robot_abilities'] = $temp_ability_settings;
               // Unset this ability in the robot's settings
-              //unset($_SESSION['GAME']['values']['battle_settings'][$this_player->player_token]['player_robots'][$this_robot->robot_token]['robot_abilities'][$this_ability->ability_token]);
+              //unset($_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$this_player->player_token]['player_robots'][$this_robot->robot_token]['robot_abilities'][$this_ability->ability_token]);
             }
 
             // Unlock this ability for the player permanently

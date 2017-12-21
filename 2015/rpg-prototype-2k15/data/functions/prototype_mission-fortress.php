@@ -8,21 +8,21 @@ function mmrpg_prototype_mission_fortress($this_prototype_data, $temp_battle_lev
   $temp_battle_index = mmrpg_battle::get_index_info($temp_index_token);
   $temp_robot_index = mmrpg_robot::get_index();
 
-  //ksort($_SESSION['GAME']['values']['battle_index']);
-  //exit('$session_values_battle_index = <pre>'.print_r($_SESSION['GAME']['values']['battle_index'], true).'</pre>');
-  //unset($_SESSION['GAME']['values']['battle_index'][$temp_battle_token]);
+  //ksort($_SESSION['RPG2k15']['GAME']['values']['battle_index']);
+  //exit('$session_values_battle_index = <pre>'.print_r($_SESSION['RPG2k15']['GAME']['values']['battle_index'], true).'</pre>');
+  //unset($_SESSION['RPG2k15']['GAME']['values']['battle_index'][$temp_battle_token]);
   //die('$temp_battle_index = <pre>'.print_r($temp_battle_index, true).'</pre>');
 
   // Copy over any completion records from the old, index-based name
-  if (!empty($_SESSION['GAME']['values']['battle_complete'][$this_prototype_data['this_player_token']][$temp_index_token])){
-      $_SESSION['GAME']['values']['battle_complete'][$this_prototype_data['this_player_token']][$temp_battle_token] = $_SESSION['GAME']['values']['battle_complete'][$this_prototype_data['this_player_token']][$temp_index_token];
-      unset($_SESSION['GAME']['values']['battle_complete'][$this_prototype_data['this_player_token']][$temp_index_token]);
+  if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$this_prototype_data['this_player_token']][$temp_index_token])){
+      $_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$this_prototype_data['this_player_token']][$temp_battle_token] = $_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$this_prototype_data['this_player_token']][$temp_index_token];
+      unset($_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$this_prototype_data['this_player_token']][$temp_index_token]);
   }
 
   // Copy over any completion records from the old, index-based name
-  if (!empty($_SESSION['GAME']['values']['battle_failure'][$this_prototype_data['this_player_token']][$temp_index_token])){
-      $_SESSION['GAME']['values']['battle_failure'][$this_prototype_data['this_player_token']][$temp_battle_token] = $_SESSION['GAME']['values']['battle_failure'][$this_prototype_data['this_player_token']][$temp_index_token];
-      unset($_SESSION['GAME']['values']['battle_failure'][$this_prototype_data['this_player_token']][$temp_index_token]);
+  if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_failure'][$this_prototype_data['this_player_token']][$temp_index_token])){
+      $_SESSION['RPG2k15']['GAME']['values']['battle_failure'][$this_prototype_data['this_player_token']][$temp_battle_token] = $_SESSION['RPG2k15']['GAME']['values']['battle_failure'][$this_prototype_data['this_player_token']][$temp_index_token];
+      unset($_SESSION['RPG2k15']['GAME']['values']['battle_failure'][$this_prototype_data['this_player_token']][$temp_index_token]);
   }
 
   // Collect and define the rest of the details

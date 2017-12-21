@@ -37,8 +37,8 @@ class mmrpg_player {
 
     // Collect current player data from the session if available
     $this_playerinfo_backup = $this_playerinfo;
-    if (isset($_SESSION['PLAYERS'][$this_playerinfo['player_id']])){
-      $this_playerinfo = $_SESSION['PLAYERS'][$this_playerinfo['player_id']];
+    if (isset($_SESSION['RPG2k15']['PLAYERS'][$this_playerinfo['player_id']])){
+      $this_playerinfo = $_SESSION['RPG2k15']['PLAYERS'][$this_playerinfo['player_id']];
     }
     // Otherwise, collect player data from the index
     else {
@@ -120,8 +120,8 @@ class mmrpg_player {
 
     // Pull in session starforce if available for human players
     if (empty($this->player_starforce) && $this->player_side == 'left'){
-      if (!empty($_SESSION['GAME']['values']['star_force'])){
-        $this->player_starforce = $_SESSION['GAME']['values']['star_force'];
+      if (!empty($_SESSION['RPG2k15']['GAME']['values']['star_force'])){
+        $this->player_starforce = $_SESSION['RPG2k15']['GAME']['values']['star_force'];
       }
     }
 
@@ -136,13 +136,13 @@ class mmrpg_player {
   // Define a function for adding a new robot to this player's object data
   public function load_robot($this_robotinfo, $this_key, $apply_bonuses = false){
     //$GLOBALS['DEBUG']['checkpoint_line'] = 'class.player.php : line 107 <pre>'.print_r($this->player_robots, true).'</pre>';
-    ////if (MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['DEBUG']['checkpoint_queries'][] = "CHECKPOINT on line ".__LINE__." in ".__FILE__;  }
+    ////if (MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['RPG2k15']['DEBUG']['checkpoint_queries'][] = "CHECKPOINT on line ".__LINE__." in ".__FILE__;  }
     $this_robot = new mmrpg_robot($this->battle, $this, $this_robotinfo);
-    ////if (MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['DEBUG']['checkpoint_queries'][] = "CHECKPOINT on line ".__LINE__." in ".__FILE__;  }
+    ////if (MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['RPG2k15']['DEBUG']['checkpoint_queries'][] = "CHECKPOINT on line ".__LINE__." in ".__FILE__;  }
     if ($apply_bonuses){ $this_robot->apply_stat_bonuses(); }
-    ////if (MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['DEBUG']['checkpoint_queries'][] = "CHECKPOINT on line ".__LINE__." in ".__FILE__;  }
+    ////if (MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['RPG2k15']['DEBUG']['checkpoint_queries'][] = "CHECKPOINT on line ".__LINE__." in ".__FILE__;  }
     $this_export_array = $this_robot->export_array();
-    ////if (MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['DEBUG']['checkpoint_queries'][] = "CHECKPOINT on line ".__LINE__." in ".__FILE__;  }
+    ////if (MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['RPG2k15']['DEBUG']['checkpoint_queries'][] = "CHECKPOINT on line ".__LINE__." in ".__FILE__;  }
     $this->player_robots[$this_key] = $this_export_array;
     unset($this_robot);
     return true;
@@ -574,7 +574,7 @@ class mmrpg_player {
 
     // Update the session with the export array
     $this_data = $this->export_array();
-    $_SESSION['PLAYERS'][$this->player_id] = $this_data;
+    $_SESSION['RPG2k15']['PLAYERS'][$this->player_id] = $this_data;
     $this->battle->values['players'][$this->player_id] = $this_data;
 
     // Return true on success

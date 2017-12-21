@@ -3,7 +3,7 @@
 require_once('../top.php');
 
 // Unset the prototype temp variable
-$_SESSION['PROTOTYPE_TEMP'] = array();
+$_SESSION['RPG2k15']['PROTOTYPE_TEMP'] = array();
 
 // Require the remote top in case we're in viewer mode
 define('MMRPG_REMOTE_SKIP_INDEX', true);
@@ -31,7 +31,7 @@ $temp_omega_factor_options = array();
 if (mmrpg_prototype_complete('dr-light')){ $temp_omega_factor_options = array_merge($temp_omega_factor_options, $this_omega_factors_one); }
 if (mmrpg_prototype_complete('dr-wily')){ $temp_omega_factor_options = array_merge($temp_omega_factor_options, $this_omega_factors_two); }
 if (mmrpg_prototype_complete('dr-cossack')){ $temp_omega_factor_options = array_merge($temp_omega_factor_options, $this_omega_factors_three); }
-$temp_unlocked_fields = !empty($_SESSION[$session_token]['values']['battle_fields']) ? $_SESSION[$session_token]['values']['battle_fields'] : array();
+$temp_unlocked_fields = !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_fields']) ? $_SESSION['RPG2k15'][$session_token]['values']['battle_fields'] : array();
 // Loop through unlockable system fields with no type
 foreach ($this_omega_factors_system AS $key => $factor){ if (in_array($factor['field'], $temp_unlocked_fields)){ $temp_omega_factor_options[] = $factor; } }
 // Loop through the unlockable MM3 fields (from omega factor four)
@@ -39,7 +39,7 @@ foreach ($this_omega_factors_four AS $key => $factor){ if (in_array($factor['fie
 
 /*
 // Collect all the unlocked players for all players
-$battle_settings = $_SESSION[mmrpg_game_token()]['values']['battle_settings'];
+$battle_settings = $_SESSION['RPG2k15'][mmrpg_game_token()]['values']['battle_settings'];
 foreach ($battle_settings AS $player_token => $player_info){
   $player_info = array_merge($mmrpg_index['players'][$player_token], $player_info);
   $player_players = $player_info['player_players'];
@@ -59,7 +59,7 @@ foreach ($battle_settings AS $player_token => $player_info){
 // Define the index of allowable players to appear in the edit
 $allowed_edit_players = array();
 $allowed_edit_data = array();
-foreach ($_SESSION[$session_token]['values']['battle_settings'] AS $player_token => $player_info){
+foreach ($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'] AS $player_token => $player_info){
   if (empty($player_token) || !isset($mmrpg_index['players'][$player_token])){ continue; }
   $player_info = array_merge($mmrpg_index['players'][$player_token], $player_info);
   $player_info['player_image'] = !empty($player_info['player_image']) ? $player_info['player_image'] : $player_info['player_token'];
@@ -86,7 +86,7 @@ if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'field'){
 
   // Collect this player's current field selection from the omega session
   $temp_session_key = $temp_player.'_target-robot-omega_prototype';
-  $temp_this_item_omega = !empty($_SESSION[$session_token]['values'][$temp_session_key]) ? $_SESSION[$session_token]['values'][$temp_session_key] : array();
+  $temp_this_item_omega = !empty($_SESSION['RPG2k15'][$session_token]['values'][$temp_session_key]) ? $_SESSION['RPG2k15'][$session_token]['values'][$temp_session_key] : array();
   $temp_fields = array();
   foreach ($temp_this_item_omega AS $key => $info){ if (!empty($info['field'])){ $temp_fields[] = $info['field']; } }
   //$temp_fields = array_reverse($temp_fields);
@@ -104,7 +104,7 @@ if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'field'){
     $temp_fields_new = array();
     foreach ($temp_fields AS $temp_token){ $temp_fields_new[$temp_token] = array('field_token' => $temp_token); }
     // Update the new field settings in the session variable
-    $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_fields'] = $temp_fields_new;
+    $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_fields'] = $temp_fields_new;
     // Collect the available star counts for this player
     $temp_star_counts = mmrpg_prototype_player_stars_available($temp_player);
     // Save, produce the success message with the new field order
@@ -121,7 +121,7 @@ if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'field'){
     $temp_fields_new = array();
     foreach ($temp_fields AS $temp_token){ $temp_fields_new[$temp_token] = array('field_token' => $temp_token); }
     // Update the new field settings in the session variable
-    $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_fields'] = $temp_fields_new;
+    $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_fields'] = $temp_fields_new;
     // Manually update the target robot omega with the new field values
     $temp_session_key = $temp_player.'_target-robot-omega_prototype';
     $new_target_robot_omega = array();
@@ -136,7 +136,7 @@ if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'field'){
     }
     //die(print_r($new_target_robot_omega, true));
     //$new_target_robot_omega = array_reverse($new_target_robot_omega);
-    $_SESSION[$session_token]['values'][$temp_session_key] = $new_target_robot_omega;
+    $_SESSION['RPG2k15'][$session_token]['values'][$temp_session_key] = $new_target_robot_omega;
     // Collect the available star counts for this player
     $temp_star_counts = mmrpg_prototype_player_stars_available($temp_player);
     // Save, produce the success message with the new field order
@@ -163,7 +163,7 @@ if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'field'){
     $temp_fields_new = array();
     foreach ($temp_fields AS $temp_token){ $temp_fields_new[$temp_token] = array('field_token' => $temp_token); }
     // Update the new field settings in the session variable
-    $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_fields'] = $temp_fields_new;
+    $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_fields'] = $temp_fields_new;
     // Manually update the target robot omega with the new field values
     $temp_session_key = $temp_player.'_target-robot-omega_prototype';
     $new_target_robot_omega = array();
@@ -178,7 +178,7 @@ if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'field'){
     }
     //die(print_r($new_target_robot_omega, true));
     //$new_target_robot_omega = array_reverse($new_target_robot_omega);
-    $_SESSION[$session_token]['values'][$temp_session_key] = $new_target_robot_omega;
+    $_SESSION['RPG2k15'][$session_token]['values'][$temp_session_key] = $new_target_robot_omega;
     // Collect the available star counts for this player
     $temp_star_counts = mmrpg_prototype_player_stars_available($temp_player);
     // Save, produce the success message with the new field order
@@ -196,7 +196,7 @@ if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'field'){
     $temp_fields_new = array();
     foreach ($temp_fields AS $temp_token){ $temp_fields_new[$temp_token] = array('field_token' => $temp_token); }
     // Update the new field settings in the session variable
-    $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_fields'] = $temp_fields_new;
+    $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_fields'] = $temp_fields_new;
     // Manually update the target robot omega with the new field values
     $temp_session_key = $temp_player.'_target-robot-omega_prototype';
     $new_target_robot_omega = array();
@@ -211,7 +211,7 @@ if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'field'){
     }
     //die(print_r($new_target_robot_omega, true));
     //$new_target_robot_omega = array_reverse($new_target_robot_omega);
-    $_SESSION[$session_token]['values'][$temp_session_key] = $new_target_robot_omega;
+    $_SESSION['RPG2k15'][$session_token]['values'][$temp_session_key] = $new_target_robot_omega;
     // Collect the available star counts for this player
     $temp_star_counts = mmrpg_prototype_player_stars_available($temp_player);
     // Save, produce the success message with the new field order
@@ -235,7 +235,7 @@ if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'field'){
     $temp_fields_new = array();
     foreach ($temp_fields AS $temp_token){ $temp_fields_new[$temp_token] = array('field_token' => $temp_token); }
     // Update the new field settings in the session variable
-    $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_fields'] = $temp_fields_new;
+    $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_fields'] = $temp_fields_new;
     // Manually update the target robot omega with the new field values
     $temp_session_key = $temp_player.'_target-robot-omega_prototype';
     $new_target_robot_omega = array();
@@ -250,7 +250,7 @@ if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'field'){
     }
     //die(print_r($new_target_robot_omega, true));
     //$new_target_robot_omega = array_reverse($new_target_robot_omega);
-    $_SESSION[$session_token]['values'][$temp_session_key] = $new_target_robot_omega;
+    $_SESSION['RPG2k15'][$session_token]['values'][$temp_session_key] = $new_target_robot_omega;
     // Collect the available star counts for this player
     $temp_star_counts = mmrpg_prototype_player_stars_available($temp_player);
     // Save, produce the success message with the new field order
@@ -274,7 +274,7 @@ if (!empty($_REQUEST['action']) && $_REQUEST['action'] == 'field'){
 // Define the index of allowable players to appear in the edit
 $allowed_edit_players = array();
 $allowed_edit_data = array();
-foreach ($_SESSION[$session_token]['values']['battle_settings'] AS $player_token => $player_info){
+foreach ($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'] AS $player_token => $player_info){
   if (empty($player_token) || !isset($mmrpg_index['players'][$player_token])){ continue; }
   $player_info = array_merge($mmrpg_index['players'][$player_token], $player_info);
   $allowed_edit_players[] = $player_info;
@@ -352,7 +352,7 @@ if (true){
   if (mmrpg_prototype_complete('dr-light')){ $temp_omega_factor_options = array_merge($temp_omega_factor_options, $this_omega_factors_one); }
   if (mmrpg_prototype_complete('dr-wily')){ $temp_omega_factor_options = array_merge($temp_omega_factor_options, $this_omega_factors_two); }
   if (mmrpg_prototype_complete('dr-cossack')){ $temp_omega_factor_options = array_merge($temp_omega_factor_options, $this_omega_factors_three); }
-  $temp_unlocked_fields = !empty($_SESSION[$session_token]['values']['battle_fields']) ? $_SESSION[$session_token]['values']['battle_fields'] : array();
+  $temp_unlocked_fields = !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_fields']) ? $_SESSION['RPG2k15'][$session_token]['values']['battle_fields'] : array();
   // Loop through the unlockable MM3 fields (from omega factor four)
   foreach ($this_omega_factors_four AS $key => $factor){ if (in_array($factor['field'], $temp_unlocked_fields)){ $temp_omega_factor_options[] = $factor; } }
 */
@@ -377,12 +377,12 @@ if (true){
 
     /*
     // Auto-populate the player items array with appropriate values
-    if (!empty($_SESSION[$session_token]['values']['battle_items'])){
+    if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_items'])){
       // Define the player items array and prepare to populate
       $player_rewards['player_items'] = array();
       // Loop through and add all the collected items as options
       $temp_key_items = array('item-screw-large', 'item-screw-small', 'item-heart', 'item-star');
-      foreach ($_SESSION[$session_token]['values']['battle_items'] AS $omega_token => $omega_count){
+      foreach ($_SESSION['RPG2k15'][$session_token]['values']['battle_items'] AS $omega_token => $omega_count){
         if (empty($mmrpg_database_items[$omega_token])){ continue; }
         elseif (in_array($omega_token, $temp_key_items)){ continue; }
         $item_info = $mmrpg_database_items[$omega_token];
@@ -534,8 +534,8 @@ $(document).ready(function(){
   //resizePlayerWrapper();
 <?
 // Define a reference to the game's session flag variable
-if (empty($_SESSION[$session_token]['flags']['events'])){ $_SESSION[$session_token]['flags']['events'] = array(); }
-$temp_game_flags = &$_SESSION[$session_token]['flags']['events'];
+if (empty($_SESSION['RPG2k15'][$session_token]['flags']['events'])){ $_SESSION['RPG2k15'][$session_token]['flags']['events'] = array(); }
+$temp_game_flags = &$_SESSION['RPG2k15'][$session_token]['flags']['events'];
 // If this is the first time using the editor, display the introductory area
 $temp_event_flag = 'unlocked-tooltip_player-editor-intro';
 if (empty($temp_game_flags[$temp_event_flag]) && $global_allow_editing){

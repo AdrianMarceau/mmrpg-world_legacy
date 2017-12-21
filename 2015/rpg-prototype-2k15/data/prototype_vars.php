@@ -1,12 +1,12 @@
 <?
 // Define a reference to the game's session flag variable
-if (empty($_SESSION[$session_token]['flags'])){ $_SESSION[$session_token]['flags'] = array(); }
-$temp_game_flags = &$_SESSION[$session_token]['flags'];
+if (empty($_SESSION['RPG2k15'][$session_token]['flags'])){ $_SESSION['RPG2k15'][$session_token]['flags'] = array(); }
+$temp_game_flags = &$_SESSION['RPG2k15'][$session_token]['flags'];
 
 /*
  * DEMO MISSION SELECT
  */
-if (!empty($_SESSION[$session_token]['DEMO'])){
+if (!empty($_SESSION['RPG2k15'][$session_token]['DEMO'])){
   // Collect the counters and flags for Dr. Light
   $unlock_flag_light = mmrpg_prototype_player_unlocked('dr-light');
   $point_counter_light = $unlock_flag_light ? mmrpg_prototype_player_points('dr-light') : 0;
@@ -19,7 +19,7 @@ if (!empty($_SESSION[$session_token]['DEMO'])){
   //$battle_complete_counter_light_total = $unlock_flag_light ? mmrpg_prototype_battles_complete('dr-light', false) : 0;
   //$battle_failure_counter_light_total = $unlock_flag_light ? mmrpg_prototype_battles_failure('dr-light', false) : 0;
   $prototype_complete_flag_light = $unlock_flag_light ? mmrpg_prototype_complete('dr-light') : false;
-  if ($unlock_flag_light && !$prototype_complete_flag_light && $battle_complete_counter_light >= 17){ $_SESSION[$session_token]['flags']['prototype_events']['dr-light']['prototype_complete'] = $prototype_complete_flag_light = true; }
+  if ($unlock_flag_light && !$prototype_complete_flag_light && $battle_complete_counter_light >= 17){ $_SESSION['RPG2k15'][$session_token]['flags']['prototype_events']['dr-light']['prototype_complete'] = $prototype_complete_flag_light = true; }
 
 }
 /*
@@ -40,7 +40,7 @@ else {
   //$battle_complete_counter_light_total = $unlock_flag_light ? mmrpg_prototype_battles_complete('dr-light', false) : 0;
   //$battle_failure_counter_light_total = $unlock_flag_light ? mmrpg_prototype_battles_failure('dr-light', false) : 0;
   $prototype_complete_flag_light = $unlock_flag_light ? mmrpg_prototype_complete('dr-light') : false;
-  if ($unlock_flag_light && !$prototype_complete_flag_light && $battle_complete_counter_light >= 17){ $_SESSION[$session_token]['flags']['prototype_events']['dr-light']['prototype_complete'] = $prototype_complete_flag_light = true; }
+  if ($unlock_flag_light && !$prototype_complete_flag_light && $battle_complete_counter_light >= 17){ $_SESSION['RPG2k15'][$session_token]['flags']['prototype_events']['dr-light']['prototype_complete'] = $prototype_complete_flag_light = true; }
 
   // Collect the counters and flags for Dr. Wily
   $unlock_flag_wily = mmrpg_prototype_player_unlocked('dr-wily');
@@ -56,7 +56,7 @@ else {
   //$battle_complete_counter_wily_total = $unlock_flag_light ? mmrpg_prototype_battles_complete('dr-wily', false) : 0;
   //$battle_failure_counter_wily_total = $unlock_flag_light ? mmrpg_prototype_battles_failure('dr-wily', false) : 0;
   $prototype_complete_flag_wily = $unlock_flag_wily ? mmrpg_prototype_complete('dr-wily') : false;
-  if ($unlock_flag_wily && !$prototype_complete_flag_wily && $battle_complete_counter_wily >= 17){ $_SESSION[$session_token]['flags']['prototype_events']['dr-wily']['prototype_complete'] = $prototype_complete_flag_wily = true; }
+  if ($unlock_flag_wily && !$prototype_complete_flag_wily && $battle_complete_counter_wily >= 17){ $_SESSION['RPG2k15'][$session_token]['flags']['prototype_events']['dr-wily']['prototype_complete'] = $prototype_complete_flag_wily = true; }
 
   // Collect the counters and flags for Dr. Cossack
   $unlock_flag_cossack = mmrpg_prototype_player_unlocked('dr-cossack');
@@ -72,7 +72,7 @@ else {
   //$battle_complete_counter_cossack_total = $unlock_flag_light ? mmrpg_prototype_battles_complete('dr-cossack', false) : 0;
   //$battle_failure_counter_cossack_total = $unlock_flag_light ? mmrpg_prototype_battles_failure('dr-cossack', false) : 0;
   $prototype_complete_flag_cossack = $unlock_flag_cossack ? mmrpg_prototype_complete('dr-cossack') : false;
-  if ($unlock_flag_cossack && !$prototype_complete_flag_cossack && $battle_complete_counter_cossack >= 17){ $_SESSION[$session_token]['flags']['prototype_events']['dr-cossack']['prototype_complete'] = $prototype_complete_flag_cossack = true; }
+  if ($unlock_flag_cossack && !$prototype_complete_flag_cossack && $battle_complete_counter_cossack >= 17){ $_SESSION['RPG2k15'][$session_token]['flags']['prototype_events']['dr-cossack']['prototype_complete'] = $prototype_complete_flag_cossack = true; }
 
 
   // -- Mission Counts -- //

@@ -18,7 +18,7 @@ echo '<div class="wrapper">';
       $column_count = ceil(count($mmrpg_database_items) / $row_count);
 
       // Collect this player's item rewards and add them to the dropdown
-      if (!empty($_SESSION[$session_token]['values']['battle_items'])){ $player_item_rewards = $_SESSION[$session_token]['values']['battle_items']; }
+      if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_items'])){ $player_item_rewards = $_SESSION['RPG2k15'][$session_token]['values']['battle_items']; }
       elseif (!empty($player_rewards['player_items'])){ $player_item_rewards = array(); }
 
       // Create a fake player and robot to pass the info check

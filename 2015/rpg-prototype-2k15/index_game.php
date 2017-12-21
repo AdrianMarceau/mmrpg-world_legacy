@@ -26,20 +26,20 @@ $this_graph_data = array(
   );
 
 // If a reset was intentionally called
-if (!empty($_GET['reset']) || (!empty($_SESSION['GAME']['DEMO']) && !empty($_SESSION['GAME']['CACHE_DATE']) && $_SESSION['GAME']['CACHE_DATE'] != MMRPG_CONFIG_CACHE_DATE)){
+if (!empty($_GET['reset']) || (!empty($_SESSION['RPG2k15']['GAME']['DEMO']) && !empty($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) && $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] != MMRPG_CONFIG_CACHE_DATE)){
   // Reset the game session
   mmrpg_reset_game_session($this_save_filepath);
 }
 // Else if this is an out-of-sync demo
-elseif (!empty($_SESSION['GAME']['DEMO']) && !empty($_SESSION['GAME']['CACHE_DATE']) && $_SESSION['GAME']['CACHE_DATE'] != MMRPG_CONFIG_CACHE_DATE){
+elseif (!empty($_SESSION['RPG2k15']['GAME']['DEMO']) && !empty($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) && $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] != MMRPG_CONFIG_CACHE_DATE){
   // Reset the game session
   mmrpg_reset_game_session($this_save_filepath);
 }
 // Check if the session has not been created or the cache date has changed
 elseif (
   !empty($_GET['reload']) || // if a reload was specifically requested
-  !isset($_SESSION['GAME']['CACHE_DATE']) || // if there is no session created yet
-  (!empty($_SESSION['GAME']['DEMO']) && $_SESSION['GAME']['CACHE_DATE'] != MMRPG_CONFIG_CACHE_DATE) // if we're in demo mode and the cache date is out of sync
+  !isset($_SESSION['RPG2k15']['GAME']['CACHE_DATE']) || // if there is no session created yet
+  (!empty($_SESSION['RPG2k15']['GAME']['DEMO']) && $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] != MMRPG_CONFIG_CACHE_DATE) // if we're in demo mode and the cache date is out of sync
   ){
 
   // Ensure there is a save file to load
@@ -54,17 +54,17 @@ elseif (
   }
 
   // Update the cache date to reflect the reload
-  $_SESSION['GAME']['CACHE_DATE'] = MMRPG_CONFIG_CACHE_DATE;
+  $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] = MMRPG_CONFIG_CACHE_DATE;
   // Save the updated file back to the system
   mmrpg_save_game_session($this_save_filepath);
 
 }
 // Automatically empty all temporary battle variables
-$_SESSION['BATTLES'] = array();
-$_SESSION['FIELDS'] = array();
-$_SESSION['PLAYERS'] = array();
-$_SESSION['ROBOTS'] = array();
-$_SESSION['ABILITIES'] = array();
+$_SESSION['RPG2k15']['BATTLES'] = array();
+$_SESSION['RPG2k15']['FIELDS'] = array();
+$_SESSION['RPG2k15']['PLAYERS'] = array();
+$_SESSION['RPG2k15']['ROBOTS'] = array();
+$_SESSION['RPG2k15']['ABILITIES'] = array();
 
 
 // Define the flag that toggles the game's online/offline status
@@ -120,7 +120,7 @@ if (count($matches)>1){
 <link type="text/css" href="<?= MMRPG_CONFIG_ROOTURL ?>styles/style-mobile-iphone.css?<?=MMRPG_CONFIG_CACHE_DATE?>" rel="stylesheet" />
 <?endif;?>
 </head>
-<? $temp_window_flag = !empty($_SESSION['GAME']['index_settings']['windowFlag']) ? $_SESSION['GAME']['index_settings']['windowFlag'] : false; ?>
+<? $temp_window_flag = !empty($_SESSION['RPG2k15']['GAME']['index_settings']['windowFlag']) ? $_SESSION['RPG2k15']['GAME']['index_settings']['windowFlag'] : false; ?>
 <body id="mmrpg" class="index <?= !empty($temp_window_flag) ? 'windowFlag_'.$temp_window_flag : '' ?> <?= $this_current_sub == 'facebook' ? 'windowFlag_facebookFrame' : '' ?>">
 <?/*
 <div style="margin: 0; padding: 10px 25%; background-color: rgb(122, 0, 0); color: #FFFFFF; text-align: left; border-bottom: 1px solid #090909;">

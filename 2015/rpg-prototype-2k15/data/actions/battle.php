@@ -15,7 +15,7 @@ ob_start();
     ?></div><?
     // Display the available sub options
     ?><div class="sub_actions"><?
-      
+
       // Display the SCAN option
       if ($target_player->counters['robots_active'] > 1){
         ?><a class="button action_scan" type="button" <?= $target_player->counters['robots_active'] > 1 ? 'data-panel="scan"' : 'data-action="scan_'.$target_robot->robot_id.'_'.$target_robot->robot_token.'"' ?> data-order="<?= $dataOrder ?>"><label>Scan</label></a><?
@@ -27,20 +27,20 @@ ob_start();
         }
       }
       $dataOrder++;
-      
+
       // Display the ITEM option
-      $temp_disabled = false; //!empty($_SESSION['GAME']['DEMO']) || $target_player->player_id != MMRPG_SETTINGS_TARGET_PLAYERID || !isset($_SESSION['GAME']['values']['battle_items']) ? true : false;
+      $temp_disabled = false; //!empty($_SESSION['RPG2k15']['GAME']['DEMO']) || $target_player->player_id != MMRPG_SETTINGS_TARGET_PLAYERID || !isset($_SESSION['RPG2k15']['GAME']['values']['battle_items']) ? true : false;
       ?><a class="button action_item <?= $temp_disabled ? 'button_disabled' : '' ?>" type="button" <?= !$temp_disabled ? 'data-panel="item"' : '' ?> <?= !$temp_disabled ? 'data-order="'.$dataOrder.'"' : '' ?>><label>Item</label></a><?
       if (!$temp_disabled){ $dataOrder++; }
-      
+
       // Display the OPTION option
       ?><a class="button action_option" type="button" data-panel="option" data-order="<?= $dataOrder ?>"><label>Option</label></a><?
       $dataOrder++;
-      
+
       // Display the SWITCH option
       ?><a class="button action_switch" type="button" data-panel="switch" data-order="<?= $dataOrder ?>"><label>Switch</label></a><?
       $dataOrder++;
-    
+
     ?></div><?
   }
   // Otherwise if this robot has been disabled

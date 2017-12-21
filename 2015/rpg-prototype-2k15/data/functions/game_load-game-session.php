@@ -3,17 +3,17 @@
 function mmrpg_load_game_session($this_save_filepath){
   // Reference global variables
   global $DB;
-  //$GAME_SESSION = &$_SESSION[mmrpg_game_token()];
+  //$GAME_SESSION = &$_SESSION['RPG2k15'][mmrpg_game_token()];
   $session_token = mmrpg_game_token();
 
   // Do NOT load, save, or otherwise alter the game file while viewing remote
   if (defined('MMRPG_REMOTE_GAME')){ return true; }
 
   // Clear the community thread tracker
-  $_SESSION['COMMUNITY']['threads_viewed'] = array();
+  $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'] = array();
 
   // If this is NOT demo mode, load from database
-  if (empty($_SESSION[$session_token]['DEMO'])){
+  if (empty($_SESSION['RPG2k15'][$session_token]['DEMO'])){
 
     // LOAD DATABASE INFO
 
@@ -92,11 +92,11 @@ function mmrpg_load_game_session($this_save_filepath){
     $new_game_data['battle_settings'] = !empty($this_database_save['save_settings']) ? json_decode($this_database_save['save_settings'], true) : array();
 
     // Update the session with the new save info
-    $_SESSION[$session_token] = array_merge($_SESSION[$session_token], $new_game_data);
+    $_SESSION['RPG2k15'][$session_token] = array_merge($_SESSION['RPG2k15'][$session_token], $new_game_data);
     unset($new_game_data);
 
     // Unset the player selection to restart at the player select screen
-    if (mmrpg_prototype_players_unlocked() > 1){ $_SESSION[$session_token]['battle_settings']['this_player_token'] = false; }
+    if (mmrpg_prototype_players_unlocked() > 1){ $_SESSION['RPG2k15'][$session_token]['battle_settings']['this_player_token'] = false; }
 
 
   }
@@ -114,12 +114,12 @@ function mmrpg_load_game_session($this_save_filepath){
         // Decode the data into a GAME array
         $this_save_content = json_decode($this_save_content, true);
         // Import the game content into the session
-        $_SESSION[$session_token] = $this_save_content;
+        $_SESSION['RPG2k15'][$session_token] = $this_save_content;
         unset($this_save_content);
         // Update the last load and saved value
-        $_SESSION[$session_token]['values']['last_load'] = time();
-        if (empty($_SESSION[$session_token]['values']['last_save'])){
-          $_SESSION[$session_token]['values']['last_save'] = time();
+        $_SESSION['RPG2k15'][$session_token]['values']['last_load'] = time();
+        if (empty($_SESSION['RPG2k15'][$session_token]['values']['last_save'])){
+          $_SESSION['RPG2k15'][$session_token]['values']['last_save'] = time();
         }
         // Return true on success
         return true;
@@ -138,10 +138,10 @@ function mmrpg_load_game_session($this_save_filepath){
   }
 
   // Update the last saved value
-  $_SESSION[$session_token]['values']['last_load'] = time();
+  $_SESSION['RPG2k15'][$session_token]['values']['last_load'] = time();
 
   // Update the user table in the database if not done already
-  if (empty($_SESSION[$session_token]['DEMO'])){
+  if (empty($_SESSION['RPG2k15'][$session_token]['DEMO'])){
     $DB->update('mmrpg_users', array(
     	'user_last_login' => time(),
       'user_backup_login' => $this_database_user['user_last_login'],

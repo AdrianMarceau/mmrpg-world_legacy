@@ -46,14 +46,14 @@ $ability = array(
     if ($this_player->player_controller == 'human'){
       $session_token = mmrpg_game_token();
       // Collect any existing pending boosts and then add the ability recovery value
-      if (!empty($_SESSION[$session_token]['values']['battle_rewards'][$this_player->player_token]['player_robots'][$target_robot->robot_token]['robot_speed_pending'])){
-        $session_speed_pending = $_SESSION[$session_token]['values']['battle_rewards'][$this_player->player_token]['player_robots'][$target_robot->robot_token]['robot_speed_pending'];
+      if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$this_player->player_token]['player_robots'][$target_robot->robot_token]['robot_speed_pending'])){
+        $session_speed_pending = $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$this_player->player_token]['player_robots'][$target_robot->robot_token]['robot_speed_pending'];
         $session_speed_pending += $this_ability->ability_recovery;
       } else {
         $session_speed_pending = $this_ability->ability_recovery;
       }
       // Update this value in the session and ensure the robot gains rewards on level-up
-      $_SESSION['GAME']['values']['battle_rewards'][$target_player->player_token]['player_robots'][$target_robot->robot_token]['robot_speed_pending'] = $session_speed_pending;
+      $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$target_player->player_token]['player_robots'][$target_robot->robot_token]['robot_speed_pending'] = $session_speed_pending;
     }
 
     // Return true on success

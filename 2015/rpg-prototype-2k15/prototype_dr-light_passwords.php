@@ -2,7 +2,7 @@
 // -- DR. LIGHT PASSWORDS -- //
 
 // Collect the temp battle flags
-$temp_flags = !empty($_SESSION['GAME']['flags']) ? $_SESSION['GAME']['flags'] : array();
+$temp_flags = !empty($_SESSION['RPG2k15']['GAME']['flags']) ? $_SESSION['RPG2k15']['GAME']['flags'] : array();
 
 // If the UNLOCK ROLL password was created
 if (!empty($temp_flags['drlight_password_robotgetletsrocknroll'])){
@@ -21,11 +21,11 @@ if (!empty($temp_flags['drlight_password_robotgetletsrocknroll'])){
 // If the UNLOCK DEMO COMPLETE BONUS password was created
 if (!empty($temp_flags['drlight_password_abilitygetdemocompletebonus'])){
   // Only process if the Mega Buster has not yet been unlocked
-  if ($_SESSION['GAME']['values']['battle_rewards']['dr-light']['player_points'] <= 0){
+  if ($_SESSION['RPG2k15']['GAME']['values']['battle_rewards']['dr-light']['player_points'] <= 0){
     // Increase this player's score by 10,000 points
     $temp_bonus_points = 10000;
-    $_SESSION['GAME']['counters']['battle_points'] += $temp_bonus_points;
-    $_SESSION['GAME']['values']['battle_rewards']['dr-light']['player_points'] += $temp_bonus_points;
+    $_SESSION['RPG2k15']['GAME']['counters']['battle_points'] += $temp_bonus_points;
+    $_SESSION['RPG2k15']['GAME']['values']['battle_rewards']['dr-light']['player_points'] += $temp_bonus_points;
     // Unlock the Copy Shot for use in battle early
     mmrpg_game_unlock_ability($mmrpg_index['players']['dr-light'], false, array('ability_token' => 'copy-shot'), true);
     // Reset and return to the main menu

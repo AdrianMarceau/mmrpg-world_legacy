@@ -60,7 +60,7 @@ else {
       <?= $this_threads_count == '1' ? '1 '.($this_category_info['category_id'] != 0 ? 'Discussion' : 'Message') : $this_threads_count.' '.($this_category_info['category_id'] != 0 ? 'Discussions' : 'Messages')  ?>
       <?
         // Add the new threads option if there are new threads to view
-        $this_threads_count_new = !empty($_SESSION['COMMUNITY']['threads_new_categories'][$this_category_info['category_id']]) ? $_SESSION['COMMUNITY']['threads_new_categories'][$this_category_info['category_id']] : 0;
+        $this_threads_count_new = !empty($_SESSION['RPG2k15']['COMMUNITY']['threads_new_categories'][$this_category_info['category_id']]) ? $_SESSION['RPG2k15']['COMMUNITY']['threads_new_categories'][$this_category_info['category_id']] : 0;
         if ($this_threads_count_new > 0){
           ?>
           <span class="pipe">&nbsp;|&nbsp;</span>

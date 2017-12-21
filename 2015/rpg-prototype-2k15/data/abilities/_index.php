@@ -82,9 +82,9 @@ if (true){
 require_once($abilities_cache_path);
 
 // Additionally, include any dynamic session-based abilities
-if (!empty($_SESSION['GAME']['values']['ability_index'])){
+if (!empty($_SESSION['RPG2k15']['GAME']['values']['ability_index'])){
   // The session-based abilities exist, so merge them with the index
-  $mmrpg_index['abilities'] = array_merge($mmrpg_index['abilities'], $_SESSION['GAME']['values']['ability_index']);
+  $mmrpg_index['abilities'] = array_merge($mmrpg_index['abilities'], $_SESSION['RPG2k15']['GAME']['values']['ability_index']);
 }
 
 ?>

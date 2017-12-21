@@ -436,7 +436,7 @@ while ($battle_loop == true && $this->battle_status != 'complete'){
 
     // Create an event showing the scanned robot's data
     $event_header = ($temp_target_player->player_token != 'player' ? $temp_target_player->player_name.'&#39;s ' : '').$temp_target_robot->robot_name;
-    if (empty($_SESSION['GAME']['values']['robot_database'][$temp_target_robot->robot_token]['robot_scanned'])){ $event_header .= ' (New!)'; }
+    if (empty($_SESSION['RPG2k15']['GAME']['values']['robot_database'][$temp_target_robot->robot_token]['robot_scanned'])){ $event_header .= ' (New!)'; }
     $event_body = '';
     ob_start();
     ?>
@@ -503,9 +503,9 @@ while ($battle_loop == true && $this->battle_status != 'complete'){
     $temp_target_robot->update_session();
 
     // Add this robot to the global robot database array
-    if (!isset($_SESSION['GAME']['values']['robot_database'][$temp_target_robot->robot_token])){ $_SESSION['GAME']['values']['robot_database'][$temp_target_robot->robot_token] = array('robot_token' => $temp_target_robot->robot_token); }
-    if (!isset($_SESSION['GAME']['values']['robot_database'][$temp_target_robot->robot_token]['robot_scanned'])){ $_SESSION['GAME']['values']['robot_database'][$temp_target_robot->robot_token]['robot_scanned'] = 0; }
-    $_SESSION['GAME']['values']['robot_database'][$temp_target_robot->robot_token]['robot_scanned']++;
+    if (!isset($_SESSION['RPG2k15']['GAME']['values']['robot_database'][$temp_target_robot->robot_token])){ $_SESSION['RPG2k15']['GAME']['values']['robot_database'][$temp_target_robot->robot_token] = array('robot_token' => $temp_target_robot->robot_token); }
+    if (!isset($_SESSION['RPG2k15']['GAME']['values']['robot_database'][$temp_target_robot->robot_token]['robot_scanned'])){ $_SESSION['RPG2k15']['GAME']['values']['robot_database'][$temp_target_robot->robot_token]['robot_scanned'] = 0; }
+    $_SESSION['RPG2k15']['GAME']['values']['robot_database'][$temp_target_robot->robot_token]['robot_scanned']++;
 
     // Set this token to the ID and token of the triggered ability
     $this_token = $this_token['robot_id'].'_'.$this_token['robot_token'];

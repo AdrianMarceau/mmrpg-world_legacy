@@ -17,11 +17,11 @@ ob_start();
     // If this robot has more than eight abilities, slice to only eight
     if (count($current_robot_abilities) > 8){
       $current_robot_abilities = array_slice($current_robot_abilities, 0, 8);
-      $_SESSION['GAME']['values']['battle_settings'][$this_player->player_token]['player_robots'][$this_robot->robot_token]['robot_abilities'] = $current_robot_abilities;
+      $_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$this_player->player_token]['player_robots'][$this_robot->robot_token]['robot_abilities'] = $current_robot_abilities;
     }
 
     // Collect the robot's held item if any
-    if (!empty($_SESSION['GAME']['values']['battle_settings'][$this_player->player_token]['player_robots'][$this_robot->robot_token]['robot_item'])){ $current_robot_item = $_SESSION['GAME']['values']['battle_settings'][$this_player->player_token]['player_robots'][$this_robot->robot_token]['robot_item']; }
+    if (!empty($_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$this_player->player_token]['player_robots'][$this_robot->robot_token]['robot_item'])){ $current_robot_item = $_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$this_player->player_token]['player_robots'][$this_robot->robot_token]['robot_item']; }
     else { $current_robot_item = ''; }
 
   } elseif ($this_robot->robot_class == 'mecha'){
@@ -89,10 +89,10 @@ ob_start();
       elseif (!empty($this_battle->battle_field->field_multipliers['none'])){ $temp_multiplier = $temp_multiplier * $this_battle->battle_field->field_multipliers['none']; }
       if (!empty($temp_type2) && !empty($this_battle->battle_field->field_multipliers[$temp_type2])){ $temp_multiplier = $temp_multiplier * $this_battle->battle_field->field_multipliers[$temp_type2]; }
       //elseif (!empty($this_battle->battle_field->field_multipliers['none'])){ $temp_multiplier = $temp_multiplier * $this_battle->battle_field->field_multipliers['none']; }
-      //if (!empty($temp_type) && !empty($_SESSION['GAME']['values']ar_force'][$temp_type])){ $temp_multiplier += $temp_multiplier * ($_SESSION['GAME']['values']['star_force'][$temp_type] / 10); }
-      //elseif (!empty($_SESSION['GAME']['values']['star_force']['none'])){ $temp_multiplier += $temp_multiplier * ($_SESSION['GAME']['values']['star_force']['none'] / 10); }
-      //if (!empty($temp_type2) && !empty($_SESSION['GAME']['values']['star_force'][$temp_type2])){ $temp_multiplier += $temp_multiplier * ($_SESSION['GAME']['values']['star_force'][$temp_type2] / 10); }
-      //elseif (!empty($_SESSION['GAME']['values']['star_force']['none'])){ $temp_multiplier += $temp_multiplier * ($_SESSION['GAME']['values']['star_force']['none'] / 10); }
+      //if (!empty($temp_type) && !empty($_SESSION['RPG2k15']['GAME']['values']ar_force'][$temp_type])){ $temp_multiplier += $temp_multiplier * ($_SESSION['RPG2k15']['GAME']['values']['star_force'][$temp_type] / 10); }
+      //elseif (!empty($_SESSION['RPG2k15']['GAME']['values']['star_force']['none'])){ $temp_multiplier += $temp_multiplier * ($_SESSION['RPG2k15']['GAME']['values']['star_force']['none'] / 10); }
+      //if (!empty($temp_type2) && !empty($_SESSION['RPG2k15']['GAME']['values']['star_force'][$temp_type2])){ $temp_multiplier += $temp_multiplier * ($_SESSION['RPG2k15']['GAME']['values']['star_force'][$temp_type2] / 10); }
+      //elseif (!empty($_SESSION['RPG2k15']['GAME']['values']['star_force']['none'])){ $temp_multiplier += $temp_multiplier * ($_SESSION['RPG2k15']['GAME']['values']['star_force']['none'] / 10); }
 
       $temp_damage = ceil($temp_damage * $temp_multiplier);
       if (!preg_match('/-(booster|breaker)$/i', $ability_token) && !empty($this_battle->battle_field->field_multipliers['damage'])){ $temp_damage = ceil($temp_damage * $this_battle->battle_field->field_multipliers['damage']); }

@@ -619,15 +619,15 @@ function mmrpg_website_session_update($session_href){
 function mmrpg_website_community_index(){
   global $DB;
   // Check to see if the community category has already been pulled or not
-  if (false && !empty($_SESSION['COMMUNITY']['categories'])){
-    $this_categories_index = json_decode($_SESSION['COMMUNITY']['categories'], true);
+  if (false && !empty($_SESSION['RPG2k15']['COMMUNITY']['categories'])){
+    $this_categories_index = json_decode($_SESSION['RPG2k15']['COMMUNITY']['categories'], true);
   } else {
     // Collect the community catetories from the database
     // Collect all the categories from the index
     $this_categories_query = "SELECT * FROM mmrpg_categories AS categories WHERE categories.category_published = 1 ORDER BY categories.category_order ASC";
     $this_categories_index = $DB->get_array_list($this_categories_query, 'category_token');
     // Update the database index cache
-    $_SESSION['COMMUNITY']['categories'] = json_encode($this_categories_index);
+    $_SESSION['RPG2k15']['COMMUNITY']['categories'] = json_encode($this_categories_index);
   }
   // Return the collected community categories
   return $this_categories_index;
@@ -655,7 +655,7 @@ function mmrpg_website_community_thread_linkblock($this_thread_info, $this_categ
   $temp_session_token = $this_thread_info['thread_id'].'_';
   $temp_session_token .= !empty($this_thread_info['thread_mod_date']) ? $this_thread_info['thread_mod_date'] : $this_thread_info['thread_date'];
   // Check if this thread has already been viewed this session
-  $temp_session_viewed = in_array($temp_session_token, $_SESSION['COMMUNITY']['threads_viewed']) ? true : false;
+  $temp_session_viewed = in_array($temp_session_token, $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed']) ? true : false;
 
   // Update the temp date group if necessary
   $temp_thread_date = !empty($this_thread_info['thread_date']) ? $this_thread_info['thread_date'] : mktime(0, 0, 1, 1, 1, 2011);

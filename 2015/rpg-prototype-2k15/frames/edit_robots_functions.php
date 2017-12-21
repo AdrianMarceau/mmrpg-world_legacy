@@ -6,7 +6,7 @@ function parse_editor_indexes(
   &$allowed_edit_players, &$allowed_edit_robots, &$allowed_edit_data
   ){
   global $session_token;
-  $temp_player_array = !empty($_SESSION[$session_token]['values']['battle_rewards']) ? $_SESSION[$session_token]['values']['battle_rewards'] : $_SESSION[$session_token]['values']['battle_settings'];
+  $temp_player_array = !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards']) ? $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'] : $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'];
 
   // Reset all editor variables and counters to their default values
   foreach ($temp_player_array AS $player_token => $player_info){
@@ -51,8 +51,8 @@ function refresh_editor_arrays(
   ){
   global $session_token;
   $temp_player_array = array();
-  if (!empty($_SESSION[$session_token]['values']['battle_rewards'])){ $temp_player_array = array_merge($temp_player_array, $_SESSION[$session_token]['values']['battle_rewards']); }
-  if (!empty($_SESSION[$session_token]['values']['battle_settings'])){ $temp_player_array = array_merge($temp_player_array, $_SESSION[$session_token]['values']['battle_settings']); }
+  if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'])){ $temp_player_array = array_merge($temp_player_array, $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards']); }
+  if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'])){ $temp_player_array = array_merge($temp_player_array, $_SESSION['RPG2k15'][$session_token]['values']['battle_settings']); }
 
   // Define the editor indexes and count variables
   $allowed_edit_players = array();

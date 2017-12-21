@@ -56,7 +56,7 @@ if (($ability_info['ability_class'] != 'item' && $print_options['show_accuracy']
 
   $temp_ability_title .= '  | ';
   if ($ability_info['ability_class'] != 'item' && !empty($ability_info['ability_accuracy'])){ $temp_ability_title .= ' '.$ability_info['ability_accuracy'].'% Accuracy'; }
-  elseif ($ability_info['ability_class'] == 'item' && !empty($_SESSION[$session_token]['values']['battle_items'][$temp_ability_token])){ $temp_ability_title .= ' '.($_SESSION[$session_token]['values']['battle_items'][$temp_ability_token] == 1 ? '1 Unit' : $_SESSION[$session_token]['values']['battle_items'][$temp_ability_token].' Units'); }
+  elseif ($ability_info['ability_class'] == 'item' && !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_items'][$temp_ability_token])){ $temp_ability_title .= ' '.($_SESSION['RPG2k15'][$session_token]['values']['battle_items'][$temp_ability_token] == 1 ? '1 Unit' : $_SESSION['RPG2k15'][$session_token]['values']['battle_items'][$temp_ability_token].' Units'); }
   elseif ($ability_info['ability_class'] == 'item' ){ $temp_ability_title .= ' 0 Units'; }
 
 }

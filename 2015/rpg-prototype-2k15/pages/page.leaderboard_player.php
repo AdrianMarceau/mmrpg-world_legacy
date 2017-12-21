@@ -212,7 +212,7 @@ define('MMRPG_SHOW_MARKUP_'.$this_playerinfo['user_id'], true);
 require('data/leaderboard.php');
 
 // Define whether or not the players or starforce tabs should be open
-$temp_remote_session = $this_playerinfo['user_id'] != $_SESSION['GAME']['USER']['userid'] ? true : false;
+$temp_remote_session = $this_playerinfo['user_id'] != $_SESSION['RPG2k15']['GAME']['USER']['userid'] ? true : false;
 $temp_show_players = true;
 $temp_show_starforce = $this_playerinfo['save_values_battle_stars'] > 0 ? true : false;
 

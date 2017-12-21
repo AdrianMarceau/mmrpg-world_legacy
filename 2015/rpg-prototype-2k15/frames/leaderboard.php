@@ -171,11 +171,11 @@ function windowResizeLeaderboard(){
 $(document).ready(function(){
 <?
 // Define a reference to the game's session flag variable
-if (empty($_SESSION[$session_token]['flags']['events'])){ $_SESSION[$session_token]['flags']['events'] = array(); }
-$temp_game_flags = &$_SESSION[$session_token]['flags']['events'];
+if (empty($_SESSION['RPG2k15'][$session_token]['flags']['events'])){ $_SESSION['RPG2k15'][$session_token]['flags']['events'] = array(); }
+$temp_game_flags = &$_SESSION['RPG2k15'][$session_token]['flags']['events'];
 // If this is the first time using the editor, display the introductory area
 $temp_event_flag = 'unlocked-tooltip_battle-leaderboard-intro';
-if (empty($_SESSION[$session_token]['DEMO']) && empty($temp_game_flags[$temp_event_flag])){
+if (empty($_SESSION['RPG2k15'][$session_token]['DEMO']) && empty($temp_game_flags[$temp_event_flag])){
   $temp_game_flags[$temp_event_flag] = true;
   ?>
   // Generate a first-time event canvas that explains how the editor works

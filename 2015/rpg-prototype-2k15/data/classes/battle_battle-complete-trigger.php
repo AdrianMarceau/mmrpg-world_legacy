@@ -31,8 +31,8 @@ $temp_human_info = $target_player->player_side == 'left' ? $target_player->expor
 $temp_human_rewards = array();
 $temp_human_rewards['battle_points'] = 0;
 $temp_human_rewards['battle_zenny'] = 0;
-$temp_human_rewards['battle_complete'] = isset($_SESSION['GAME']['values']['battle_complete'][$temp_human_token][$this->battle_token]['battle_count']) ? $_SESSION['GAME']['values']['battle_complete'][$temp_human_token][$this->battle_token]['battle_count'] : 0;
-$temp_human_rewards['battle_failure'] = isset($_SESSION['GAME']['values']['battle_failure'][$temp_human_token][$this->battle_token]['battle_count']) ? $_SESSION['GAME']['values']['battle_failure'][$temp_human_token][$this->battle_token]['battle_count'] : 0;
+$temp_human_rewards['battle_complete'] = isset($_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$temp_human_token][$this->battle_token]['battle_count']) ? $_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$temp_human_token][$this->battle_token]['battle_count'] : 0;
+$temp_human_rewards['battle_failure'] = isset($_SESSION['RPG2k15']['GAME']['values']['battle_failure'][$temp_human_token][$this->battle_token]['battle_count']) ? $_SESSION['RPG2k15']['GAME']['values']['battle_failure'][$temp_human_token][$this->battle_token]['battle_count'] : 0;
 $temp_human_rewards['checkpoint'] = 'start: ';
 
 // Calculate the base point and zenny rewards for this battle
@@ -87,14 +87,14 @@ for ($i = 1; $i <= 5; $i++){ $temp_rating_stars_markup .= $i <= $temp_rating_sta
 if ($target_player->player_side == 'left'){
 
   // Increment the main game's points total with the battle points
-  $_SESSION['GAME']['counters']['battle_points'] += $temp_reward_points_final;
-  $_SESSION['GAME']['counters']['battle_zenny'] += $temp_reward_zenny_final;
+  $_SESSION['RPG2k15']['GAME']['counters']['battle_points'] += $temp_reward_points_final;
+  $_SESSION['RPG2k15']['GAME']['counters']['battle_zenny'] += $temp_reward_zenny_final;
 
   // Increment this player's points total with the battle points
-  if (!isset($_SESSION['GAME']['values']['battle_rewards'][$target_player->player_token]['player_points'])){ $_SESSION['GAME']['values']['battle_rewards'][$target_player->player_token]['player_points'] = 0; }
-  if (!isset($_SESSION['GAME']['values']['battle_rewards'][$target_player->player_token]['player_zenny'])){ $_SESSION['GAME']['values']['battle_rewards'][$target_player->player_token]['player_zenny'] = 0; }
-  $_SESSION['GAME']['values']['battle_rewards'][$target_player->player_token]['player_points'] += $temp_reward_points_final;
-  $_SESSION['GAME']['values']['battle_rewards'][$target_player->player_token]['player_zenny'] += $temp_reward_zenny_final;
+  if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$target_player->player_token]['player_points'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$target_player->player_token]['player_points'] = 0; }
+  if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$target_player->player_token]['player_zenny'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$target_player->player_token]['player_zenny'] = 0; }
+  $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$target_player->player_token]['player_points'] += $temp_reward_points_final;
+  $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$target_player->player_token]['player_zenny'] += $temp_reward_zenny_final;
 
   // Update the global variable with the points reward
   $temp_human_rewards['battle_points'] = $temp_reward_points_final;
@@ -102,14 +102,14 @@ if ($target_player->player_side == 'left'){
 
   // Update the GAME session variable with the failed battle token
   if ($this->battle_counts){
-    $bak_session_array = isset($_SESSION['GAME']['values']['battle_failure'][$target_player->player_token][$this->battle_token]) ? $_SESSION['GAME']['values']['battle_failure'][$target_player->player_token][$this->battle_token] : array();
+    $bak_session_array = isset($_SESSION['RPG2k15']['GAME']['values']['battle_failure'][$target_player->player_token][$this->battle_token]) ? $_SESSION['RPG2k15']['GAME']['values']['battle_failure'][$target_player->player_token][$this->battle_token] : array();
     $new_session_array = array('battle_token' => $this->battle_token, 'battle_count' => 0, 'battle_level' => 0);
     if (!empty($bak_session_array['battle_count'])){ $new_session_array['battle_count'] = $bak_session_array['battle_count']; }
     if (!empty($bak_session_array['battle_level'])){ $new_session_array['battle_level'] = $bak_session_array['battle_level']; }
     $new_session_array['battle_level'] = $this->battle_level;
     $new_session_array['battle_count']++;
-    $_SESSION['GAME']['values']['battle_failure'][$target_player->player_token][$this->battle_token] = $new_session_array;
-    $temp_human_rewards['battle_failure'] = $_SESSION['GAME']['values']['battle_failure'][$target_player->player_token][$this->battle_token]['battle_count'];
+    $_SESSION['RPG2k15']['GAME']['values']['battle_failure'][$target_player->player_token][$this->battle_token] = $new_session_array;
+    $temp_human_rewards['battle_failure'] = $_SESSION['RPG2k15']['GAME']['values']['battle_failure'][$target_player->player_token][$this->battle_token]['battle_count'];
   }
 
 }
@@ -258,7 +258,7 @@ if ($target_player->player_side == 'left'){
     // -- ABILITY REWARDS for HUMAN PLAYER -- //
 
     // Loop through the ability rewards for this robot if set
-    if (!empty($temp_player_rewards['abilities']) && empty($_SESSION['GAME']['DEMO'])){
+    if (!empty($temp_player_rewards['abilities']) && empty($_SESSION['RPG2k15']['GAME']['DEMO'])){
       $temp_abilities_index = $DB->get_array_list("SELECT * FROM mmrpg_index_abilities WHERE ability_flag_complete = 1;", 'ability_token');
       foreach ($temp_player_rewards['abilities'] AS $ability_reward_key => $ability_reward_info){
 
@@ -266,7 +266,7 @@ if ($target_player->player_side == 'left'){
         if (mmrpg_prototype_ability_unlocked($target_player->player_token, false, $ability_reward_info['token'])){ continue; }
 
         // Check if the required level has been met by this robot
-        if ($temp_player_points >= $ability_reward_info['points'] && empty($_SESSION['GAME']['DEMO'])){
+        if ($temp_player_points >= $ability_reward_info['points'] && empty($_SESSION['RPG2k15']['GAME']['DEMO'])){
 
           // Collect the ability info from the index
           $ability_info = mmrpg_ability::parse_index_info($temp_abilities_index[$ability_reward_info['token']]);
@@ -315,8 +315,8 @@ if ($target_player->player_side == 'left'){
 if ($this_player->player_side == 'left'){
 
   // Increment the main game's points total with the battle points
-  $_SESSION['GAME']['counters']['battle_points'] += $temp_reward_points_final;
-  $_SESSION['GAME']['counters']['battle_zenny'] += $temp_reward_zenny_final;
+  $_SESSION['RPG2k15']['GAME']['counters']['battle_points'] += $temp_reward_points_final;
+  $_SESSION['RPG2k15']['GAME']['counters']['battle_zenny'] += $temp_reward_zenny_final;
 
   // Reference the number of points this player gets
   $this_player_points = $temp_reward_points_final;
@@ -325,10 +325,10 @@ if ($this_player->player_side == 'left'){
   // Increment this player's points total with the battle points
   $player_token = $this_player->player_token;
   $player_info = $this_player->export_array();
-  if (!isset($_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_points'])){ $_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_points'] = 0; }
-  $_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_points'] += $this_player_points;
-  if (!isset($_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_zenny'])){ $_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_zenny'] = 0; }
-  $_SESSION['GAME']['values']['battle_rewards'][$player_token]['player_zenny'] += $this_player_zenny;
+  if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_points'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_points'] = 0; }
+  $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_points'] += $this_player_points;
+  if (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_zenny'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_zenny'] = 0; }
+  $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$player_token]['player_zenny'] += $this_player_zenny;
 
   // Update the global variable with the points reward
   $temp_human_rewards['battle_points'] = $this_player_points;
@@ -368,8 +368,8 @@ if ($this_player->player_side == 'left'){
     $temp_target_player_robots = !empty($temp_target_player_robots) ? implode(',', $temp_target_player_robots) : '';
     // Collect the userinfo for the target player
     $target_player_userinfo = $DB->get_array("SELECT user_name, user_name_clean, user_name_public FROM mmrpg_users WHERE user_id = {$target_player->player_id};");
-    if (!isset($_SESSION['LEADERBOARD']['player_targets_defeated'])){ $_SESSION['LEADERBOARD']['player_targets_defeated'] = array(); }
-    $_SESSION['LEADERBOARD']['player_targets_defeated'][] = $target_player_userinfo['user_name_clean'];
+    if (!isset($_SESSION['RPG2k15']['LEADERBOARD']['player_targets_defeated'])){ $_SESSION['RPG2k15']['LEADERBOARD']['player_targets_defeated'] = array(); }
+    $_SESSION['RPG2k15']['LEADERBOARD']['player_targets_defeated'][] = $target_player_userinfo['user_name_clean'];
     // Update the database with these pending rewards for each player
     global $DB;
     $DB->insert('mmrpg_battles', array(
@@ -413,7 +413,7 @@ if ($this_player->player_side == 'left'){
     // -- ABILITY REWARDS for HUMAN PLAYER -- //
 
     // Loop through the ability rewards for this player if set
-    if (!empty($temp_player_rewards['abilities']) && empty($_SESSION['GAME']['DEMO'])){
+    if (!empty($temp_player_rewards['abilities']) && empty($_SESSION['RPG2k15']['GAME']['DEMO'])){
       $temp_abilities_index = $DB->get_array_list("SELECT * FROM mmrpg_index_abilities WHERE ability_flag_complete = 1;", 'ability_token');
       foreach ($temp_player_rewards['abilities'] AS $ability_reward_key => $ability_reward_info){
 
@@ -487,7 +487,7 @@ if ($this_player->player_side == 'left'){
   // Update the GAME session variable with the completed battle token
   if ($this->battle_counts){
     // Back up the current session array for this battle complete counter
-    $bak_session_array = isset($_SESSION['GAME']['values']['battle_complete'][$this_player->player_token][$this->battle_token]) ? $_SESSION['GAME']['values']['battle_complete'][$this_player->player_token][$this->battle_token] : array();
+    $bak_session_array = isset($_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$this_player->player_token][$this->battle_token]) ? $_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$this_player->player_token][$this->battle_token] : array();
     // Create the new session array from scratch to ensure all values exist
     $new_session_array = array(
       'battle_token' => $this->battle_token,
@@ -523,8 +523,8 @@ if ($this_player->player_side == 'left'){
     if ($new_session_array['battle_min_robots'] == 0 || $this_player->counters['robots_total'] < $new_session_array['battle_min_robots']){ $new_session_array['battle_min_robots'] = $this_player->counters['robots_total']; }
     $new_session_array['battle_count']++;
     // Update the session variable for this player with the updated battle values
-    $_SESSION['GAME']['values']['battle_complete'][$this_player->player_token][$this->battle_token] = $new_session_array;
-    $temp_human_rewards['battle_complete'] = $_SESSION['GAME']['values']['battle_complete'][$this_player->player_token][$this->battle_token]['battle_count'];
+    $_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$this_player->player_token][$this->battle_token] = $new_session_array;
+    $temp_human_rewards['battle_complete'] = $_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$this_player->player_token][$this->battle_token]['battle_count'];
   }
 
   // Refresh the player info array
@@ -534,7 +534,7 @@ if ($this_player->player_side == 'left'){
 
   // Loop through any robot rewards for this battle
   $this_robot_rewards = !empty($this->battle_rewards['robots']) ? $this->battle_rewards['robots'] : array();
-  if (!empty($this_robot_rewards) && empty($_SESSION['GAME']['DEMO'])){
+  if (!empty($this_robot_rewards) && empty($_SESSION['RPG2k15']['GAME']['DEMO'])){
     foreach ($this_robot_rewards AS $robot_reward_key => $robot_reward_info){
 
       // If this robot has already been unlocked by anyone, continue
@@ -572,7 +572,7 @@ if ($this_player->player_side == 'left'){
 
   // Loop through any ability rewards for this battle
   $this_ability_rewards = !empty($this->battle_rewards['abilities']) ? $this->battle_rewards['abilities'] : array();
-  if (!empty($this_ability_rewards) && empty($_SESSION['GAME']['DEMO'])){
+  if (!empty($this_ability_rewards) && empty($_SESSION['RPG2k15']['GAME']['DEMO'])){
     $temp_abilities_index = $DB->get_array_list("SELECT * FROM mmrpg_index_abilities WHERE ability_flag_complete = 1;", 'ability_token');
     foreach ($this_ability_rewards AS $ability_reward_key => $ability_reward_info){
 
@@ -590,8 +590,8 @@ if ($this_player->player_side == 'left'){
         if (!empty($temp_info['robot_class']) && $temp_info['robot_class'] == 'mecha'){ continue; }
         // Equip this ability to the robot is there was a match found
         if (mmrpg_robot::has_ability_compatibility($temp_info['robot_token'], $ability_info['ability_token'])){
-          if (!isset( $_SESSION['GAME']['values']['battle_settings'][$this_player_info['player_token']]['player_robots'][$temp_info['robot_token']]['robot_abilities'] )){ $_SESSION['GAME']['values']['battle_settings'][$this_player_info['player_token']]['player_robots'][$temp_info['robot_token']]['robot_abilities'] = array(); }
-          if (count($_SESSION['GAME']['values']['battle_settings'][$this_player_info['player_token']]['player_robots'][$temp_info['robot_token']]['robot_abilities']) < 8){ $_SESSION['GAME']['values']['battle_settings'][$this_player_info['player_token']]['player_robots'][$temp_info['robot_token']]['robot_abilities'][$ability_info['ability_token']] = array('ability_token' => $ability_info['ability_token']); }
+          if (!isset( $_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$this_player_info['player_token']]['player_robots'][$temp_info['robot_token']]['robot_abilities'] )){ $_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$this_player_info['player_token']]['player_robots'][$temp_info['robot_token']]['robot_abilities'] = array(); }
+          if (count($_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$this_player_info['player_token']]['player_robots'][$temp_info['robot_token']]['robot_abilities']) < 8){ $_SESSION['RPG2k15']['GAME']['values']['battle_settings'][$this_player_info['player_token']]['player_robots'][$temp_info['robot_token']]['robot_abilities'][$ability_info['ability_token']] = array('ability_token' => $ability_info['ability_token']); }
         }
       }
 
@@ -656,7 +656,7 @@ if ($this->battle_result == 'victory' && !empty($this->values['field_star'])){
   $this->events_create(false, false, $temp_event_header, $temp_event_body, $temp_event_options);
 
   // Update the session with this field star data
-  $_SESSION['GAME']['values']['battle_stars'][$temp_field_star['star_token']] = $temp_field_star;
+  $_SESSION['RPG2k15']['GAME']['values']['battle_stars'][$temp_field_star['star_token']] = $temp_field_star;
 
   // DEBUG DEBUG
   //$this->events_create($this_robot, $target_robot, 'DEBUG FIELD STAR', 'You got a field star! The field star names '.implode(' | ', $temp_field_star));

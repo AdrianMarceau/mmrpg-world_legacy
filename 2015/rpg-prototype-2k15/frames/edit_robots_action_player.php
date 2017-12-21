@@ -10,38 +10,38 @@ if (empty($temp_robot) || empty($temp_current_player) || empty($temp_new_player)
 if (!is_string($temp_robot) || !is_string($temp_current_player) || !is_string($temp_new_player)){ die('error|request-error|'.preg_replace('/\s+/', ' ', print_r($_REQUEST, true))); }
 
 // Unset the prototype robot order variables
-unset($_SESSION['PROTOTYPE_TEMP'][$temp_current_player.'_robot_options']);
-unset($_SESSION['PROTOTYPE_TEMP'][$temp_new_player.'_robot_options']);
+unset($_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_current_player.'_robot_options']);
+unset($_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_new_player.'_robot_options']);
 
 // Ensure this robot exists in the current game session
-if (!empty($_SESSION[$session_token]['values']['battle_settings'][$temp_current_player]['player_robots'][$temp_robot])
-  && !empty($_SESSION[$session_token]['values']['battle_rewards'][$temp_current_player]['player_robots'][$temp_robot])){
+if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_current_player]['player_robots'][$temp_robot])
+  && !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_current_player]['player_robots'][$temp_robot])){
   // Count the number of robots each player has on their team before doing anything
-  $temp_current_player_robot_count = !empty($_SESSION[$session_token]['values']['battle_rewards'][$temp_current_player]['player_robots']) ? count($_SESSION[$session_token]['values']['battle_rewards'][$temp_current_player]['player_robots']) : 0;
-  $temp_new_player_robot_count = !empty($_SESSION[$session_token]['values']['battle_rewards'][$temp_new_player]['player_robots']) ? count($_SESSION[$session_token]['values']['battle_rewards'][$temp_new_player]['player_robots']) : 0;
+  $temp_current_player_robot_count = !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_current_player]['player_robots']) ? count($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_current_player]['player_robots']) : 0;
+  $temp_new_player_robot_count = !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_new_player]['player_robots']) ? count($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_new_player]['player_robots']) : 0;
 
   // Produce the error message if the current player only has one robot
   if ($temp_current_player_robot_count < 2){ exit('error|last-robot|false'); }
 
   // Collect the current robot settings and rewards from the game session
-  $temp_robot_settings = $_SESSION[$session_token]['values']['battle_settings'][$temp_current_player]['player_robots'][$temp_robot];
-  $temp_robot_rewards = $_SESSION[$session_token]['values']['battle_rewards'][$temp_current_player]['player_robots'][$temp_robot];
+  $temp_robot_settings = $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_current_player]['player_robots'][$temp_robot];
+  $temp_robot_rewards = $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_current_player]['player_robots'][$temp_robot];
 
   // Copy the robot settings and rewards to the new player's game session
-  $_SESSION[$session_token]['values']['battle_settings'][$temp_new_player]['player_robots'][$temp_robot] = $temp_robot_settings;
-  $_SESSION[$session_token]['values']['battle_rewards'][$temp_new_player]['player_robots'][$temp_robot] = $temp_robot_rewards;
+  $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_new_player]['player_robots'][$temp_robot] = $temp_robot_settings;
+  $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_new_player]['player_robots'][$temp_robot] = $temp_robot_rewards;
 
   // Update the edit date with the new robot info, then loop through and retcon details
   $allowed_edit_data[$temp_new_player]['player_robots'][$temp_robot] = $allowed_edit_data[$temp_current_player]['player_robots'][$temp_robot];
 
   // Unset the robot settings and rewards in the old player's game session
-  if (!empty($_SESSION[$session_token]['values']['battle_settings'][$temp_new_player]['player_robots'][$temp_robot])
-    && !empty($_SESSION[$session_token]['values']['battle_rewards'][$temp_new_player]['player_robots'][$temp_robot])){
-    $_SESSION[$session_token]['values']['battle_settings'][$temp_current_player]['player_robots'][$temp_robot] = false;
-    $_SESSION[$session_token]['values']['battle_rewards'][$temp_current_player]['player_robots'][$temp_robot] = false;
+  if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_new_player]['player_robots'][$temp_robot])
+    && !empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_new_player]['player_robots'][$temp_robot])){
+    $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_current_player]['player_robots'][$temp_robot] = false;
+    $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_current_player]['player_robots'][$temp_robot] = false;
     $allowed_edit_data[$temp_current_player]['player_robots'][$temp_robot] = false;
-    unset($_SESSION[$session_token]['values']['battle_settings'][$temp_current_player]['player_robots'][$temp_robot]);
-    unset($_SESSION[$session_token]['values']['battle_rewards'][$temp_current_player]['player_robots'][$temp_robot]);
+    unset($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_current_player]['player_robots'][$temp_robot]);
+    unset($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_current_player]['player_robots'][$temp_robot]);
     unset($allowed_edit_data[$temp_current_player]['player_robots'][$temp_robot]);
 
   }

@@ -11,7 +11,7 @@
  */
 
 
-      
+
 require_once('../../top.php');
 //require_once('../../data/database.php');
 
@@ -147,7 +147,7 @@ class SimpleCaptcha {
 
     /** Debug? */
     public $debug = false;
-    
+
     /** Image format: jpeg or png */
     public $imageFormat = 'jpeg';
 
@@ -178,13 +178,13 @@ class SimpleCaptcha {
 
         /** Initialization */
         $this->ImageAllocate();
-        
+
         /** Text insertion */
         $text = $this->GetCaptchaText();
         $fontcfg  = $this->fonts[array_rand($this->fonts)];
         $this->WriteText($text, $fontcfg);
 
-        $_SESSION[$this->session_var] = $text;
+        $_SESSION['RPG2k15'][$this->session_var] = $text;
 
         /** Transformations */
         if (!empty($this->lineWidth)) {
@@ -315,8 +315,8 @@ class SimpleCaptcha {
      */
     function GetDictionaryCaptchaText($extended = false) {
         global $DB;
-        
-      
+
+
         /*
         if (empty($this->wordsFile)) {
             return false;
@@ -358,7 +358,7 @@ class SimpleCaptcha {
         } while (strlen($temp_token) > 10 || strlen($temp_token) < 1);
         $text = $temp_token;
         return $text;
-        
+
     }
 
 

@@ -5,12 +5,12 @@ require_once('top.php');
 require_once('data/starforce.php');
 
 // Automatically empty all temporary battle variables
-$_SESSION['BATTLES'] = array();
-$_SESSION['FIELDS'] = array();
-$_SESSION['PLAYERS'] = array();
-$_SESSION['ROBOTS'] = array();
-$_SESSION['ABILITIES'] = array();
-$_SESSION['PROTOTYPE_TEMP'] = array();
+$_SESSION['RPG2k15']['BATTLES'] = array();
+$_SESSION['RPG2k15']['FIELDS'] = array();
+$_SESSION['RPG2k15']['PLAYERS'] = array();
+$_SESSION['RPG2k15']['ROBOTS'] = array();
+$_SESSION['RPG2k15']['ABILITIES'] = array();
+$_SESSION['RPG2k15']['PROTOTYPE_TEMP'] = array();
 
 // Define the animate flag for debug purposes
 $debug_flag_spriteboxes = false;
@@ -162,7 +162,7 @@ gameSettings.fieldMusic = 'fields/<?=$this_field_data['field_music']?>';
 //gameSettings.eventCrossFade = true;
 <?
 // Update the event timeout setting if set
-$event_timeout = !empty($_SESSION['GAME']['battle_settings']['eventTimeout']) ? $_SESSION['GAME']['battle_settings']['eventTimeout'] : 0;
+$event_timeout = !empty($_SESSION['RPG2k15']['GAME']['battle_settings']['eventTimeout']) ? $_SESSION['RPG2k15']['GAME']['battle_settings']['eventTimeout'] : 0;
 if (!empty($event_timeout)){ echo 'gameSettings.eventTimeout ='.$event_timeout.";\n"; }
 ?>
 // Create the document ready events

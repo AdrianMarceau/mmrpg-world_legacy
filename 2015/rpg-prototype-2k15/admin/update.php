@@ -5,104 +5,104 @@ function mmrpg_admin_update_save_file($key, $data){
   // Start the markup variable
   $this_page_markup = '';
   // Expand this save files data into full arrays and update the session
-  $_SESSION['GAME']['CACHE_DATE'] = $data['save_cache_date'];
+  $_SESSION['RPG2k15']['GAME']['CACHE_DATE'] = $data['save_cache_date'];
   $cache_date_backup = $data['save_cache_date'];
 
   // If the CACHE DATE was BEFORE the serialization purge, collect with special care
-  if ($_SESSION['GAME']['CACHE_DATE'] < '20140501-01'){
+  if ($_SESSION['RPG2k15']['GAME']['CACHE_DATE'] < '20140501-01'){
 
-    //$_SESSION['GAME']['USER']['userid'] = $data['user_id'];
-    $_SESSION['GAME']['flags'] = !empty($data['save_flags']) ? unserialize($data['save_flags']) : array();
-    $_SESSION['GAME']['values'] = !empty($data['save_values']) ? unserialize($data['save_values']) : array();
+    //$_SESSION['RPG2k15']['GAME']['USER']['userid'] = $data['user_id'];
+    $_SESSION['RPG2k15']['GAME']['flags'] = !empty($data['save_flags']) ? unserialize($data['save_flags']) : array();
+    $_SESSION['RPG2k15']['GAME']['values'] = !empty($data['save_values']) ? unserialize($data['save_values']) : array();
 
-    if (!empty($data['save_values_battle_index'])){ $_SESSION['GAME']['values']['battle_index'] = array(); /*unserialize($data['save_values_battle_index']);*/ }
-    elseif (!isset($_SESSION['GAME']['values']['battle_index'])){ $_SESSION['GAME']['values']['battle_index'] = array(); }
+    if (!empty($data['save_values_battle_index'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_index'] = array(); /*unserialize($data['save_values_battle_index']);*/ }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_index'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_index'] = array(); }
 
-    if (!empty($data['save_values_battle_complete'])){ $_SESSION['GAME']['values']['battle_complete'] = unserialize($data['save_values_battle_complete']); }
-    elseif (!isset($_SESSION['GAME']['values']['battle_complete'])){ $_SESSION['GAME']['values']['battle_complete'] = array(); }
+    if (!empty($data['save_values_battle_complete'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_complete'] = unserialize($data['save_values_battle_complete']); }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_complete'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_complete'] = array(); }
 
-    if (!empty($data['save_values_battle_failure'])){ $_SESSION['GAME']['values']['battle_failure'] = unserialize($data['save_values_battle_failure']); }
-    elseif (!isset($_SESSION['GAME']['values']['battle_failure'])){ $_SESSION['GAME']['values']['battle_failure'] = array(); }
+    if (!empty($data['save_values_battle_failure'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_failure'] = unserialize($data['save_values_battle_failure']); }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_failure'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_failure'] = array(); }
 
-    if (!empty($data['save_values_battle_settings'])){ $_SESSION['GAME']['values']['battle_settings'] = unserialize($data['save_values_battle_settings']); }
-    elseif (!isset($_SESSION['GAME']['values']['battle_settings'])){ $_SESSION['GAME']['values']['battle_settings'] = array(); }
+    if (!empty($data['save_values_battle_settings'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_settings'] = unserialize($data['save_values_battle_settings']); }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_settings'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_settings'] = array(); }
 
-    if (!empty($data['save_values_battle_rewards'])){ $_SESSION['GAME']['values']['battle_rewards'] = unserialize($data['save_values_battle_rewards']); }
-    elseif (!isset($_SESSION['GAME']['values']['battle_rewards'])){ $_SESSION['GAME']['values']['battle_rewards'] = array(); }
+    if (!empty($data['save_values_battle_rewards'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'] = unserialize($data['save_values_battle_rewards']); }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'] = array(); }
 
-    if (!empty($data['save_values_battle_items'])){ $_SESSION['GAME']['values']['battle_items'] = unserialize($data['save_values_battle_items']); }
-    elseif (!isset($_SESSION['GAME']['values']['battle_items'])){ $_SESSION['GAME']['values']['battle_items'] = array(); }
+    if (!empty($data['save_values_battle_items'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_items'] = unserialize($data['save_values_battle_items']); }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_items'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_items'] = array(); }
 
-    if (!empty($data['save_values_battle_stars'])){ $_SESSION['GAME']['values']['battle_stars'] = unserialize($data['save_values_battle_stars']); }
-    elseif (!isset($_SESSION['GAME']['values']['battle_stars'])){ $_SESSION['GAME']['values']['battle_stars'] = array(); }
+    if (!empty($data['save_values_battle_stars'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_stars'] = unserialize($data['save_values_battle_stars']); }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_stars'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_stars'] = array(); }
 
-    if (!empty($data['save_values_robot_database'])){ $_SESSION['GAME']['values']['robot_database'] = unserialize($data['save_values_robot_database']); }
-    elseif (!isset($_SESSION['GAME']['values']['robot_database'])){ $_SESSION['GAME']['values']['robot_database'] = array(); }
+    if (!empty($data['save_values_robot_database'])){ $_SESSION['RPG2k15']['GAME']['values']['robot_database'] = unserialize($data['save_values_robot_database']); }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['robot_database'])){ $_SESSION['RPG2k15']['GAME']['values']['robot_database'] = array(); }
 
-    $_SESSION['GAME']['counters'] = !empty($data['save_counters']) ? unserialize($data['save_counters']) : array();
+    $_SESSION['RPG2k15']['GAME']['counters'] = !empty($data['save_counters']) ? unserialize($data['save_counters']) : array();
 
   }
   // Otherwise, if this save is AFTER the serialization purge, collect normally
   else {
 
-    //$_SESSION['GAME']['USER']['userid'] = $data['user_id'];
-    $_SESSION['GAME']['flags'] = !empty($data['save_flags']) ? json_decode($data['save_flags'], true) : array();
-    $_SESSION['GAME']['values'] = !empty($data['save_values']) ? json_decode($data['save_values'], true) : array();
+    //$_SESSION['RPG2k15']['GAME']['USER']['userid'] = $data['user_id'];
+    $_SESSION['RPG2k15']['GAME']['flags'] = !empty($data['save_flags']) ? json_decode($data['save_flags'], true) : array();
+    $_SESSION['RPG2k15']['GAME']['values'] = !empty($data['save_values']) ? json_decode($data['save_values'], true) : array();
 
-    if (!empty($data['save_values_battle_index'])){ $_SESSION['GAME']['values']['battle_index'] = array(); }
-    elseif (!isset($_SESSION['GAME']['values']['battle_index'])){ $_SESSION['GAME']['values']['battle_index'] = array(); }
+    if (!empty($data['save_values_battle_index'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_index'] = array(); }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_index'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_index'] = array(); }
 
-    if (!empty($data['save_values_battle_complete'])){ $_SESSION['GAME']['values']['battle_complete'] = json_decode($data['save_values_battle_complete'], true); }
-    elseif (!isset($_SESSION['GAME']['values']['battle_complete'])){ $_SESSION['GAME']['values']['battle_complete'] = array(); }
+    if (!empty($data['save_values_battle_complete'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_complete'] = json_decode($data['save_values_battle_complete'], true); }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_complete'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_complete'] = array(); }
 
-    if (!empty($data['save_values_battle_failure'])){ $_SESSION['GAME']['values']['battle_failure'] = json_decode($data['save_values_battle_failure'], true); }
-    elseif (!isset($_SESSION['GAME']['values']['battle_failure'])){ $_SESSION['GAME']['values']['battle_failure'] = array(); }
+    if (!empty($data['save_values_battle_failure'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_failure'] = json_decode($data['save_values_battle_failure'], true); }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_failure'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_failure'] = array(); }
 
-    if (!empty($data['save_values_battle_settings'])){ $_SESSION['GAME']['values']['battle_settings'] = json_decode($data['save_values_battle_settings'], true); }
-    elseif (!isset($_SESSION['GAME']['values']['battle_settings'])){ $_SESSION['GAME']['values']['battle_settings'] = array(); }
+    if (!empty($data['save_values_battle_settings'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_settings'] = json_decode($data['save_values_battle_settings'], true); }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_settings'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_settings'] = array(); }
 
-    if (!empty($data['save_values_battle_rewards'])){ $_SESSION['GAME']['values']['battle_rewards'] = json_decode($data['save_values_battle_rewards'], true); }
-    elseif (!isset($_SESSION['GAME']['values']['battle_rewards'])){ $_SESSION['GAME']['values']['battle_rewards'] = array(); }
+    if (!empty($data['save_values_battle_rewards'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'] = json_decode($data['save_values_battle_rewards'], true); }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'] = array(); }
 
-    if (!empty($data['save_values_battle_items'])){ $_SESSION['GAME']['values']['battle_items'] = json_decode($data['save_values_battle_items'], true); }
-    elseif (!isset($_SESSION['GAME']['values']['battle_items'])){ $_SESSION['GAME']['values']['battle_items'] = array(); }
+    if (!empty($data['save_values_battle_items'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_items'] = json_decode($data['save_values_battle_items'], true); }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_items'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_items'] = array(); }
 
-    if (!empty($data['save_values_battle_stars'])){ $_SESSION['GAME']['values']['battle_stars'] = json_decode($data['save_values_battle_stars'], true); }
-    elseif (!isset($_SESSION['GAME']['values']['battle_stars'])){ $_SESSION['GAME']['values']['battle_stars'] = array(); }
+    if (!empty($data['save_values_battle_stars'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_stars'] = json_decode($data['save_values_battle_stars'], true); }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['battle_stars'])){ $_SESSION['RPG2k15']['GAME']['values']['battle_stars'] = array(); }
 
-    if (!empty($data['save_values_robot_database'])){ $_SESSION['GAME']['values']['robot_database'] = json_decode($data['save_values_robot_database'], true); }
-    elseif (!isset($_SESSION['GAME']['values']['robot_database'])){ $_SESSION['GAME']['values']['robot_database'] = array(); }
+    if (!empty($data['save_values_robot_database'])){ $_SESSION['RPG2k15']['GAME']['values']['robot_database'] = json_decode($data['save_values_robot_database'], true); }
+    elseif (!isset($_SESSION['RPG2k15']['GAME']['values']['robot_database'])){ $_SESSION['RPG2k15']['GAME']['values']['robot_database'] = array(); }
 
-    $_SESSION['GAME']['counters'] = !empty($data['save_counters']) ? json_decode($data['save_counters'], true) : array();
+    $_SESSION['RPG2k15']['GAME']['counters'] = !empty($data['save_counters']) ? json_decode($data['save_counters'], true) : array();
 
   }
 
   // Include the file updates list
-  $_SESSION['TEMP']['temp_update_user_id'] = $data['user_id'];
-  $_SESSION['TEMP']['temp_update_user_name_clean'] = $data['user_name_clean'];
+  $_SESSION['RPG2k15']['TEMP']['temp_update_user_id'] = $data['user_id'];
+  $_SESSION['RPG2k15']['TEMP']['temp_update_user_name_clean'] = $data['user_name_clean'];
   require('file_updates.php');
 
   // Recompress and prepare the save data for the database
-  $temp_values = $_SESSION['GAME']['values'];
+  $temp_values = $_SESSION['RPG2k15']['GAME']['values'];
   unset($temp_values['battle_index'], $temp_values['battle_complete'], $temp_values['battle_failure'],
   $temp_values['battle_rewards'], $temp_values['battle_settings'], $temp_values['battle_items'],
   $temp_values['battle_stars'], $temp_values['robot_database']);
   $update_array = array(
     'save_cache_date' => MMRPG_CONFIG_CACHE_DATE,
-    'save_flags' => mmrpg_admin_encode_save_data($_SESSION['GAME']['flags'], $cache_date_backup),
+    'save_flags' => mmrpg_admin_encode_save_data($_SESSION['RPG2k15']['GAME']['flags'], $cache_date_backup),
     'save_values' => mmrpg_admin_encode_save_data($temp_values, $cache_date_backup),
-    'save_values_battle_index' => mmrpg_admin_encode_save_data($_SESSION['GAME']['values']['battle_index'], $cache_date_backup),
-    'save_values_battle_complete' => mmrpg_admin_encode_save_data($_SESSION['GAME']['values']['battle_complete'], $cache_date_backup),
-    'save_values_battle_failure' => mmrpg_admin_encode_save_data($_SESSION['GAME']['values']['battle_failure'], $cache_date_backup),
-    'save_values_battle_rewards' => mmrpg_admin_encode_save_data($_SESSION['GAME']['values']['battle_rewards'], $cache_date_backup),
-    'save_values_battle_settings' => mmrpg_admin_encode_save_data($_SESSION['GAME']['values']['battle_settings'], $cache_date_backup),
-    'save_values_battle_items' => mmrpg_admin_encode_save_data($_SESSION['GAME']['values']['battle_items'], $cache_date_backup),
-    'save_values_battle_stars' => mmrpg_admin_encode_save_data($_SESSION['GAME']['values']['battle_stars'], $cache_date_backup),
-    'save_values_robot_database' => mmrpg_admin_encode_save_data($_SESSION['GAME']['values']['robot_database'], $cache_date_backup),
-    'save_counters' => mmrpg_admin_encode_save_data($_SESSION['GAME']['counters'], $cache_date_backup)
+    'save_values_battle_index' => mmrpg_admin_encode_save_data($_SESSION['RPG2k15']['GAME']['values']['battle_index'], $cache_date_backup),
+    'save_values_battle_complete' => mmrpg_admin_encode_save_data($_SESSION['RPG2k15']['GAME']['values']['battle_complete'], $cache_date_backup),
+    'save_values_battle_failure' => mmrpg_admin_encode_save_data($_SESSION['RPG2k15']['GAME']['values']['battle_failure'], $cache_date_backup),
+    'save_values_battle_rewards' => mmrpg_admin_encode_save_data($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'], $cache_date_backup),
+    'save_values_battle_settings' => mmrpg_admin_encode_save_data($_SESSION['RPG2k15']['GAME']['values']['battle_settings'], $cache_date_backup),
+    'save_values_battle_items' => mmrpg_admin_encode_save_data($_SESSION['RPG2k15']['GAME']['values']['battle_items'], $cache_date_backup),
+    'save_values_battle_stars' => mmrpg_admin_encode_save_data($_SESSION['RPG2k15']['GAME']['values']['battle_stars'], $cache_date_backup),
+    'save_values_robot_database' => mmrpg_admin_encode_save_data($_SESSION['RPG2k15']['GAME']['values']['robot_database'], $cache_date_backup),
+    'save_counters' => mmrpg_admin_encode_save_data($_SESSION['RPG2k15']['GAME']['counters'], $cache_date_backup)
     );
 
-  //die('$_SESSION[\'GAME\'][\'values\']('.$data['user_id'].':'.$data['user_name_clean'].') => <pre>'.print_r($_SESSION['GAME']['values'], true).'</pre>');
+  //die('$_SESSION['RPG2k15'][\'GAME\'][\'values\']('.$data['user_id'].':'.$data['user_name_clean'].') => <pre>'.print_r($_SESSION['RPG2k15']['GAME']['values'], true).'</pre>');
   //die('$update_array('.$data['user_id'].':'.$data['user_name_clean'].') => <pre>'.print_r($update_array, true).'</pre>');
   //die('$update_array[\'save_values\'] : '.$update_array['save_values']);
 
@@ -130,7 +130,7 @@ function mmrpg_admin_update_save_file($key, $data){
     if ($update_array['save_values_battle_stars'] != $data['save_values_battle_stars']){ $this_page_markup .= 'Save values battle stars has been changed...<br />'; }
     if ($update_array['save_values_robot_database'] != $data['save_values_robot_database']){ $this_page_markup .= 'Save values robot_database has been changed...<br />'; }
     if ($update_array['save_counters'] != $data['save_counters']){ $this_page_markup .= 'Save counters have been changed...<br />'; }
-    //$this_page_markup .= '<pre>$_SESSION[\'GAME\'][\'values\'] : '.print_r($_SESSION['GAME']['values'], true).'</pre><br /><hr /><br />';
+    //$this_page_markup .= '<pre>$_SESSION['RPG2k15'][\'GAME\'][\'values\'] : '.print_r($_SESSION['RPG2k15']['GAME']['values'], true).'</pre><br /><hr /><br />';
     if ($temp_success === false){ $this_page_markup .= '...Failure!'; }
     else { $this_page_markup .= '...'.(!empty($temp_success) ? 'Success!' : 'Skipped!'); }
     unset($update_array);

@@ -18,8 +18,8 @@ if ($this_request_type == 'game'){
 }
 // Process the battle token request, if set
 elseif ($this_request_type == 'battles'){
-  if ($this_request_action == 'create'){ $_SESSION['GAME']['values']['battle_complete'][$this_request_token] = $this_request_token; }
-  elseif ($this_request_action == 'delete'){ unset($_SESSION['GAME']['values']['battle_complete'][$this_request_token]); }
+  if ($this_request_action == 'create'){ $_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$this_request_token] = $this_request_token; }
+  elseif ($this_request_action == 'delete'){ unset($_SESSION['RPG2k15']['GAME']['values']['battle_complete'][$this_request_token]); }
   header('Location: debug.php#battles_'.$this_request_token);
 }
 // Process the robots token request, if set
@@ -45,7 +45,7 @@ elseif ($this_request_type == 'robots'){
 
     // Automatically unlock this robot for use in battle
     $this_reward = array('robot_token' => $this_robot_token, 'robot_experience' => $this_robot_experience);
-    $_SESSION['GAME']['values']['battle_rewards'][$this_player_token]['player_robots'][$this_robot_token] = $this_reward;
+    $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$this_player_token]['player_robots'][$this_robot_token] = $this_reward;
 
     // Loop through the ability rewards for this robot if set
     if (!empty($this_robot_rewards['abilities'])){
@@ -63,7 +63,7 @@ elseif ($this_request_type == 'robots'){
 
           // Automatically unlock this ability for use in battle
           $this_reward = array('ability_token' => $this_ability_token);
-          $_SESSION['GAME']['values']['battle_rewards'][$this_player_token]['player_robots'][$this_robot_token]['robot_abilities'][$this_ability_token] = $this_reward;
+          $_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$this_player_token]['player_robots'][$this_robot_token]['robot_abilities'][$this_ability_token] = $this_reward;
 
         }
 
@@ -73,9 +73,9 @@ elseif ($this_request_type == 'robots'){
 
 
 
-    //$_SESSION['GAME']['values']['battle_rewards'][$this_request_token_player]['player_robots'][$this_request_token_robot] = $this_request_token_robot;
+    //$_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$this_request_token_player]['player_robots'][$this_request_token_robot] = $this_request_token_robot;
   }
-  elseif ($this_request_action == 'delete'){ unset($_SESSION['GAME']['values']['battle_rewards'][$this_request_token_player]['player_robots'][$this_request_token_robot]); }
+  elseif ($this_request_action == 'delete'){ unset($_SESSION['RPG2k15']['GAME']['values']['battle_rewards'][$this_request_token_player]['player_robots'][$this_request_token_robot]); }
   header('Location: debug.php#robots_'.$this_request_token);
 }
 

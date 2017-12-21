@@ -99,7 +99,7 @@ unset($DB);
   &nbsp;
   <? if(false){ ?>
     <pre style="text-align: left; padding: 20px;">
-    <? foreach ($_SESSION['GAME']['values']['battle_settings'] AS $player_token => $battle_settings){
+    <? foreach ($_SESSION['RPG2k15']['GAME']['values']['battle_settings'] AS $player_token => $battle_settings){
       echo '<h1>'.$player_token.'</h1>'."\n";
       echo htmlentities(print_r($battle_settings), ENT_QUOTES, 'UTF-8', true);
     } ?>

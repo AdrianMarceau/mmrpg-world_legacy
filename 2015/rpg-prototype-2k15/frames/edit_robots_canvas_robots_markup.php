@@ -22,22 +22,22 @@ echo '<td style="width: '.floor(100 / $allowed_edit_player_count).'%;">'."\n";
         $robot_info['robot_image_size'] = !empty($robot_info['robot_image_size']) ? $robot_info['robot_image_size'] : 40;
         $temp_robot_rewards = array();
 
-        if (!empty($_SESSION[$session_token]['values']['battle_rewards'][$player_token]['player_robots'][$robot_token])){
-          $temp_robot_rewards = $_SESSION[$session_token]['values']['battle_rewards'][$player_token]['player_robots'][$robot_token];
+        if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$player_token]['player_robots'][$robot_token])){
+          $temp_robot_rewards = $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$player_token]['player_robots'][$robot_token];
         }
 
         foreach ($player_keys AS $this_player_key){
-          if (!empty($_SESSION[$session_token]['values']['battle_rewards'][$this_player_key]['player_robots'][$robot_token])){
-            $temp_array = $_SESSION[$session_token]['values']['battle_rewards'][$this_player_key]['player_robots'][$robot_token];
+          if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$this_player_key]['player_robots'][$robot_token])){
+            $temp_array = $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$this_player_key]['player_robots'][$robot_token];
             $temp_robot_rewards = array_merge($temp_robot_rewards, $temp_array);
           }
         }
 
         if (!empty($temp_robot_rewards) && $global_allow_editing){
-          $_SESSION[$session_token]['values']['battle_rewards'][$player_token]['player_robots'][$robot_token] = $temp_robot_rewards;
+          $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$player_token]['player_robots'][$robot_token] = $temp_robot_rewards;
         }
 
-        //$temp_robot_rewards = $_SESSION[$session_token]['values']['battle_rewards'][$player_token]['player_robots'][$robot_token];
+        //$temp_robot_rewards = $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$player_token]['player_robots'][$robot_token];
         $robot_info['robot_level'] = !empty($temp_robot_rewards['robot_level']) ? $temp_robot_rewards['robot_level'] : 1;
         $robot_info['robot_experience'] = !empty($temp_robot_rewards['robot_experience']) ? $temp_robot_rewards['robot_experience'] : 0;
         if ($robot_info['robot_level'] >= 100){ $robot_info['robot_experience'] = '&#8734;'; }

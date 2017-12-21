@@ -18,7 +18,8 @@ if (!in_array($_SERVER['REMOTE_ADDR'], array('999.999.999.999'))){
 //@ini_set('session.gc_maxlifetime', 24*60*60);
 //@ini_set('session.gc_probability', 1);
 //@ini_set('session.gc_divisor', 1);
-session_start();
+if (session_status() == PHP_SESSION_NONE){ session_start(); }
+if (!isset($_SESSION['RPG2k15'])){ $_SESSION['RPG2k15'] = array(); }
 
 // Include mandatory config files
 define('MMRPG_BUILD', 'mmrpg2k15');
@@ -38,7 +39,7 @@ if (MMRPG_CONFIG_ADMIN_MODE){
 require('data/classes/database.php');
 // Create the global database object
 if (!defined('MMRPG_INDEX_SESSION') && !defined('MMRPG_INDEX_STYLES')){
-  if (MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['DEBUG'] = array(); }
+  if (MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['RPG2k15']['DEBUG'] = array(); }
   $DB = new plutocms_database();
   // If the database could not be created, critical error mode!
   if ($DB->CONNECT === false){
@@ -70,7 +71,7 @@ require('data/functions/prototype.php');
 // If we're in a file page, prevent userinfo caching
 if (preg_match('/file.php$/i', basename(__FILE__))){
   // Prevent userinfo caching for this page
-  unset($_SESSION['GAME']['USER']['userinfo']);
+  unset($_SESSION['RPG2k15']['GAME']['USER']['userinfo']);
 }
 
 // Include mandatory library files
@@ -105,13 +106,13 @@ if (get_magic_quotes_gpc()){
  */
 
 // Create mandatory session variables if they do not exist
-if (!isset($_SESSION['BATTLES'])){ $_SESSION['BATTLES'] = array(); }
-if (!isset($_SESSION['FIELDS'])){ $_SESSION['FIELDS'] = array(); }
-if (!isset($_SESSION['PLAYERS'])){ $_SESSION['PLAYERS'] = array(); }
-if (!isset($_SESSION['ROBOTS'])){ $_SESSION['ROBOTS'] = array(); }
-if (!isset($_SESSION['ABILITIES'])){ $_SESSION['ABILITIES'] = array(); }
+if (!isset($_SESSION['RPG2k15']['BATTLES'])){ $_SESSION['RPG2k15']['BATTLES'] = array(); }
+if (!isset($_SESSION['RPG2k15']['FIELDS'])){ $_SESSION['RPG2k15']['FIELDS'] = array(); }
+if (!isset($_SESSION['RPG2k15']['PLAYERS'])){ $_SESSION['RPG2k15']['PLAYERS'] = array(); }
+if (!isset($_SESSION['RPG2k15']['ROBOTS'])){ $_SESSION['RPG2k15']['ROBOTS'] = array(); }
+if (!isset($_SESSION['RPG2k15']['ABILITIES'])){ $_SESSION['RPG2k15']['ABILITIES'] = array(); }
 // Define the COMMUNITY session trackers if they do not exist
-if (!isset($_SESSION['COMMUNITY'])){ $_SESSION['COMMUNITY']['threads_viewed'] = array(); }
+if (!isset($_SESSION['RPG2k15']['COMMUNITY'])){ $_SESSION['RPG2k15']['COMMUNITY']['threads_viewed'] = array(); }
 
 /*
  * BROWSER FLAGS
@@ -149,12 +150,12 @@ if (!defined('MMRPG_CRITICAL_ERROR')){
 
   // If the user and file details have already been loaded to the session
   if (
-    !empty($_SESSION['GAME']['USER']) && !empty($_SESSION['GAME']['USER']['username']) && !empty($_SESSION['GAME']['USER']['password'])
-    && !empty($_SESSION['GAME']['FILE']) && !empty($_SESSION['GAME']['FILE']['path']) && !empty($_SESSION['GAME']['FILE']['name'])
+    !empty($_SESSION['RPG2k15']['GAME']['USER']) && !empty($_SESSION['RPG2k15']['GAME']['USER']['username']) && !empty($_SESSION['RPG2k15']['GAME']['USER']['password'])
+    && !empty($_SESSION['RPG2k15']['GAME']['FILE']) && !empty($_SESSION['RPG2k15']['GAME']['FILE']['path']) && !empty($_SESSION['RPG2k15']['GAME']['FILE']['name'])
     ){
     // Pull the user and file info from the session
-    $this_user = $_SESSION['GAME']['USER'];
-    $this_file = $_SESSION['GAME']['FILE'];
+    $this_user = $_SESSION['RPG2k15']['GAME']['USER'];
+    $this_file = $_SESSION['RPG2k15']['GAME']['FILE'];
     // Update the save filepath with the file path and name
     $this_save_filepath = $this_save_dir.$this_file['path'].$this_file['name'];
   }
@@ -174,9 +175,9 @@ if (!defined('MMRPG_CRITICAL_ERROR')){
     $this_file['path'] = $this_user['username_clean'].'/';
     $this_file['name'] = $this_user['password_encoded'].'.sav';
     // Update the session with these demo variables
-    $_SESSION['GAME']['DEMO'] = 1;
-    $_SESSION['GAME']['USER'] = $this_user;
-    $_SESSION['GAME']['FILE'] = $this_file;
+    $_SESSION['RPG2k15']['GAME']['DEMO'] = 1;
+    $_SESSION['RPG2k15']['GAME']['USER'] = $this_user;
+    $_SESSION['RPG2k15']['GAME']['FILE'] = $this_file;
     // Update the first load to indicate true
     $this_first_load = true;
     // Update the global save path variable
@@ -274,23 +275,23 @@ if (empty($this_current_page) || !in_array($this_current_page, $this_allowed_pag
 if (!defined('MMRPG_CRITICAL_ERROR') && !defined('MMRPG_INDEX_SESSION') && !defined('MMRPG_INDEX_SESSION') && !defined('MMRPG_INDEX_STYLES')){
 
   // If the user session is already in progress, collect the details
-  if (!empty($_SESSION['GAME']['USER']['userid']) && $_SESSION['GAME']['USER']['userid'] != MMRPG_SETTINGS_GUEST_ID){
+  if (!empty($_SESSION['RPG2k15']['GAME']['USER']['userid']) && $_SESSION['RPG2k15']['GAME']['USER']['userid'] != MMRPG_SETTINGS_GUEST_ID){
 
     // Collect this userinfo from the database
-    $this_userid = (int)($_SESSION['GAME']['USER']['userid']);
-    if (empty($_SESSION['GAME']['USER']['userinfo'])){
+    $this_userid = (int)($_SESSION['RPG2k15']['GAME']['USER']['userid']);
+    if (empty($_SESSION['RPG2k15']['GAME']['USER']['userinfo'])){
       $this_userinfo = $DB->get_array("SELECT users.*, roles.* FROM mmrpg_users AS users LEFT JOIN mmrpg_roles AS roles ON roles.role_id = users.role_id WHERE users.user_id = '{$this_userid}' LIMIT 1");
-      $_SESSION['GAME']['USER']['userinfo'] = $this_userinfo;
+      $_SESSION['RPG2k15']['GAME']['USER']['userinfo'] = $this_userinfo;
     } else {
-      $this_userinfo = $_SESSION['GAME']['USER']['userinfo'];
+      $this_userinfo = $_SESSION['RPG2k15']['GAME']['USER']['userinfo'];
     }
 
     if (!defined('MMRPG_SCRIPT_REQUEST')){
       $this_boardinfo = $DB->get_array("SELECT * FROM mmrpg_leaderboard WHERE user_id = {$this_userid}");
       $this_boardid = $this_boardinfo['board_id'];
-      $this_boardinfo['board_rank'] = !empty($_SESSION['GAME']['BOARD']['boardrank']) ? $_SESSION['GAME']['BOARD']['boardrank'] : 0;
-      //if (empty($this_boardinfo['board_rank'])){ require('data/leaderboard.php'); $_SESSION['GAME']['BOARD']['boardrank'] = $this_boardinfo['board_rank']; }
-      if (empty($this_boardinfo['board_rank'])){ $_SESSION['GAME']['BOARD']['boardrank'] = $this_boardinfo['board_rank'] = mmrpg_prototype_leaderboard_rank($this_userid); }
+      $this_boardinfo['board_rank'] = !empty($_SESSION['RPG2k15']['GAME']['BOARD']['boardrank']) ? $_SESSION['RPG2k15']['GAME']['BOARD']['boardrank'] : 0;
+      //if (empty($this_boardinfo['board_rank'])){ require('data/leaderboard.php'); $_SESSION['RPG2k15']['GAME']['BOARD']['boardrank'] = $this_boardinfo['board_rank']; }
+      if (empty($this_boardinfo['board_rank'])){ $_SESSION['RPG2k15']['GAME']['BOARD']['boardrank'] = $this_boardinfo['board_rank'] = mmrpg_prototype_leaderboard_rank($this_userid); }
     }
 
   }
@@ -299,11 +300,11 @@ if (!defined('MMRPG_CRITICAL_ERROR') && !defined('MMRPG_INDEX_SESSION') && !defi
 
     // Collect the guest userinfo from the database
     $this_userid = MMRPG_SETTINGS_GUEST_ID;
-    if (empty($_SESSION['GAME']['USER']['userinfo'])){
+    if (empty($_SESSION['RPG2k15']['GAME']['USER']['userinfo'])){
       $this_userinfo = $DB->get_array("SELECT users.* FROM mmrpg_users AS users WHERE users.user_id = '{$this_userid}' LIMIT 1");
-      $_SESSION['GAME']['USER']['userinfo'] = $this_userinfo;
+      $_SESSION['RPG2k15']['GAME']['USER']['userinfo'] = $this_userinfo;
     } else {
-      $this_userinfo = $_SESSION['GAME']['USER']['userinfo'];
+      $this_userinfo = $_SESSION['RPG2k15']['GAME']['USER']['userinfo'];
     }
 
     if (!defined('MMRPG_SCRIPT_REQUEST')){

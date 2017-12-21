@@ -3,7 +3,7 @@
 require_once('../top.php');
 
 // Unset the prototype temp variable
-$_SESSION['PROTOTYPE_TEMP'] = array();
+$_SESSION['RPG2k15']['PROTOTYPE_TEMP'] = array();
 
 // Require the remote top in case we're in viewer mode
 define('MMRPG_REMOTE_SKIP_INDEX', true);
@@ -236,8 +236,8 @@ var countRobotsLoaded = 0;
 var countWrapperLoop = 0;
 <?
 // Define a reference to the game's session flag variable
-if (empty($_SESSION[$session_token]['flags']['events'])){ $_SESSION[$session_token]['flags']['events'] = array(); }
-$temp_game_flags = &$_SESSION[$session_token]['flags']['events'];
+if (empty($_SESSION['RPG2k15'][$session_token]['flags']['events'])){ $_SESSION['RPG2k15'][$session_token]['flags']['events'] = array(); }
+$temp_game_flags = &$_SESSION['RPG2k15'][$session_token]['flags']['events'];
 // If this is the first time using the editor, display the introductory area
 $temp_event_flag = 'unlocked-tooltip_robot-editor-intro';
 if (empty($temp_game_flags[$temp_event_flag]) && $global_allow_editing){

@@ -25,13 +25,13 @@ if (!defined('MMRPG_SCRIPT_REQUEST') ||
 
     // Generate the battle option with the starter data
     $temp_session_token = $this_prototype_data['this_player_token'].'_battle_'.$this_prototype_data['this_current_chapter'];
-    if (empty($_SESSION['PROTOTYPE_TEMP'][$temp_session_token])){
+    if (empty($_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_session_token])){
       $temp_battle_omega = mmrpg_prototype_mission_starter($this_prototype_data, 'met', $chapters_levels_common['one'], $this_prototype_data['this_support_robot'], 'intro-field', 1, 'mecha');
       $temp_battle_omega['option_chapter'] = $this_prototype_data['this_current_chapter'];
       mmrpg_battle::update_index_info($temp_battle_omega['battle_token'], $temp_battle_omega);
-      $_SESSION['PROTOTYPE_TEMP'][$temp_session_token] = $temp_battle_omega['battle_token'];
+      $_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_session_token] = $temp_battle_omega['battle_token'];
     } else {
-      $temp_battle_token = $_SESSION['PROTOTYPE_TEMP'][$temp_session_token];
+      $temp_battle_token = $_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_session_token];
       $temp_battle_omega = mmrpg_battle::get_index_info($temp_battle_token);
     }
 
@@ -45,13 +45,13 @@ if (!defined('MMRPG_SCRIPT_REQUEST') ||
   if ($this_prototype_data['prototype_complete'] || !empty($this_prototype_data['this_chapter_unlocked']['one-2'])){
     // Generate the battle option with the starter data
     $temp_session_token = $this_prototype_data['this_player_token'].'_battle_'.$this_prototype_data['this_current_chapter'].'-2';
-    if (empty($_SESSION['PROTOTYPE_TEMP'][$temp_session_token])){
+    if (empty($_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_session_token])){
       $temp_battle_omega = mmrpg_prototype_mission_starter($this_prototype_data, 'sniper-joe', ($chapters_levels_common['one-2']), $this_prototype_data['this_support_robot'], $this_prototype_data['this_player_field'], 1, 'mecha');
       $temp_battle_omega['option_chapter'] = $this_prototype_data['this_current_chapter'];
       mmrpg_battle::update_index_info($temp_battle_omega['battle_token'], $temp_battle_omega);
-      $_SESSION['PROTOTYPE_TEMP'][$temp_session_token] = $temp_battle_omega['battle_token'];
+      $_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_session_token] = $temp_battle_omega['battle_token'];
     } else {
-      $temp_battle_token = $_SESSION['PROTOTYPE_TEMP'][$temp_session_token];
+      $temp_battle_token = $_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_session_token];
       $temp_battle_omega = mmrpg_battle::get_index_info($temp_battle_token);
     }
 
@@ -65,13 +65,13 @@ if (!defined('MMRPG_SCRIPT_REQUEST') ||
   if ($this_prototype_data['prototype_complete'] || !empty($this_prototype_data['this_chapter_unlocked']['one-3'])){
     // Generate the battle option with the starter data
     $temp_session_token = $this_prototype_data['this_player_token'].'_battle_'.$this_prototype_data['this_current_chapter'].'-3';
-    if (empty($_SESSION['PROTOTYPE_TEMP'][$temp_session_token])){
+    if (empty($_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_session_token])){
       $temp_battle_omega = mmrpg_prototype_mission_starter($this_prototype_data, 'trill', ($chapters_levels_common['one-3']), '', 'prototype-subspace', 1, 'boss');
       $temp_battle_omega['option_chapter'] = $this_prototype_data['this_current_chapter'];
       mmrpg_battle::update_index_info($temp_battle_omega['battle_token'], $temp_battle_omega);
-      $_SESSION['PROTOTYPE_TEMP'][$temp_session_token] = $temp_battle_omega['battle_token'];
+      $_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_session_token] = $temp_battle_omega['battle_token'];
     } else {
-      $temp_battle_token = $_SESSION['PROTOTYPE_TEMP'][$temp_session_token];
+      $temp_battle_token = $_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_session_token];
       $temp_battle_omega = mmrpg_battle::get_index_info($temp_battle_token);
     }
 
@@ -105,13 +105,13 @@ if (!defined('MMRPG_SCRIPT_REQUEST') ||
     foreach ($this_prototype_data['target_robot_omega'] AS $key => $info){
       // Generate the battle option with the starter data
       $temp_session_token = $this_prototype_data['this_player_token'].'_battle_'.$this_prototype_data['this_current_chapter'].'_'.$key;
-      if (empty($_SESSION['PROTOTYPE_TEMP'][$temp_session_token])){
+      if (empty($_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_session_token])){
         $temp_battle_omega = mmrpg_prototype_mission_single($this_prototype_data, $info['robot'], $info['field'], $chapters_levels_common['two']);
         $temp_battle_omega['option_chapter'] = $this_prototype_data['this_current_chapter'];
         mmrpg_battle::update_index_info($temp_battle_omega['battle_token'], $temp_battle_omega);
-        $_SESSION['PROTOTYPE_TEMP'][$temp_session_token] = $temp_battle_omega['battle_token'];
+        $_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_session_token] = $temp_battle_omega['battle_token'];
       } else {
-        $temp_battle_token = $_SESSION['PROTOTYPE_TEMP'][$temp_session_token];
+        $temp_battle_token = $_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_session_token];
         $temp_battle_omega = mmrpg_battle::get_index_info($temp_battle_token);
       }
 
@@ -176,14 +176,14 @@ if (!defined('MMRPG_SCRIPT_REQUEST') ||
       if ($key > 0 && ($key + 1) % 2 == 0){ continue; }
       // Generate the battle option with the starter data
       $temp_session_token = $this_prototype_data['this_player_token'].'_battle_'.$this_prototype_data['this_current_chapter'].'_'.$key;
-      if (empty($_SESSION['PROTOTYPE_TEMP'][$temp_session_token])){
+      if (empty($_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_session_token])){
         $info2 = $this_prototype_data['target_robot_omega'][$key + 1];
         $temp_battle_omega = mmrpg_prototype_mission_double($this_prototype_data, array($info['robot'], $info2['robot']), array($info['field'], $info2['field']), $chapters_levels_common['four'], true, true);
         $temp_battle_omega['option_chapter'] = $this_prototype_data['this_current_chapter'];
         mmrpg_battle::update_index_info($temp_battle_omega['battle_token'], $temp_battle_omega);
-        $_SESSION['PROTOTYPE_TEMP'][$temp_session_token] = $temp_battle_omega['battle_token'];
+        $_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_session_token] = $temp_battle_omega['battle_token'];
       } else {
-        $temp_battle_token = $_SESSION['PROTOTYPE_TEMP'][$temp_session_token];
+        $temp_battle_token = $_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$temp_session_token];
         $temp_battle_omega = mmrpg_battle::get_index_info($temp_battle_token);
       }
 
@@ -332,7 +332,7 @@ if (!defined('MMRPG_SCRIPT_REQUEST') ||
   $this_prototype_data['this_current_chapter'] = 'player';
 
   // Unlock a battle with a randomized player from the leaderboards if the game is done
-  //$temp_flags = !empty($_SESSION['GAME']['flags']) ? $_SESSION['GAME']['flags'] : array();
+  //$temp_flags = !empty($_SESSION['RPG2k15']['GAME']['flags']) ? $_SESSION['RPG2k15']['GAME']['flags'] : array();
   $temp_ptoken = str_replace('-', '', $this_prototype_data['this_player_token']);
   if ($this_prototype_data['prototype_complete'] || $this_prototype_data['this_chapter_unlocked']['player']){
     //die('checkpoint1');
@@ -367,7 +367,7 @@ if (!defined('MMRPG_SCRIPT_REQUEST') ||
         shuffle($temp_player_list);
 
         // Loop through the list up for two to four times, creating new battles
-        if (empty($_SESSION['PROTOTYPE_TEMP'][$this_prototype_data['this_player_token'].'_player_battle_factors'])){
+        if (empty($_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$this_prototype_data['this_player_token'].'_player_battle_factors'])){
           $temp_field_factors_one = $this_omega_factors_two;
           $temp_field_factors_two = $this_omega_factors_one;
           $temp_field_factors_three = $this_omega_factors_three;
@@ -383,9 +383,9 @@ if (!defined('MMRPG_SCRIPT_REQUEST') ||
           shuffle($temp_field_factors_one);
           shuffle($temp_field_factors_two);
           shuffle($temp_field_factors_three);
-          $_SESSION['PROTOTYPE_TEMP'][$this_prototype_data['this_player_token'].'_player_battle_factors'] = array($temp_field_factors_one, $temp_field_factors_two, $temp_field_factors_three);
+          $_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$this_prototype_data['this_player_token'].'_player_battle_factors'] = array($temp_field_factors_one, $temp_field_factors_two, $temp_field_factors_three);
         } else {
-          list($temp_field_factors_one, $temp_field_factors_two, $temp_field_factors_three) = $_SESSION['PROTOTYPE_TEMP'][$this_prototype_data['this_player_token'].'_player_battle_factors'];
+          list($temp_field_factors_one, $temp_field_factors_two, $temp_field_factors_three) = $_SESSION['RPG2k15']['PROTOTYPE_TEMP'][$this_prototype_data['this_player_token'].'_player_battle_factors'];
         }
 
         for ($i = 0; $i < $max_battle_count; $i++){

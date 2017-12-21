@@ -2,7 +2,7 @@
 // -- DR. COSSACK PASSWORDS -- //
 
 // Collect the temp battle flags
-$temp_flags = !empty($_SESSION['GAME']['flags']) ? $_SESSION['GAME']['flags'] : array();
+$temp_flags = !empty($_SESSION['RPG2k15']['GAME']['flags']) ? $_SESSION['RPG2k15']['GAME']['flags'] : array();
 
 // If the UNLOCK RHYTHM password was created
 if (!empty($temp_flags['drcossack_password_robotgetrhythmandblues'])){

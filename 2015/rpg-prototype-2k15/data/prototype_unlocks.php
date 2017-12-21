@@ -26,13 +26,13 @@ if ($battle_complete_counter_light >= 0 && $battle_complete_counter_light < 1){
     $temp_console_markup = '<p>Mega Man! Roll! Thank goodness you\'re both okay!  I&#39;m not sure how it happened, but it looks like we&#39;ve been digitized by that alien robot and transported <em>inside</em> the prototype!</p>';
     $temp_console_markup .= '<p>We have to find a way out of here, but first we must secure the area and activate the laboratory program. Engage the mecha virus that\'s attacking the lab and defeat it in battle. Please be careful, Mega Man!</p>';
 
-    array_push($_SESSION[$session_token]['EVENTS'], array(
+    array_push($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
 
     $temp_game_flags['events'][$temp_event_flag] = true;
-    //$_SESSION[$session_token]['battle_settings']['this_player_token'] = false;
+    //$_SESSION['RPG2k15'][$session_token]['battle_settings']['this_player_token'] = false;
   }
 
 }
@@ -57,7 +57,7 @@ if ($battle_complete_counter_light >= 1 && $battle_complete_counter_light < 2){
     $temp_console_markup = '<p>Thank you, Mega Man! This world and its battles may be digital, but I fear the danger of us being deleted while inside are indeed very real. We should all be careful.</p>';
     $temp_console_markup .= '<p>Now that the three of us are all safe and accounted for, we should locate Dr. Cossack and Proto Man.  Let\'s head inside the laboratory and look around.</p>';
 
-    array_push($_SESSION[$session_token]['EVENTS'], array(
+    array_push($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -84,7 +84,7 @@ if ($battle_complete_counter_light >= 2 && $battle_complete_counter_light < 3){
     $temp_console_markup = '<p>The Light Laboratory field was one of the first three locations programmed into the prototype, and we made it a priority to include as many details from real lab as we could.</p>';
     $temp_console_markup .= '<p>Now that we\'ve taken it back, we should be able to use its equipment to survey the surrounding area. Now let\'s see if I remember how to work everything&hellip;</p>';
 
-    array_push($_SESSION[$session_token]['EVENTS'], array(
+    array_push($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -101,7 +101,7 @@ if ($battle_complete_counter_light >= 2 && $battle_complete_counter_light < 3){
     $temp_console_markup .= '<p style="text-align: center;">!</p>';
     $temp_console_markup .= '<p>&nbsp;</p>';
 
-    array_push($_SESSION[$session_token]['EVENTS'], array(
+    array_push($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -119,7 +119,7 @@ if ($battle_complete_counter_light >= 2 && $battle_complete_counter_light < 3){
     $temp_console_markup .= '<p>&nbsp;</p>';
     $temp_console_markup .= '<p>&nbsp;</p>';
 
-    array_push($_SESSION[$session_token]['EVENTS'], array(
+    array_push($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -138,7 +138,7 @@ if ($battle_complete_counter_light >= 2 && $battle_complete_counter_light < 3){
     $temp_console_markup .= '<p>I don\'t understand&hellip;  but I assure you we\'re not going down without a fight!</p>';
     $temp_console_markup .= '<p style="text-align: right; text-shadow: 1px 1px 2px purple">Very well.  I will not hold back.</p>';
 
-    array_push($_SESSION[$session_token]['EVENTS'], array(
+    array_push($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -164,7 +164,7 @@ if ($battle_complete_counter_light >= 3 && $battle_complete_counter_light < 4){
 
     $temp_console_markup .= '<p>Mega Man!  Roll!  Fantastic work back there!  It looks like we made it back to the laboratory, so let us continue getting this equipment online&hellip;</p>';
 
-    array_push($_SESSION[$session_token]['EVENTS'], array(
+    array_push($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -189,7 +189,7 @@ if ($battle_complete_counter_light >= 3 && $battle_complete_counter_light < 4){
     $temp_console_markup = '<p>Wonderful, the equipment is still functional! I was able to identify eight different robot master signatures in the data clusters nearby. They appear to have been activated by the alien robot, so we should approach with caution.</p>';
     $temp_console_markup .= '<p>It\'s possible that Proto Man and Cossack are tracking these signatures as well, so we\'ll start our search for them in those areas. Be careful Mega Man, and don\'t forget that Roll is here to help!.</p>';
 
-    array_push($_SESSION[$session_token]['EVENTS'], array(
+    array_push($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -215,7 +215,7 @@ if ($battle_complete_counter_light >= 4 && $battle_complete_counter_light < 5){
     $temp_console_markup = '<p>Fantastic work, Mega Man!  One down, seven more to go. We might just make it out of here in one piece! And best of all, we have a new robot to take with us on our missions!</p>';
     $temp_console_markup .= '<p>Remember, if we disable a robot master using <em>only neutral type abilities</em> we can salvage its data and use it in battle! We can still use elemental abilities for an easier fight, but we\'ll only be able to download their special weapon if you do.</p>';
 
-    array_push($_SESSION[$session_token]['EVENTS'], array(
+    array_push($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -245,7 +245,7 @@ if ($battle_complete_counter_light >= 14){
   $temp_event_flag = 'completed-phase_dr-light_one';
   if (empty($temp_game_flags['events'][$temp_event_flag])){
     $temp_game_flags['events'][$temp_event_flag] = true;
-    $_SESSION[$session_token]['battle_settings']['this_player_token'] = false;
+    $_SESSION['RPG2k15'][$session_token]['battle_settings']['this_player_token'] = false;
   }
 
 }
@@ -276,20 +276,20 @@ if ($battle_complete_counter_light >= 17){
     $player_info['player_heart_counter'] = 0;
     // Define the player's experience points total
     $player_info['player_experience'] = 0;
-    if (!empty($_SESSION[$session_token]['values']['battle_rewards'])){
-      foreach ($_SESSION[$session_token]['values']['battle_rewards'] AS $temp_player => $temp_player_info){
-          if (!empty($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'])){
-            $temp_player_robot_rewards = $_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'];
-            $temp_player_robot_settings = $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'];
+    if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'])){
+      foreach ($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'] AS $temp_player => $temp_player_info){
+          if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'])){
+            $temp_player_robot_rewards = $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'];
+            $temp_player_robot_settings = $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'];
             if (empty($temp_player_robot_rewards) || empty($temp_player_robot_settings)){
-              unset($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots']);
-              unset($_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots']);
+              unset($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots']);
+              unset($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots']);
               continue;
             }
             foreach ($temp_player_robot_rewards AS $temp_key => $temp_robot_info){
               if (empty($temp_robot_info['robot_token'])){
-                unset($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_key]);
-                unset($_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_key]);
+                unset($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_key]);
+                unset($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_key]);
                 continue;
               }
               $temp_robot_settings = $temp_player_robot_settings[$temp_robot_info['robot_token']];
@@ -375,9 +375,9 @@ if ($battle_complete_counter_light >= 17){
     $temp_canvas_markup .= '<div class="sprite sprite_80x80" style="background-image: url(images/fields/prototype-complete/battle-field_foreground_base.png?'.MMRPG_CONFIG_CACHE_DATE.'); background-position: center -45px; top: 0; right: 0; bottom: 0; left: 0; width: auto; height: auto;">Prototype Complete</div>';
     $temp_canvas_markup .= '<div class="sprite sprite_80x80 sprite_80x80_02" style="background-image: url(images/players/dr-light/sprite_left_80x80.png?'.MMRPG_CONFIG_CACHE_DATE.'); bottom: 40px; left: 200px;">Dr. Light</div>';
     $temp_canvas_markup .= '<div class="sprite sprite_80x80 sprite_80x80_02" style="background-image: url(images/robots/mega-man/sprite_right_80x80.png?'.MMRPG_CONFIG_CACHE_DATE.'); bottom: 40px; right: 200px;">Mega Man</div>';
-    $temp_console_markup = '<p><strong>Congratulations, '.(!empty($_SESSION[$session_token]['USER']['displayname']) ? $_SESSION[$session_token]['USER']['displayname'] : $_SESSION[$session_token]['USER']['username']).'!</strong>  You\'ve completed the <strong>Mega Man RPG Prototype</strong> using <strong>Dr. Light</strong> and <strong>Mega Man</strong>! '.mmrpg_battle::random_victory_quote().'! Your completion records are as follows :</p>';
+    $temp_console_markup = '<p><strong>Congratulations, '.(!empty($_SESSION['RPG2k15'][$session_token]['USER']['displayname']) ? $_SESSION['RPG2k15'][$session_token]['USER']['displayname'] : $_SESSION['RPG2k15'][$session_token]['USER']['username']).'!</strong>  You\'ve completed the <strong>Mega Man RPG Prototype</strong> using <strong>Dr. Light</strong> and <strong>Mega Man</strong>! '.mmrpg_battle::random_victory_quote().'! Your completion records are as follows :</p>';
     $temp_console_markup .= '<div id="console" style="width: auto; height: auto;"><div class="extra"><div class="extra2">'.preg_replace('/\s+/', ' ', $temp_player_data).'</div></div></div>';
-    array_push($_SESSION[$session_token]['EVENTS'], array(
+    array_push($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -392,7 +392,7 @@ if ($battle_complete_counter_light >= 17){
     $temp_console_markup .= '<p>Two new bonus chapters containing special missions have been added to the main menu, and preview data for future robot masters will now appear in all fusion field missions. Try one of the <strong>Player Battles</strong> against another member\'s ghost data for a real challenge!</p>';
     $temp_console_markup .= '<p>A new <strong>Star Force</strong> mechanic has also been unlocked, allowing you to find and collect powerful <strong>Field Stars</strong> and <strong>Fusion Stars</strong> in battle that boost your robots\' elemental abilities.  Use the newly upgraded <strong>Player Editor</strong> to customize missions and share fields between players - doing so is an excellent way to hunt down extra <strong>Star Force</strong> energy.</p>';
     $temp_console_markup .= '<p>We hope you enjoyed this game prototype, and look forward to the final version some day!  Oh, and <a href="'.MMRPG_CONFIG_ROOTURL.'contact/" target="_blank">please leave feedback</a> if you can! We love feedback! :D</p>';
-    array_push($_SESSION[$session_token]['EVENTS'], array(
+    array_push($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -413,7 +413,7 @@ if ($battle_complete_counter_light >= 17){
 if (mmrpg_prototype_event_complete('chapter-complete_dr-light_three') && !$unlock_flag_wily){
   // Unlock Dr. Wily as a playable character
   mmrpg_game_unlock_player($mmrpg_index['players']['dr-wily'], false, true);
-  $_SESSION[$session_token]['values']['battle_rewards']['dr-wily']['player_points'] = 0;
+  $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards']['dr-wily']['player_points'] = 0;
 
   // Ensure Bass hasn't already been unlocked by the player
   if (!mmrpg_prototype_robot_unlocked(false, 'bass')){
@@ -423,25 +423,25 @@ if (mmrpg_prototype_event_complete('chapter-complete_dr-light_three') && !$unloc
     $unlock_robot_info['robot_level'] = 1;
     $unlock_robot_info['robot_experience'] = mmrpg_prototype_calculate_experience_required(1) - 1;
     mmrpg_game_unlock_robot($unlock_player_info, $unlock_robot_info, true, false);
-    //$_SESSION[$session_token]['values']['battle_rewards']['dr-wily']['player_robots']['bass']['robot_experience'] = 4000;
+    //$_SESSION['RPG2k15'][$session_token]['values']['battle_rewards']['dr-wily']['player_robots']['bass']['robot_experience'] = 4000;
   }
   // If Bass has already been unlocked by another doctor, reassign it to Wily's team
   elseif (mmrpg_prototype_robot_unlocked(false, 'bass') &&
     !mmrpg_prototype_robot_unlocked('dr-wily', 'bass')){
     // Loop through the player rewards and collect Bass' info
-    foreach ($_SESSION[$session_token]['values']['battle_rewards'] AS $temp_player => $temp_playerinfo){
+    foreach ($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'] AS $temp_player => $temp_playerinfo){
       if ($temp_player == 'dr-wily'){ continue; }
       foreach ($temp_playerinfo['player_robots'] AS $temp_robot => $temp_robotinfo){
         if ($temp_robot != 'bass'){ continue; }
         // Bass was found, so collect the rewards and settings
-        $temp_robotinfo_rewards = $_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot];
-        $temp_robotinfo_settings = $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot];
+        $temp_robotinfo_rewards = $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot];
+        $temp_robotinfo_settings = $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot];
         // Assign Bass's rewards and settings to Dr. Wily's player array
-        $_SESSION[$session_token]['values']['battle_rewards']['dr-wily']['player_robots'][$temp_robot] = $temp_robotinfo_rewards;
-        $_SESSION[$session_token]['values']['battle_settings']['dr-wily']['player_robots'][$temp_robot] = $temp_robotinfo_settings;
+        $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards']['dr-wily']['player_robots'][$temp_robot] = $temp_robotinfo_rewards;
+        $_SESSION['RPG2k15'][$session_token]['values']['battle_settings']['dr-wily']['player_robots'][$temp_robot] = $temp_robotinfo_settings;
         // Unset the original Bass data from this player's session
-        unset($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot]);
-        unset($_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot]);
+        unset($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot]);
+        unset($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot]);
         // Break now that we're done
         break;
       }
@@ -450,7 +450,7 @@ if (mmrpg_prototype_event_complete('chapter-complete_dr-light_three') && !$unloc
 
   // Redirect back to this page to recalculate menus
   $unlock_flag_wily = true;
-  unset($_SESSION[$session_token]['battle_settings']['this_player_token']);
+  unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['this_player_token']);
   header('Location: prototype.php?wap='.($flag_wap ? 'true' : 'false'));
   exit();
 
@@ -467,7 +467,7 @@ if (mmrpg_prototype_event_complete('chapter-complete_dr-light_three') && !$unloc
     $temp_console_markup .= '<p>Play through the game as <strong>Dr. Wily</strong> and <strong>Bass</strong> to experience the events from their perspective, and unlock new robots and abilities as you fight your way through an army of robot opponents&hellip; again!</p>';
     $temp_console_markup .= '<p>Use the <strong>robots</strong> option in the main menu to transfer robots between <strong>Dr. Light</strong> and <strong>Dr. Wily</strong> to gain access to even more abilities and battle combinations! Robots receive twice the experience points in battle when used by another player, so don\'t be afraid to mix it up and have fun!</p>';
     $temp_console_markup .= '<p style="font-size: 10px;">Note : Dr. Wily may take part in robot transfers only after completing Chapter One of his own campaign</p>';
-    array_unshift($_SESSION[$session_token]['EVENTS'], array(
+    array_unshift($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -506,7 +506,7 @@ if ($battle_complete_counter_wily >= 14){
   $temp_event_flag = 'completed-phase_dr-wily_one';
   if (empty($temp_game_flags['events'][$temp_event_flag])){
     $temp_game_flags['events'][$temp_event_flag] = true;
-    $_SESSION[$session_token]['battle_settings']['this_player_token'] = false;
+    $_SESSION['RPG2k15'][$session_token]['battle_settings']['this_player_token'] = false;
   }
 
 }
@@ -536,20 +536,20 @@ if ($battle_complete_counter_wily >= 17){
     $player_info['player_heart_counter'] = 0;
     // Define the player's experience points total
     $player_info['player_experience'] = 0;
-    if (!empty($_SESSION[$session_token]['values']['battle_rewards'])){
-      foreach ($_SESSION[$session_token]['values']['battle_rewards'] AS $temp_player => $temp_player_info){
-          if (!empty($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'])){
-            $temp_player_robot_rewards = $_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'];
-            $temp_player_robot_settings = $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'];
+    if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'])){
+      foreach ($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'] AS $temp_player => $temp_player_info){
+          if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'])){
+            $temp_player_robot_rewards = $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'];
+            $temp_player_robot_settings = $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'];
             if (empty($temp_player_robot_rewards) || empty($temp_player_robot_settings)){
-              unset($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots']);
-              unset($_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots']);
+              unset($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots']);
+              unset($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots']);
               continue;
             }
             foreach ($temp_player_robot_rewards AS $temp_key => $temp_robot_info){
               if (empty($temp_robot_info['robot_token'])){
-                unset($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_key]);
-                unset($_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_key]);
+                unset($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_key]);
+                unset($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_key]);
                 continue;
               }
               $temp_robot_settings = $temp_player_robot_settings[$temp_robot_info['robot_token']];
@@ -635,9 +635,9 @@ if ($battle_complete_counter_wily >= 17){
     $temp_canvas_markup .= '<div class="sprite sprite_80x80" style="background-image: url(images/fields/prototype-complete/battle-field_foreground_base.png?'.MMRPG_CONFIG_CACHE_DATE.'); background-position: center -45px; top: 0; right: 0; bottom: 0; left: 0; width: auto; height: auto;">Prototype Complete</div>';
     $temp_canvas_markup .= '<div class="sprite sprite_80x80 sprite_80x80_02" style="background-image: url(images/players/dr-wily/sprite_left_80x80.png?'.MMRPG_CONFIG_CACHE_DATE.'); bottom: 40px; left: 200px;">Dr. Wily</div>';
     $temp_canvas_markup .= '<div class="sprite sprite_80x80 sprite_80x80_02" style="background-image: url(images/robots/bass/sprite_right_80x80.png?'.MMRPG_CONFIG_CACHE_DATE.'); bottom: 40px; right: 200px;">Bass</div>';
-    $temp_console_markup = '<p><strong>Congratulations, '.(!empty($_SESSION[$session_token]['USER']['displayname']) ? $_SESSION[$session_token]['USER']['displayname'] : $_SESSION[$session_token]['USER']['username']).'!</strong>  You\'ve completed the <strong>Mega Man RPG Prototype</strong> using <strong>Dr. Wily</strong> and <strong>Bass</strong>! '.mmrpg_battle::random_victory_quote().'! Your completion records are as follows :</p>';
+    $temp_console_markup = '<p><strong>Congratulations, '.(!empty($_SESSION['RPG2k15'][$session_token]['USER']['displayname']) ? $_SESSION['RPG2k15'][$session_token]['USER']['displayname'] : $_SESSION['RPG2k15'][$session_token]['USER']['username']).'!</strong>  You\'ve completed the <strong>Mega Man RPG Prototype</strong> using <strong>Dr. Wily</strong> and <strong>Bass</strong>! '.mmrpg_battle::random_victory_quote().'! Your completion records are as follows :</p>';
     $temp_console_markup .= '<div id="console" style="width: auto; height: auto;"><div class="extra"><div class="extra2">'.preg_replace('/\s+/', ' ', $temp_player_data).'</div></div></div>';
-    array_push($_SESSION[$session_token]['EVENTS'], array(
+    array_push($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -652,7 +652,7 @@ if ($battle_complete_counter_wily >= 17){
     $temp_console_markup .= '<p>Two new bonus chapters containing special missions have been added to the main menu, and preview data for future robot masters will now appear in all fusion field missions. Try one of the <strong>Player Battles</strong> against another member\'s ghost data for a real challenge!</p>';
     $temp_console_markup .= '<p>A new <strong>Star Force</strong> mechanic has also been unlocked, allowing you to find and collect powerful <strong>Field Stars</strong> and <strong>Fusion Stars</strong> in battle that boost your robots\' elemental abilities.  Use the newly upgraded <strong>Player Editor</strong> to customize missions and share fields between players - doing so is an excellent way to hunt down extra <strong>Star Force</strong> energy.</p>';
     $temp_console_markup .= '<p>We hope you enjoyed this game prototype, and look forward to the final version some day!  Oh, and <a href="'.MMRPG_CONFIG_ROOTURL.'contact/" target="_blank">please leave feedback</a> if you can! We love feedback! :D</p>';
-    array_push($_SESSION[$session_token]['EVENTS'], array(
+    array_push($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -672,7 +672,7 @@ if ($battle_complete_counter_wily >= 17){
 if (mmrpg_prototype_event_complete('chapter-complete_dr-wily_three') && !$unlock_flag_cossack){
   // Unlock Dr. Cossack as a playable character
   mmrpg_game_unlock_player($mmrpg_index['players']['dr-cossack'], false, true);
-  $_SESSION[$session_token]['values']['battle_rewards']['dr-cossack']['player_points'] = 0;
+  $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards']['dr-cossack']['player_points'] = 0;
 
   // Ensure Proto Man hasn't already been unlocked by the player
   if (!mmrpg_prototype_robot_unlocked(false, 'proto-man')){
@@ -683,25 +683,25 @@ if (mmrpg_prototype_event_complete('chapter-complete_dr-wily_three') && !$unlock
     $unlock_robot_info['robot_experience'] = mmrpg_prototype_calculate_experience_required(1) - 1;
     //$unlock_robot_info['robot_experience'] = 4000;
     mmrpg_game_unlock_robot($unlock_player_info, $unlock_robot_info, true, false);
-    //$_SESSION[$session_token]['values']['battle_rewards']['dr-cossack']['player_robots']['proto-man']['robot_experience'] = 4000;
+    //$_SESSION['RPG2k15'][$session_token]['values']['battle_rewards']['dr-cossack']['player_robots']['proto-man']['robot_experience'] = 4000;
   }
   // If Proto Man has already been unlocked by another doctor, reassign it to Cossack's team
   elseif (mmrpg_prototype_robot_unlocked(false, 'proto-man') &&
     !mmrpg_prototype_robot_unlocked('dr-cossack', 'proto-man')){
     // Loop through the player rewards and collect Proto Man' info
-    foreach ($_SESSION[$session_token]['values']['battle_rewards'] AS $temp_player => $temp_playerinfo){
+    foreach ($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'] AS $temp_player => $temp_playerinfo){
       if ($temp_player == 'dr-cossack'){ continue; }
       foreach ($temp_playerinfo['player_robots'] AS $temp_robot => $temp_robotinfo){
         if ($temp_robot != 'proto-man'){ continue; }
         // Proto Man was found, so collect the rewards and settings
-        $temp_robotinfo_rewards = $_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot];
-        $temp_robotinfo_settings = $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot];
+        $temp_robotinfo_rewards = $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot];
+        $temp_robotinfo_settings = $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot];
         // Assign Proto Man's rewards and settings to Dr. Cossack's player array
-        $_SESSION[$session_token]['values']['battle_rewards']['dr-cossack']['player_robots'][$temp_robot] = $temp_robotinfo_rewards;
-        $_SESSION[$session_token]['values']['battle_settings']['dr-cossack']['player_robots'][$temp_robot] = $temp_robotinfo_settings;
+        $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards']['dr-cossack']['player_robots'][$temp_robot] = $temp_robotinfo_rewards;
+        $_SESSION['RPG2k15'][$session_token]['values']['battle_settings']['dr-cossack']['player_robots'][$temp_robot] = $temp_robotinfo_settings;
         // Unset the original Proto Man data from this player's session
-        unset($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot]);
-        unset($_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot]);
+        unset($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_robot]);
+        unset($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_robot]);
         // Break now that we're done
         break;
       }
@@ -710,7 +710,7 @@ if (mmrpg_prototype_event_complete('chapter-complete_dr-wily_three') && !$unlock
 
   // Redirect back to this page to recalculate menus
   $unlock_flag_cossack = true;
-  unset($_SESSION[$session_token]['battle_settings']['this_player_token']);
+  unset($_SESSION['RPG2k15'][$session_token]['battle_settings']['this_player_token']);
   header('Location: prototype.php?wap='.($flag_wap ? 'true' : 'false'));
   exit();
 
@@ -727,7 +727,7 @@ if (mmrpg_prototype_event_complete('chapter-complete_dr-wily_three') && !$unlock
     $temp_console_markup .= '<p>Play through the game as <strong>Dr. Cossack</strong> and <strong>Proto Man</strong> to experience the events from their perspective, and unlock new robots and abilities as you fight your way through an army of robot opponents&hellip; again!</p>';
     $temp_console_markup .= '<p>Use the <strong>robots</strong> option in the main menu to transfer robots between <strong>Dr. Light</strong>, <strong>Dr. Wily</strong> and <strong>Dr. Cossack</strong> and gain access to even more abilities and battle combinations! Robots receive twice the experience points in battle when used by another player, so don\'t be afraid to mix it up and have fun!</p>';
     $temp_console_markup .= '<p style="font-size: 10px;">Note : Dr. Cossack may take part in robot transfers only after completing Chapter One of his own campaign</p>';
-    array_unshift($_SESSION[$session_token]['EVENTS'], array(
+    array_unshift($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -766,7 +766,7 @@ if ($battle_complete_counter_cossack >= 10){
   $temp_event_flag = 'dr-cossack_event-97_phase-one-complete';
   if (empty($temp_game_flags['events'][$temp_event_flag])){
     $temp_game_flags['events'][$temp_event_flag] = true;
-    $_SESSION[$session_token]['battle_settings']['this_player_token'] = false;
+    $_SESSION['RPG2k15'][$session_token]['battle_settings']['this_player_token'] = false;
   }
 
 }
@@ -779,7 +779,7 @@ if ($battle_complete_counter_cossack >= 14){
   $temp_event_flag = 'dr-cossack_event-97_phase-two-complete';
   if (empty($temp_game_flags['events'][$temp_event_flag])){
     $temp_game_flags['events'][$temp_event_flag] = true;
-    $_SESSION[$session_token]['battle_settings']['this_player_token'] = false;
+    $_SESSION['RPG2k15'][$session_token]['battle_settings']['this_player_token'] = false;
   }
 
 }
@@ -809,20 +809,20 @@ if ($battle_complete_counter_cossack >= 17){
     $player_info['player_heart_counter'] = 0;
     // Define the player's experience points total
     $player_info['player_experience'] = 0;
-    if (!empty($_SESSION[$session_token]['values']['battle_rewards'])){
-      foreach ($_SESSION[$session_token]['values']['battle_rewards'] AS $temp_player => $temp_player_info){
-          if (!empty($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'])){
-            $temp_player_robot_rewards = $_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'];
-            $temp_player_robot_settings = $_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'];
+    if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'])){
+      foreach ($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'] AS $temp_player => $temp_player_info){
+          if (!empty($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'])){
+            $temp_player_robot_rewards = $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'];
+            $temp_player_robot_settings = $_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'];
             if (empty($temp_player_robot_rewards) || empty($temp_player_robot_settings)){
-              unset($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots']);
-              unset($_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots']);
+              unset($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots']);
+              unset($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots']);
               continue;
             }
             foreach ($temp_player_robot_rewards AS $temp_key => $temp_robot_info){
               if (empty($temp_robot_info['robot_token'])){
-                unset($_SESSION[$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_key]);
-                unset($_SESSION[$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_key]);
+                unset($_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_player]['player_robots'][$temp_key]);
+                unset($_SESSION['RPG2k15'][$session_token]['values']['battle_settings'][$temp_player]['player_robots'][$temp_key]);
                 continue;
               }
               $temp_robot_settings = $temp_player_robot_settings[$temp_robot_info['robot_token']];
@@ -908,9 +908,9 @@ if ($battle_complete_counter_cossack >= 17){
     $temp_canvas_markup .= '<div class="sprite sprite_80x80" style="background-image: url(images/fields/prototype-complete/battle-field_foreground_base.png?'.MMRPG_CONFIG_CACHE_DATE.'); background-position: center -45px; top: 0; right: 0; bottom: 0; left: 0; width: auto; height: auto;">Prototype Complete</div>';
     $temp_canvas_markup .= '<div class="sprite sprite_80x80 sprite_80x80_02" style="background-image: url(images/players/dr-cossack/sprite_left_80x80.png?'.MMRPG_CONFIG_CACHE_DATE.'); bottom: 40px; left: 200px;">Dr. Cossack</div>';
     $temp_canvas_markup .= '<div class="sprite sprite_80x80 sprite_80x80_02" style="background-image: url(images/robots/proto-man/sprite_right_80x80.png?'.MMRPG_CONFIG_CACHE_DATE.'); bottom: 40px; right: 200px;">Proto Man</div>';
-    $temp_console_markup = '<p><strong>Congratulations, '.(!empty($_SESSION[$session_token]['USER']['displayname']) ? $_SESSION[$session_token]['USER']['displayname'] : $_SESSION[$session_token]['USER']['username']).'!</strong>  You\'ve completed the <strong>Mega Man RPG Prototype</strong> using <strong>Dr. Cossack</strong> and <strong>Proto Man</strong>! '.mmrpg_battle::random_victory_quote().'! Your completion records are as follows :</p>';
+    $temp_console_markup = '<p><strong>Congratulations, '.(!empty($_SESSION['RPG2k15'][$session_token]['USER']['displayname']) ? $_SESSION['RPG2k15'][$session_token]['USER']['displayname'] : $_SESSION['RPG2k15'][$session_token]['USER']['username']).'!</strong>  You\'ve completed the <strong>Mega Man RPG Prototype</strong> using <strong>Dr. Cossack</strong> and <strong>Proto Man</strong>! '.mmrpg_battle::random_victory_quote().'! Your completion records are as follows :</p>';
     $temp_console_markup .= '<div id="console" style="width: auto; height: auto;"><div class="extra"><div class="extra2">'.preg_replace('/\s+/', ' ', $temp_player_data).'</div></div></div>';
-    array_push($_SESSION[$session_token]['EVENTS'], array(
+    array_push($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -925,7 +925,7 @@ if ($battle_complete_counter_cossack >= 17){
     $temp_console_markup .= '<p>Two new bonus chapters containing special missions have been added to the main menu, and preview data for future robot masters will now appear in all fusion field missions. Try one of the <strong>Player Battles</strong> against another member\'s ghost data for a real challenge!</p>';
     $temp_console_markup .= '<p>A new <strong>Star Force</strong> mechanic has also been unlocked, allowing you to find and collect powerful <strong>Field Stars</strong> and <strong>Fusion Stars</strong> in battle that boost your robots\' elemental abilities.  Use the newly upgraded <strong>Player Editor</strong> to customize missions and share fields between players - doing so is an excellent way to hunt down extra <strong>Star Force</strong> energy.</p>';
     $temp_console_markup .= '<p>We hope you enjoyed this game prototype, and look forward to the final version some day!  Oh, and <a href="'.MMRPG_CONFIG_ROOTURL.'contact/" target="_blank">please leave feedback</a> if you can! We love feedback! :D</p>';
-    array_push($_SESSION[$session_token]['EVENTS'], array(
+    array_push($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
       'canvas_markup' => $temp_canvas_markup,
       'console_markup' => $temp_console_markup
       ));
@@ -993,7 +993,7 @@ if (!empty($temp_battles_list)){
 
     // Add this mesage to the event session IF VICTORY (Only good news now!)
     if ($temp_battleinfo['target_player_result'] == 'victory'){
-      array_unshift($_SESSION[$session_token]['EVENTS'], array(
+      array_unshift($_SESSION['RPG2k15'][$session_token]['EVENTS'], array(
         'canvas_markup' => $temp_canvas_markup,
         'console_markup' => $temp_console_markup
         ));
@@ -1003,8 +1003,8 @@ if (!empty($temp_battles_list)){
     $temp_inc_points = $temp_battleinfo['target_player_points'];
     $temp_inc_player = str_replace('-', '_', $temp_target_playerinfo['player_token']);
     // Increment this user and player's battle points counters
-    $_SESSION[$session_token]['counters']['battle_points'] += $temp_inc_points;
-    $_SESSION[$session_token]['values']['battle_rewards'][$temp_target_playerinfo['player_token']]['player_points'] += $temp_inc_points;
+    $_SESSION['RPG2k15'][$session_token]['counters']['battle_points'] += $temp_inc_points;
+    $_SESSION['RPG2k15'][$session_token]['values']['battle_rewards'][$temp_target_playerinfo['player_token']]['player_points'] += $temp_inc_points;
     // Update the leaderboard to remove the pending points and add them to the totals
     $DB->update('mmrpg_battles', array(
       'target_reward_pending' => 0
