@@ -46,7 +46,7 @@ $legacy_content['2010'][] = array(
 // Year 2011
 $legacy_content['2011'] = array();
 $legacy_content['2011'][] = array(
-    'name' => 'RPG Prototype v0.1',
+    'name' => 'RPG Prototype 2k11',
     'paths' => array(
         'rpg-prototype-2k11/index.php' => array('text', 'images', 'playable')
         )
@@ -72,7 +72,7 @@ $legacy_content['2012'][] = array(
         )
     );
 $legacy_content['2012'][] = array(
-    'name' => 'RPG Prototype v0.2',
+    'name' => 'RPG Prototype 2k12',
     'paths' => array(
         'rpg-prototype-2k12/index.php' => array('text', 'images', 'playable')
         )
@@ -84,6 +84,15 @@ $legacy_content['2013'][] = array(
     'name' => 'RPG Animation Tests',
     'paths' => array(
         'rpg-prototype-sprites/index.php' => array('text', 'images', 'interactive')
+        )
+    );
+
+// Year 2015
+$legacy_content['2015'] = array();
+$legacy_content['2015'][] = array(
+    'name' => 'RPG Prototype 2k15',
+    'paths' => array(
+        'rpg-prototype-2k15/index.php' => array('text', 'images', 'playable')
         )
     );
 
@@ -121,6 +130,7 @@ ob_start();
                             else { $todo = false; }
                             $full_url = $year.'/'.$path;
                             $display_url = str_replace(array('/index.php', '.php'), '', $full_url);
+                            if (!file_exists($mmrpg_root_dir.$full_url)){ $todo = true; }
                             echo('<li class="subitem'.($todo ? ' todo' : '').'">'.PHP_EOL);
                                 echo('<a class="link" href="'.$mmrpg_root_url.$full_url.'">/'.$display_url.'</a>'.PHP_EOL);
                                 if (empty($content)){ $content_text = 'unknown'; }
