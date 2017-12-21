@@ -11,7 +11,7 @@ if (!MMRPG_CONFIG_ADMIN_MODE){
 require_once('top.php');
 
 // Define the default SEO and MARKUP variables
-$this_seo_title = 'Prototype | Mega Man RPG Prototype | Last Updated '.preg_replace('#([0-9]{4})([0-9]{2})([0-9]{2})-([0-9]{2})#', '$1/$2/$3', MMRPG_CONFIG_CACHE_DATE);
+$this_seo_title = 'Prototype | RPG Prototype 2k15 | MMMRPG-World.NET (Legacy) | Last Updated '.preg_replace('#([0-9]{4})([0-9]{2})([0-9]{2})-([0-9]{2})#', '$1/$2/$3', MMRPG_CONFIG_CACHE_DATE);
 $this_seo_keywords = 'megaman,mega man,protoman,proto man,bass,rpg,prototype,dr.light,dr.wily,dr.cossack,battle,browser,pbbg,ipad,firefox,chrome,safari';
 $this_seo_description = 'Battle through more than thirty robot masters in classic RPG style with either Dr. Light and Mega Man, Dr. Wily and Bass, or Dr. Cossack and Proto Man! The Mega Man RPG Prototype is a browser-based fangame that combines the mechanics of both the Pokémon and Mega Man series of video games into one strange and wonderful little time waster.';
 
@@ -93,7 +93,7 @@ if (count($matches)>1){
 <html<?/* not-manifest="manifest.php?<?=MMRPG_CONFIG_CACHE_DATE?>" */?> lang="en" xmlns:og="http://opengraphprotocol.org/schema/">
 <head>
 <meta charset="UTF-8" />
-<title><?= (!MMRPG_CONFIG_IS_LIVE ? '@ ' : '').$this_seo_title ?></title>
+<title><?= $this_seo_title ?></title>
 <meta name="keywords" content="<?= $this_seo_keywords ?>" />
 <meta name="description" content="<?= $this_seo_description ?>" />
 <? /* <meta name="robots" content="<?= MMRPG_CONFIG_IS_LIVE ? 'index,follow' : 'noindex,nofollow' ?>" /> */ ?>
@@ -122,11 +122,7 @@ if (count($matches)>1){
 </head>
 <? $temp_window_flag = !empty($_SESSION['RPG2k15']['GAME']['index_settings']['windowFlag']) ? $_SESSION['RPG2k15']['GAME']['index_settings']['windowFlag'] : false; ?>
 <body id="mmrpg" class="index <?= !empty($temp_window_flag) ? 'windowFlag_'.$temp_window_flag : '' ?> <?= $this_current_sub == 'facebook' ? 'windowFlag_facebookFrame' : '' ?>">
-<?/*
-<div style="margin: 0; padding: 10px 25%; background-color: rgb(122, 0, 0); color: #FFFFFF; text-align: left; border-bottom: 1px solid #090909;">
-ATTENTION!<br /> The Mega Man RPG Prototype will be updating very soon.  Please, please log off from your accounts as soon as possible and stand by until further notice.  Several parts of the website will be taken offline during this process and any progress made during or directly before will likely be lost.  Thank you and look forward to lots of new stuff!<br /> - Adrian
-</div>
-*/?>
+<? include('legacy_header.php'); ?>
 <h1 id="header">Mega Man RPG Prototype | Last Updated <?= preg_replace('#([0-9]{4})([0-9]{2})([0-9]{2})-([0-9]{2})#', '$1/$2/$3', MMRPG_CONFIG_CACHE_DATE) ?></h1>
 <div id="window" style="position: relative; ">
 
