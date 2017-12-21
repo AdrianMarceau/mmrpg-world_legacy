@@ -1,8 +1,8 @@
 <?php
 
 // Update this page's content variables
-$html_title_text = 'Archive Index | '.$html_title_text;
-$html_content_title = $html_content_title.' | Archive Index';
+//$html_title_text = 'Archive Index | '.$html_title_text;
+//$html_content_title = $html_content_title.' | Archive Index';
 $html_content_description = 'Below, please find a collection of tests, experiments, screenshots, assets, and legacy versions of the MMRPG from over the years.';
 
 // Manually define content to display on this index
@@ -95,6 +95,17 @@ $legacy_content['2015'][] = array(
         'rpg-prototype-2k15/index.php' => array('text', 'images', 'playable')
         )
     );
+
+/*
+// Year 2016
+$legacy_content['2016'] = array();
+$legacy_content['2016'][] = array(
+    'name' => 'RPG World 2k16',
+    'paths' => array(
+        'rpg-world-2k16/index.php' => array('text', 'images')
+        )
+    );
+    */
 
 
 // Start the output buffer to collect markup
