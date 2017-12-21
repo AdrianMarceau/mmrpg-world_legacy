@@ -130,9 +130,10 @@ ob_start();
                             else { $todo = false; }
                             $full_url = $year.'/'.$path;
                             $display_url = str_replace(array('/index.php', '.php'), '', $full_url);
+                            $link_url = str_replace('/index.php', '/', $full_url);
                             if (!file_exists($mmrpg_root_dir.$full_url)){ $todo = true; }
                             echo('<li class="subitem'.($todo ? ' todo' : '').'">'.PHP_EOL);
-                                echo('<a class="link" href="'.$mmrpg_root_url.$full_url.'">/'.$display_url.'</a>'.PHP_EOL);
+                                echo('<a class="link" href="'.$mmrpg_root_url.$link_url.'" target="_blank">/'.$display_url.'</a>'.PHP_EOL);
                                 if (empty($content)){ $content_text = 'unknown'; }
                                 elseif (count($content) == 1 && $content[0] == 'text'){ $content_text = 'text-only'; }
                                 else { $content_text = implode(' + ', $content); }
