@@ -1,7 +1,9 @@
 <?php
 
 // Require the root config
-require('../../config.php');
+$root_path = preg_replace('/^(.*?(?:\\\|\/))(?:19|20)[0-9]{2}(?:\\\|\/)[-a-z0-9]+(?:\\\|\/)(.*?)$/i', '$1', __FILE__);
+$config_path = $root_path.'config.php';
+require($config_path);
 
 // Initialize the config array
 define('PLUTOCMS_CONFIG', 'PLUTOCMS_CONFIG');

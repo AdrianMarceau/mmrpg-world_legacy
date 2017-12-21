@@ -1,18 +1,9 @@
 <?php
-/*
- * Project   : [PlutoCMS Version 2.2.0] <plutocms.plutolighthouse.net>
- * Name      : Config Object <config.php>
- * Author    : Adrian Marceau <Ageman20XX>
- *
- * Description:
- * This is the main Config Object file for the PlutoCMS framework.
- * This file contains all settings for the entire framework
- * in one simple associative abstract object, perfect for importing,
- * referencing, or whatever.
- */
 
 // Require the root config
-require('../../config.php');
+$root_path = preg_replace('/^(.*?(?:\\\|\/))(?:19|20)[0-9]{2}(?:\\\|\/)[-a-z0-9]+(?:\\\|\/)(.*?)$/i', '$1', __FILE__);
+$config_path = $root_path.'config.php';
+require($config_path);
 
 // Initialize the config array
 define('PLUTOCMS_CONFIG', 'PLUTOCMS_CONFIG');
