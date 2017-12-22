@@ -10,7 +10,7 @@ $html_content_title = $html_content_title.' | Roleplay Game Forum Tests | Robot 
 $html_content_description = 'One of the first ideas for the Mega Man RPG revolved around a play-by-post forum game with premade mechanics and abilities.  Here are some of the planned abilities:';
 
 // Read the contents of the ability document
-$robot_ability_file = $mmrpg_root_dir.'2006/rpg-roleplay-tests/Documents/EveryRobot.txt';
+$robot_ability_file = $mmrpg_root_dir.'2006/rpg-roleplay-tests/documents/EveryRobot.txt';
 $robot_ability_list = file_exists($robot_ability_file) ? file_get_contents($robot_ability_file) : '';
 
 // If not empty, break apart into array

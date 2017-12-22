@@ -69,7 +69,7 @@ Lv2 Time Stopper (Time)
 Lv3 Flash Bomb (Time)
 
 HeatMan (Heat)
-Lv1 Atomic Fire (Heat) 
+Lv1 Atomic Fire (Heat)
 Lv2 Atomic Blaze (Heat)
 Lv3 Heat Rush (Heat)
 
@@ -96,7 +96,7 @@ Lv3 Zodiac Punisher (Star)
 HardMan (Power)
 Lv1 Hard Knuckle (Power)
 Lv2 Armor Defense (Metal)
-Lv3 Megaton Tackle (Power) 
+Lv3 Megaton Tackle (Power)
 
 TopMan (Neutral)
 Lv1 Top Spin (Neutral)
