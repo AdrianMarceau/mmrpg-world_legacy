@@ -3,7 +3,7 @@
 // Update this page's content variables
 //$html_title_text = 'Archive Index | '.$html_title_text;
 //$html_content_title = $html_content_title.' | Archive Index';
-$html_content_description = 'Below, please find a collection of tests, experiments, screenshots, assets, and legacy versions of the MMRPG from over the years.';
+$html_content_description = 'Legacy builds, experiments, screenshots, assets, and concept art for the Mega Man RPG.  Basically, any old and/or scrapped ideas for the RPG will end up here eventually.';
 
 // Manually define content to display on this index
 $legacy_content = array();
@@ -142,7 +142,7 @@ ob_start();
                             $link_url = str_replace('/index.php', '/', $full_url);
                             if (!file_exists($mmrpg_root_dir.$full_url)){ $todo = true; }
                             echo('<li class="subitem'.($todo ? ' todo' : '').'">'.PHP_EOL);
-                                echo('<a class="link" href="'.$mmrpg_root_url.$link_url.'" target="_blank">/'.$display_url.'</a>'.PHP_EOL);
+                                echo('<a class="link" href="'.$mmrpg_root_url.$link_url.'">/'.$display_url.'</a>'.PHP_EOL);
                                 if (empty($content)){ $content_text = 'unknown'; }
                                 elseif (count($content) == 1 && $content[0] == 'text'){ $content_text = 'text-only'; }
                                 else { $content_text = implode(' + ', $content); }

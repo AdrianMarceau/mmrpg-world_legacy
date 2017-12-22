@@ -4,7 +4,7 @@
 html,
 body {
     background-color: #262626;
-    background-image: url(../images/background.gif);
+    background-image: url(../images/legacy-background_index.gif);
     background-attachment: scroll;
     background-repeat: repeat;
     background-position: 0 0;
@@ -56,29 +56,106 @@ body h6 {
     padding: 10px;
     color: #FFFFFF;
     background-color: #3E3E3E;
-    border: 1px solid transparent;
+    border: 1px solid #1A1A1A;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     border-radius: 6px;
     -moz-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.6);
     -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.6);
     box-shadow: 0 3px 9px rgba(0, 0, 0, 0.6);
+    position: relative;
+    background-image: url(../images/legacy-background_content.png);
+    background-repeat: repeat;
+}
+.website > .main:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    pointer-events: none;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3e3e3e+0,3e3e3e+100&1+0,0+100 */
+    background: -moz-linear-gradient(top, rgba(62,62,62,1.0) 0%, rgba(62,62,62,0.5) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(62,62,62,1.0) 0%,rgba(62,62,62,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(62,62,62,1.0) 0%,rgba(62,62,62,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e3e3e', endColorstr='#003e3e3e',GradientType=0 ); /* IE6-9 */
 }
 
 .website > .main > .header {
     display: block;
     margin: 0 auto 20px;
     padding: 0;
+    position: relative;
+    padding-top: 76px;
+    border: 1px solid #1A1A1A;
+    background-color: #262626;
+    background-image: url(../images/legacy-banner_background.png);
+    background-repeat: repeat;
+    background-position: 0 -80px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.website > .main > .header:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-image: url(../images/legacy-banner_foreground.png);
+    background-repeat: repeat;
+    background-position: 0 -60px;
+    overflow: hidden;
+    height: 76px;
+    pointer-events: none;
+}
+.website > .main > .header:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url(../images/logo-sprites_legacy.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    overflow: hidden;
+    height: 66px;
+    width: 96px;
+    pointer-events: none;
 }
 .website > .main > .header h1 {
     display: block;
     margin: 0 auto;
-    padding: 9px;
-    background-color: #262626;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    font-size: 19px;
+    padding: 6px;
+    font-size: 16px;
+    color: #FFFFFF;
+    border-top: 1px solid #1A1A1A;
+    background-color: #222222;
+    background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.15, rgba(0, 0, 0, 0.05)),
+            color-stop(0.75, rgba(255, 255, 255, 0.05))
+    );
+    background-image: -moz-linear-gradient(
+            center bottom,
+            rgba(0, 0, 0, 0.05) 15%,
+            rgba(255, 255, 255, 0.05) 75%
+    );
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    -website-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+
 }
 .website > .main > .header h1 .pipe {
     font-weight: normal;
@@ -87,24 +164,35 @@ body h6 {
 }
 .website > .main > .header p {
     display: block;
-    margin: 3px auto 0;
+    margin: 0 auto;
     padding: 6px;
     font-size: 12px;
+    border-top: 1px solid #1A1A1A;
     background-color: #333333;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    -webkit-border-radius: 0 0 3px 3px;
+    border-radius:  0 0 3px 3px;
 }
+
 .website > .main > .header .links {
     display: block;
-    margin: 0 auto 3px;
+    margin: 0 auto;
     padding: 6px;
     background-color: #363636;
+    border: 1px solid #1A1A1A;
+    border-width: 0 1px 1px 0;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
     font-size: 11px;
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius:  0 0 6px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
+
 .website > .main > .header .links .link {
     text-decoration: none;
     color: #CACACA;
@@ -122,6 +210,7 @@ body h6 {
 
 .website > .main > .body {
     display: block;
+    position: relative;
     margin: 0 auto 20px;
     padding: 10px;
     background-color: transparent;

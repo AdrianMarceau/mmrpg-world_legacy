@@ -14,10 +14,10 @@
     <body>
         <div class="website">
             <div class="main">
-                <div class="header">
-                    <? if (!defined('IS_LEGACY_INDEX')){ ?><div class="links"><a class="link back" href="<?= $mmrpg_root_url ?>"><span>Return to Archive Index</span></a></div><? } ?>
+                <div class="header <?= !defined('IS_LEGACY_INDEX') ? 'has-links' : '' ?>">
                     <h1><?= str_replace('|', '<span class="pipe">|</span>', $html_content_title) ?></h1>
                     <? if (!empty($html_content_description)){ ?><p><?= $html_content_description ?></p><? } ?>
+                    <? if (!defined('IS_LEGACY_INDEX')){ ?><div class="links"><a class="link back" href="<?= $mmrpg_root_url ?>"><span>Return to Archive Index</span></a></div><? } ?>
                 </div>
                 <div class="body">
                     <?= !empty($html_content_markup) ? $html_content_markup : '- page content not found -' ?>
