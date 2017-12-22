@@ -11,16 +11,25 @@ $html_content_description = 'One of the first ideas for the Mega Man RPG revolve
 
 // Read the contents of the ability document
 $robot_ability_file = $mmrpg_root_dir.'2006/rpg-roleplay-tests/documents/EveryRobot.txt';
-$robot_ability_list = file_exists($robot_ability_file) ? file_get_contents($robot_ability_file) : '';
+$robot_ability_list = file_exists($robot_ability_file) ? file($robot_ability_file) : array();
 
-// If not empty, break apart into array
+// If not empty, loop through each line of file and group into robots
 if (!empty($robot_ability_list)){
+
+    // Group lines into robots using empty line as deliminator
     $raw_ability_list = $robot_ability_list;
-    $robot_ability_list = explode(PHP_EOL.PHP_EOL, $raw_ability_list);
-    foreach ($robot_ability_list AS $key => $text){
-        $text = explode(PHP_EOL, $text);
-        $robot_ability_list[$key] = $text;
+    $robot_ability_list = array();
+    $robot_text = array();
+    foreach ($raw_ability_list AS $k => $l){
+        $l = trim($l);
+        if (!empty($l)){
+            $robot_text[] = $l;
+        } else {
+            $robot_ability_list[] = $robot_text;
+            $robot_text = array();
+        }
     }
+
 }
 
 // Start the ouput buffer to collect content
