@@ -110,7 +110,8 @@ $legacy_content['2016'][] = array(
 ob_start();
 
     // Loop through legacy content and display links
-    foreach($legacy_content AS $year => $items){
+    $reverse_legacy_content = array_reverse($legacy_content, true);
+    foreach($reverse_legacy_content AS $year => $items){
 
         // Print out opening section wrapper
         echo('<div class="section">'.PHP_EOL);
@@ -124,7 +125,8 @@ ob_start();
             echo('<div class="content"><ul class="list">'.PHP_EOL);
 
                 // Loop through links and display as list items
-                foreach($items AS $key => $item){
+                $reverse_items = array_reverse($items);
+                foreach($reverse_items AS $key => $item){
 
                     // Print out opening list item
                     echo('<li class="item">'.PHP_EOL);
@@ -133,8 +135,9 @@ ob_start();
                         echo('<strong class="name">'.$item['name'].'</strong>'.PHP_EOL);
 
                         // Loop through paths and print out each link
+                        $reverse_paths = array_reverse($item['paths'], true);
                         echo('<ul class="sublist">'.PHP_EOL);
-                        foreach ($item['paths'] AS $path => $content){
+                        foreach ($reverse_paths AS $path => $content){
                             if (strstr($path, '?todo')){ $path = str_replace('?todo', '', $path); $todo = true; }
                             else { $todo = false; }
                             $full_url = $year.'/'.$path;
@@ -142,7 +145,7 @@ ob_start();
                             $link_url = str_replace('/index.php', '/', $full_url);
                             if (!file_exists($mmrpg_root_dir.$full_url)){ $todo = true; }
                             echo('<li class="subitem'.($todo ? ' todo' : '').'">'.PHP_EOL);
-                                echo('<a class="link" href="'.$mmrpg_root_url.$link_url.'">/'.$display_url.'</a>'.PHP_EOL);
+                                echo('<a class="link" href="'.$mmrpg_root_url.$link_url.'" target="_blank">/'.$display_url.'</a>'.PHP_EOL);
                                 if (empty($content)){ $content_text = 'unknown'; }
                                 elseif (count($content) == 1 && $content[0] == 'text'){ $content_text = 'text-only'; }
                                 else { $content_text = implode(' + ', $content); }
