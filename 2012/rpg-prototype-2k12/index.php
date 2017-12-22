@@ -5,9 +5,9 @@ require('../../config.php');
 require('../../apptop.php');
 
 // Define the headers for this file
-$html_title_text = 'MegaMan RPG Prototype 2k12 | '.$html_title_text;
-$html_content_title = $html_content_title.' | MegaMan RPG Prototype 2k12';
-$html_content_description = 'The Mega Man RPG has gone through several major prototype revisions over the years, and this was the second playable one. Bugs are left intact for historical accuracy.';
+$html_title_text = 'RPG Prototype 2k12 | '.$html_title_text;
+$html_content_title = $html_content_title.' | RPG Prototype 2k12';
+$html_content_description = '';
 
 // Include the TOP file
 require_once('top.php');
@@ -15,6 +15,9 @@ require_once('top.php');
 // Start the ouput buffer to collect content
 ob_start();
     ?>
+
+    <? include('legacy_header.php'); ?>
+
     <div class="wrapper legacywrap">
         <div class="index">
             <div id="window">
@@ -33,6 +36,7 @@ ob_start();
             */ ?>
         </div>
     </div>
+
     <?
 // Collect content from the ouput buffer
 $html_content_markup = ob_get_clean();
@@ -94,6 +98,7 @@ ob_start();
 $html_scripts_markup = ob_get_clean();
 
 // Require the page template
+define('LEGACY_FLAG_SKIP_WRAPPER', true);
 require('../../html.php');
 
 ?>

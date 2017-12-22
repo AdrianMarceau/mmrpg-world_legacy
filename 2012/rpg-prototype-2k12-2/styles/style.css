@@ -1561,12 +1561,7 @@ body.windowFlag_landscapeMode #actions #actions_settings_autoScan .block_8 label
 @media (max-width: 1050px){
     #legacy_header > .wrapper {
         max-width: 780px;
-    }
-}
-@media (max-width: 775px){
-    #legacy_header > .wrapper > .text {
-        max-width: none;
-        font-size: 10px;
+        width: 780px;
     }
 }
 
