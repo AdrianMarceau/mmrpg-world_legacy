@@ -43,5 +43,6 @@
             <? /* <pre>$_GET = <?= print_r($_GET, true) ?></pre> */ ?>
         </div>
         <? if (!empty($html_scripts_markup)){ echo $html_scripts_markup.PHP_EOL; } ?>
+        <? if (file_exists($mmrpg_root_dir.'html_analytics.php')){ include($mmrpg_root_dir.'html_analytics.php'); } ?>
     </body>
 </html>
