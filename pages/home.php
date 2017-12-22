@@ -74,7 +74,8 @@ $legacy_content['2012'][] = array(
 $legacy_content['2012'][] = array(
     'name' => 'RPG Prototype 2k12',
     'paths' => array(
-        'rpg-prototype-2k12/index.php' => array('text', 'images', 'playable')
+        'rpg-prototype-2k12/index.php' => array('text', 'images', 'playable'),
+        'rpg-prototype-2k12-2/index.php' => array('text', 'images', 'playable')
         )
     );
 
