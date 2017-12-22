@@ -1,44 +1,44 @@
 em {
-  font-style: italic;
+    font-style: italic;
 }
 strong {
-  font-weight: bold;
+    font-weight: bold;
 }
 body {
-  font-family: Arial, Verdana;
-  font-size: 12px;
-  line-height: 15px;
-  text-align: center;
-  background-color: #3E3E3E;
-  padding: 0;
+    font-family: Arial, Verdana;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    background-color: #3E3E3E;
+    padding: 0;
 }
 body.index {
-  background: #000000 url(../images/assets/index-background.gif) scroll repeat 0 0;
+    background: #000000 url(../images/assets/index-background.gif) scroll repeat 0 0;
 }
 #window,
 #window iframe,
 body.battle {
-  background-color: #262626;   
-  border-color: #262626; 
+    background-color: #262626;
+    border-color: #262626;
 }
 
 #mmrpg .sprite {
-  display: block;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  text-indent: -9999px;
-  color: transparent;
-  position: absolute;
-  background: transparent none scroll no-repeat 0 0;
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-indent: -9999px;
+    color: transparent;
+    position: absolute;
+    background: transparent none scroll no-repeat 0 0;
 }
 #mmrpg a.sprite {
-  cursor: pointer;
-  _cursor: hand;
+    cursor: pointer;
+    _cursor: hand;
 }
 #mmrpg .sprite_40x40 {
-  width: 40px;
-  height: 40px;
+    width: 40px;
+    height: 40px;
 }
 #mmrpg .sprite_40x40_mugshot { background-position: 0 0; }
 #mmrpg .sprite_40x40_base { background-position: 0 0; }
@@ -112,14 +112,14 @@ body.battle {
 #mmrpg .sprite_40x40_right_10 { background-position: -400px -40px; }
 
 #mmrpg .sprite_40x40_focus {
-  z-index: 9999 !important;
-  cursor: pointer;
-  _cursor: hand;
+    z-index: 9999 !important;
+    cursor: pointer;
+    _cursor: hand;
 }
 
 #mmrpg .sprite_80x80 {
-  width: 80px;
-  height: 80px;
+    width: 80px;
+    height: 80px;
 }
 #mmrpg .sprite_80x80_mugshot { background-position: 0 0; }
 #mmrpg .sprite_80x80_base { background-position: 0 0; }
@@ -193,140 +193,140 @@ body.battle {
 #mmrpg .sprite_80x80_right_10 { background-position: -800px -80px; }
 
 #mmrpg .sprite_80x80_focus {
-  z-index: 9999 !important;
-  cursor: pointer;
-  _cursor: hand;
+    z-index: 9999 !important;
+    cursor: pointer;
+    _cursor: hand;
 }
 
 #mmrpg .player_status_active,
 #mmrpg .robot_status_active {
-  opacity: 1.0;
+    opacity: 1.0;
 }
 #mmrpg .player_position_active,
 #mmrpg .robot_position_active {
-  opacity: 1.0;
+    opacity: 1.0;
 }
 #mmrpg .player_status_disabled,
 #mmrpg .robot_status_disabled {
-  opacity: 0.95;
+    opacity: 0.95;
 }
 #mmrpg .player_position_bench,
 #mmrpg .robot_position_bench {
-  opacity: 0.9;
+    opacity: 0.9;
 }
 
 
 #mmrpg .robot_details {
-  z-index: 9000; 
-  border: 0 none transparent;
-  background: transparent none scroll no-repeat 0 0;
-  width: 165px;
-  height: 117px;
-  padding: 0;
-  overflow: hidden;
-  font-size: 1px;
-  line-height: 1px;
+    z-index: 9000;
+    border: 0 none transparent;
+    background: transparent none scroll no-repeat 0 0;
+    width: 165px;
+    height: 117px;
+    padding: 0;
+    overflow: hidden;
+    font-size: 1px;
+    line-height: 1px;
 }
-#mmrpg .robot_details_left { 
-  background-image: url(../images/assets/battle-scene_robot-details.gif);
-  background-position: 0 0;
-  text-align: left;
-  width: 165px;
-  top: 4px;
-  left: 4px;
+#mmrpg .robot_details_left {
+    background-image: url(../images/assets/battle-scene_robot-details.gif);
+    background-position: 0 0;
+    text-align: left;
+    width: 165px;
+    top: 4px;
+    left: 4px;
 }
-#mmrpg .robot_details_right { 
-  background-image: url(../images/assets/battle-scene_robot-details.gif);
-  background-position: -165px 0;
-  text-align: right;
-  width: 165px;
-  top: 4px;
-  right: 4px;
+#mmrpg .robot_details_right {
+    background-image: url(../images/assets/battle-scene_robot-details.gif);
+    background-position: -165px 0;
+    text-align: right;
+    width: 165px;
+    top: 4px;
+    right: 4px;
 }
 #mmrpg .sprite_mugshot_left {
-  top: 5px;
-  left: 5px;
+    top: 5px;
+    left: 5px;
 }
 #mmrpg .sprite_mugshot_right {
-  top: 5px;
-  right: 5px;
+    top: 5px;
+    right: 5px;
 }
 #mmrpg .robot_details_left .container,
 #mmrpg .robot_details_right .container {
-  position: relative;
+    position: relative;
 }
 #mmrpg .robot_details .robot_name,
 #mmrpg .robot_details .robot_attack,
 #mmrpg .robot_details .robot_defense,
 #mmrpg .robot_details .robot_speed {
-  display: block;
-  margin: 0;
-  padding: 0;
-  text-indent: 0;
-  font-size: 11px;
-  line-height: 11px;
-  white-space: nowrap;
-  color: #FFFFFF;
-  text-shadow: 0 0 1px #000000;
-  border: 0 none transparent;
-  background-color: rgba(250, 250, 250, 0.2);
-  background-color: transparent;
-  position: absolute;
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+    font-size: 11px;
+    line-height: 11px;
+    white-space: nowrap;
+    color: #FFFFFF;
+    text-shadow: 0 0 1px #000000;
+    border: 0 none transparent;
+    background-color: rgba(250, 250, 250, 0.2);
+    background-color: transparent;
+    position: absolute;
 }
 #mmrpg .robot_details .robot_attack_break,
 #mmrpg .robot_details .robot_defense_break,
-#mmrpg .robot_details .robot_speed_break { 
-  color: red;
+#mmrpg .robot_details .robot_speed_break {
+    color: red;
 }
 #mmrpg .robot_details .robot_attack_break_chance,
 #mmrpg .robot_details .robot_defense_break_chance,
-#mmrpg .robot_details .robot_speed_break_chance { 
-  color: yellow;
+#mmrpg .robot_details .robot_speed_break_chance {
+    color: yellow;
 }
 #mmrpg .robot_details .robot_name {
-  height: 14px;
-  font-size: 14px;
-  line-height: 14px;
-  text-transform: none;
-  width: 111px;
-  top: 6px;
+    height: 14px;
+    font-size: 14px;
+    line-height: 14px;
+    text-transform: none;
+    width: 111px;
+    top: 6px;
 }
 #mmrpg .robot_details .robot_attack,
 #mmrpg .robot_details .robot_defense,
-#mmrpg .robot_details .robot_speed { 
-  height: 10px;
-  width: 27px; 
-  text-align: center;
-  font-family: "Courier New";
+#mmrpg .robot_details .robot_speed {
+    height: 10px;
+    width: 27px;
+    text-align: center;
+    font-family: "Courier New";
 }
-#mmrpg .robot_details .robot_attack { 
-  top: 52px;
+#mmrpg .robot_details .robot_attack {
+    top: 52px;
 }
-#mmrpg .robot_details .robot_defense { 
-  top: 77px;
+#mmrpg .robot_details .robot_defense {
+    top: 77px;
 }
-#mmrpg .robot_details .robot_speed { 
-  top: 102px;
+#mmrpg .robot_details .robot_speed {
+    top: 102px;
 }
 #mmrpg .robot_details_left .robot_name {
-  left: 48px;
+    left: 48px;
 }
 #mmrpg .robot_details_left .robot_attack,
 #mmrpg .robot_details_left .robot_defense,
-#mmrpg .robot_details_left .robot_speed { 
-  left: 7px;  
+#mmrpg .robot_details_left .robot_speed {
+    left: 7px;
 }
 #mmrpg .robot_details_right .robot_name {
-  right: 48px;
+    right: 48px;
 }
 #mmrpg .robot_details_right .robot_attack,
 #mmrpg .robot_details_right .robot_defense,
-#mmrpg .robot_details_right .robot_speed { 
-  right: 8px;  
+#mmrpg .robot_details_right .robot_speed {
+    right: 8px;
 }
 
 #mmrpg .robot_details_left .robot_name {
-  text-align: left;
+    text-align: left;
 }
 #mmrpg .robot_details_left .robot_attack,
 #mmrpg .robot_details_left .robot_defense,
@@ -337,7 +337,7 @@ body.battle {
 
 }
 #mmrpg .robot_details_right .robot_name {
-  text-align: right;
+    text-align: right;
 }
 #mmrpg .robot_details_right .robot_attack,
 #mmrpg .robot_details_right .robot_defense,
@@ -345,50 +345,50 @@ body.battle {
 
 }
 #mmrpg .robot_details_right .robot_attack {
-  margin-left: 0;
+    margin-left: 0;
 }
 
 
 #mmrpg .robot_details .energy {
-  display: block;
-  width: 110px;
-  height: 12px;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  text-indent: -9999px;
-  color: transparent;
-  border: 1px solid #262626;
-  background: #222222 url(../images/tiles/horizontal-gradient_energy-bar-large.gif?20111227) scroll no-repeat 0 0;
-  position: relative;
-  top: 21px;
+    display: block;
+    width: 110px;
+    height: 12px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-indent: -9999px;
+    color: transparent;
+    border: 1px solid #262626;
+    background: #222222 url(../images/tiles/horizontal-gradient_energy-bar-large.gif?20111227) scroll no-repeat 0 0;
+    position: relative;
+    top: 21px;
 }
 #mmrpg .robot_details_left .energy {
-  background-position: -160px 0;
-  margin: 0 auto -7px 0;
-  left: 47px;
+    background-position: -160px 0;
+    margin: 0 auto -7px 0;
+    left: 47px;
 }
 #mmrpg .robot_details_right .energy {
-  background-position: -80px 0;
-  margin: 0 0 -7px auto;
-  right: 47px;
+    background-position: -80px 0;
+    margin: 0 0 -7px auto;
+    right: 47px;
 }
 
 #mmrpg .ability_damage,
 #mmrpg .ability_recovery {
-  z-index: 9100;
-  width: 46px;
-  height: 28px;
-    padding-top: 12px;
-    height: 16px;
-  color: #FFFFFF;
-  font-family: "Courier New";
-  text-align: center;
-  text-indent: 0;
-  font-weight: bold;
-  font-size: 10px;
-  line-height: 10px;
-  background: transparent url(../images/assets/battle-scene_robot-results.gif) scroll no-repeat 0 0;
+    z-index: 9100;
+    width: 46px;
+    height: 28px;
+        padding-top: 12px;
+        height: 16px;
+    color: #FFFFFF;
+    font-family: "Courier New";
+    text-align: center;
+    text-indent: 0;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 10px;
+    background: transparent url(../images/assets/battle-scene_robot-results.gif) scroll no-repeat 0 0;
 }
 #mmrpg .ability_damage_energy { background-position: 0 0; }
 #mmrpg .ability_damage_attack { background-position: 0 -28px; }
@@ -401,485 +401,485 @@ body.battle {
 
 #mmrpg .ability_overlay,
 #mmrpg .scan_overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 4900; 
-  border: 0 none transparent;
-  background: #000000 none scroll no-repeat 0 0;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  overflow: hidden;
-  font-size: 1px;
-  line-height: 1px;
-  opacity: 0.25;
-  filter: alpha(opacity=25%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4900;
+    border: 0 none transparent;
+    background: #000000 none scroll no-repeat 0 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+    font-size: 1px;
+    line-height: 1px;
+    opacity: 0.25;
+    filter: alpha(opacity=25%);
 }
 
 #window {
-  margin: 0 auto 10px;
-  width: 768px;
-  height: 754px; /*690px;*/
-  padding: 2px 4px;
-  border: 2px solid #292929;
-  border-top: 0 none transparent;
-  border-radius: 0 0 0.75em 0.75em;
-  -moz-border-radius: 0 0 0.75em 0.75em;
-  -webkit-border-radius: 0 0 0.75em 0.75em;
-  box-shadow: 0 1px 5px #121212;
-  -moz-box-shadow: 0 1px 5px #121212;
-  -website-box-shadow: 0 1px 5px #121212;
-  -webkit-text-size-adjust: none;
+    margin: 0 auto 10px;
+    width: 768px;
+    height: 754px; /*690px;*/
+    padding: 2px 4px;
+    border: 2px solid #292929;
+    border-top: 0 none transparent;
+    border-radius: 0 0 0.75em 0.75em;
+    -moz-border-radius: 0 0 0.75em 0.75em;
+    -webkit-border-radius: 0 0 0.75em 0.75em;
+    box-shadow: 0 1px 5px #121212;
+    -moz-box-shadow: 0 1px 5px #121212;
+    -website-box-shadow: 0 1px 5px #121212;
+    -webkit-text-size-adjust: none;
 }
 #window iframe {
-  margin: 0 auto;
-  width: 768px;
-  height: 748px; /*684px;*/
-  padding: 0;
-  border-style: solid;
-  border-width: 1px;
-  overflow: hidden;
-  background-color: transparent;
+    margin: 0 auto;
+    width: 768px;
+    height: 748px; /*684px;*/
+    padding: 0;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    background-color: transparent;
 }
 #credits {
-  margin: 0 auto 10px;
-  font-size: 10px;
-  color: #303030;
+    margin: 0 auto 10px;
+    font-size: 10px;
+    color: #303030;
 }
 #credits a {
-  padding: 0 5px;
-  color: #363636;
-  text-decoration: none;
+    padding: 0 5px;
+    color: #363636;
+    text-decoration: none;
 }
 #credits a:hover {
-  color: #464646;
-  text-decoration: underline;
+    color: #464646;
+    text-decoration: underline;
 }
 
 #battle {
-  margin: 0 auto;
-  width: 768px;
-  height: 684px;
-  padding: 0;
-  border: 0 none transparent;
-  background-color: transparent;
-  border-radius: 0.75em;
-  -moz-border-radius: 0.75em;
-  -webkit-border-radius: 0.75em;
-  -webkit-text-size-adjust: none;
+    margin: 0 auto;
+    width: 768px;
+    height: 684px;
+    padding: 0;
+    border: 0 none transparent;
+    background-color: transparent;
+    border-radius: 0.75em;
+    -moz-border-radius: 0.75em;
+    -webkit-border-radius: 0.75em;
+    -webkit-text-size-adjust: none;
 }
 #battle.hidden {
-  display: none;
+    display: none;
 }
 
 #engine {
-  display: none;
+    display: none;
 }
 
 #connect {
-  display: none;
-  margin: 10px auto;
-  veritcal-align: top;
-  width: 500px;
-  height: 500px;
-  border: 1px solid #DEDEDE;
-  background-color: #676767;
+    display: none;
+    margin: 10px auto;
+    veritcal-align: top;
+    width: 500px;
+    height: 500px;
+    border: 1px solid #DEDEDE;
+    background-color: #676767;
 }
 
 #canvas {
-  margin: 0 auto 0;
-  veritcal-align: top;
-  width: 768px;
-  height: 267px;
-  border: 0 none transparent;
-  border-bottom-style: none;
-  background-color: transparent;
-  position: relative;
-  overflow: hidden;
+    margin: 0 auto 0;
+    veritcal-align: top;
+    width: 768px;
+    height: 267px;
+    border: 0 none transparent;
+    border-bottom-style: none;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
 }
 #canvas .wrapper {
-  padding: 0;
-  margin: 0;
-  width: auto;
-  height: auto;
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  left: 8px;
-  right: 8px;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
 }
 #canvas .event {
-  display: block;
-  margin: 0;
-  padding: 0;
-  width: 750px;
-  /* height: 181px + 67px; */
-  height: 248px;
-  position: absolute;
-  top: 0;
-  border: 2px solid rgb(36,36,36);
-  font-size: 10px;
-  /* line-height: 181px + 67px; */
-  line-height: 248px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  padding: 0;
-  border-radius: 0.75em;
-  -moz-border-radius: 0.75em;
-  -webkit-border-radius: 0.75em;
-  color: #696969;
-  background-color: rgb(43,43,43);  
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(0.15, rgb(43,43,43)),
-      color-stop(0.75, rgb(41,41,41))
-  );
-  background-image: -moz-linear-gradient(
-      center bottom,
-      rgb(43,43,43) 15%,
-      rgb(41,41,41) 75%
-  ); 
-  text-shadow: 1px 1px 4px #333333;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;    
-  box-shadow: 0 1px 5px #000000;
-  -moz-box-shadow: 0 1px 5px #000000;
-  -website-box-shadow: 0 1px 5px #000000;  
-  overflow: hidden;
-  
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 750px;
+    /* height: 181px + 67px; */
+    height: 248px;
+    position: absolute;
+    top: 0;
+    border: 2px solid rgb(36,36,36);
+    font-size: 10px;
+    /* line-height: 181px + 67px; */
+    line-height: 248px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 0;
+    border-radius: 0.75em;
+    -moz-border-radius: 0.75em;
+    -webkit-border-radius: 0.75em;
+    color: #696969;
+    background-color: rgb(43,43,43);
+    background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.15, rgb(43,43,43)),
+            color-stop(0.75, rgb(41,41,41))
+    );
+    background-image: -moz-linear-gradient(
+            center bottom,
+            rgb(43,43,43) 15%,
+            rgb(41,41,41) 75%
+    );
+    text-shadow: 1px 1px 4px #333333;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    box-shadow: 0 1px 5px #000000;
+    -moz-box-shadow: 0 1px 5px #000000;
+    -website-box-shadow: 0 1px 5px #000000;
+    overflow: hidden;
+
 }
 #canvas .clearback {
-  background: transparent none scroll no-repeat 0 0;
+    background: transparent none scroll no-repeat 0 0;
 }
 #canvas .event .background,
 #canvas .event .foreground {
-  display: block;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: transparent none scroll repeat-x center top;
-  border: 0 none transparent;
-  border-radius: 0.75em;
-  -moz-border-radius: 0.75em;
-  -webkit-border-radius: 0.75em;    
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent none scroll repeat-x center top;
+    border: 0 none transparent;
+    border-radius: 0.75em;
+    -moz-border-radius: 0.75em;
+    -webkit-border-radius: 0.75em;
 }
 #canvas .event .background {
-  z-index: 25;
+    z-index: 25;
 }
 #canvas .event .foreground {
-  z-index: 50;
+    z-index: 50;
 }
 #canvas .event .background_00,
 #canvas .event .foreground_00 {
-  background-position: center 0;
+    background-position: center 0;
 }
 #canvas .event .background_01,
 #canvas .event .foreground_01 {
-  background-position: center -248px;
+    background-position: center -248px;
 }
 #canvas .event .background_02,
 #canvas .event .foreground_02 {
-  background-position: center -496px;
+    background-position: center -496px;
 }
 #canvas .event .background_03,
 #canvas .event .foreground_03 {
-  background-position: center -744px;
+    background-position: center -744px;
 }
 #canvas .event .background_04,
 #canvas .event .foreground_04 {
-  background-position: center -992px;
+    background-position: center -992px;
 }
 #canvas .event .background_05,
 #canvas .event .foreground_05 {
-  background-position: center -1240px;
+    background-position: center -1240px;
 }
 #canvas .event .background_06,
 #canvas .event .foreground_06 {
-  background-position: center -1488px;
+    background-position: center -1488px;
 }
 #canvas .event .background_07,
 #canvas .event .foreground_07 {
-  background-position: center -1736px;
+    background-position: center -1736px;
 }
 #canvas .event .background_08,
 #canvas .event .foreground_08 {
-  background-position: center -1984px;
+    background-position: center -1984px;
 }
 #canvas .event .background_09,
 #canvas .event .foreground_09 {
-  background-position: center -2232px;
+    background-position: center -2232px;
 }
 #canvas .event pre {
-  position: absolute;
-  z-index: 9999;
-  bottom: 0;
-  height: 50px;
-  width: 100%;
-  color: #A3FFA7;
-  padding: 5px;
-  font-size: 10px;
-  line-height: 10px;
-  text-transform: none;
-  text-align: left;
-  text-indent: 0;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.60);
+    position: absolute;
+    z-index: 9999;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    color: #A3FFA7;
+    padding: 5px;
+    font-size: 10px;
+    line-height: 10px;
+    text-transform: none;
+    text-align: left;
+    text-indent: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.60);
 }
 
 #console {
-  margin: 0 auto;
-  veritcal-align: top;
-  width: 768px;
-  height: 256px; /*192px;*/
-  border: 0 none transparent;
-  border-top-style: none;
-  border-bottom-style: none;
-  overflow: hidden;  
-  background-color: transparent; 
+    margin: 0 auto;
+    veritcal-align: top;
+    width: 768px;
+    height: 256px; /*192px;*/
+    border: 0 none transparent;
+    border-top-style: none;
+    border-bottom-style: none;
+    overflow: hidden;
+    background-color: transparent;
 }
 #console .wrapper {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
 }
 #console .event {
-  margin: 3px 8px;
-  min-height: 55px;
-  text-align: left;
-  veritcal-align: top;
-  color: #FAFAFA;
-  border: 1px solid #464646;
-  background-color: rgb(65,65,65);  
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(0.15, rgb(65,65,65)),
-      color-stop(0.75, rgb(71,71,71))
-  );
-  background-image: -moz-linear-gradient(
-      center bottom,
-      rgb(65,65,65) 15%,
-      rgb(71,71,71) 75%
-  );
-  padding: 2px;
-  font-size: 10px;
-  line-height: 13px;
-  border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
-  position: relative;
-  box-shadow: 0 1px 3px #000000;
-  -moz-box-shadow: 0 1px 3px #000000;
-  -website-box-shadow: 0 1px 3px #000000;  
+    margin: 3px 8px;
+    min-height: 55px;
+    text-align: left;
+    veritcal-align: top;
+    color: #FAFAFA;
+    border: 1px solid #464646;
+    background-color: rgb(65,65,65);
+    background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.15, rgb(65,65,65)),
+            color-stop(0.75, rgb(71,71,71))
+    );
+    background-image: -moz-linear-gradient(
+            center bottom,
+            rgb(65,65,65) 15%,
+            rgb(71,71,71) 75%
+    );
+    padding: 2px;
+    font-size: 10px;
+    line-height: 13px;
+    border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    position: relative;
+    box-shadow: 0 1px 3px #000000;
+    -moz-box-shadow: 0 1px 3px #000000;
+    -website-box-shadow: 0 1px 3px #000000;
 }
 #console .event:first-child {
-  margin-top: 0;
+    margin-top: 0;
 }
 #console .event_double {
-  min-height: 120px;
+    min-height: 120px;
 }
 #console .event_triple {
-  min-height: 184px;
+    min-height: 184px;
 }
 #console .event:hover {
-  background-color: #696969;
+    background-color: #696969;
 }
 #console .event .header {
-  display: block;
-  margin: 0 47px;
-  padding: 1px 10px;
-  text-align: center;
-  background-color: rgb(56,56,56);  
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(0.05, rgb(56,56,56)),
-      color-stop(0.75, rgb(60,60,60))
-  );
-  background-image: -moz-linear-gradient(
-      center bottom,
-      rgb(56,56,56) 5%,
-      rgb(60,60,60) 75%
-  );
-  color: #B4B4B4;
-  font-size: 11px;
-  line-height: 13px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-shadow: 0 1px 1px #161616;
-  border: 0 none transparent;
-  border-bottom-style: none;
-  border-radius: 0.5em 0.5em 0 0;
-  -moz-border-radius: 0.5em 0.5em 0 0;
-  -webkit-border-radius: 0.5em 0.5em 0 0;
+    display: block;
+    margin: 0 47px;
+    padding: 1px 10px;
+    text-align: center;
+    background-color: rgb(56,56,56);
+    background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.05, rgb(56,56,56)),
+            color-stop(0.75, rgb(60,60,60))
+    );
+    background-image: -moz-linear-gradient(
+            center bottom,
+            rgb(56,56,56) 5%,
+            rgb(60,60,60) 75%
+    );
+    color: #B4B4B4;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 1px #161616;
+    border: 0 none transparent;
+    border-bottom-style: none;
+    border-radius: 0.5em 0.5em 0 0;
+    -moz-border-radius: 0.5em 0.5em 0 0;
+    -webkit-border-radius: 0.5em 0.5em 0 0;
 }
 #console .event .header_left {
-  text-align: left;
+    text-align: left;
 }
 #console .event .header_right {
-  text-align: right;
+    text-align: right;
 }
 #console .event:hover .turn_number {
-  background-color: #797979;
+    background-color: #797979;
 }
 #console .event .body {
-  display: block;
-  min-height: 36px;
-  margin: 0 47px;
-  padding: 2px 10px;
-  text-align: center;
-  background-color: rgb(60,60,60);  
-  color: #FFFFFF;
-  font-size: 12px;
-  line-height: 18px;
-  letter-spacing: 1px;
-  text-shadow: 0 1px 1px #161616;
-  border: 0 none transparent;
-  border-top-style: none;
-  border-radius: 0 0 0.5em 0.5em;
-  -moz-border-radius: 0 0 0.5em 0.5em;
-  -webkit-border-radius: 0 0 0.5em 0.5em;
+    display: block;
+    min-height: 36px;
+    margin: 0 47px;
+    padding: 2px 10px;
+    text-align: center;
+    background-color: rgb(60,60,60);
+    color: #FFFFFF;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 1px #161616;
+    border: 0 none transparent;
+    border-top-style: none;
+    border-radius: 0 0 0.5em 0.5em;
+    -moz-border-radius: 0 0 0.5em 0.5em;
+    -webkit-border-radius: 0 0 0.5em 0.5em;
 }
 #console .event_double .body {
-  min-height: 101px;
+    min-height: 101px;
 }
 #console .event_triple .body {
-  min-height: 166px;
+    min-height: 166px;
 }
 #console .event table {
-  margin: 0 auto;
+    margin: 0 auto;
 }
 #console .event table.full {
-  margin: 0;
-  width: 100%;
+    margin: 0;
+    width: 100%;
 }
 #console .event table tr:nth-child(even) {
-  background-color: #363636;
+    background-color: #363636;
 }
 #console .event table tr:nth-child(odd) {
-  background-color: #313131;
+    background-color: #313131;
 }
 #console .event table td {
-  padding: 1px 5px;
-  text-align: center;
+    padding: 1px 5px;
+    text-align: center;
 }
 #console .event table td.left {
-  text-align: left;
+    text-align: left;
 }
 #console .event table td.right {
-  text-align: right;
+    text-align: right;
 }
 #console .event .body_left {
-  text-align: left;
+    text-align: left;
 }
 #console .event .body_right {
-  text-align: right;
+    text-align: right;
 }
 #console .event .body_left table {
-  margin: 0 auto 0 0;
+    margin: 0 auto 0 0;
 }
 #console .event .body_right table {
-  margin: 0 0 0 auto;
+    margin: 0 0 0 auto;
 }
 #console .event .sprite {
-  margin-bottom: 2px;
-  position: static;
+    margin-bottom: 2px;
+    position: static;
 }
 #console .event .sprite_left,
 #console .event .sprite_right {
-  display: block;
-  position: absolute;
-  width: 40px;
-  height: 49px;
-  margin: 0;
-  padding: 2px 2px 4px;
-  text-align: left;
-  background-color: rgb(60,60,60);  
-  border: 0 none transparent;
-  border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 49px;
+    margin: 0;
+    padding: 2px 2px 4px;
+    text-align: left;
+    background-color: rgb(60,60,60);
+    border: 0 none transparent;
+    border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
 }
 #console .event .sprite_left {
-  top: 2px;
-  left: 2px;
+    top: 2px;
+    left: 2px;
 }
 #console .event .sprite_right {
-  top: 2px;
-  right: 2px;
+    top: 2px;
+    right: 2px;
 }
 #console .event .this_sprite {
-  background-color: rgb(75,75,75);  
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(0.15, rgb(75,75,75)),
-      color-stop(0.75, rgb(81,81,81))
-  );
-  background-image: -moz-linear-gradient(
-      center bottom,
-      rgb(90,90,90) 15%,
-      rgb(96,96,96) 75%
-  );
+    background-color: rgb(75,75,75);
+    background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.15, rgb(75,75,75)),
+            color-stop(0.75, rgb(81,81,81))
+    );
+    background-image: -moz-linear-gradient(
+            center bottom,
+            rgb(90,90,90) 15%,
+            rgb(96,96,96) 75%
+    );
 }
 #console .event .target_sprite {
-  
+
 }
 #console .event .sprite_left .energy,
 #console .event .sprite_right .energy {
-  display: block;
-  width: 38px;
-  height: 5px;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  text-indent: -9999px;
-  color: transparent;
-  border: 1px solid rgb(56,56,56);
-  background: #222222 url(../images/tiles/horizontal-gradient_energy-bar.gif) scroll no-repeat 0 0;
+    display: block;
+    width: 38px;
+    height: 5px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-indent: -9999px;
+    color: transparent;
+    border: 1px solid rgb(56,56,56);
+    background: #222222 url(../images/tiles/horizontal-gradient_energy-bar.gif) scroll no-repeat 0 0;
 }
 #console .event .sprite_left .energy {
-  background-position: -80px 0;
+    background-position: -80px 0;
 }
 #console .event .sprite_right .energy {
-  background-position: -40px 0;
+    background-position: -40px 0;
 }
 #console .event .this_sprite .energy {
-  display: block;
-  width: 38px;
-  height: 5px;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  text-indent: -9999px;
-  color: transparent;
-  border-color: rgb(81,81,81);
+    display: block;
+    width: 38px;
+    height: 5px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-indent: -9999px;
+    color: transparent;
+    border-color: rgb(81,81,81);
 }
 
 #console .event .sprite_robot_mug,
 #console .event .sprite_ability_icon {
-  border: 1px solid #191919;
-  background-color: #000000;
-  border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
-  width: 38px;
-  height: 38px;
-  background-position: -1px -1px;
+    border: 1px solid #191919;
+    background-color: #000000;
+    border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    width: 38px;
+    height: 38px;
+    background-position: -1px -1px;
 }
 
 #console .event .player_name,
@@ -901,15 +901,15 @@ body.battle {
 #console .event .recovery_result,
 #console .event .recovery_amount,
 #console .event .recovery_overkill {
-  background: rgb(65,65,65) none scroll no-repeat 0 0;
-  border: 1px solid rgb(70,70,70);
-  padding: 0 3px;
-  border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
-  line-height: 11px;
-  font-weight: bold;
-  white-space: nowrap;
+    background: rgb(65,65,65) none scroll no-repeat 0 0;
+    border: 1px solid rgb(70,70,70);
+    padding: 0 3px;
+    border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    line-height: 11px;
+    font-weight: bold;
+    white-space: nowrap;
 }
 
 #console .event .player_name {
@@ -928,277 +928,277 @@ body.battle {
 
 }
 #console .event sup {
-  position: relative;
-  bottom: 0.5em;
-  font-family: "Courier New";
-  font-size: 0.8em;
+    position: relative;
+    bottom: 0.5em;
+    font-family: "Courier New";
+    font-size: 0.8em;
 }
 #console .damage {
 }
 #console .damage_weakness {
-  font-weight: bold;
-  color: #FF9C32;
+    font-weight: bold;
+    color: #FF9C32;
 }
 #console .damage_resistance {
-  font-weight: bold;
-  color: #FF5555;
+    font-weight: bold;
+    color: #FF5555;
 }
 #console .damage_critical {
-  font-weight: bold;
-  font-style: italic;
-  color: #E4A3FF;
+    font-weight: bold;
+    font-style: italic;
+    color: #E4A3FF;
 }
 
 
 #actions {
-  margin: 0 auto;
-  veritcal-align: top;
-  width: 768px;
-  height: 225px;
-  border: 0 none transparent;
-  border-top-style: none;
-  background-color: transparent;
-  overflow: hidden;
+    margin: 0 auto;
+    veritcal-align: top;
+    width: 768px;
+    height: 225px;
+    border: 0 none transparent;
+    border-top-style: none;
+    background-color: transparent;
+    overflow: hidden;
 }
 #actions .wrapper {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 #actions .button {
-  display: block;
-  float: left;
-  margin: 0 3px 3px 0;
-  veritcal-align: top;
-  border: 2px solid rgb(55,55,55);
-  font-size: 12px;
-  line-height: 12px;
-  letter-spacing: 3px;
-  /*text-transform: uppercase;*/
-  text-decoration: none;
-  padding: 0;
-  border-radius: 0.75em;
-  -moz-border-radius: 0.75em;
-  -webkit-border-radius: 0.75em;
-  cursor: pointer;
-  _cursor: hand;  
-  color: #FFFFFF;
-  background-color: rgb(65,65,65);  
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(0.15, rgb(65,65,65)),
-      color-stop(0.75, rgb(71,71,71))
-  );
-  background-image: -moz-linear-gradient(
-      center bottom,
-      rgb(65,65,65) 15%,
-      rgb(71,71,71) 75%
-  ); 
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;    
-  box-shadow: 0 1px 5px #000000;
-  -moz-box-shadow: 0 1px 5px #000000;
-  -website-box-shadow: 0 1px 5px #000000;
-  text-shadow: 0 1px 1px #060606;
+    display: block;
+    float: left;
+    margin: 0 3px 3px 0;
+    veritcal-align: top;
+    border: 2px solid rgb(55,55,55);
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 3px;
+    /*text-transform: uppercase;*/
+    text-decoration: none;
+    padding: 0;
+    border-radius: 0.75em;
+    -moz-border-radius: 0.75em;
+    -webkit-border-radius: 0.75em;
+    cursor: pointer;
+    _cursor: hand;
+    color: #FFFFFF;
+    background-color: rgb(65,65,65);
+    background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.15, rgb(65,65,65)),
+            color-stop(0.75, rgb(71,71,71))
+    );
+    background-image: -moz-linear-gradient(
+            center bottom,
+            rgb(65,65,65) 15%,
+            rgb(71,71,71) 75%
+    );
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    box-shadow: 0 1px 5px #000000;
+    -moz-box-shadow: 0 1px 5px #000000;
+    -website-box-shadow: 0 1px 5px #000000;
+    text-shadow: 0 1px 1px #060606;
 }
 #actions .button:hover {
-  color: #FFFFFF;  
-  background-color: rgb(75,75,75);  
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(0.15, rgb(75,75,75)),
-      color-stop(0.75, rgb(81,81,81))
-  );
-  background-image: -moz-linear-gradient(
-      center bottom,
-      rgb(75,75,75) 15%,
-      rgb(81,81,81) 75%
-  );
+    color: #FFFFFF;
+    background-color: rgb(75,75,75);
+    background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.15, rgb(75,75,75)),
+            color-stop(0.75, rgb(81,81,81))
+    );
+    background-image: -moz-linear-gradient(
+            center bottom,
+            rgb(75,75,75) 15%,
+            rgb(81,81,81) 75%
+    );
 }
 #actions .button_disabled {
-  opacity: 0.2;
-  cursor: default;
-  border-color: #494949;
-  background-color: #595959;
-  background-image: none;
-  color: #CACACA;  
+    opacity: 0.2;
+    cursor: default;
+    border-color: #494949;
+    background-color: #595959;
+    background-image: none;
+    color: #CACACA;
 }
 #actions .button_disabled:hover {
-  background-color: #595959;
-  background-image: none;
-  color: #CACACA;
+    background-color: #595959;
+    background-image: none;
+    color: #CACACA;
 }
 #actions .button label {
-  display: block;
-  margin: 5px;
-  padding: 0;
-  background-color: #2A2A2A;
-  box-shadow: inset 0 0 10px #202020;
-  -moz-box-shadow: inset 0 0 10px #202020;
-  -webkit-box-shadow: inset 0 0 10px #202020;
-  border: 1px solid #373737;
-  border-radius: 0.75em;
-  -moz-border-radius: 0.75em;
-  -webkit-border-radius: 0.75em; 
-  cursor: pointer;
-  _cursor: hand;
-  position: relative;
+    display: block;
+    margin: 5px;
+    padding: 0;
+    background-color: #2A2A2A;
+    box-shadow: inset 0 0 10px #202020;
+    -moz-box-shadow: inset 0 0 10px #202020;
+    -webkit-box-shadow: inset 0 0 10px #202020;
+    border: 1px solid #373737;
+    border-radius: 0.75em;
+    -moz-border-radius: 0.75em;
+    -webkit-border-radius: 0.75em;
+    cursor: pointer;
+    _cursor: hand;
+    position: relative;
 }
 #actions .button:hover label,
 #actions .button label:hover {
-  background-color: #2D2D2D;
+    background-color: #2D2D2D;
 }
 #actions .button_disabled:hover label,
 #actions .button_disabled label:hover {
-  background-color: #2A2A2A;
-  cursor: default;
+    background-color: #2A2A2A;
+    cursor: default;
 }
 
 #actions .main_actions {
-  width: auto;
-  height: 145px;
-  line-height: 155px;
-  margin: 0;
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  right: 8px;
+    width: auto;
+    height: 145px;
+    line-height: 155px;
+    margin: 0;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
 }
 #actions .sub_actions {
-  width: auto;
-  height: 56px;
-  line-height: 56px;
-  margin: 0;
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-  right: 8px;
+    width: auto;
+    height: 56px;
+    line-height: 56px;
+    margin: 0;
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
 }
 
 #actions .action_back {
-  width: auto;
-  height: auto;
-  position: absolute;
-  line-height: 56px;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0;
+    width: auto;
+    height: auto;
+    position: absolute;
+    line-height: 56px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
 }
 #actions .action_back label {
-  width: auto;
-  height: 40px;
-  line-height: 40px;
+    width: auto;
+    height: 40px;
+    line-height: 40px;
 }
 
 #actions #actions_loading .main_actions {
-  height: auto;
-  bottom: 8px;
+    height: auto;
+    bottom: 8px;
 }
 #actions #actions_loading .action_loading {
-  width: auto;
-  height: auto;
-  line-height: 225px;
-  margin: 0;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+    width: auto;
+    height: auto;
+    line-height: 225px;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 #actions #actions_loading .action_loading label {
-  width: auto;
-  height: 193px;
-  line-height: 193px;
+    width: auto;
+    height: 193px;
+    line-height: 193px;
 }
 
 
 #actions #actions_start .main_actions {
-  height: auto;
-  bottom: 8px;
+    height: auto;
+    bottom: 8px;
 }
 #actions #actions_start .action_start {
-  width: auto;
-  height: auto;
-  line-height: 225px;
-  margin: 0;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+    width: auto;
+    height: auto;
+    line-height: 225px;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 #actions #actions_start .action_start label {
-  width: auto;
-  height: 193px;
-  line-height: 193px;
+    width: auto;
+    height: 193px;
+    line-height: 193px;
 }
 
 #actions #actions_event .main_actions {
-  height: auto;
-  bottom: 8px;
+    height: auto;
+    bottom: 8px;
 }
 #actions #actions_event .action_continue {
-  width: auto;
-  height: auto;
-  line-height: 225px;
-  margin: 0;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+    width: auto;
+    height: auto;
+    line-height: 225px;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 #actions #actions_event .action_continue label {
-  width: auto;
-  height: 193px;
-  line-height: 193px;
+    width: auto;
+    height: 193px;
+    line-height: 193px;
 }
 
 #actions #actions_battle .action_ability {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  width: auto;
-  height: 145px;
-  line-height: 145px;
-  margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: auto;
+    height: 145px;
+    line-height: 145px;
+    margin: 0;
 }
 #actions #actions_battle .action_ability label {
-  width: auto;
-  height: 132px;
-  line-height: 132px;
+    width: auto;
+    height: 132px;
+    line-height: 132px;
 }
 #actions #actions_battle .action_scan,
 #actions #actions_battle .action_option,
 #actions #actions_battle .action_switch {
-  width: 244px;
-  height: 48px;
-  line-height: 48px;
+    width: 244px;
+    height: 48px;
+    line-height: 48px;
 }
 #actions #actions_battle .action_scan label,
 #actions #actions_battle .action_option label,
 #actions #actions_battle .action_switch label {
-  width: auto;
-  height: 36px;
-  line-height: 36px;
+    width: auto;
+    height: 36px;
+    line-height: 36px;
 }
 #actions #actions_battle .action_switch {
-  margin-right: 0;
+    margin-right: 0;
 }
 #actions #actions_battle .action_switch label {
-  width: auto;
+    width: auto;
 }
 
 #actions #actions_option .main_actions,
@@ -1208,7 +1208,7 @@ body.battle {
 #actions #actions_switch .main_actions,
 #actions #actions_scan .main_actions,
 #actions #actions_ability .main_actions {
-  
+
 }
 #actions #actions_option .action_option,
 #actions #actions_settings .action_setting,
@@ -1217,10 +1217,10 @@ body.battle {
 #actions #actions_switch .action_switch,
 #actions #actions_scan .action_scan,
 #actions #actions_ability .action_ability {
-  width: 181px;
-  height: 68px;
-  line-height: 68px;
-  margin: 0 3px 3px 0;
+    width: 181px;
+    height: 68px;
+    line-height: 68px;
+    margin: 0 3px 3px 0;
 }
 #actions #actions_option .action_option label,
 #actions #actions_settings .action_setting label,
@@ -1229,10 +1229,10 @@ body.battle {
 #actions #actions_switch .action_switch label,
 #actions #actions_scan .action_scan label,
 #actions #actions_ability .action_ability label {
-  width: auto;
-  height: 56px;
-  line-height: 56px;
-  padding-left: 48px;
+    width: auto;
+    height: 56px;
+    line-height: 56px;
+    padding-left: 48px;
 }
 #actions #actions_option .action_option label .multi,
 #actions #actions_settings .action_setting label .multi,
@@ -1241,56 +1241,56 @@ body.battle {
 #actions #actions_switch .action_switch label .multi,
 #actions #actions_scan .action_scan label .multi,
 #actions #actions_ability .action_ability label .multi {
-  display: block;
-  line-height: 14px;
-  margin-top: 13px;
+    display: block;
+    line-height: 14px;
+    margin-top: 13px;
 }
 #actions #actions_switch .action_switch label .sprite_40x40,
 #actions #actions_scan .action_scan label .sprite_40x40,
 #actions #actions_ability .action_ability label .sprite_40x40 {
-  background-color: #000000;
-  border: 1px solid #373737;
-  width: 40px;
-  height: 44px;
-  border-radius: 0.75em;
-  -moz-border-radius: 0.75em;
-  -webkit-border-radius: 0.75em;
+    background-color: #000000;
+    border: 1px solid #373737;
+    width: 40px;
+    height: 44px;
+    border-radius: 0.75em;
+    -moz-border-radius: 0.75em;
+    -webkit-border-radius: 0.75em;
 }
 #actions #actions_switch .action_switch label .sprite_40x40_energy_high,
 #actions #actions_scan .action_scan label .sprite_40x40_energy_high,
 #actions #actions_ability .action_ability label .sprite_40x40_energy_high {
-  background-color: #09210A;
+    background-color: #09210A;
 }
 #actions #actions_switch .action_switch label .sprite_40x40_energy_medium,
 #actions #actions_scan .action_scan label .sprite_40x40_energy_medium,
 #actions #actions_ability .action_ability label .sprite_40x40_energy_medium {
-  background-color: #282204;
+    background-color: #282204;
 }
 #actions #actions_switch .action_switch label .sprite_40x40_energy_low,
 #actions #actions_scan .action_scan label .sprite_40x40_energy_low,
 #actions #actions_ability .action_ability label .sprite_40x40_energy_low {
-  background-color: #2B0A0A;
+    background-color: #2B0A0A;
 }
 #actions #actions_switch .action_switch label .sprite_40x40_base,
 #actions #actions_scan .action_scan label .sprite_40x40_base,
 #actions #actions_ability .action_ability label .sprite_40x40_base {
-  background-position: 0 1px;
+    background-position: 0 1px;
 }
 #actions #actions_switch .action_switch label .sprite_40x40_defend,
 #actions #actions_scan .action_scan label .sprite_40x40_defend,
 #actions #actions_ability .action_ability label .sprite_40x40_defend {
-  background-position: -320px 1px;
+    background-position: -320px 1px;
 }
 #actions #actions_switch .action_switch label .sprite_40x40_defeat,
 #actions #actions_scan .action_scan label .sprite_40x40_defeat,
 #actions #actions_ability .action_ability label .sprite_40x40_defeat {
-  background-position: -120px 1px;
+    background-position: -120px 1px;
 }
 #actions #actions_switch .action_switch label .multi,
 #actions #actions_scan .action_scan label .multi,
 #actions #actions_ability .action_ability label .multi {
-  text-align: left;
-  margin: 7px 5px 0 5px;
+    text-align: left;
+    margin: 7px 5px 0 5px;
 }
 #actions #actions_switch .action_switch label .maintext,
 #actions #actions_scan .action_scan label .maintext,
@@ -1298,39 +1298,39 @@ body.battle {
 #actions #actions_switch .action_switch label .subtext,
 #actions #actions_scan .action_scan label .subtext,
 #actions #actions_ability .action_ability label .subtext {
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 #actions #actions_switch .action_switch label .maintext,
 #actions #actions_scan .action_scan label .maintext,
 #actions #actions_ability .action_ability label .maintext {
-  margin-bottom: 0;
-  font-size: 11px;
-  line-height: 14px;
-  font-weight: bold;
+    margin-bottom: 0;
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: bold;
 }
 #actions #actions_switch .action_switch label .subtext,
 #actions #actions_scan .action_scan label .subtext,
 #actions #actions_ability .action_ability label .subtext {
-  margin-bottom: 0;
-  font-size: 9px;
-  line-height: 13px;
-  opacity: 0.8;
+    margin-bottom: 0;
+    font-size: 9px;
+    line-height: 13px;
+    opacity: 0.8;
 }
 #actions #actions_option .action_option label,
 #actions #actions_settings .action_setting label,
 #actions #actions_settings_eventTimeout .action_setting label,
 #actions #actions_settings_autoScan .action_setting label {
-  padding-left: 0;
-  width: auto;
+    padding-left: 0;
+    width: auto;
 }
 #actions .block_4,
 #actions .block_8 {
-  margin-right: 0 !important;
-  width: 184px !important;
+    margin-right: 0 !important;
+    width: 184px !important;
 }
 #actions .block_4 label,
 #actions .block_8 label {
@@ -1350,184 +1350,236 @@ body.battle {
 #actions .block_6,
 #actions .block_7,
 #actions .block_8 {
-  margin-bottom: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 
 /* WINDOW SIZE STYLES */
 
 body.windowFlag_landscapeMode {
-  /*width: 1024px;*/ 
+    /*width: 1024px;*/
 }
 body.windowFlag_landscapeMode #prototype,
 body.windowFlag_landscapeMode #window,
 body.windowFlag_landscapeMode #window iframe,
 body.windowFlag_landscapeMode #battle {
-  width: 1024px;  
+    width: 1024px;
 }
 body.windowFlag_landscapeMode #prototype .banner {
-  width: 1004px;
+    width: 1004px;
 }
 body.windowFlag_landscapeMode #prototype .header,
 body.windowFlag_landscapeMode #prototype .option {
-  width: 1004px;
+    width: 1004px;
 }
 body.windowFlag_landscapeMode #prototype .option_prototype-4 {
-  width: 1004px;
+    width: 1004px;
 }
 body.windowFlag_landscapeMode #prototype .option_dr-light,
 body.windowFlag_landscapeMode #prototype .option_dr-wily {
-  width: 498px;
+    width: 498px;
 }
 body.windowFlag_landscapeMode #prototype .option_field,
 body.windowFlag_landscapeMode #prototype .option_guts-field,
 body.windowFlag_landscapeMode #prototype .option_ice-field,
 body.windowFlag_landscapeMode #prototype .option_elec-field {
-  width: 498px;
+    width: 498px;
 }
-body.windowFlag_landscapeMode #prototype .block_2, 
-body.windowFlag_landscapeMode #prototype .block_4, 
-body.windowFlag_landscapeMode #prototype .block_6, 
-body.windowFlag_landscapeMode #prototype .block_8, 
+body.windowFlag_landscapeMode #prototype .block_2,
+body.windowFlag_landscapeMode #prototype .block_4,
+body.windowFlag_landscapeMode #prototype .block_6,
+body.windowFlag_landscapeMode #prototype .block_8,
 body.windowFlag_landscapeMode #prototype .block_10 {
-  /*width: 499px;*/
+    /*width: 499px;*/
 }
 body.windowFlag_landscapeMode #canvas {
-  width: 1024px;
+    width: 1024px;
 }
 body.windowFlag_landscapeMode #canvas .event {
-  width: 1006px;
+    width: 1006px;
 }
 body.windowFlag_landscapeMode #canvas .clearback {
-  width: auto;
-  border-color: transparent;
-  box-shadow: 0 0 0 transparent;
-  -moz-box-shadow: 0 0 0 transparent;
-  -webkit-box-shadow: 0 0 0 transparent;
-  left: 128px;
-  right: 128px;
-  overflow: visible;
+    width: auto;
+    border-color: transparent;
+    box-shadow: 0 0 0 transparent;
+    -moz-box-shadow: 0 0 0 transparent;
+    -webkit-box-shadow: 0 0 0 transparent;
+    left: 128px;
+    right: 128px;
+    overflow: visible;
 }
 body.windowFlag_landscapeMode #canvas .clearback .robot_details_left {
-  left: -124px;
+    left: -124px;
 }
 body.windowFlag_landscapeMode #canvas .clearback .robot_details_right {
-  right: -124px;
+    right: -124px;
 }
 body.windowFlag_landscapeMode #canvas .clearback .sprite_mugshot_left {
-  left: -123px;
+    left: -123px;
 }
 body.windowFlag_landscapeMode #canvas .clearback .sprite_mugshot_right {
-  right: -123px;
+    right: -123px;
 }
-body.windowFlag_landscapeMode #canvas .clearback .ability_overlay, 
+body.windowFlag_landscapeMode #canvas .clearback .ability_overlay,
 body.windowFlag_landscapeMode #canvas .clearback .scan_overlay {
-  width: auto;
-  left: -130px;
-  right: -130px;
+    width: auto;
+    left: -130px;
+    right: -130px;
 }
 body.windowFlag_landscapeMode #console {
-  width: 1024px;
+    width: 1024px;
 }
 body.windowFlag_landscapeMode #actions {
-  width: 1024px;  
+    width: 1024px;
 }
 body.windowFlag_landscapeMode #actions .action_back label {
-  width: auto;
+    width: auto;
 }
 body.windowFlag_landscapeMode #actions #actions_start .action_start label {
-  width: auto;
+    width: auto;
 }
 body.windowFlag_landscapeMode #actions #actions_loading .action_loading label {
-  width: auto;
+    width: auto;
 }
 body.windowFlag_landscapeMode #actions #actions_event .action_continue label {
-  width: auto;
+    width: auto;
 }
-body.windowFlag_landscapeMode #actions #actions_battle .action_scan, 
-body.windowFlag_landscapeMode #actions #actions_battle .action_option, 
+body.windowFlag_landscapeMode #actions #actions_battle .action_scan,
+body.windowFlag_landscapeMode #actions #actions_battle .action_option,
 body.windowFlag_landscapeMode #actions #actions_battle .action_switch {
-  width: 330px;
+    width: 330px;
 }
-body.windowFlag_landscapeMode #actions #actions_battle .action_scan label, 
-body.windowFlag_landscapeMode #actions #actions_battle .action_option label, 
+body.windowFlag_landscapeMode #actions #actions_battle .action_scan label,
+body.windowFlag_landscapeMode #actions #actions_battle .action_option label,
 body.windowFlag_landscapeMode #actions #actions_battle .action_switch label {
-  width: auto;
+    width: auto;
 }
 body.windowFlag_landscapeMode #actions #actions_battle .action_switch label {
-  width: auto;
+    width: auto;
 }
 
 body.windowFlag_landscapeMode #actions #actions_option .action_option,
-body.windowFlag_landscapeMode #actions #actions_settings .action_setting, 
+body.windowFlag_landscapeMode #actions #actions_settings .action_setting,
 body.windowFlag_landscapeMode #actions #actions_settings_eventTimeout .action_setting,
 body.windowFlag_landscapeMode #actions #actions_settings_autoScan .action_setting,
-body.windowFlag_landscapeMode #actions #actions_switch .action_switch, 
-body.windowFlag_landscapeMode #actions #actions_scan .action_scan, 
+body.windowFlag_landscapeMode #actions #actions_switch .action_switch,
+body.windowFlag_landscapeMode #actions #actions_scan .action_scan,
 body.windowFlag_landscapeMode #actions #actions_ability .action_ability {
-  width: 245px;
+    width: 245px;
 }
 body.windowFlag_landscapeMode #actions #actions_option .action_option label,
 body.windowFlag_landscapeMode #actions #actions_settings .action_setting label,
 body.windowFlag_landscapeMode #actions #actions_settings_eventTimeout .action_setting label,
-body.windowFlag_landscapeMode #actions #actions_settings_autoScan .action_setting label,  
+body.windowFlag_landscapeMode #actions #actions_settings_autoScan .action_setting label,
 body.windowFlag_landscapeMode #actions #actions_scan .action_scan label {
-  width: auto;
+    width: auto;
 }
 body.windowFlag_landscapeMode #actions #actions_scan .action_switch label {
-  width: auto;
+    width: auto;
 }
 
 body.windowFlag_landscapeMode #actions #actions_battle .action_ability label {
-  width: auto;
+    width: auto;
 }
 
-body.windowFlag_landscapeMode #actions #actions_option .action_option label, 
-body.windowFlag_landscapeMode #actions #actions_option .action_option label, 
-body.windowFlag_landscapeMode #actions #actions_settings .action_setting label, 
+body.windowFlag_landscapeMode #actions #actions_option .action_option label,
+body.windowFlag_landscapeMode #actions #actions_option .action_option label,
+body.windowFlag_landscapeMode #actions #actions_settings .action_setting label,
 body.windowFlag_landscapeMode #actions #actions_settings_eventTimeout .action_setting label,
-body.windowFlag_landscapeMode #actions #actions_settings_autoScan .action_setting label,  
-body.windowFlag_landscapeMode #actions #actions_scan .action_scan label, 
+body.windowFlag_landscapeMode #actions #actions_settings_autoScan .action_setting label,
+body.windowFlag_landscapeMode #actions #actions_scan .action_scan label,
 body.windowFlag_landscapeMode #actions #actions_ability .action_ability label,
 body.windowFlag_landscapeMode #actions #actions_switch .action_switch label {
-  width: auto;
+    width: auto;
 }
 body.windowFlag_landscapeMode #actions #actions_option .action_option label,
 body.windowFlag_landscapeMode #actions #actions_settings .action_setting label,
 body.windowFlag_landscapeMode #actions #actions_settings_eventTimeout .action_setting label,
 body.windowFlag_landscapeMode #actions #actions_settings_autoScan .action_setting label {
-  width: auto;
+    width: auto;
 }
 
-body.windowFlag_landscapeMode #actions .block_4, 
+body.windowFlag_landscapeMode #actions .block_4,
 body.windowFlag_landscapeMode #actions .block_8 {
-  width: 248px !important;
+    width: 248px !important;
 }
-body.windowFlag_landscapeMode #actions .block_4 label, 
+body.windowFlag_landscapeMode #actions .block_4 label,
 body.windowFlag_landscapeMode #actions .block_8 label {
 
 }
-body.windowFlag_landscapeMode #actions #actions_option .block_4 label, 
+body.windowFlag_landscapeMode #actions #actions_option .block_4 label,
 body.windowFlag_landscapeMode #actions #actions_option .block_8 label,
-body.windowFlag_landscapeMode #actions #actions_settings .block_4 label, 
+body.windowFlag_landscapeMode #actions #actions_settings .block_4 label,
 body.windowFlag_landscapeMode #actions #actions_settings .block_8 label,
-body.windowFlag_landscapeMode #actions #actions_settings_eventTimeout .block_4 label, 
+body.windowFlag_landscapeMode #actions #actions_settings_eventTimeout .block_4 label,
 body.windowFlag_landscapeMode #actions #actions_settings_eventTimeout .block_8 label,
-body.windowFlag_landscapeMode #actions #actions_settings_autoScan .block_4 label, 
+body.windowFlag_landscapeMode #actions #actions_settings_autoScan .block_4 label,
 body.windowFlag_landscapeMode #actions #actions_settings_autoScan .block_8 label {
 
+}
+
+/* -- LEGACY HEADER -- */
+#legacy_header {
+    margin: 0 auto;
+    padding: 0;
+    color: #EFEFEF;
+    text-align: center;
+    border-bottom: 2px solid #090909;
+    font-family: Verdana, sans-serif;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7a0000+0,840d0d+100 */
+    background: #7a0000; /* Old browsers */
+    background: -moz-linear-gradient(top, #7a0000 0%, #840d0d 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #7a0000 0%,#840d0d 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #7a0000 0%,#840d0d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7a0000', endColorstr='#840d0d',GradientType=0 ); /* IE6-9 */
+    overflow: hidden;
+}
+#legacy_header a {
+    color: #F0F0F0;
+    text-decoration: underline;
+}
+#legacy_header a:hover {
+    color: #FFFFFF;
+}
+#legacy_header > .wrapper {
+    margin: 0 auto;
+    text-align: left;
+    max-width: 1036px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+#legacy_header > .wrapper > .text {
+    display: block;
+    margin: 0 auto;
+    text-align: left;
+    max-width: 850px;
+    font-size: 11px;
+}
+@media (max-width: 1050px){
+    #legacy_header > .wrapper {
+        max-width: 780px;
+    }
+}
+@media (max-width: 775px){
+    #legacy_header > .wrapper > .text {
+        max-width: none;
+        font-size: 10px;
+    }
 }
 
 /* -- DEBUG DEBUG DEBUG DEBUG DEBUG -- */
 
 /*
 #connect {
-  display: block;
-  position: relative;
-  bottom: 545px;
-  width: 995px;
-  height: 300px;
-  border-color: rgba(200, 200, 200, 0.3);
-  background-color: rgba(125, 125, 125, 0.2);
+    display: block;
+    position: relative;
+    bottom: 545px;
+    width: 995px;
+    height: 300px;
+    border-color: rgba(200, 200, 200, 0.3);
+    background-color: rgba(125, 125, 125, 0.2);
 }
 */

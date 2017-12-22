@@ -25,7 +25,7 @@ if ($request_type == 'session' && $request_data !== false){
 
     // Update the appropriate session variable
     $_SESSION['RPG2k12-2']['GAME'][$data_index][$data_token] = $data_value;
-    echo '$_SESSION['RPG2k12-2'][\'GAME\'][\''.$data_index.'\'][\''.$data_token.'\'] = \''.$data_value.'\';'."\n";
+    echo '$_SESSION[\'RPG2k12-2\'][\'GAME\'][\''.$data_index.'\'][\''.$data_token.'\'] = \''.$data_value.'\';'."\n";
 
   }
 
