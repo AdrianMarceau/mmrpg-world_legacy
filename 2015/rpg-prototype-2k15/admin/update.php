@@ -102,7 +102,7 @@ function mmrpg_admin_update_save_file($key, $data){
     'save_counters' => mmrpg_admin_encode_save_data($_SESSION['RPG2k15']['GAME']['counters'], $cache_date_backup)
     );
 
-  //die('$_SESSION['RPG2k15'][\'GAME\'][\'values\']('.$data['user_id'].':'.$data['user_name_clean'].') => <pre>'.print_r($_SESSION['RPG2k15']['GAME']['values'], true).'</pre>');
+  //die('$_SESSION[\'RPG2k15\'][\'GAME\'][\'values\']('.$data['user_id'].':'.$data['user_name_clean'].') => <pre>'.print_r($_SESSION['RPG2k15']['GAME']['values'], true).'</pre>');
   //die('$update_array('.$data['user_id'].':'.$data['user_name_clean'].') => <pre>'.print_r($update_array, true).'</pre>');
   //die('$update_array[\'save_values\'] : '.$update_array['save_values']);
 

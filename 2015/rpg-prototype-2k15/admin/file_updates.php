@@ -1,6 +1,6 @@
 <?
 
-//die('$_SESSION['RPG2k15'][\'GAME\'][\'CACHE_DATE\'] = '.$_SESSION['RPG2k15']['GAME']['CACHE_DATE']);
+//die('$_SESSION[\'RPG2k15\'][\'GAME\'][\'CACHE_DATE\'] = '.$_SESSION['RPG2k15']['GAME']['CACHE_DATE']);
 
 //die('battle_rewards(before) = '.mmrpg_print_r($_SESSION['RPG2k15']['GAME']['values']['battle_rewards']['dr-cossack']));
 //die('battle_settings(before) = '.mmrpg_print_r($_SESSION['RPG2k15']['GAME']['values']['battle_settings']['dr-cossack']));

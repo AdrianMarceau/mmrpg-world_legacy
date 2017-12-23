@@ -31,7 +31,7 @@ if ($request_type == 'session' && $request_data !== false){
 
       // Update the appropriate session variable
       $_SESSION['RPG2k15']['GAME'][$data_index][$data_index2][$data_index3][$data_token] = $data_value;
-      echo '$_SESSION['RPG2k15'][\'GAME\'][\''.$data_index.'\'][\''.$data_index2.'\'][\''.$data_index3.'\'][\''.$data_token.'\'] = \''.$data_value.'\';'."\n";
+      echo '$_SESSION[\'RPG2k15\'][\'GAME\'][\''.$data_index.'\'][\''.$data_index2.'\'][\''.$data_index3.'\'][\''.$data_token.'\'] = \''.$data_value.'\';'."\n";
 
     }
     // If there were 3 comma separators in the list
@@ -42,7 +42,7 @@ if ($request_type == 'session' && $request_data !== false){
 
       // Update the appropriate session variable
       $_SESSION['RPG2k15']['GAME'][$data_index][$data_index2][$data_token] = $data_value;
-      echo '$_SESSION['RPG2k15'][\'GAME\'][\''.$data_index.'\'][\''.$data_index2.'\'][\''.$data_token.'\'] = \''.$data_value.'\';'."\n";
+      echo '$_SESSION[\'RPG2k15\'][\'GAME\'][\''.$data_index.'\'][\''.$data_index2.'\'][\''.$data_token.'\'] = \''.$data_value.'\';'."\n";
 
     }
     // Else if there were 2 comma separators in the list
@@ -53,7 +53,7 @@ if ($request_type == 'session' && $request_data !== false){
 
       // Update the appropriate session variable
       $_SESSION['RPG2k15']['GAME'][$data_index][$data_token] = $data_value;
-      echo '$_SESSION['RPG2k15'][\'GAME\'][\''.$data_index.'\'][\''.$data_token.'\'] = \''.$data_value.'\';'."\n";
+      echo '$_SESSION[\'RPG2k15\'][\'GAME\'][\''.$data_index.'\'][\''.$data_token.'\'] = \''.$data_value.'\';'."\n";
 
     }
     // Else if there were 1 comma separators in the list
@@ -64,7 +64,7 @@ if ($request_type == 'session' && $request_data !== false){
 
       // Update the appropriate session variable
       $_SESSION['RPG2k15']['GAME'][$data_token] = $data_value;
-      echo '$_SESSION['RPG2k15'][\'GAME\'][\''.$data_token.'\'] = \''.$data_value.'\';'."\n";
+      echo '$_SESSION[\'RPG2k15\'][\'GAME\'][\''.$data_token.'\'] = \''.$data_value.'\';'."\n";
 
     }
 
