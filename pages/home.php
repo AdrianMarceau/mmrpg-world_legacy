@@ -5,154 +5,130 @@
 //$html_content_title = $html_content_title.' | Archive Index';
 $html_content_description = 'Legacy builds, experiments, screenshots, assets, and concept art for the Mega Man RPG.  Basically, any old and/or scrapped ideas for the RPG will end up here eventually.';
 
-// Manually define content to display on this index
+// Pull an index of legacy content categories
+$legacy_categories = $db->getArrayList("SELECT
+    categories.category_id,
+    categories.category_token,
+    categories.category_name,
+    categories.category_description,
+    categories.category_is_published,
+    categories.category_order
+    FROM legacy_content_categories AS categories
+    WHERE
+    categories.category_is_published = 1
+    ORDER BY
+    categories.category_order ASC,
+    categories.category_token ASC
+    ;", 'category_id');
+
+// Pull an index of legacy content from the database
 $legacy_content = array();
+$legacy_content_raw = $db->getArrayList("SELECT
+    content.content_id,
+    content.category_id,
+    content.content_group,
+    content.content_name,
+    content.content_path,
+    content.content_description,
+    content.content_year,
+    content.content_month,
+    content.content_has_text,
+    content.content_has_images,
+    content.content_has_sprites,
+    content.content_has_artwork,
+    content.content_is_interactive,
+    content.content_is_playable
+    FROM legacy_content AS content
+    LEFT JOIN legacy_content_categories AS categories ON categories.category_id = content.category_id
+    ORDER BY
+    content.category_id ASC,
+    content.content_year DESC,
+    content.content_group ASC,
+    content.content_month DESC,
+    content.content_path DESC
+    ;", 'content_id');
 
-// Year 2006
-$legacy_content['2006'] = array();
-$legacy_content['2006'][] = array(
-    'name' => 'RPG Roleplay Forum',
-    'paths' => array(
-        'rpg-roleplay-tests/misc-images.php' => array('images'),
-        'rpg-roleplay-tests/robot-attacks.php' => array('text')
-        )
-    );
-
-// Year 2010
-$legacy_content['2010'] = array();
-$legacy_content['2010'][] = array(
-    'name' => 'RPG Display Tests',
-    'paths' => array(
-        'rpg-display-tests/index1.php' => array('text', 'images'),
-        'rpg-display-tests/index2.php' => array('text', 'images'),
-        'rpg-display-tests/index3.php' => array('text', 'images', 'interactive')
-        )
-    );
-$legacy_content['2010'][] = array(
-    'name' => 'RPG Engine Tests',
-    'paths' => array(
-        'rpg-engine-tests/engine-test-001.php' => array('text'),
-        'rpg-engine-tests/engine-test-002.php' => array('text', 'images'),
-        'rpg-engine-tests/engine-test-004.php' => array('text')
-        )
-    );
-$legacy_content['2010'][] = array(
-    'name' => 'RPG iPhone Tests',
-    'paths' => array(
-        'rpg-iphone-tests/iphone-test.php' => array('text', 'images')
-        )
-    );
-
-// Year 2011
-$legacy_content['2011'] = array();
-$legacy_content['2011'][] = array(
-    'name' => 'RPG Prototype 2k11',
-    'paths' => array(
-        'rpg-prototype-2k11/index.php' => array('text', 'images', 'playable')
-        )
-    );
-
-// Year 2012
-$legacy_content['2012'] = array();
-$legacy_content['2012'][] = array(
-    'name' => 'RPG Battle Tests',
-    'paths' => array(
-        'rpg-battle-tests/loading.php' => array('text', 'images'),
-        'rpg-battle-tests/loading2.php' => array('text', 'images'),
-        'rpg-battle-tests/battle.php' => array('text', 'images', 'interactive'),
-        'rpg-battle-tests/canvas.php' => array('text', 'images'),
-        'rpg-battle-tests/canvas2.php' => array('text', 'images'),
-        )
-    );
-$legacy_content['2012'][] = array(
-    'name' => 'RPG Ability Generators',
-    'paths' => array(
-        'rpg-ability-tests/generator.php' => array('text'),
-        'rpg-ability-tests/generator2.php' => array('text')
-        )
-    );
-$legacy_content['2012'][] = array(
-    'name' => 'RPG Prototype 2k12',
-    'paths' => array(
-        'rpg-prototype-2k12/index.php' => array('text', 'images', 'playable'),
-        'rpg-prototype-2k12-2/index.php' => array('text', 'images', 'playable')
-        )
-    );
-
-// Year 2013
-$legacy_content['2013'] = array();
-$legacy_content['2013'][] = array(
-    'name' => 'RPG Animation Tests',
-    'paths' => array(
-        'rpg-prototype-sprites/index.php' => array('text', 'images', 'interactive')
-        )
-    );
-
-// Year 2015
-$legacy_content['2015'] = array();
-$legacy_content['2015'][] = array(
-    'name' => 'RPG Prototype 2k15',
-    'paths' => array(
-        'rpg-prototype-2k15/index.php' => array('text', 'images', 'playable')
-        )
-    );
-
-// Year 2016
-$legacy_content['2016'] = array();
-$legacy_content['2016'][] = array(
-    'name' => 'RPG World 2k16',
-    'paths' => array(
-        'rpg-world-2k16/index.php' => array('text', 'images', 'interactive')
-        )
-    );
+// Loop through and nest legacy content by category and group
+if (!empty($legacy_content_raw)){
+    foreach ($legacy_content_raw AS $content_id => $content_info){
+        $category_id = $content_info['category_id'];
+        $group_name = $content_info['content_group'];
+        if (!isset($legacy_content[$category_id])){ $legacy_content[$category_id] = array(); }
+        if (!isset($legacy_content[$category_id][$group_name])){ $legacy_content[$category_id][$group_name] = array(); }
+        $legacy_content[$category_id][$group_name][] = $content_info;
+    }
+}
 
 
 // Start the output buffer to collect markup
 ob_start();
 
-    // Loop through legacy content and display links
-    $reverse_legacy_content = array_reverse($legacy_content, true);
-    foreach($reverse_legacy_content AS $year => $items){
+    // Loop through legacy categories to display sections
+    foreach($legacy_categories AS $category_id => $category_info){
 
         // Print out opening section wrapper
         echo('<div class="section">'.PHP_EOL);
 
             // Print out the section headers
             echo('<div class="header">'.PHP_EOL);
-                echo('<h2>'.$year.' Content</h2>'.PHP_EOL);
+                echo('<h2>'.$category_info['category_name'].'</h2>'.PHP_EOL);
+                echo('<p>'.$category_info['category_description'].'</p>'.PHP_EOL);
             echo('</div>'.PHP_EOL);
 
             // Print out opening content wrappers
             echo('<div class="content"><ul class="list">'.PHP_EOL);
 
-                // Loop through links and display as list items
-                $reverse_items = array_reverse($items);
-                foreach($reverse_items AS $key => $item){
+                // Predefine an empty content group name
+                $group_name = '';
+
+                // Loop through group items in this category (if any) and list them below
+                $this_legacy_content = isset($legacy_content[$category_id]) ? $legacy_content[$category_id] : array();
+                foreach($this_legacy_content AS $content_group_name => $content_group_items){
 
                     // Print out opening list item
                     echo('<li class="item">'.PHP_EOL);
 
                         // Print out the name for this item
-                        echo('<strong class="name">'.$item['name'].'</strong>'.PHP_EOL);
+                        echo('<strong class="name">'.$content_group_name.'</strong>'.PHP_EOL);
 
                         // Loop through paths and print out each link
-                        $reverse_paths = array_reverse($item['paths'], true);
                         echo('<ul class="sublist">'.PHP_EOL);
-                        foreach ($reverse_paths AS $path => $content){
-                            if (strstr($path, '?todo')){ $path = str_replace('?todo', '', $path); $todo = true; }
-                            else { $todo = false; }
-                            $full_url = $year.'/'.$path;
+                        foreach ($content_group_items AS $content_id => $content_info){
+
+                            // Define string var for content classes
+                            $content_classes = '';
+
+                            // Define flag vars for boolean triggers
+                            $flag_todo = false;
+
+                            // Generate the URL vars based on path and year
+                            $full_url = $content_info['content_path'];
                             $display_url = str_replace(array('/index.php', '.php'), '', $full_url);
                             $link_url = str_replace('/index.php', '/', $full_url);
-                            if (!file_exists($mmrpg_root_dir.$full_url)){ $todo = true; }
-                            echo('<li class="subitem'.($todo ? ' todo' : '').'">'.PHP_EOL);
+
+                            // Check if file exists and update flags/classes
+                            if (!file_exists($mmrpg_root_dir.$full_url)){ $flag_todo = true; }
+                            if ($flag_todo == true){ $content_classes .= ' todo'; }
+
+                            // Define what types of content this item has
+                            $content_types = array();
+                            foreach ($content_info AS $key => $val){
+                                if (strstr($key, 'content_is_') || strstr($key, 'content_has_')){
+                                    $key2 = str_replace(array('content_is_', 'content_has_'), '', $key);
+                                    if (!empty($val)){ $content_types[] = $key2; }
+                                }
+                            }
+
+                            // Print the markup for this item with details
+                            echo('<li class="subitem'.$content_classes.'">'.PHP_EOL);
                                 echo('<a class="link" href="'.$mmrpg_root_url.$link_url.'" target="_blank">/'.$display_url.'</a>'.PHP_EOL);
-                                if (empty($content)){ $content_text = 'unknown'; }
-                                elseif (count($content) == 1 && $content[0] == 'text'){ $content_text = 'text-only'; }
-                                else { $content_text = implode(' + ', $content); }
-                                $content_text = preg_replace('/(playable|interactive)/', '<strong>$1</strong>', $content_text);
-                                echo('<span class="details">'.$content_text.'</span>');
+                                if (empty($content_types)){ $content_type_text = 'unknown'; }
+                                elseif (count($content_types) == 1 && $content_types[0] == 'text'){ $content_type_text = 'text-only'; }
+                                else { $content_type_text = implode(' + ', $content_types); }
+                                $content_type_text = preg_replace('/(playable|interactive)/', '<strong>$1</strong>', $content_type_text);
+                                echo('<span class="details">'.$content_type_text.'</span>');
                             echo('</li>'.PHP_EOL);
+
                         }
                         echo('</ul>'.PHP_EOL);
 
@@ -168,6 +144,11 @@ ob_start();
         echo('</div>'.PHP_EOL);
 
     }
+
+//echo('<hr />'.PHP_EOL);
+//echo('<pre>$legacy_categories = '.print_r($legacy_categories, true).'</pre>'.PHP_EOL);
+//echo('<pre>$legacy_content = '.print_r($legacy_content, true).'</pre>'.PHP_EOL);
+//exit();
 
 // Collect generated content markup
 $html_content_markup = ob_get_clean();

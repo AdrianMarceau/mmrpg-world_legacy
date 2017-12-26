@@ -211,14 +211,14 @@ body h6 {
 .website > .main > .body {
     display: block;
     position: relative;
-    margin: 0 auto 20px;
+    margin: 0 auto 25px;
     padding: 10px;
     background-color: transparent;
     text-align: left;
 }
 .website > .main > .body .header {
     display: block;
-    margin: 0 auto 20px;
+    margin: 0 auto 10px;
 }
 .website > .main > .body .header h2 {
     display: block;
@@ -229,6 +229,12 @@ body h6 {
     -webkit-border-radius: 3px;
     border-radius: 3px;
     font-size: 13px;
+}
+.website > .main > .body .header p {
+    display: block;
+    margin: 0 auto;
+    padding: 6px;
+    font-size: 12px;
 }
 .website > .main > .body .section {
     display: block;
