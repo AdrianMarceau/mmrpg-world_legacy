@@ -10,7 +10,7 @@
  */
 
 // Require the top file
-require_once('top.php');
+require_once('apptop.php');
 
 // Define the function for using the display text of an ability
 function display_action_usetext($ability, $user, $target) {

@@ -10,7 +10,7 @@
  */
 
 // Require the top file
-require_once('top.php');
+require_once('apptop.php');
 
 // Require necessary files
 require_once('functions/database_connect.php');
