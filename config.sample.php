@@ -1,5 +1,8 @@
 <?php
 
+// This is a live server
+$mmrpg_is_live = true;
+
 // Manually define config values
 $mmrpg_root_dir = '/var/www/html/';
 $mmrpg_root_url = 'http://www.domain.com/';

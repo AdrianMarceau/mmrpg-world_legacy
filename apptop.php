@@ -1,5 +1,25 @@
 <?php
 
+// Require config file
+require('config.php');
+
+// Include any global class files
+require($mmrpg_root_dir.'includes/DatabaseConnect.class.php');
+
+// Initialize the global DB object
+$db = new DatabaseConnect(array(
+    'host' => $mmrpg_database_host,
+    'name' => 'legacy_index',
+    'username' => $mmrpg_database_username,
+    'password' => $mmrpg_database_password,
+    'charset' => $mmrpg_database_charset
+    ));
+
+// Tweak DB object connection settings
+$db->is_live = $mmrpg_is_live ? true : false;
+$db->is_admin = !$mmrpg_is_live ? true : false;
+$db->is_debug = !$mmrpg_is_live ? true : false;
+
 // Start the session
 session_start();
 
