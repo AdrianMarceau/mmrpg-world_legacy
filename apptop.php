@@ -4,7 +4,7 @@
 require('includes/root-config.php');
 
 // Include any global class files
-require($mmrpg_root_dir.'includes/DatabaseConnect.class.php');
+require($mmrpg_root_dir.'classes/DatabaseConnect.class.php');
 
 // Initialize the global DB object
 $db = new DatabaseConnect(array(
