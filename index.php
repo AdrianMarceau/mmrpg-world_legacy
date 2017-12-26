@@ -4,7 +4,7 @@
 define('IS_LEGACY_INDEX', true);
 
 // Require the top files
-require('includes/config.php');
+require('includes/root-config.php');
 require($mmrpg_root_dir.'apptop.php');
 
 // Require the home page file
