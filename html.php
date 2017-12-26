@@ -53,7 +53,7 @@
 
         <? if (!empty($html_scripts_markup)){ echo $html_scripts_markup.PHP_EOL; } ?>
 
-        <? if (file_exists($mmrpg_root_dir.'html_analytics.php')){ include($mmrpg_root_dir.'html_analytics.php'); } ?>
+        <? if (file_exists($mmrpg_root_dir.'includes/analytics.php')){ include($mmrpg_root_dir.'includes/analytics.php'); } ?>
 
     </body>
 </html>
