@@ -4,13 +4,13 @@
 define('IS_LEGACY_INDEX', true);
 
 // Require the top files
-require('config.php');
-require('apptop.php');
+require('includes/config.php');
+require($mmrpg_root_dir.'apptop.php');
 
 // Require the home page file
-require('pages/home.php');
+require($mmrpg_root_dir.'pages/home.php');
 
 // Require the page template
-require('html.php');
+require($mmrpg_root_dir.'html.php');
 
 ?>

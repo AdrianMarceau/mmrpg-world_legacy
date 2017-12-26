@@ -1,6 +1,6 @@
 <? if (!strstr($mmrpg_root_url, 'local.')){ ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=<?= $mmrpg_analytics_"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?= $mmrpg_analytics_id ?>"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
