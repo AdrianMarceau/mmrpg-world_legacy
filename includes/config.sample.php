@@ -14,4 +14,7 @@ $mmrpg_database_username = 'legacy_user';
 $mmrpg_database_password = 'P@SSW0RD';
 $mmrpg_database_charset = 'utf8';
 
+// Define the analytics account ID
+$mmrpg_analytics_id = 'UA-00000000-0';
+
 ?>
