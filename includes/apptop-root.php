@@ -1,7 +1,7 @@
 <?php
 
 // Require config file
-require('root-config.php');
+require('config-root.php');
 
 // Include any global class files
 require_once($mmrpg_root_dir.'classes/DatabaseConnect.class.php');
