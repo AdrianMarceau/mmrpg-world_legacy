@@ -1,9 +1,12 @@
 <?php
 
 // Update this page's content variables
-//$html_title_text = 'Archive Index | '.$html_title_text;
-//$html_content_title = $html_content_title.' | Archive Index';
-$html_content_description = 'Legacy builds, experiments, screenshots, assets, and concept art for the Mega Man RPG.  Basically, any old and/or scrapped ideas for the RPG will end up here eventually.';
+//$html->addSeoTitle('Archive Index');
+//$html->addContentTitle('Archive Index');
+$html->setContentDescription(
+    'Legacy builds, experiments, screenshots, assets, and concept art for the Mega Man RPG.  '.
+    'Basically, any old and/or scrapped ideas for the RPG will end up here eventually. '
+    );
 
 // Pull an index of legacy content categories
 $legacy_categories = $db->getArrayList("SELECT
@@ -152,6 +155,9 @@ ob_start();
 
 // Collect generated content markup
 $html_content_markup = ob_get_clean();
+$html->addContentMarkup($html_content_markup);
 
+// Print out the final HTML page markup
+$html->printHtmlPage();
 
 ?>
