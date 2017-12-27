@@ -107,7 +107,7 @@ ob_start();
                             $link_url = str_replace('/index.php', '/', $full_url);
 
                             // Check if file exists and update flags/classes
-                            if (!file_exists($mmrpg_root_dir.$full_url)){ $flag_todo = true; }
+                            if (!file_exists(LEGACY_MMRPG_ROOT_DIR.$full_url)){ $flag_todo = true; }
                             if ($flag_todo == true){ $content_classes .= ' todo'; }
 
                             // Define what types of content this item has
@@ -121,7 +121,7 @@ ob_start();
 
                             // Print the markup for this item with details
                             echo('<li class="subitem'.$content_classes.'">'.PHP_EOL);
-                                echo('<a class="link" href="'.$mmrpg_root_url.$link_url.'" target="_blank">/'.$display_url.'</a>'.PHP_EOL);
+                                echo('<a class="link" href="'.LEGACY_MMRPG_ROOT_URL.$link_url.'" target="_blank">/'.$display_url.'</a>'.PHP_EOL);
                                 if (empty($content_types)){ $content_type_text = 'unknown'; }
                                 elseif (count($content_types) == 1 && $content_types[0] == 'text'){ $content_type_text = 'text-only'; }
                                 else { $content_type_text = implode(' + ', $content_types); }
