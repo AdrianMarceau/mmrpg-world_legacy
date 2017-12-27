@@ -2,31 +2,31 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title><?= $html_title_text ?></title>
-        <? if (defined('IS_LEGACY_INDEX')){ ?>
+        <title><?= $this->seo_title ?></title>
+        <? if (LEGACY_MMRPG_IS_LIVE === true && defined('IS_LEGACY_INDEX')){ ?>
             <meta name="robots" content="index,follow" />
         <? } else { ?>
             <meta name="robots" content="noindex,nofollow" />
         <? } ?>
-        <link type="text/css" href="<?= LEGACY_MMRPG_ROOT_URL ?>styles/legacy-index.css?<?= LEGACY_MMRPG_CACHE_DATE ?>" rel="stylesheet" />
-        <? if (!empty($html_styles_markup)){ echo $html_styles_markup.PHP_EOL; } ?>
+        <link type="text/css" href="<?= $this->root_url ?>styles/legacy-index.css?<?= $this->cache_date ?>" rel="stylesheet" />
+        <? if (!empty($this->styles_markup)){ echo $this->styles_markup.PHP_EOL; } ?>
     </head>
     <body>
         <? if (defined('LEGACY_FLAG_SKIP_WRAPPER') && LEGACY_FLAG_SKIP_WRAPPER === true){ ?>
 
-            <?= !empty($html_content_markup) ? $html_content_markup : '- page content not found -' ?>
+            <?= !empty($this->content_markup) ? $this->content_markup : '- page content not found -' ?>
 
         <? } else { ?>
 
             <div class="website">
                 <div class="main">
                     <div class="header <?= !defined('IS_LEGACY_INDEX') ? 'has-links' : '' ?>">
-                        <h1><?= str_replace('|', '<span class="pipe">|</span>', $html_content_title) ?></h1>
-                        <? if (!empty($html_content_description)){ ?><p><?= $html_content_description ?></p><? } ?>
-                        <? if (!defined('IS_LEGACY_INDEX')){ ?><div class="links"><a class="link back" href="<?= $mmrpg_root_url ?>"><span>Return to Archive Index</span></a></div><? } ?>
+                        <h1><?= str_replace('|', '<span class="pipe">|</span>', $this->content_title) ?></h1>
+                        <? if (!empty($this->content_description)){ ?><p><?= $this->content_description ?></p><? } ?>
+                        <? if (!defined('IS_LEGACY_INDEX')){ ?><div class="links"><a class="link back" href="<?= $this->root_url ?>"><span>Return to Archive Index</span></a></div><? } ?>
                     </div>
                     <div class="body">
-                        <?= !empty($html_content_markup) ? $html_content_markup : '- page content not found -' ?>
+                        <?= !empty($this->content_markup) ? $this->content_markup : '- page content not found -' ?>
                     </div>
                 </div>
                 <div class="footer">
@@ -37,7 +37,7 @@
                             <? if (defined('IS_LEGACY_INDEX')){ ?>
                                 use the archive index above for a list of legacy content.
                             <? } else { ?>
-                                return to the <a href="<?= $mmrpg_root_url ?>">archive index</a> for more legacy content.
+                                return to the <a href="<?= $this->root_url ?>">archive index</a> for more legacy content.
                             <? } ?>
                         </div>
                         <div class="credits">
@@ -51,9 +51,9 @@
 
         <? } ?>
 
-        <? if (!empty($html_scripts_markup)){ echo $html_scripts_markup.PHP_EOL; } ?>
+        <? if (!empty($this->scripts_markup)){ echo $this->scripts_markup.PHP_EOL; } ?>
 
-        <? include(LEGACY_MMRPG_ROOT_DIR.'markup/google-analytics.php'); ?>
+        <? include($this->root_dir.'markup/google-analytics.php'); ?>
 
     </body>
 </html>
