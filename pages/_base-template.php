@@ -1,9 +1,5 @@
 <?php
 
-// Require the top files
-require('../../config.php');
-require('../../apptop.php');
-
 // Define the headers for this file
 $html_title_text = 'Some Legacy Content 001/004 | '.$html_title_text;
 $html_content_title = $html_content_title.' | Some Legacy Content 001/004';
@@ -44,7 +40,7 @@ $html_scripts_markup = ob_get_clean();
 */
 
 // Require the page template
-require('../../html.php');
+require(LEGACY_MMRPG_ROOT_DIR.'markup/html-wrapper.php');
 
 
 ?>
