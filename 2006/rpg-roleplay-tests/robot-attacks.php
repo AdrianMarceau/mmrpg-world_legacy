@@ -1,16 +1,18 @@
 <?php
 
-// Require the top files
-require('../../config.php');
-require('../../apptop.php');
+// Require the root config and top files
+$root_path = preg_replace('/^(.*?(?:\\\|\/))(?:19|20)[0-9]{2}(?:\\\|\/)[-a-z0-9]+(?:\\\|\/)(.*?)$/i', '$1', __FILE__);
+require_once($root_path.'includes/apptop-root.php');
 
-// Define the headers for this file
-$html_title_text = 'Robot Attacks | Roleplay Game Forum Tests | '.$html_title_text;
-$html_content_title = $html_content_title.' | Roleplay Game Forum Tests | Robot Attacks';
-$html_content_description = 'One of the first ideas for the Mega Man RPG revolved around a play-by-post forum game with premade mechanics and abilities.  Here are some of the planned abilities:';
+// Define the headers for this HTML page
+$html->addTitle('Roleplay Game Forum Tests')->addTitle('Robot Attacks');
+$html->setContentDescription(
+    'One of the first ideas for the Mega Man RPG revolved around a play-by-post forum game with '.
+    'premade mechanics and abilities.  Here are some of the planned abilities: '
+    );
 
 // Read the contents of the ability document
-$robot_ability_file = $mmrpg_root_dir.'2006/rpg-roleplay-tests/documents/EveryRobot.txt';
+$robot_ability_file = LEGACY_MMRPG_ROOT_DIR.'2006/rpg-roleplay-tests/documents/EveryRobot.txt';
 $robot_ability_list = file_exists($robot_ability_file) ? file($robot_ability_file) : array();
 
 // If not empty, loop through each line of file and group into robots
@@ -65,6 +67,7 @@ ob_start();
     <?
 // Collect content from the ouput buffer
 $html_content_markup = ob_get_clean();
+$html->addContentMarkup($html_content_markup);
 
 // Start the ouput buffer to collect styles
 ob_start();
@@ -87,6 +90,7 @@ ob_start();
     <?
 // Collect styles from the ouput buffer
 $html_styles_markup = ob_get_clean();
+$html->addStyleMarkup($html_styles_markup);
 
 /*
 // Start the ouput buffer to collect scripts
@@ -98,10 +102,10 @@ ob_start();
     <?
 // Collect scripts from the ouput buffer
 $html_scripts_markup = ob_get_clean();
+$html->addScriptMarkup($html_scripts_markup);
 */
 
-// Require the page template
-require('../../html.php');
-
+// Print out the final HTML page markup
+$html->printHtmlPage();
 
 ?>
