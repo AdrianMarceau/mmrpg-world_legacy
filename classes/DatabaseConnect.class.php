@@ -18,13 +18,10 @@ class DatabaseConnect {
     private $db_password;
     private $db_charset;
 
-    // Define a config cache for later
-    private static $db_config;
-
     // Define public environment variables
-    public $is_live = true;
-    public $is_admin = false;
-    public $is_debug = false;
+    public $is_live;
+    public $is_admin;
+    public $is_debug;
 
 
     /*
@@ -34,34 +31,37 @@ class DatabaseConnect {
     // Define the constructor for the class
     public function __construct($config){
 
-        // Collect the initializer arguments
-        if (!is_array($config)){ $config = array(); }
-        $this->db_host = isset($config['host']) ? $config['host'] : (isset($config[0]) ? $config[0] : 'localhost');
-        $this->db_name = isset($config['name']) ? $config['name'] : (isset($config[1]) ? $config[1] : '');
-        $this->db_username = isset($config['username']) ? $config['username'] : (isset($config[2]) ? $config[2] : 'root');
-        $this->db_password = isset($config['password']) ? $config['password'] : (isset($config[3]) ? $config[3] : '');
-        $this->db_charset = isset($config['charset']) ? $config['charset'] : (isset($config[4]) ? $config[4] : 'utf8');
+        // Collect the config arguments in provided format
+        if (empty($config) || !is_array($config)){
+            $config = func_get_args();
+            if (empty($config) || !is_array($config)){
+                $config = array();
+            }
+        }
+
+        // Collect any of the db config variables
+        $this->db_host = isset($config['db_host']) ? $config['db_host'] : (isset($config[0]) ? $config[0] : 'localhost');
+        $this->db_name = isset($config['db_name']) ? $config['db_name'] : (isset($config[1]) ? $config[1] : '');
+        $this->db_username = isset($config['db_username']) ? $config['db_username'] : (isset($config[2]) ? $config[2] : 'root');
+        $this->db_password = isset($config['db_password']) ? $config['db_password'] : (isset($config[3]) ? $config[3] : '');
+        $this->db_charset = isset($config['db_charset']) ? $config['db_charset'] : (isset($config[4]) ? $config[4] : 'utf8');
+
+        // Collect any of the environment config variables
+        $this->is_live = isset($config['is_live']) ? $config['is_live'] : (isset($config[5]) ? $config[5] : true);
+        $this->is_admin = isset($config['is_admin']) ? $config['is_admin'] : (isset($config[6]) ? $config[6] : false);
+        $this->is_debug = isset($config['is_debug']) ? $config['is_debug'] : (isset($config[7]) ? $config[7] : false);
 
         // First initialize the database connection
         $this->connect = $this->openConnection();
         if ($this->connect === false){ $this->connect = false; return $this->connect; }
 
         // Set the names and character set
-        $this->connect = $this->queryDatabase("SET db_nameS {$this->db_charset};");
+        $this->connect = $this->queryDatabase("SET NAMES {$this->db_charset};");
         if ($this->connect === false){ $this->connect = false; return $this->connect; }
 
         // Clear any links or whatever this function does not
         $this->connect = $this->clearResult();
         if ($this->connect === false){ $this->connect = false; return $this->connect; }
-
-        // If successful, cache these creds as constants
-        self::$db_config = array(
-            'host' => $this->db_host,
-            'name' => $this->db_name,
-            'username' => $this->db_username,
-            'password' => $this->db_password,
-            'charset' => $this->db_charset
-            );
 
     }
 
@@ -90,11 +90,6 @@ class DatabaseConnect {
         if (isset($GLOBALS['db'])){ $db = $GLOBALS['db'];  }
         elseif (isset($GLOBALS['DB'])){ $db = $GLOBALS['DB'];  }
         else { $db = false; }
-
-        // If not created, attempt to do so with cached config
-        if (empty($db) && !empty(self::$db_config)){
-            $db = new DatabaseConnect(self::$db_config);
-            }
 
         // Return the DB object with final value
         return $db;
