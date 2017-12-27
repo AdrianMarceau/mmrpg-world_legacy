@@ -4,32 +4,35 @@
 require('config-root.php');
 
 // Include any global class files
-require_once($mmrpg_root_dir.'classes/DatabaseConnect.class.php');
-
-// Initialize the global DB object
-$db = new DatabaseConnect(array(
-    'host' => $mmrpg_database_host,
-    'name' => 'legacy_index',
-    'username' => $mmrpg_database_username,
-    'password' => $mmrpg_database_password,
-    'charset' => $mmrpg_database_charset
-    ));
-
-// Tweak DB object connection settings
-$db->is_live = $mmrpg_is_live ? true : false;
-$db->is_admin = !$mmrpg_is_live ? true : false;
-$db->is_debug = !$mmrpg_is_live ? true : false;
+require_once(LEGACY_MMRPG_ROOT_DIR.'classes/DatabaseConnect.class.php');
+require_once(LEGACY_MMRPG_ROOT_DIR.'classes/LegacyPage.class.php');
 
 // Start the session
 session_start();
 
+// Initialize the global DB object
+$db_config = array();
+$db_config['db_host'] = LEGACY_MMRPG_DB_HOST;
+$db_config['db_name'] = 'legacy_index';
+$db_config['db_username'] = LEGACY_MMRPG_DB_USERNAME;
+$db_config['db_password'] = LEGACY_MMRPG_DB_PASSWORD;
+$db_config['db_charset'] = LEGACY_MMRPG_DB_CHARSET;
+$db_config['is_live'] = LEGACY_MMRPG_IS_LIVE ? true : false;
+$db_config['is_admin'] = !LEGACY_MMRPG_IS_LIVE ? true : false;
+$db_config['is_debug'] = !LEGACY_MMRPG_IS_LIVE ? true : false;
+$db = new DatabaseConnect($db_config);
+
+// Initialize the legacy page object
+$html_config = array();
+$html_config['root_dir'] = LEGACY_MMRPG_ROOT_DIR;
+$html_config['root_url'] = LEGACY_MMRPG_ROOT_URL;
+$html_config['cache_date'] = LEGACY_MMRPG_CACHE_DATE;
+$html_config['ga_accountid'] = LEGACY_MMRPG_GA_ACCOUNTID;
+$html = new LegacyPage($html_config);
+
 // Predefine page variables
-$html_title_text = 'MMRPG-World.NET (Legacy)';
-$html_content_title = 'Mega Man RPG World | Legacy Archive';
-$html_content_description = '';
-$html_content_markup = '';
-$html_styles_markup = '';
-$html_scripts_markup = '';
+$html->setSeoTitle('MMRPG-World.NET (Legacy)');
+$html->setContentTitle('Mega Man RPG World | Legacy Archive');
 
 // If we're not in the index, add year to titles
 if (!defined('IS_LEGACY_INDEX') && isset($_SERVER['PHP_SELF'])){
@@ -37,8 +40,8 @@ if (!defined('IS_LEGACY_INDEX') && isset($_SERVER['PHP_SELF'])){
     $path_parts = strstr($rel_path, '/') ? explode('/', $rel_path) : array($rel_path);
     if (!empty($path_parts[0])){
         $legacy_year = $path_parts[0];
-        $html_title_text = $legacy_year.' | '.$html_title_text;
-        $html_content_title = $html_content_title.' | '.$legacy_year;
+        $html->addSeoTitle($legacy_year);
+        $html->addContentTitle($legacy_year);
     }
 }
 
