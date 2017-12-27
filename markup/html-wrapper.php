@@ -8,7 +8,7 @@
         <? } else { ?>
             <meta name="robots" content="noindex,nofollow" />
         <? } ?>
-        <link type="text/css" href="<?= $mmrpg_root_url ?>styles/style.css" rel="stylesheet" />
+        <link type="text/css" href="<?= LEGACY_MMRPG_ROOT_URL ?>styles/legacy-index.css?<?= LEGACY_MMRPG_CACHE_DATE ?>" rel="stylesheet" />
         <? if (!empty($html_styles_markup)){ echo $html_styles_markup.PHP_EOL; } ?>
     </head>
     <body>
@@ -53,7 +53,7 @@
 
         <? if (!empty($html_scripts_markup)){ echo $html_scripts_markup.PHP_EOL; } ?>
 
-        <? if (file_exists($mmrpg_root_dir.'includes/analytics.php')){ include($mmrpg_root_dir.'includes/analytics.php'); } ?>
+        <? include(LEGACY_MMRPG_ROOT_DIR.'markup/google-analytics.php'); ?>
 
     </body>
 </html>
