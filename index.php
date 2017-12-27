@@ -9,7 +9,4 @@ require('includes/apptop-root.php');
 // Require the home page file by default
 require(LEGACY_MMRPG_ROOT_DIR.'pages/legacy-home.php');
 
-// Require the HTML page template
-require(LEGACY_MMRPG_ROOT_DIR.'markup/html-wrapper.php');
-
 ?>

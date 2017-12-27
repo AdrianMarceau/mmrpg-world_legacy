@@ -2,12 +2,14 @@
 
 // Require the root config and top files
 $root_path = preg_replace('/^(.*?(?:\\\|\/))(?:19|20)[0-9]{2}(?:\\\|\/)[-a-z0-9]+(?:\\\|\/)(.*?)$/i', '$1', __FILE__);
-require_once($root_path.'includes/top-root.php');
+require_once($root_path.'includes/apptop-root.php');
 
-// Define the headers for this file
-$html_title_text = 'Some Legacy Content 001/004 | '.$html_title_text;
-$html_content_title = $html_content_title.' | Some Legacy Content 001/004';
-$html_content_description = 'A short description about this collection legacy content. This is a specific of those things.';
+// Define the headers for this HTML page
+$html->addTitle('Some Legacy Content')->addTitle('Sub Name');
+$html->setContentDescription(
+    'A short description about this collection legacy content as a whole. '.
+    'Then describe what this one piece is about specifically. '
+    );
 
 // Start the ouput buffer to collect content
 ob_start();
@@ -18,6 +20,7 @@ ob_start();
     <?
 // Collect content from the ouput buffer
 $html_content_markup = ob_get_clean();
+$html->addContentMarkup($html_content_markup);
 
 /*
 // Start the ouput buffer to collect styles
@@ -29,6 +32,7 @@ ob_start();
     <?
 // Collect styles from the ouput buffer
 $html_styles_markup = ob_get_clean();
+$html->addStyleMarkup($html_styles_markup);
 */
 
 /*
@@ -41,10 +45,11 @@ ob_start();
     <?
 // Collect scripts from the ouput buffer
 $html_scripts_markup = ob_get_clean();
+$html->addScriptMarkup($html_scripts_markup);
 */
 
-// Require the page template
-require(LEGACY_MMRPG_ROOT_DIR.'markup/html-wrapper.php');
+// Print out the final HTML page markup
+$html->printHtmlPage();
 
 
 ?>
