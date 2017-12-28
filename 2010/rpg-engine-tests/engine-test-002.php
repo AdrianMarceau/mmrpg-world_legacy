@@ -49,14 +49,12 @@ if (empty($_GET['user']) || empty($_GET['target'])){
   exit();
 }
 
-// Require the top files
-require('../../config.php');
-require('../../apptop.php');
-
-// Define the headers for this file
-$html_title_text = 'RPG Engine Tests 002/004 | '.$html_title_text;
-$html_content_title = $html_content_title.' | RPG Engine Tests 002/004';
-$html_content_description = 'Several different engines were written to test the feasibility of a PHP-based Mega Man RPG.  This is the second of those tests.';
+// Define the headers for this HTML page
+$html->addTitle('RPG Engine Tests')->addTitle('002/004');
+$html->setContentDescription(
+    'Several small battle engine tests and components were written to gauge the feasibility of a PHP-based Mega Man RPG. '.
+    'This is the second of those early tests. '
+    );
 
 // Start the ouput buffer to collect content
 ob_start();
@@ -142,7 +140,7 @@ ob_start();
 
 // Collect content from the ouput buffer
 $html_content_markup = ob_get_clean();
-
+$html->addContentMarkup($html_content_markup);
 
 // Start the ouput buffer to collect content
 ob_start();
@@ -259,8 +257,9 @@ ob_start();
 
 // Collect styles from the ouput buffer
 $html_styles_markup = ob_get_clean();
+$html->addStyleMarkup($html_styles_markup);
 
-// Require the page template
-require('../../html.php');
+// Print out the final HTML page markup
+$html->printHtmlPage();
 
 ?>

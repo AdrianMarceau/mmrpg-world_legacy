@@ -20,14 +20,12 @@ require_once("{$CLASSROOT}android.class.php");
 require_once("{$INCLUDESROOT}define_types.php");
 require_once("{$INCLUDESROOT}define_abilities.php");
 
-// Require the top files
-require('../../config.php');
-require('../../apptop.php');
-
-// Define the headers for this file
-$html_title_text = 'RPG Engine Tests 003/004 | '.$html_title_text;
-$html_content_title = $html_content_title.' | RPG Engine Tests 003/004';
-$html_content_description = 'Several different engines were written to test the feasibility of a PHP-based Mega Man RPG.  This is the third of those tests.';
+// Define the headers for this HTML page
+$html->addTitle('RPG Engine Tests')->addTitle('003/004');
+$html->setContentDescription(
+    'Several small battle engine tests and UI components were written to gauge the feasibility of a PHP-based Mega Man RPG. '.
+    'This is the third of those early tests. '
+    );
 
 // Define robot names to loop through
 $robot_index = array();
@@ -83,6 +81,7 @@ ob_start();
 
 // Collect content from the ouput buffer
 $html_content_markup = ob_get_clean();
+$html->addContentMarkup($html_content_markup);
 
 
 // Start the ouput buffer to collect styles
@@ -155,8 +154,9 @@ ob_start();
 
 // Collect styles from the ouput buffer
 $html_styles_markup = ob_get_clean();
+$html->addStyleMarkup($html_styles_markup);
 
-// Require the page template
-require('../../html.php');
+// Print out the final HTML page markup
+$html->printHtmlPage();
 
 ?>
