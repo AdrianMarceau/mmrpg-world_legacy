@@ -40,7 +40,8 @@ $legacy_content_raw = $db->getArrayList("SELECT
     content.content_has_sprites,
     content.content_has_artwork,
     content.content_is_interactive,
-    content.content_is_playable
+    content.content_is_playable,
+    content.content_is_todo
     FROM legacy_content AS content
     LEFT JOIN legacy_content_categories AS categories ON categories.category_id = content.category_id
     ORDER BY
@@ -102,7 +103,7 @@ ob_start();
                             $content_classes = '';
 
                             // Define flag vars for boolean triggers
-                            $flag_todo = false;
+                            $flag_todo = !empty($content_info['content_is_todo']) ? true : false;
 
                             // Generate the URL vars based on path and year
                             $full_url = $content_info['content_year'].'/'.$content_info['content_path'];
