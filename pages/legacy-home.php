@@ -105,7 +105,7 @@ ob_start();
                             $flag_todo = false;
 
                             // Generate the URL vars based on path and year
-                            $full_url = $content_info['content_path'];
+                            $full_url = $content_info['content_year'].'/'.$content_info['content_path'];
                             $display_url = str_replace(array('/index.php', '.php'), '', $full_url);
                             $link_url = str_replace('/index.php', '/', $full_url);
 
