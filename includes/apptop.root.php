@@ -1,7 +1,7 @@
 <?php
 
 // Require config file
-require('config-root.php');
+require('config.root.php');
 
 // Include any global class files
 require_once(LEGACY_MMRPG_ROOT_DIR.'classes/DatabaseConnect.class.php');

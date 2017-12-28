@@ -2,7 +2,7 @@
 
 // Require the root config and top files
 $root_path = preg_replace('/^(.*?(?:\\\|\/))(?:19|20)[0-9]{2}(?:\\\|\/)[-a-z0-9]+(?:\\\|\/)(.*?)$/i', '$1', __FILE__);
-require_once($root_path.'includes/apptop-root.php');
+require_once($root_path.'includes/apptop.root.php');
 
 // Define the CURRENTDOMAIN, ISLIVE and FUNCTIONROOT
 $host_name = !empty($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : (!empty($_SERVER['HOST_NAME']) ? $_SERVER['HOST_NAME'] : '');

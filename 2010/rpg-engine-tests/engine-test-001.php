@@ -180,7 +180,7 @@ ob_start();
         }
         // Create the new robot object now that everything is ready
         $robot_characters[] = new robot($this_profile, $robot_types[$robotinfo['robot_type']], $this_stats);
-        echo "Created a character!<br />";
+        echo "Created a character named {$this_profile['name']}!<br />";
     }
     @mysql_free_result($query_result);
 
