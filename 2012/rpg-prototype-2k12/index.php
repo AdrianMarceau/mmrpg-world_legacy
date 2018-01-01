@@ -1,16 +1,11 @@
 <?php
 
-// Require the top files
-require('../../config.php');
-require('../../apptop.php');
-
-// Define the headers for this file
-$html_title_text = 'RPG Prototype 2k12 | '.$html_title_text;
-$html_content_title = $html_content_title.' | RPG Prototype 2k12';
-$html_content_description = '';
-
 // Include the TOP file
 require_once('top.php');
+
+// Define the headers for this HTML page
+$html->addTitle('RPG Prototype 2k12');
+$html->setContentDescription('');
 
 // Start the ouput buffer to collect content
 ob_start();
@@ -40,6 +35,7 @@ ob_start();
     <?
 // Collect content from the ouput buffer
 $html_content_markup = ob_get_clean();
+$html->addContentMarkup($html_content_markup);
 
 // Start the ouput buffer to collect styles
 ob_start();
@@ -55,6 +51,7 @@ ob_start();
     <?
 // Collect styles from the ouput buffer
 $html_styles_markup = ob_get_clean();
+$html->addStyleMarkup($html_styles_markup);
 
 // Start the ouput buffer to collect scripts
 ob_start();
@@ -96,9 +93,10 @@ ob_start();
     <?
 // Collect scripts from the ouput buffer
 $html_scripts_markup = ob_get_clean();
+$html->addScriptMarkup($html_scripts_markup);
 
-// Require the page template
+// Print out the final HTML page markup
 define('LEGACY_FLAG_SKIP_WRAPPER', true);
-require('../../html.php');
+$html->printHtmlPage();
 
 ?>
