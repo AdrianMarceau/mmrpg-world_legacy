@@ -47,8 +47,8 @@ $legacy_content_raw = $db->getArrayList("SELECT
     ORDER BY
     content.category_id ASC,
     content.content_year DESC,
-    content.content_group ASC,
     content.content_month DESC,
+    content.content_group ASC,
     content.content_path DESC
     ;", 'content_id');
 
@@ -93,11 +93,18 @@ ob_start();
                     echo('<li class="item">'.PHP_EOL);
 
                         // Print out the name for this item
-                        echo('<strong class="name">'.$content_group_name.'</strong>'.PHP_EOL);
+                        echo('<div class="title">'.PHP_EOL);
+                            echo('<strong class="name">'.$content_group_name.'</strong>'.PHP_EOL);
+                            $content_year = !empty($content_group_items[0]['content_year']) ? $content_group_items[0]['content_year'] : false;
+                            $content_month = !empty($content_group_items[0]['content_month']) ? $content_group_items[0]['content_month'] : false;
+                            if (!empty($content_month)){ $date_text = date('F', mktime(0, 0, 0, $content_month, 1, $content_year)).' '.$content_year; }
+                            else { $date_text = $content_year; }
+                            echo('<span class="date">('.$date_text.')</span>'.PHP_EOL);
+                        echo('</div>'.PHP_EOL);
 
                         // Loop through paths and print out each link
                         echo('<ul class="sublist">'.PHP_EOL);
-                        foreach ($content_group_items AS $content_id => $content_info){
+                        foreach ($content_group_items AS $content_key => $content_info){
 
                             // Define string var for content classes
                             $content_classes = '';
