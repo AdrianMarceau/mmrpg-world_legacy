@@ -1,11 +1,11 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<? if (!strstr($this->root_url, 'local.')){ ?>
-<script async src="https://www.googletagmanager.com/gtag/js?id=<?= $this->analytics_id ?>"></script>
+<? if (LEGACY_MMRPG_IS_LIVE){ ?>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?= LEGACY_MMRPG_GA_ACCOUNTID ?>"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', '<?= $this->analytics_id ?>');
+    gtag('config', '<?= LEGACY_MMRPG_GA_ACCOUNTID ?>');
 </script>
 <? } ?>
 <!-- End Global site tag (gtag.js) - Google Analytics -->
