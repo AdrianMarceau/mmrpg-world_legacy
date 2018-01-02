@@ -26,6 +26,10 @@ define('MMRPG_CONFIG_DBUSERNAME', LEGACY_MMRPG_DB_USERNAME);
 define('MMRPG_CONFIG_DBPASSWORD', LEGACY_MMRPG_DB_PASSWORD);
 define('MMRPG_CONFIG_DBCHARSET', LEGACY_MMRPG_DB_CHARSET);
 
+// Define the global credentials for any web analytics accounts
+define('MMRPG_ANALYTICS_ACCOUNT', LEGACY_MMRPG_GA_ACCOUNTID);
+define('MMRPG_ANALYTICS_DOMAIN', 'legacy.mmrpg-world.net');
+
 // Define the list of administrator-approved remote addresses
 define('MMRPG_CONFIG_ADMIN_LIST', LEGACY_MMRPG_ADMIN_LIST);
 
