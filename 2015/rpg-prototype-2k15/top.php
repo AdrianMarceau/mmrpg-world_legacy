@@ -13,6 +13,10 @@ if (!in_array($_SERVER['REMOTE_ADDR'], array('999.999.999.999'))){
  * GLOBAL INCLUDES
  */
 
+// Include the legacy config and apptop root
+require_once('data/config.legacy.php');
+require_once(LEGACY_MMRPG_ROOT_DIR.'includes/apptop.root.php');
+
 // Start the session
 @date_default_timezone_set('Canada/Eastern');
 //@ini_set('session.gc_maxlifetime', 24*60*60);
@@ -24,7 +28,9 @@ if (!isset($_SESSION['RPG2k15'])){ $_SESSION['RPG2k15'] = array(); }
 // Include mandatory config files
 define('MMRPG_BUILD', 'mmrpg2k15');
 define('MMRPG_VERSION', '3.0.0');
-require('data/config.php');
+//require('data/config.php');
+
+// Include mandatory setting files
 require('data/settings.php');
 require('data/debug.php');
 

@@ -8,7 +8,7 @@ require_once(LEGACY_MMRPG_ROOT_DIR.'classes/DatabaseConnect.class.php');
 require_once(LEGACY_MMRPG_ROOT_DIR.'classes/LegacyPage.class.php');
 
 // Start the session
-session_start();
+if (session_id() == ''){ session_start(); }
 
 // Initialize the global DB object
 $db_config = array();
@@ -36,7 +36,7 @@ $html->setContentTitle('Mega Man RPG World | Legacy Archive');
 
 // If we're not in the index, add year to titles
 if (!defined('IS_LEGACY_INDEX') && isset($_SERVER['PHP_SELF'])){
-    $rel_path = ltrim(str_replace($mmrpg_root_url, '', $_SERVER['PHP_SELF']), '/');
+    $rel_path = ltrim(str_replace(LEGACY_MMRPG_ROOT_URL, '', $_SERVER['PHP_SELF']), '/');
     $path_parts = strstr($rel_path, '/') ? explode('/', $rel_path) : array($rel_path);
     if (!empty($path_parts[0])){
         $legacy_year = $path_parts[0];
