@@ -90,6 +90,7 @@ ob_start();
         <script type="text/javascript">
 
         </script>
+        <? require('data/analytics.php'); ?>
     <?
 // Collect scripts from the ouput buffer
 $html_scripts_markup = ob_get_clean();

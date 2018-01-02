@@ -113,9 +113,11 @@ $(document).ready(function(){
 <?=print_r($mmrpg_index['robots'], true)?>
 </pre>
 */?>
+<? require('data/analytics.php'); ?>
+<?/*
 <script type="text/javascript">
 var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-28757226-1']);
+_gaq.push(['_setAccount', '<?= $MMRPG_CONFIG['ANALYTICS_ACCOUNT'] ?>']);
 _gaq.push(['_trackPageview']);
 (function() {
   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -123,5 +125,6 @@ _gaq.push(['_trackPageview']);
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 </script>
+*/?>
 </body>
 </html>

@@ -28,6 +28,7 @@ $MMRPG_CONFIG['CACHE_STYLES'] = false;
 $MMRPG_CONFIG['CACHE_SCRIPTS'] = false;
 $MMRPG_CONFIG['CACHE_INDEXES'] = false;
 $MMRPG_CONFIG['CACHE_DATE'] = '20120108-09';
+$MMRPG_CONFIG['ANALYTICS_ACCOUNT'] = LEGACY_MMRPG_GA_ACCOUNTID;
 
 /*
  * FILESYSTEM CONFIG
@@ -37,15 +38,11 @@ $MMRPG_CONFIG['CACHE_DATE'] = '20120108-09';
  */
 
 // Define the filesystem config variables
+$MMRPG_CONFIG['IS_LIVE'] = LEGACY_MMRPG_IS_LIVE; // System is LIVE/LOCAL
 $MMRPG_CONFIG['ROOTDIR'] = LEGACY_MMRPG_ROOT_DIR.'2012/rpg-prototype-2k12/'; // System Root DIR
 $MMRPG_CONFIG['ROOTURL'] = LEGACY_MMRPG_ROOT_URL.'2012/rpg-prototype-2k12/'; // System Root URL
-if (strstr($MMRPG_CONFIG['DOMAIN'], 'local.')){
-  $MMRPG_CONFIG['IS_LIVE'] = false; // System is not LIVE
-  $MMRPG_CONFIG['IS_HTACCESS'] = true; // System allows use of .htaccess
-}
-else {
-  $MMRPG_CONFIG['IS_LIVE'] = true; // System is LIVE
-  $MMRPG_CONFIG['IS_HTACCESS'] = true; // System allows use of .htaccess
+$MMRPG_CONFIG['IS_HTACCESS'] = true; // System allows use of .htaccess
+if ($MMRPG_CONFIG['IS_LIVE']){
   $MMRPG_CONFIG['CACHE_STYLES'] = true; // Turn ON style caching
   $MMRPG_CONFIG['CACHE_SCRIPTS'] = true; // Turn ON script caching
   $MMRPG_CONFIG['CACHE_INDEXES'] = true; // Turn ON index caching

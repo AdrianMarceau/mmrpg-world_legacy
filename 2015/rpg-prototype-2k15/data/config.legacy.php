@@ -9,15 +9,10 @@ require_once($root_path.'includes/config.root.php');
 $temp_domain = isset($temp_domain[0]) ? $temp_domain[0] : false;
 
 // Define the global path variables for this installation
+define('MMRPG_CONFIG_IS_LIVE', LEGACY_MMRPG_IS_LIVE);
 define('MMRPG_CONFIG_ROOTDIR', LEGACY_MMRPG_ROOT_DIR.'2015/rpg-prototype-2k15/');
 define('MMRPG_CONFIG_ROOTURL', LEGACY_MMRPG_ROOT_URL.'2015/rpg-prototype-2k15/');
-if ($temp_domain == 'localhost' || strstr($temp_domain, 'local.')){
-  define('MMRPG_CONFIG_CACHE_INDEXES', false);
-  define('MMRPG_CONFIG_IS_LIVE', false);
-} else {
-  define('MMRPG_CONFIG_CACHE_INDEXES', true);
-  define('MMRPG_CONFIG_IS_LIVE', false);
-}
+define('MMRPG_CONFIG_CACHE_INDEXES', MMRPG_CONFIG_IS_LIVE ? true : false);
 
 // Define the global database credentials for this installation
 define('MMRPG_CONFIG_DBHOST', LEGACY_MMRPG_DB_HOST);
