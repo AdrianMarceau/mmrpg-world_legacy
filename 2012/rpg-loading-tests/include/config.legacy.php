@@ -1,9 +1,8 @@
 <?php
 
-// Require the root config
+// Require the root config and top files
 $root_path = preg_replace('/^(.*?(?:\\\|\/))(?:19|20)[0-9]{2}(?:\\\|\/)[-a-z0-9]+(?:\\\|\/)(.*?)$/i', '$1', __FILE__);
-$config_path = $root_path.'config.php';
-require($config_path);
+require_once($root_path.'includes/config.root.php');
 
 // Initialize the config array
 define('PLUTOCMS_CONFIG', 'PLUTOCMS_CONFIG');
@@ -34,16 +33,10 @@ $PLUTOCMS_CONFIG['CORE']['IS_HTACCESS'] = false;
  */
 
 // Define the ROOT DIR, URL, and environment variables
-if (strstr($PLUTOCMS_CONFIG['CORE']['DOMAIN'], '.local')){
-  $PLUTOCMS_CONFIG['CORE']['ROOTDIR'] = $mmrpg_root_dir.'2012/rpg-battle-tests/'; // System Root DIR
-  $PLUTOCMS_CONFIG['CORE']['ROOTURL'] = $mmrpg_root_url.'2012/rpg-battle-tests/'; // System Root URL
-  $PLUTOCMS_CONFIG['CORE']['IS_LIVE'] = false; // System is not LIVE
-}
-else {
-  $PLUTOCMS_CONFIG['CORE']['ROOTDIR'] = $mmrpg_root_dir.'2012/rpg-battle-tests/'; // System Root DIR
-  $PLUTOCMS_CONFIG['CORE']['ROOTURL'] = $mmrpg_root_url.'2012/rpg-battle-tests/'; // System Root URL
-  $PLUTOCMS_CONFIG['CORE']['IS_LIVE'] = true; // System is LIVE
-}
+$PLUTOCMS_CONFIG['CORE']['IS_LIVE'] = LEGACY_MMRPG_IS_LIVE; // System is LIVE/LOCAL
+$PLUTOCMS_CONFIG['CORE']['ROOTDIR'] = LEGACY_MMRPG_ROOT_DIR.'2012/rpg-battle-tests/'; // System Root DIR
+$PLUTOCMS_CONFIG['CORE']['ROOTURL'] = LEGACY_MMRPG_ROOT_URL.'2012/rpg-battle-tests/'; // System Root URL
+$PLUTOCMS_CONFIG['CORE']['IS_HTACCESS'] = true; // System allows use of htaccess
 
 /*
  * DATABASE CONFIG
@@ -52,10 +45,10 @@ else {
  */
 
 // Define database connection details
-$PLUTOCMS_CONFIG['DB']['HOST'] = $mmrpg_database_host; // Database Host
-$PLUTOCMS_CONFIG['DB']['NAME'] = $mmrpg_database_name; // Database Name
-$PLUTOCMS_CONFIG['DB']['USERNAME'] = $mmrpg_database_username; // Database UserName
-$PLUTOCMS_CONFIG['DB']['PASSWORD'] = $mmrpg_database_password; // Database Password
-$PLUTOCMS_CONFIG['DB']['CHARSET'] = $mmrpg_database_charset; // Database Charset
+$PLUTOCMS_CONFIG['DB']['HOST'] = LEGACY_MMRPG_DB_HOST; // Database Host
+$PLUTOCMS_CONFIG['DB']['NAME'] = 'legacy_mmrpg'; // Database Name
+$PLUTOCMS_CONFIG['DB']['USERNAME'] = LEGACY_MMRPG_DB_USERNAME; // Database UserName
+$PLUTOCMS_CONFIG['DB']['PASSWORD'] = LEGACY_MMRPG_DB_PASSWORD; // Database Password
+$PLUTOCMS_CONFIG['DB']['CHARSET'] = LEGACY_MMRPG_DB_CHARSET; // Database Charset
 
 ?>

@@ -9,7 +9,7 @@ define('LEGACY_MMRPG_ROOT_URL', 'http://www.domain.com/');
 
 // Define the root database credentials for this server
 define('LEGACY_MMRPG_DB_HOST', 'localhost');
-define('LEGACY_MMRPG_DB_NAME', 'legacy_table');
+define('LEGACY_MMRPG_DB_NAME', 'legacy_index');
 define('LEGACY_MMRPG_DB_USERNAME', 'legacy_user');
 define('LEGACY_MMRPG_DB_PASSWORD', 'P@SSW0RD');
 define('LEGACY_MMRPG_DB_CHARSET', 'utf8');

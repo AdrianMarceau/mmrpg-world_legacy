@@ -51,5 +51,4 @@ $html->addScriptMarkup($html_scripts_markup);
 // Print out the final HTML page markup
 $html->printHtmlPage();
 
-
 ?>
