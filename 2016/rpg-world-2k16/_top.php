@@ -8,6 +8,9 @@ else { define('MMRPG_TOP_INCLUDED', true); }
  * GLOBAL INCLUDES
  */
 
+// Include the legacy config and apptop root
+require_once('includes/config.legacy.php');
+
 // Start the session
 @date_default_timezone_set('Canada/Eastern');
 //@ini_set('session.gc_maxlifetime', 24*60*60);
@@ -19,7 +22,7 @@ if (!isset($_SESSION['RPG2k15'])){ $_SESSION['RPG2k15'] = array(); }
 // Include mandatory config files
 define('MMRPG_BUILD', 'mmrpg2k16');
 define('MMRPG_VERSION', '3.0.0');
-require('includes/config.php');
+//require('includes/config.php');
 require('includes/settings.php');
 
 // Turn on error reporting
@@ -35,7 +38,7 @@ require('classes/cms_database.php');
 require('classes/rpg_functions.php');
 
 // Create the global database object
-if (!defined('MMRPG_INDEX_SESSION') && !defined('MMRPG_INDEX_STYLES')){
+if (!defined('MMRPG_INDEX_SESSION')){
     if (MMRPG_CONFIG_DEBUG_MODE){ $_SESSION['RPG2k16']['DEBUG'] = array(); }
     $db = new cms_database();
     // If the database could not be created, critical error mode!
