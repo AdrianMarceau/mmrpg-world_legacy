@@ -5,7 +5,11 @@
  */
 
 // Include mandatory config files
-require_once('data/config.php');
+//require_once('data/config.php');
+
+// Include the legacy config and apptop root
+require_once('data/config.legacy.php');
+require_once(LEGACY_MMRPG_ROOT_DIR.'includes/apptop.root.php');
 
 // Include mandatory function files
 require_once('data/functions/function.game.php');
