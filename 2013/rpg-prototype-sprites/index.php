@@ -1,16 +1,14 @@
 <?php
 
-// Require the top files
-require('../../config.php');
-require('../../apptop.php');
-
-// Define the headers for this file
-$html_title_text = 'RPG Sprite Animation Tests | '.$html_title_text;
-$html_content_title = $html_content_title.' | RPG Sprite Animation Tests';
-$html_content_description = 'Several different sprite and field animation techniques were experimented with during development of the Mega Man RPG.  This is one of those tests. ';
-
 // Include the application top
 require_once('_top.php');
+
+// Define the headers for this HTML page
+$html->addTitle('RPG Sprite Animation Tests');
+$html->setContentDescription(
+    'Several different sprite and field animation techniques were experimented with during development of the Mega Man RPG. '.
+    'This is one of the more interesting tests. '
+    );
 
 // Now convert the headers to that of an HTML document
 $CMS->header_html();
@@ -88,7 +86,7 @@ ob_start();
     <?
 // Collect content from the ouput buffer
 $html_content_markup = ob_get_clean();
-
+$html->addContentMarkup($html_content_markup);
 
 // Start the ouput buffer to collect styles
 ob_start();
@@ -102,6 +100,7 @@ ob_start();
     <?
 // Collect styles from the ouput buffer
 $html_styles_markup = ob_get_clean();
+$html->addStyleMarkup($html_styles_markup);
 
 // Start the ouput buffer to collect scripts
 ob_start();
@@ -437,8 +436,9 @@ ob_start();
     <?
 // Collect scripts from the ouput buffer
 $html_scripts_markup = ob_get_clean();
+$html->addScriptMarkup($html_scripts_markup);
 
-// Require the page template
-require('../../html.php');
+// Print out the final HTML page markup
+$html->printHtmlPage();
 
 ?>

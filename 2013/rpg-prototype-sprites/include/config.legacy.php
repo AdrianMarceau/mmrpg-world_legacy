@@ -1,9 +1,8 @@
 <?php
 
-// Require the root config
+// Require the root config and top files
 $root_path = preg_replace('/^(.*?(?:\\\|\/))(?:19|20)[0-9]{2}(?:\\\|\/)[-a-z0-9]+(?:\\\|\/)(.*?)$/i', '$1', __FILE__);
-$config_path = $root_path.'config.php';
-require($config_path);
+require_once($root_path.'includes/config.root.php');
 
 // Initialize the config array
 define('PLUTOCMS_CONFIG', 'PLUTOCMS_CONFIG');
@@ -34,17 +33,12 @@ $PLUTOCMS_CONFIG['CORE']['CACHE_TIME'] = mktime(14, 19, 0, 05, 19, 2012);
  * scripts
  */
 
-if (strstr($MMRPG_CONFIG['DOMAIN'], 'local.')){
-  $PLUTOCMS_CONFIG['CORE']['ROOTDIR'] = $mmrpg_root_dir.'2013/rpg-prototype-sprites/'; // System Root DIR
-  $PLUTOCMS_CONFIG['CORE']['ROOTURL'] = $mmrpg_root_url.'2013/rpg-prototype-sprites/'; // System Root URL
-  $PLUTOCMS_CONFIG['CORE']['IS_LIVE'] = false; // System is not LIVE
-  $PLUTOCMS_CONFIG['CORE']['IS_HTACCESS'] = true; // System allows use of .htaccess
-}
-else {
-  $PLUTOCMS_CONFIG['CORE']['ROOTDIR'] = $mmrpg_root_dir.'2013/rpg-prototype-sprites/';; // System Root DIR
-  $PLUTOCMS_CONFIG['CORE']['ROOTURL'] = $mmrpg_root_url.'2013/rpg-prototype-sprites/'; // System Root URL
-  $PLUTOCMS_CONFIG['CORE']['IS_LIVE'] = true; // System is LIVE
-  $PLUTOCMS_CONFIG['CORE']['IS_HTACCESS'] = true; // System allows use of .htaccess
+// Define the filesystem config variables
+$PLUTOCMS_CONFIG['CORE']['IS_LIVE'] = LEGACY_MMRPG_IS_LIVE; // System is LIVE/LOCAL
+$PLUTOCMS_CONFIG['CORE']['ROOTDIR'] = LEGACY_MMRPG_ROOT_DIR.'2013/rpg-prototype-sprites/'; // System Root DIR
+$PLUTOCMS_CONFIG['CORE']['ROOTURL'] = LEGACY_MMRPG_ROOT_URL.'2013/rpg-prototype-sprites/'; // System Root URL
+$PLUTOCMS_CONFIG['CORE']['IS_HTACCESS'] = true; // System allows use of .htaccess
+if ($PLUTOCMS_CONFIG['CORE']['IS_LIVE']){
   $PLUTOCMS_CONFIG['CORE']['CACHE_STYLES'] = true; // Turn ON style caching
   $PLUTOCMS_CONFIG['CORE']['CACHE_SCRIPTS'] = true; // Turn ON script caching
   $PLUTOCMS_CONFIG['CORE']['CACHE_INDEXES'] = true; // Turn ON index caching
@@ -56,10 +50,10 @@ else {
  * connection settings
  */
 
-$PLUTOCMS_CONFIG['DB']['HOST'] = $mmrpg_database_host; // Database Host
-$PLUTOCMS_CONFIG['DB']['NAME'] = $mmrpg_database_name; // Database Name
-$PLUTOCMS_CONFIG['DB']['USERNAME'] = $mmrpg_database_username; // Database Name
-$PLUTOCMS_CONFIG['DB']['PASSWORD'] = $mmrpg_database_password; // Database Password
-$PLUTOCMS_CONFIG['DB']['CHARSET'] = $mmrpg_database_charset; // Database Charset
+$PLUTOCMS_CONFIG['DB']['HOST'] = LEGACY_MMRPG_DB_HOST; // Database Host
+$PLUTOCMS_CONFIG['DB']['NAME'] = 'legacy_mmrpg'; // Database Name
+$PLUTOCMS_CONFIG['DB']['USERNAME'] = LEGACY_MMRPG_DB_USERNAME; // Database Name
+$PLUTOCMS_CONFIG['DB']['PASSWORD'] = LEGACY_MMRPG_DB_PASSWORD; // Database Password
+$PLUTOCMS_CONFIG['DB']['CHARSET'] = LEGACY_MMRPG_DB_CHARSET; // Database Charset
 
 ?>
