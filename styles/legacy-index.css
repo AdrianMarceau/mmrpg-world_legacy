@@ -131,10 +131,10 @@ body h6 {
     width: 96px;
     pointer-events: none;
 }
-.website > .main > .header h1 {
+.website > .main > .header .title {
     display: block;
     margin: 0 auto;
-    padding: 6px;
+    padding: 6px 6px 0;
     font-size: 16px;
     color: #FFFFFF;
     border-top: 1px solid #1A1A1A;
@@ -151,17 +151,35 @@ body h6 {
             rgba(0, 0, 0, 0.05) 15%,
             rgba(255, 255, 255, 0.05) 75%
     );
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
     -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
     -website-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-
 }
-.website > .main > .header h1 .pipe {
+.website > .main > .header .title h1,
+.website > .main > .header .title h2 {
+    display: block;
+    margin: 0 auto;
+    padding: 0 6px 6px;
+    line-height: 1;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+.website > .main > .header .title h1 {
+    font-size: 16px;
+}
+.website > .main > .header .title h2 {
+    font-size: 14px;
+    border-top: 1px solid #242424;
+    padding-top: 6px;
+    font-weight: normal;
+}
+.website > .main > .header .title .pipe {
     font-weight: normal;
     color: #525252;
     padding: 0 6px;
+    text-shadow: 0 0 0 transparent;
 }
+
 .website > .main > .header p {
     display: block;
     margin: 0 auto;
@@ -423,4 +441,15 @@ body h6 {
 .website > .footer .copy a:hover {
     text-decoration: underline;
     color: #898989;
+}
+
+@media (max-width: 1024px){
+
+    .website > .main > .header p {
+        text-align: left;
+        padding-left: 12px;
+        padding-right: 12px;
+        line-height: 1.6;
+    }
+
 }

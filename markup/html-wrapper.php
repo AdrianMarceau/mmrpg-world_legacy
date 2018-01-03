@@ -21,7 +21,21 @@
             <div class="website">
                 <div class="main">
                     <div class="header <?= !defined('IS_LEGACY_INDEX') ? 'has-links' : '' ?>">
-                        <h1><?= str_replace('|', '<span class="pipe">|</span>', $this->content_title) ?></h1>
+                        <div class="title">
+                            <?
+                            // Print out the title, split into h1+h2 if too long
+                            if (substr_count($this->content_title, '|') > 1){
+                                $hx = explode('|', $this->content_title);
+                                $h1 = implode('|', array_slice($hx, 0, 2));
+                                $h2 = implode('|', array_slice($hx, 2));
+                                echo '<h1>'.str_replace('|', '<span class="pipe">|</span>', $h1).'</h1>'.PHP_EOL;
+                                echo '<h2>'.str_replace('|', '<span class="pipe">&raquo;</span>', $h2).'</h2>'.PHP_EOL;
+                            } else {
+                                $h1 = $this->content_title;
+                                echo '<h1>'.str_replace('|', '<span class="pipe">|</span>', $h1).'</h1>'.PHP_EOL;
+                            }
+                            ?>
+                        </div>
                         <? if (!empty($this->content_description)){ ?><p><?= $this->content_description ?></p><? } ?>
                         <? if (!defined('IS_LEGACY_INDEX')){ ?><div class="links"><a class="link back" href="<?= $this->root_url ?>"><span>Return to Archive Index</span></a></div><? } ?>
                     </div>
