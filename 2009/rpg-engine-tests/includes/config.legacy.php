@@ -11,8 +11,8 @@ define('CURRENTDOMAIN', strstr($host_name, 'local.') ? 'localhost' : 'remote');
 // Define the ROOT DIRs for this project
 if (strstr(CURRENTDOMAIN, 'local.')){ define('ISLIVE', false); }
 else { define('ISLIVE', true); }
-define('ROOTDIR', LEGACY_MMRPG_ROOT_DIR.'2010/rpg-engine-tests/');
-define('ROOTURL', LEGACY_MMRPG_ROOT_URL.'2010/rpg-engine-tests/');
+define('ROOTDIR', LEGACY_MMRPG_ROOT_DIR.'2009/rpg-engine-tests/');
+define('ROOTURL', LEGACY_MMRPG_ROOT_URL.'2009/rpg-engine-tests/');
 
 // Define the database details for this project
 define('DBHOST', LEGACY_MMRPG_DB_HOST);

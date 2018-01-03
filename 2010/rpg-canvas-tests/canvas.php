@@ -5,7 +5,7 @@ $root_path = preg_replace('/^(.*?(?:\\\|\/))(?:19|20)[0-9]{2}(?:\\\|\/)[-a-z0-9]
 require_once($root_path.'includes/apptop.root.php');
 
 // Define the headers for this HTML page
-$html->addTitle('Battle Engine Canvas Test #1');
+$html->addTitle('RPG Canvas Tests')->addTitle('Sprite Animations');
 $html->setContentDescription(
     'While developing the battle system for the Mega Man RPG a few different sprite animation techniques were tested. '.
     'This one used infinitely looping timeouts. '

@@ -15,7 +15,7 @@ define('PLUTOCMS_DATABASE', 'DB');
 ${PLUTOCMS_DATABASE} = new plutocms_database($PLUTOCMS_CONFIG['DB']);
 
 // Define the headers for this HTML page
-$html->addTitle('Battle Engine Canvas Test #2');
+$html->addTitle('RPG Canvas Tests')->addTitle('Battle Window Mockups');
 $html->setContentDescription(
     'While developing the battle system for the Mega Man RPG a number of different field layouts were experimented with. '.
     'This was one of the layouts tested. '

@@ -131,10 +131,10 @@ class robot {
 }
 
 // Define the headers for this HTML page
-$html->addTitle('RPG Engine Tests')->addTitle('001/004');
+$html->addTitle('RPG Engine Tests')->addTitle('Object Creation');
 $html->setContentDescription(
     'Several small battle engine tests and components were written to gauge the feasibility of a PHP-based Mega Man RPG. '.
-    'This is the first of those "tests". '
+    'This is the first of those "tests" creating objects. '
     );
 
 // Start the ouput buffer to collect content

@@ -5,7 +5,7 @@ $root_path = preg_replace('/^(.*?(?:\\\|\/))(?:19|20)[0-9]{2}(?:\\\|\/)[-a-z0-9]
 require_once($root_path.'includes/apptop.root.php');
 
 // Define the headers for this HTML page
-$html->addTitle('Roleplay Game Forum Tests')->addTitle('Robot Attacks');
+$html->addTitle('RPG Roleplay Forum')->addTitle('Robot Attack Ideas');
 $html->setContentDescription(
     'One of the first ideas for the Mega Man RPG revolved around a play-by-post forum game with '.
     'premade mechanics and abilities.  Here are some of the planned abilities: '

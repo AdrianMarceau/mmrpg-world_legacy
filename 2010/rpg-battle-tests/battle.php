@@ -8,7 +8,7 @@ require_once($root_path.'includes/apptop.root.php');
 require_once('include/config.legacy.php');
 
 // Define the headers for this HTML page
-$html->addTitle('Battle Engine Turn-Order Test');
+$html->addTitle('RPG Battle Tests')->addTitle('Robot Turn Order');
 $html->setContentDescription(
     'While developing the battle engine for the Mega Man RPG many different mechanics were tested. '.
     'This one allowed multiple robot actions per turn ordered by speed. '

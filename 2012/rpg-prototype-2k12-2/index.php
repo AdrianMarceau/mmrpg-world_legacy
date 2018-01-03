@@ -44,7 +44,7 @@ $_SESSION['RPG2k12-2']['ABILITIES'] = array();
 <html not-manifest="manifest.php?<?=$MMRPG_CONFIG['CACHE_DATE']?>">
 <head>
 <meta charset="UTF-8" />
-<title>RPG Prototype 2k12-2 | MMRPG-World.NET (Legacy) | Last Updated <?= preg_replace('#([0-9]{4})([0-9]{2})([0-9]{2})-([0-9]{2})#', '$1/$2/$3', $MMRPG_CONFIG['CACHE_DATE']) ?></title>
+<title>RPG Prototype 2k12 v2 | MMRPG-World.NET (Legacy) | Last Updated <?= preg_replace('#([0-9]{4})([0-9]{2})([0-9]{2})-([0-9]{2})#', '$1/$2/$3', $MMRPG_CONFIG['CACHE_DATE']) ?></title>
 <meta name="keywords" content="megaman,mega man,protoman,proto man,rpg,prototype,dr.light,dr.wily,battle,browser,ipad" />
 <meta name="description" content="Battle through more than sixteen robot masters in classic RPG style with either Dr. Light and Mega Man or Dr. Wily and Proto Man!" />
 <meta name="robots" content="noindex,nofollow" />

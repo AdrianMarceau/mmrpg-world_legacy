@@ -21,7 +21,7 @@ require_once("{$INCLUDESROOT}define_types.php");
 require_once("{$INCLUDESROOT}define_abilities.php");
 
 // Define the headers for this HTML page
-$html->addTitle('RPG Engine Tests')->addTitle('003/004');
+$html->addTitle('RPG Engine Tests')->addTitle('Battle Avatars');
 $html->setContentDescription(
     'Several small battle engine tests and UI components were written to gauge the feasibility of a PHP-based Mega Man RPG. '.
     'This is the third of those early tests. '

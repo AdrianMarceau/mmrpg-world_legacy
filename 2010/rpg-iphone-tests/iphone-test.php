@@ -5,7 +5,7 @@ $root_path = preg_replace('/^(.*?(?:\\\|\/))(?:19|20)[0-9]{2}(?:\\\|\/)[-a-z0-9]
 require_once($root_path.'includes/apptop.root.php');
 
 // Define the headers for this HTML page
-$html->addTitle('RPG iPhone Game Test');
+$html->addTitle('RPG iPhone Tests')->addTitle('Battle Window Mockup');
 $html->setContentDescription(
     'Early concepts for the  Mega Man RPG had the the target device of an iPhone or other comparable smartphone. '.
     'This is an unfinished mockup of a potential battle system layout. '

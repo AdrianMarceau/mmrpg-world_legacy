@@ -15,7 +15,7 @@ define('PLUTOCMS_DATABASE', 'DB');
 ${PLUTOCMS_DATABASE} = new plutocms_database($PLUTOCMS_CONFIG['DB']);
 
 // Define the headers for this HTML page
-$html->addTitle('Battle Engine Load Test #1');
+$html->addTitle('RPG Loading Tests')->addTitle('Load Robot Abilities');
 $html->setContentDescription(
     'While developing the battle engine for the Mega Man RPG a few different loading techniques were tested. '.
     'This one tested loading robots and the abilities they learned. '

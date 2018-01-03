@@ -13,7 +13,7 @@
 require('apptop.php');
 
 // Define the headers for this HTML page
-$html->addTitle('RPG Engine Tests')->addTitle('004/004');
+$html->addTitle('RPG Engine Tests')->addTitle('Attack Damage');
 $html->setContentDescription(
     'Several small battle engine tests and components were written to gauge the feasibility of a PHP-based Mega Man RPG. '.
     'This is the one of the early stat tests. '

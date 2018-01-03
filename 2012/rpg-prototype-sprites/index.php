@@ -4,7 +4,7 @@
 require_once('_top.php');
 
 // Define the headers for this HTML page
-$html->addTitle('RPG Sprite Animation Tests');
+$html->addTitle('RPG Animation Tests')->addTitle('Battle Field Robots');
 $html->setContentDescription(
     'Several different sprite and field animation techniques were experimented with during development of the Mega Man RPG. '.
     'This is one of the more interesting tests. '

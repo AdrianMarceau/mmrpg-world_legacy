@@ -5,7 +5,7 @@ $root_path = preg_replace('/^(.*?(?:\\\|\/))(?:19|20)[0-9]{2}(?:\\\|\/)[-a-z0-9]
 require_once($root_path.'includes/apptop.root.php');
 
 // Define the headers for this HTML page
-$html->addTitle('RPG Ability Generator');
+$html->addTitle('RPG Ability Tests')->addTitle('Special Weapon Generator');
 $html->setContentDescription(
     'At one point robot masters would learn new abilities based on who they defeated in battle. '.
     'This is a list of abilities generated in this way. '

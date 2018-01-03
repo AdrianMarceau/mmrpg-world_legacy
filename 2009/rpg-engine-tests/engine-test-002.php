@@ -50,7 +50,7 @@ if (empty($_GET['user']) || empty($_GET['target'])){
 }
 
 // Define the headers for this HTML page
-$html->addTitle('RPG Engine Tests')->addTitle('002/004');
+$html->addTitle('RPG Engine Tests')->addTitle('Robot Profiles');
 $html->setContentDescription(
     'Several small battle engine tests and components were written to gauge the feasibility of a PHP-based Mega Man RPG. '.
     'This is the second of those early tests. '
