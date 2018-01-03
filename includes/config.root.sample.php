@@ -18,7 +18,7 @@ define('LEGACY_MMRPG_DB_CHARSET', 'utf8');
 define('LEGACY_MMRPG_GA_ACCOUNTID', 'UA-00000000-0');
 
 // Define the cache timestamp for updates
-define('LEGACY_MMRPG_CACHE_DATE', '2017-12-27');
+define('LEGACY_MMRPG_CACHE_DATE', '2018-01-03');
 
 // Define the list of administrator-approved IP addresses
 $temp_list = array('127.0.0.1');
