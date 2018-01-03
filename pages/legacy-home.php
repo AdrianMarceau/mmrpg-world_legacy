@@ -95,11 +95,12 @@ ob_start();
                         // Print out the name for this item
                         echo('<div class="title">'.PHP_EOL);
                             echo('<strong class="name">'.$content_group_name.'</strong>'.PHP_EOL);
-                            $content_year = !empty($content_group_items[0]['content_year']) ? $content_group_items[0]['content_year'] : false;
-                            $content_month = !empty($content_group_items[0]['content_month']) ? $content_group_items[0]['content_month'] : false;
-                            if (!empty($content_month)){ $date_text = date('F', mktime(0, 0, 0, $content_month, 1, $content_year)).' '.$content_year; }
-                            else { $date_text = $content_year; }
-                            echo('<span class="date">('.$date_text.')</span>'.PHP_EOL);
+                            //$content_year = !empty($content_group_items[0]['content_year']) ? $content_group_items[0]['content_year'] : false;
+                            //$content_month = !empty($content_group_items[0]['content_month']) ? $content_group_items[0]['content_month'] : false;
+                            //if (!empty($content_month)){ $date_text = date('F', mktime(0, 0, 0, $content_month, 1, $content_year)).' '.$content_year; }
+                            //else { $date_text = $content_year; }
+                            //echo('<span class="date">('.$date_text.')</span>'.PHP_EOL);
+                            //echo('<span class="date">('.$content_year.')</span>'.PHP_EOL);
                         echo('</div>'.PHP_EOL);
 
                         // Loop through paths and print out each link
@@ -117,6 +118,16 @@ ob_start();
                             $display_url = str_replace(array('/index.php', '.php'), '', $full_url);
                             $link_url = str_replace('/index.php', '/', $full_url);
 
+                            // Collect the display ame
+                            $display_name = $content_info['content_name'];
+
+                            // Generate the date text for this piece of content
+                            $year = !empty($content_info['content_year']) ? $content_info['content_year'] : false;
+                            $month = !empty($content_info['content_month']) ? $content_info['content_month'] : false;
+                            if (!empty($month)){ $date_text = date('F', mktime(0, 0, 0, $month, 1, $year)).' '.$year; }
+                            //if (!empty($month)){ $date_text = date('F', mktime(0, 0, 0, $month, 1, $year)); }
+                            else { $date_text = $year; }
+
                             // Check if file exists and update flags/classes
                             if (!file_exists(LEGACY_MMRPG_ROOT_DIR.$full_url)){ $flag_todo = true; }
                             if ($flag_todo == true){ $content_classes .= ' todo'; }
@@ -130,14 +141,18 @@ ob_start();
                                 }
                             }
 
+                            // Generate the content type text to be displayed
+                            if (empty($content_types)){ $content_type_text = 'unknown'; }
+                            elseif (count($content_types) == 1 && $content_types[0] == 'text'){ $content_type_text = 'text-only'; }
+                            else { $content_type_text = implode(' + ', $content_types); }
+                            $content_type_text = preg_replace('/(playable|interactive)/', '<strong>$1</strong>', $content_type_text);
+
                             // Print the markup for this item with details
                             echo('<li class="subitem'.$content_classes.'">'.PHP_EOL);
-                                echo('<a class="link" href="'.LEGACY_MMRPG_ROOT_URL.$link_url.'" target="_blank">/'.$display_url.'</a>'.PHP_EOL);
-                                if (empty($content_types)){ $content_type_text = 'unknown'; }
-                                elseif (count($content_types) == 1 && $content_types[0] == 'text'){ $content_type_text = 'text-only'; }
-                                else { $content_type_text = implode(' + ', $content_types); }
-                                $content_type_text = preg_replace('/(playable|interactive)/', '<strong>$1</strong>', $content_type_text);
-                                echo('<span class="details">'.$content_type_text.'</span>');
+                                //echo('<a class="link" href="'.LEGACY_MMRPG_ROOT_URL.$link_url.'" target="_blank">/'.$display_url.'</a>'.PHP_EOL);
+                                echo('<a class="link" href="'.LEGACY_MMRPG_ROOT_URL.$link_url.'" target="_blank">'.$display_name.'</a>'.PHP_EOL);
+                                echo('<span class="details date">'.$date_text.'</span>'.PHP_EOL);
+                                echo('<span class="details types">'.$content_type_text.'</span>'.PHP_EOL);
                             echo('</li>'.PHP_EOL);
 
                         }

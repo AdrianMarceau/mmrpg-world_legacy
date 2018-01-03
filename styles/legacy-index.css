@@ -296,24 +296,21 @@ body h6 {
 .website > .main > .body ul.list li.item .details,
 .website > .main > .body ul.sublist li.subitem .details {
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 6px;
     font-style: italic;
     font-size: 11px;
     color: #858585;
 }
+.website > .main > .body ul.list li.item .details.date,
+.website > .main > .body ul.sublist li.subitem .details.date {
+    font-style: normal;
+    color: #959595;
+}
 .website > .main > .body ul.list li.item .details:before,
 .website > .main > .body ul.sublist li.subitem .details:before {
-    content: "(";
+    content: "|";
     display: inline-block;
-    margin-right: 2px;
-    font-style: normal;
-    color: #656565;
-}
-.website > .main > .body ul.list li.item .details:after,
-.website > .main > .body ul.sublist li.subitem .details:after {
-    content: ")";
-    display: inline-block;
-    margin-left: 2px;
+    margin-right: 9px;
     font-style: normal;
     color: #656565;
 }
