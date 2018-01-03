@@ -1,13 +1,15 @@
 <?php
 
-// Require the top files
-require('../../config.php');
-require('../../apptop.php');
+// Require the root config and top files
+$root_path = preg_replace('/^(.*?(?:\\\|\/))(?:19|20)[0-9]{2}(?:\\\|\/)[-a-z0-9]+(?:\\\|\/)(.*?)$/i', '$1', __FILE__);
+require_once($root_path.'includes/apptop.root.php');
 
-// Define the headers for this file
-$html_title_text = 'Battle Engine Tests 004/005 | '.$html_title_text;
-$html_content_title = $html_content_title.' | Battle Engine Tests 004/005';
-$html_content_description = 'While developing the battle system for the Mega Man RPG a few different sprite animation techniques were tested. This one used infinitely looping timeouts.';
+// Define the headers for this HTML page
+$html->addTitle('Battle Engine Canvas Test #1');
+$html->setContentDescription(
+    'While developing the battle system for the Mega Man RPG a few different sprite animation techniques were tested. '.
+    'This one used infinitely looping timeouts. '
+    );
 
 // Start the ouput buffer to collect content
 ob_start();
@@ -18,6 +20,7 @@ ob_start();
     <?
 // Collect content from the ouput buffer
 $html_content_markup = ob_get_clean();
+$html->addContentMarkup($html_content_markup);
 
 // Start the ouput buffer to collect styles
 ob_start();
@@ -44,6 +47,7 @@ ob_start();
     <?
 // Collect styles from the ouput buffer
 $html_styles_markup = ob_get_clean();
+$html->addStyleMarkup($html_styles_markup);
 
 // Start the ouput buffer to collect scripts
 ob_start();
@@ -124,10 +128,9 @@ ob_start();
     <?
 // Collect scripts from the ouput buffer
 $html_scripts_markup = ob_get_clean();
+$html->addScriptMarkup($html_scripts_markup);
 
-// Require the page template
-require('../../html.php');
-
-
+// Print out the final HTML page markup
+$html->printHtmlPage();
 
 ?>
