@@ -34,8 +34,8 @@ $PLUTOCMS_CONFIG['CORE']['IS_HTACCESS'] = false;
 
 // Define the ROOT DIR, URL, and environment variables
 $PLUTOCMS_CONFIG['CORE']['IS_LIVE'] = LEGACY_MMRPG_IS_LIVE; // System is LIVE/LOCAL
-$PLUTOCMS_CONFIG['CORE']['ROOTDIR'] = LEGACY_MMRPG_ROOT_DIR.'2012/rpg-canvas-tests/'; // System Root DIR
-$PLUTOCMS_CONFIG['CORE']['ROOTURL'] = LEGACY_MMRPG_ROOT_URL.'2012/rpg-canvas-tests/'; // System Root URL
+$PLUTOCMS_CONFIG['CORE']['ROOTDIR'] = LEGACY_MMRPG_ROOT_DIR.'2010/rpg-canvas-tests/'; // System Root DIR
+$PLUTOCMS_CONFIG['CORE']['ROOTURL'] = LEGACY_MMRPG_ROOT_URL.'2010/rpg-canvas-tests/'; // System Root URL
 $PLUTOCMS_CONFIG['CORE']['IS_HTACCESS'] = true; // System allows use of htaccess
 
 /*
