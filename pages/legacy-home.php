@@ -129,8 +129,12 @@ ob_start();
                             else { $date_text = $year; }
 
                             // Check if file exists and update flags/classes
-                            if (!file_exists(LEGACY_MMRPG_ROOT_DIR.$full_url)){ $flag_todo = true; }
                             if ($flag_todo == true){ $content_classes .= ' todo'; }
+                            if (preg_match('/\.[a-z0-9]{2,4}$/i', $full_url)
+                                && !file_exists(LEGACY_MMRPG_ROOT_DIR.$full_url)){
+                                $flag_todo = true;
+                            }
+
 
                             // Define what types of content this item has
                             $content_types = array();
