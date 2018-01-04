@@ -37,7 +37,6 @@ $legacy_content_raw = $db->getArrayList("SELECT
     content.content_month,
     content.content_has_text,
     content.content_has_images,
-    content.content_has_sprites,
     content.content_has_artwork,
     content.content_is_interactive,
     content.content_is_playable,
