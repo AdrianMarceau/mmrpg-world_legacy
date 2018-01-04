@@ -24,4 +24,17 @@ define('LEGACY_MMRPG_CACHE_DATE', '2018-01-03');
 $temp_list = array('127.0.0.1');
 define('LEGACY_MMRPG_ADMIN_LIST', implode(',', $temp_list));
 
+// Define the PASSWORD SALT and OMEGA SEED string values
+define('LEGACY_MMRPG_PASSWORD_SALT', 'saltySALTsalt'); // Change this to something unique
+define('LEGACY_MMRPG_OMEGA_SEED', 'c0LL3c710nOFalphaNUMERICchars'); // Change this to something unique
+
+// Define the COPPA email exceptions based on written perission to allow registration
+$temp_list = array('approved-user@email-domain.com');
+define('LEAGCY_MMRPG_COPPA_PERMISSIONS', implode(',', $temp_list));
+
+// Define the list of BANNED remote addresses
+$banned_list = array();
+$banned_list[] = '0.0.0.0'; // empty
+define('LEGACY_MMRPG_BANNED_LIST', implode(',', $banned_list));
+
 ?>
