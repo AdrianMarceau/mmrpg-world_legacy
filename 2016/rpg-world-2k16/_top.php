@@ -17,7 +17,7 @@ require_once('includes/config.legacy.php');
 //@ini_set('session.gc_probability', 1);
 //@ini_set('session.gc_divisor', 1);
 if (session_id() == ''){ session_start(); }
-if (!isset($_SESSION['RPG2k15'])){ $_SESSION['RPG2k15'] = array(); }
+if (!isset($_SESSION['RPG2k16'])){ $_SESSION['RPG2k16'] = array(); }
 
 // Include mandatory config files
 define('MMRPG_BUILD', 'mmrpg2k16');
