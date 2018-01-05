@@ -639,6 +639,8 @@ while ($this_action == 'new'){
   $html_header_text .= 'You must be at least 13 years of age to play this game, else have express persmission from a parent or guardian as required by <a href="http://www.coppa.org/" target="_blank">COPPA</a> law. ';
   */
 
+  /*
+
   // Update the form messages with notice text
   if (empty($html_form_messages)){
     $html_form_messages .= '<span class="help">(!) The Username and Password must be from 6 - 18 characters and can <u>only</u> contain letters and numbers!</span>';
@@ -687,6 +689,15 @@ while ($this_action == 'new'){
     $html_form_buttons = '<input class="button button_continue" type="button" value="Continue" onclick="javascript:parent.window.location.href=\''.MMRPG_CONFIG_ROOTURL.'\';" />';
 
   }
+
+  */
+
+  // Update the page with a legacy build notice
+  $html_form_messages = '';
+  $html_form_messages .= '<span class="help" style="color: red;">(!) New registrations are no longer being accepted on this build of the Mega Man RPG! Sorry!</span>';
+  $html_form_messages .= '<span class="help" style="color: red;">(!) You can still log in with an existing account but otherwise only demo mode will be accessible.</span>';
+  $html_form_buttons = '';
+  $html_form_fields = '';
 
   // Break from the NEW loop
   break;

@@ -1,6 +1,8 @@
 <?php
+
 // Include the TOP file
 require_once('top.php');
+
 // Only process session updates if we're NOT in critical error mode
 if (!defined('MMRPG_CRITICAL_ERROR')){
 
@@ -284,7 +286,9 @@ $this_page_markup = ob_get_clean();
                         <div class="avatar avatar_40x40" style=""><div class="sprite sprite_40x40 sprite_40x40_00" style="background-image: url(images/robots/robot/sprite_left_40x40.png);">Guest</div></div>
                         <div class="info" style="">
                             <strong class="username" style="">Welcome, Guest</strong>
-                            <a class="file file_new <?= $this_current_page == 'file' && $this_current_sub == 'new' ? 'file_active ' : '' ?>" href="file/new/" rel="nofollow" style="">new game</a> <span class="pipe">|</span>
+                            <? /* <a class="file file_new <?= $this_current_page == 'file' && $this_current_sub == 'new' ? 'file_active ' : '' ?>" href="file/new/" rel="nofollow" style="">new game</a>  */ ?>
+                            <span class="file file_new <?= $this_current_page == 'file' && $this_current_sub == 'new' ? 'file_active ' : '' ?>" style="text-decoration: line-through;" title="New registrations are no longer being accepted on this build of the Mega Man RPG! Sorry!">new game</span>
+                            <span class="pipe">|</span>
                             <a class="file file_load <?= $this_current_page == 'file' && $this_current_sub == 'load' ? 'file_active ' : '' ?>" href="file/load/" rel="nofollow" style="">load game</a>
                         </div>
                     <? else: ?>

@@ -274,6 +274,10 @@ while ($this_action == 'save'){
 // Else, if the NEW action was requested
 while ($this_action == 'new'){
 
+  // Disable this functionality completely
+  echo('New registrations are no longer being accepted on this build of the Mega Man RPG! Sorry!');
+  exit();
+
   // If the form has already been submit, process input
   while (!empty($_POST['submit']) && $_POST['submit'] == 'true'){
 
