@@ -159,7 +159,8 @@ if (empty($_SESSION['RPG2k16'][$session_token]['USER']['userid'])
       $this_menu_tooltips['home'] = '&laquo; Home Menu &raquo; &lt;br /&gt;Select your mission from the home menu and prepare for battle! Complete missions in fewer turns to earn more battle points!';
       $this_menu_tooltips['reset'] = '&laquo; Reset Game &raquo; &lt;br /&gt;Reset the demo mode back to the beginning and restart your adventure over from the first level.';
       $this_menu_tooltips['load'] = '&laquo; Load Game &raquo; &lt;br /&gt;Load an existing game file into memory and pick up where you left off during your last save.';
-      $this_menu_tooltips['new'] = '&laquo; New Game &raquo; &lt;br /&gt;Create a new game file with a username and password to save progress and access the full version of the game.';
+      //$this_menu_tooltips['new'] = '&laquo; New Game &raquo; &lt;br /&gt;Create a new game file with a username and password to save progress and access the full version of the game.';
+      $this_menu_tooltips['new'] = '&laquo; New Game &raquo; &lt;br /&gt;New registrations are no longer being accepted on this build of the Mega Man RPG! Sorry!';
       $this_menu_tooltips['exit'] = '&laquo; Exit Game &raquo; &lt;br /&gt;Exit your save game and unload it from memory to return to the demo screen.';
       $this_menu_tooltips['robots'] = '&laquo; Robot Editor &raquo; &lt;br /&gt;Review detailed stats about your battle robots, equip them with new abilities, and transfer them to other players in your save file.';
       $this_menu_tooltips['players'] = '&laquo; Player Editor &raquo; &lt;br /&gt;Review detailed stats about your player characters and reconfigure chapter two battle fields to generate new field and fusion stars.';
@@ -253,7 +254,9 @@ if (empty($_SESSION['RPG2k16'][$session_token]['USER']['userid'])
         <a class="link link_home link_active" data-step="2" data-index="<?= $temp_data_index++ ?>" data-music="misc/stage-select-dr-light" data-tooltip="<?= $this_menu_tooltips['demo'] ?>"><label>demo</label></a> <span class="pipe">|</span>
         <a class="link link_data" data-step="database" data-index="<?= $temp_data_index++ ?>" data-source="frames/database.php" data-music="misc/data-base" data-tooltip="<?= $this_menu_tooltips['database'] ?>"><label>database</label></a> <span class="pipe">|</span>
         <a class="link link_load" data-step="file_load" data-index="<?= $temp_data_index++ ?>" data-source="frames/file.php?action=load" data-music="misc/file-menu" data-tooltip="<?= $this_menu_tooltips['load'] ?>"><label>load</label></a> <span class="pipe">|</span>
-        <a class="link link_new" href="file/new/" target="_blank"data-tooltip="<?= $this_menu_tooltips['new'] ?>"><label>new</label></a> <span class="pipe">|</span>
+        <? /*  <a class="link link_new" href="file/new/" target="_blank"data-tooltip="<?= $this_menu_tooltips['new'] ?>"><label>new</label></a> */  ?>
+        <span class="link link_new" data-tooltip="<?= $this_menu_tooltips['new'] ?>"><label>new</label></span>
+        <span class="pipe">|</span>
         <a class="link link_reset" data-index="<?= $temp_data_index++ ?>" data-tooltip="<?= $this_menu_tooltips['reset'] ?>"><label>reset</label></a>
         <?php
       }
