@@ -3,6 +3,12 @@
  * COMMUNITY THREAD VIEW
  */
 
+// Disable new threads on legacy builds!
+if (true){
+  header('Location: '.MMRPG_CONFIG_ROOTURL.'community/');
+  exit();
+}
+
 // Return to loging if a guest
 if (!empty($_SESSION['RPG2k15'][mmrpg_game_token()]['DEMO'])){
   header('Location: '.MMRPG_CONFIG_ROOTURL.'file/load/return='.$_GET['this_current_uri']);

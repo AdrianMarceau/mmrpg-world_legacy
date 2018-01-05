@@ -63,6 +63,8 @@ foreach ($this_categories_index AS $this_category_id => $this_category_info){
       'class' => 'field_type field_type_none'
       );
   }
+  /*
+  // Disable new threads on legacy builds!
   // If this user has the necessary permissions, show the new thread link
   if($this_userid != MMRPG_SETTINGS_GUEST_ID && $this_userinfo['role_level'] >= $this_category_info['category_level'] && $community_battle_points >= 10000){
     $temp_header_links[] = array(
@@ -71,6 +73,7 @@ foreach ($this_categories_index AS $this_category_id => $this_category_info){
       'class' => 'field_type field_type_none'
       );
   }
+  */
   // If there are new threads in this category, show the new/recent link
   $this_threads_count_new = !empty($_SESSION['RPG2k15']['COMMUNITY']['threads_new_categories'][$this_category_info['category_id']]) ? $_SESSION['RPG2k15']['COMMUNITY']['threads_new_categories'][$this_category_info['category_id']] : 0;
   if ($this_threads_count_new > 0){

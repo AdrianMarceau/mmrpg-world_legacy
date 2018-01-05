@@ -357,7 +357,8 @@ ob_start();
         <a class="link_button field_type field_type_empty" href="<?= $this_playerinfo['user_website_address'] ?>" target="_blank">Website</a>
       <? endif; ?>
       <? if ($this_userid != MMRPG_SETTINGS_GUEST_ID && $this_userid != $this_playerinfo['user_id'] && !empty($this_userinfo['user_flag_postprivate'])): ?>
-        <a class="link_button field_type field_type_empty" href="community/personal/0/new/<?= $this_playerinfo['user_name_clean'] ?>/">Message</a>
+        <? /* <a class="link_button field_type field_type_empty" href="community/personal/0/new/<?= $this_playerinfo['user_name_clean'] ?>/">Message</a> */ ?>
+        <span class="link_button field_type field_type_empty" style="text-decoration: line-through;">Message</span>
       <? endif; ?>
     </div>
 

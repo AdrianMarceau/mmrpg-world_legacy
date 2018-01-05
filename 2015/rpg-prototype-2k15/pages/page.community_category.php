@@ -67,6 +67,7 @@ else {
           <a class="link" style="display: inline;" href="community/<?= $this_category_info['category_token'] ?>/new/" style="margin-top: 0;"><?= $this_threads_count_new == 1 ? 'View 1 Updated Thread' : 'View '.$this_threads_count_new.' Updated Threads' ?> &raquo;</a>
           <?
         }
+        /*
         // Add a new thread option to the end of the list if allowed
         if($this_userid != MMRPG_SETTINGS_GUEST_ID && $this_userinfo['role_level'] >= $this_category_info['category_level'] && $community_battle_points >= 10000){
           ?>
@@ -74,6 +75,7 @@ else {
           <a class="link" style="display: inline;" href="community/<?= $this_category_info['category_token'] ?>/0/new/" style="margin-top: 0;">Create New Discussion &raquo;</a>
           <?
         }
+        */
         ?>
     </span>
   <? endif; ?>

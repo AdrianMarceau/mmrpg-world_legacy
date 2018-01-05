@@ -369,7 +369,11 @@ $this_page_minpost_key = $this_page_maxpost_key - ($this_posts_perpage - 1);
 
   ?>
 
-  <? if($show_comment_section): ?>
+  <?
+    // Disable commenting on legacy builds!
+    if (true): ?>
+    <h2 id="comment-form" class="subheader thread_posts_count" style="opacity: 0.5; filter: alpha(opacity = 50);">- comments disabled -</h2>
+  <? elseif($show_comment_section): ?>
     <div id="comment-form" class="subheader thread_posts_count field_type_<?= !empty($this_thread_info['thread_colour']) ? $this_thread_info['thread_colour'] : MMRPG_SETTINGS_CURRENT_FIELDTYPE ?>">
       <h2 class="inner_subheader"><?= !empty($_REQUEST['post_id']) ? 'Edit' : 'Post' ?> Comment</h2>
       <?= !empty($_REQUEST['post_id']) ? '<a class="link" style="float: right; color: rgb(146, 146, 146); " href="'.$_GET['this_current_url'].'#comment-listing">Cancel</a>' : $this_comment_page_links ?>
