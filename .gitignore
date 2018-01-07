@@ -22,7 +22,7 @@ cache.*.*
 
 # ...but not the gitkeep files inside them
 !2011/rpg-prototype-2k11/.gitkeep
-#!2012/rpg-prototype-2k12/.gitkeep
+!2012/rpg-prototype-2k12/.gitkeep
 !2012/rpg-prototype-2k12-2/.gitkeep
 !2015/rpg-prototype-2k15/.gitkeep
 !2016/rpg-world-2k16/.gitkeep
