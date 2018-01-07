@@ -14,8 +14,8 @@ cache.*.*
 
 # Ignore the contents of build directories
 2011/rpg-prototype-2k11/*
-#2012/rpg-prototype-2k12/*
-#2012/rpg-prototype-2k12-2/*
+2012/rpg-prototype-2k12/*
+2012/rpg-prototype-2k12-2/*
 2015/rpg-prototype-2k15/*
 2016/rpg-world-2k16/*
 2017/rpg-prototype-2k17/*
