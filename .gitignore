@@ -1,7 +1,16 @@
+
+# Ignore private config files
 config.php
 root.config.php
 config.root.php
 root-config.php
 config-root.php
+
+# Ignore backup index
 _index.html
+
+# Ignore any cache files
 cache.*.*
+
+# Ignore the contents of build directories
+2011/rpg-prototype-2k11/*
