@@ -11,7 +11,7 @@ Lv3 Crunch (Power)
 IceMan (Freeze)
 Lv1 Ice Slasher (Freeze)
 Lv2 Blizzard Breath (Freeze)
-Lv3 Eskimo's Furry (Freeze)
+Lv3 Eskimo Flurry (Freeze)
 
 BombMan (Bomb)
 Lv1 Hyper Bomb (Bomb)
