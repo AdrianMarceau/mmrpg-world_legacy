@@ -286,7 +286,7 @@ class DatabaseConnect {
         if (!$this->result || mysqli_num_rows($this->result) < 1) { return false; }
 
         // Otherwise, pull an array from the result
-        $result_array = mysqli_fetch_array($this->result, MYSQL_ASSOC);
+        $result_array = mysqli_fetch_array($this->result, MYSQLI_ASSOC);
 
         // Free the results of the query
         $this->clearResult();
@@ -344,7 +344,7 @@ class DatabaseConnect {
         $array_list = array();
 
         // Now loop through the result rows, pulling associative arrays
-        while ($result_array = mysqli_fetch_array($this->result, MYSQL_ASSOC)){
+        while ($result_array = mysqli_fetch_array($this->result, MYSQLI_ASSOC)){
             // If there was an index defined, assign the array to a specific key in the list
             if ($index) { $array_list[$result_array[$index]] = $result_array; }
             // Otherwise, append the array to the end of the list
@@ -418,7 +418,7 @@ class DatabaseConnect {
         if (!$this->result || mysqli_num_rows($this->result) < 1) { return false; }
 
         // Otherwise, pull an array from the result
-        $result_array = mysqli_fetch_array($this->result, MYSQL_ASSOC);
+        $result_array = mysqli_fetch_array($this->result, MYSQLI_ASSOC);
 
         // Free the results of the query
         $this->clearResult();
