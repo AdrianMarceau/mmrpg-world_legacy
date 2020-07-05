@@ -28,6 +28,9 @@ define('LEGACY_MMRPG_ADMIN_LIST', implode(',', $temp_list));
 define('LEGACY_MMRPG_PASSWORD_SALT', 'saltySALTsalt'); // Change this to something unique
 define('LEGACY_MMRPG_OMEGA_SEED', 'c0LL3c710nOFalphaNUMERICchars'); // Change this to something unique
 
+// Define the global encoding and decoding variables
+define('LEGACY_MMRPG_ROBOT_ENCODING_SALT', 'Some things are better left unsaid'); // Change this to something unique
+
 // Define the COPPA email exceptions based on written perission to allow registration
 $temp_list = array('approved-user@email-domain.com');
 define('LEAGCY_MMRPG_COPPA_PERMISSIONS', implode(',', $temp_list));

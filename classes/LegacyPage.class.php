@@ -108,7 +108,7 @@ class LegacyPage {
     // -- PAGE CONTENT GENERATORS -- //
 
     // Define a function for adding new gallery markup specifically
-    public function addContentGallery($image_folders, $image_base_dir = '', $image_base_url = ''){
+    public function addContentGallery($image_folders, $image_base_dir = '', $image_base_url = '', $gallery_class = ''){
 
         // Include the gallery markup generator and collect output
         ob_start();

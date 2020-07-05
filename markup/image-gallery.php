@@ -49,7 +49,7 @@ function get_directory_images($base_dir){
                 if (!empty($folder_image_files)){
 
                     // Print out opening content wrappers
-                    echo('<div class="content"><ul class="list gallery">'.PHP_EOL);
+                    echo('<div class="content"><ul class="list gallery'.(!empty($gallery_class) ? ' '.$gallery_class : '').'">'.PHP_EOL);
 
                         // Loop through the folder images to display them
                         foreach ($folder_image_files AS $image_key => $image_name){
@@ -64,7 +64,10 @@ function get_directory_images($base_dir){
                                 echo('<strong class="name">'.$image_name.'</strong>'.PHP_EOL);
 
                                 // Print out the name for this item
+                                $wrap_with_link = !empty($folder_info['link']) ? true : false;
+                                if ($wrap_with_link){ echo('<a class="image-link" href="'.$image_src.'" target="_blank">'.PHP_EOL); }
                                 echo('<img class="image" src="'.$image_src.'" alt="'.$image_name.'" />'.PHP_EOL);
+                                if ($wrap_with_link){ echo('</a>'.PHP_EOL); }
 
                             // Print out closing list item
                             echo('</li>'.PHP_EOL);

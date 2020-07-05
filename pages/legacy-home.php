@@ -35,6 +35,7 @@ $legacy_content_raw = $db->getArrayList("SELECT
     content.content_description,
     content.content_year,
     content.content_month,
+    content.content_month2,
     content.content_has_text,
     content.content_has_images,
     content.content_has_artwork,
@@ -47,6 +48,7 @@ $legacy_content_raw = $db->getArrayList("SELECT
     content.category_id ASC,
     content.content_year DESC,
     content.content_month DESC,
+    content.content_month2 DESC,
     content.content_group ASC,
     content.content_path DESC
     ;", 'content_id');
@@ -117,22 +119,29 @@ ob_start();
                             $display_url = str_replace(array('/index.php', '.php'), '', $full_url);
                             $link_url = str_replace('/index.php', '/', $full_url);
 
+                            // Check if file exists and update flags/classes
+                            if (preg_match('/\.[a-z0-9]{2,4}$/i', $full_url)
+                                && !file_exists(LEGACY_MMRPG_ROOT_DIR.$full_url)){
+                                $flag_todo = true;
+                            }
+
+                            // If the item is TODO, update the content class
+                            if ($flag_todo == true){ $content_classes .= ' todo'; }
+
+                            // If we're LIVE, do NOT show any TODO items
+                            if ($flag_todo == true && LEGACY_MMRPG_IS_LIVE === true){ continue; }
+
                             // Collect the display ame
                             $display_name = $content_info['content_name'];
 
                             // Generate the date text for this piece of content
                             $year = !empty($content_info['content_year']) ? $content_info['content_year'] : false;
                             $month = !empty($content_info['content_month']) ? $content_info['content_month'] : false;
-                            if (!empty($month)){ $date_text = date('F', mktime(0, 0, 0, $month, 1, $year)).' '.$year; }
-                            //if (!empty($month)){ $date_text = date('F', mktime(0, 0, 0, $month, 1, $year)); }
-                            else { $date_text = $year; }
-
-                            // Check if file exists and update flags/classes
-                            if ($flag_todo == true){ $content_classes .= ' todo'; }
-                            if (preg_match('/\.[a-z0-9]{2,4}$/i', $full_url)
-                                && !file_exists(LEGACY_MMRPG_ROOT_DIR.$full_url)){
-                                $flag_todo = true;
-                            }
+                            $month2 = !empty($content_info['content_month2']) ? $content_info['content_month2'] : false;
+                            $date_text = '';
+                            if (!empty($month)){ $date_text .= date('F', mktime(0, 0, 0, $month, 1, $year)).' '; }
+                            if (!empty($month2)){ $date_text .= '- '.date('F', mktime(0, 0, 0, $month2, 1, $year)).' '; }
+                            $date_text .= $year;
 
 
                             // Define what types of content this item has

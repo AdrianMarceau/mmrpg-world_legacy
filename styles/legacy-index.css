@@ -368,6 +368,22 @@ body h6 {
 }
 
 
+.website > .main > .body ul.list.screenshots li.item {
+    max-width: 30%;
+    max-width: calc(33% - 10px);
+    overflow: hidden;
+}
+.website > .main > .body ul.list.screenshots li.item:nth-child(3n+1) {
+    clear: left;
+}
+.website > .main > .body ul.list.screenshots li.item a {
+
+}
+.website > .main > .body ul.list.screenshots li.item a img {
+    max-width: 100%;
+}
+
+
 .website > .main > .body .block .name {
     display: block;
     margin: 0 auto 5px;
