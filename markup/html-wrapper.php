@@ -47,7 +47,7 @@
                     <div class="copy">
                         <div class="desc">
                             This website is an archive of legacy content, ideas, images, and prototype versions of the Mega Man RPG.<br />
-                            Play the current version of the game at our <a href="http://rpg.megamanpoweredup.net/">main website</a> or
+                            Play the current version of the game at our <a href="https://prototype.mmrpg-world.net/">main website</a> or
                             <? if (defined('IS_LEGACY_INDEX')){ ?>
                                 use the archive index above for a list of legacy content.
                             <? } else { ?>
